@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRAFF. | ARCHITECTURAL OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Jersey+10&amp;family=Inter:wght@400;700&amp;family=Zen+Kaku+Gothic+New:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#454747",
+                        "surface-bright": "#3a3939",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#000000",
+                        "primary-fixed": "#026e00",
+                        "outline-variant": "#474747",
+                        "surface-container-highest": "#353534",
+                        "outline": "#919191",
+                        "primary": "#ffffff",
+                        "on-secondary-container": "#e2e2e2",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#ffffff",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#c6c6c7",
+                        "primary-container": "#01f600",
+                        "on-primary-container": "#000000",
+                        "surface-container": "#201f1f",
+                        "tertiary-container": "#03a800",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c6c6c6",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#015300",
+                        "primary-fixed-dim": "#015300",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "on-secondary": "#1a1c1c",
+                        "secondary": "#c6c6c7",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#77ff61",
+                        "on-primary-fixed-variant": "#77ff61",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-variant": "#353534",
+                        "error": "#ffb4ab",
+                        "tertiary": "#77ff61",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed": "#026e00",
+                        "inverse-primary": "#026e00",
+                        "secondary-fixed-dim": "#aaabab",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-primary": "#002200",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#131313",
+                        "surface-tint": "#02e600",
+                        "on-tertiary": "#002200",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Jersey 10", "Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "Zen Kaku Gothic New", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "pixel": ["Jersey 10", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            background-image: radial-gradient(#474747 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .steps-4 {
+            transition-timing-function: steps(4);
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Jersey 10', sans-serif;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Navigation -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] border-b-2 border-[#474747]/20 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#01F600]">terminal</span>
+<span class="font-pixel text-3xl text-[#01F600] tracking-widest">GRAFF.</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-3 py-1 font-pixel font-bold text-lg hover:bg-primary transition-all steps-4">
+            MENU
+        </button>
+</div>
+</header>
+<main class="pt-16 pb-24">
+<!-- Hero Section -->
+<section class="min-h-[618px] flex flex-col justify-center px-6 py-12 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-container/20 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="inline-block bg-primary-container text-on-primary-container px-2 py-0.5 text-[10px] font-pixel tracking-[0.2em] mb-4">
+                STATUS: OPERATIONAL
+            </div>
+<h1 class="font-pixel text-[80px] leading-none text-primary-container tracking-tighter mb-6">
+                GRAFF.
+            </h1>
+<p class="font-body text-xl font-bold text-on-surface leading-relaxed max-w-[280px]">
+                アナログな現場に、<br/>
+                デジタルな鼓動を。
+            </p>
+<div class="mt-12 flex flex-col gap-4">
+<div class="h-[1px] w-full bg-outline-variant/30 relative">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-primary-container"></div>
+</div>
+<div class="flex justify-between font-pixel text-sm tracking-[0.3em] text-on-surface-variant">
+<span>EST. 2024</span>
+<span>TOKYO // JP</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Concept Section -->
+<section class="bg-surface-container-lowest px-6 py-16 border-y border-outline-variant/20">
+<div class="mb-10">
+<span class="text-primary-container font-pixel text-sm tracking-widest block mb-2 uppercase">01 / CONCEPT</span>
+<h2 class="font-pixel text-5xl text-primary leading-none">DIGITAL<br/>ARCHITECTURE</h2>
+</div>
+<div class="space-y-6 text-on-surface-variant leading-loose text-sm">
+<p>
+                私たちは、物理的な空間とデジタルの境界を再定義するクリエイティブ・エンジニアリング・スタジオです。
+            </p>
+<p>
+                単なるWeb制作に留まらず、業務システムからUI/UXデザインまで、一貫した思想で「デジタルな骨組み」を構築します。
+            </p>
+</div>
+</section>
+<!-- Services Section -->
+<section class="px-6 py-16">
+<div class="mb-10 flex justify-between items-end">
+<div>
+<span class="text-primary-container font-pixel text-sm tracking-widest block mb-2 uppercase">02 / SERVICES</span>
+<h2 class="font-pixel text-5xl text-primary leading-none">CAPABILITIES</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-4xl">layers</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-high p-6 border-l-4 border-primary-container">
+<span class="font-pixel text-sm text-primary-container block mb-4">S-01</span>
+<h3 class="font-pixel text-2xl text-primary mb-2">WebDX</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                    レガシーな業務フローを最新のWeb技術で最適化。速度と堅牢性を兼ね備えたシステムを提供。
+                </p>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-low p-6 border-l-4 border-outline-variant">
+<span class="font-pixel text-sm text-outline-variant block mb-4">S-02</span>
+<h3 class="font-pixel text-2xl text-primary mb-2">BMS</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                    ビルマネジメントシステムのモダン化。データの可視化とリアルタイム制御を実現します。
+                </p>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-high p-6 border-l-4 border-primary-container">
+<span class="font-pixel text-sm text-primary-container block mb-4">S-03</span>
+<h3 class="font-pixel text-2xl text-primary mb-2">UI/UX</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                    「使う」を「体験」に変える。機能美と操作性を極限まで追求したインターフェース設計。
+                </p>
+</div>
+</div>
+</section>
+<!-- Portfolio -->
+<section class="bg-surface-container-low px-6 py-16">
+<div class="mb-10">
+<span class="text-primary-container font-pixel text-sm tracking-widest block mb-2 uppercase">03 / PORTFOLIO</span>
+<h2 class="font-pixel text-5xl text-primary leading-none">ARCHIVES</h2>
+</div>
+<div class="space-y-6">
+<!-- Portfolio Item 1 -->
+<div class="group">
+<div class="aspect-[16/9] bg-surface-container-highest overflow-hidden mb-4 border border-outline-variant/30">
+<img alt="Cyberpunk high-tech interface" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Monochromatic high-contrast UI design with neon green accents and futuristic layout on a computer screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBGYwipZbPR5wq_fQAxrUxoQ-oZjwa4DWS946rUr8gqQ0_3J73VAALd96ohJHiDDCdhAv6a08bVVRAcn9JtLq6-A2xXj7kFAxXCnDXRA3ZAbHa35weYlMrI6FRNgsGEoZ-crPqKQS4CuImEZjjHt3Zj_rvpdWBIrsJFI7wsVoU_h0VFnDC8b_LtEkaYXRy_YQO16KI5lSDe36AlSQL7xp65SnKtAXk4znN7NGMMC6kFd3Q8l_Lrzzpt3AqrQxHoNLnMR9aFtZ04XU"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-pixel text-2xl text-primary">Nest</h4>
+<p class="font-pixel text-xs text-on-surface-variant tracking-wider uppercase">Project Management OS</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_outward</span>
+</div>
+</div>
+<!-- Portfolio Item 2 -->
+<div class="group">
+<div class="aspect-[16/9] bg-surface-container-highest overflow-hidden mb-4 border border-outline-variant/30">
+<img alt="Server hardware blue light" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Abstract macro shot of server hardware components with deep shadows and sharp metallic edges in monochromatic black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW94Iyexl-omTfs6pTjYhaGiB06Gx5vg3A22XXlRTqXHA00cIyHXj_UDijOa2jhwDpxZQSX66TdwDySq0LO_Q3TEcQN5_uNvTnRub3JqlvOIPclU1yZMo-KNofjHNtPqHAWcnKEpGvb7G0T8oeAwN-4acGTZBKW2J3fmk6b1UnaOitZLB9x0ZxoH1SxETBVYwz3hG3rprf7qZJ3PXvDI9BGVkB7S8YkDrc-IMD_h0OJcRjiK7Z6LJ2mPGn12yq69CFan5d4KhNMU8"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-pixel text-2xl text-primary">Keep Bottle</h4>
+<p class="font-pixel text-xs text-on-surface-variant tracking-wider uppercase">Inventory Management</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_outward</span>
+</div>
+</div>
+<!-- Portfolio Item 3 -->
+<div class="group">
+<div class="aspect-[16/9] bg-surface-container-highest overflow-hidden mb-4 border border-outline-variant/30">
+<img alt="Microchip neon glow" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="Digital circuit board pattern with glowing neon lines mimicking data flow in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ckn88zDNbt2Zajx89YX66i9vPF_3LB_MCpQrIFVDRWCiq7qX_zSQqZCxrBtneu6rz0jk3FnrCGU-YogZOeTw_XcvHh267nyrdvBMHIXtKPoA_hs-ntsQUQqElBAMX0futZRXQW9MFUuMiXPlyywcEBE7fQh41IslR9gWachXziMA1SJZCO3kZuZciaFFXuGg3V8yW6Nb_jv44llaGewXgywI1gmIRn4pIbE3SilGx1Y1z0FMv89bDVfM5R0B2fxtQe_a0SyDmtI"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-pixel text-2xl text-primary">Staff Point</h4>
+<p class="font-pixel text-xs text-on-surface-variant tracking-wider uppercase">HR Solution WebApp</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_outward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Engineering Stack -->
+<section class="px-6 py-16 border-t border-outline-variant/20">
+<div class="mb-10">
+<span class="text-primary-container font-pixel text-sm tracking-widest block mb-2 uppercase">04 / STACK</span>
+<h2 class="font-pixel text-5xl text-primary leading-none">CORE ENGINE</h2>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">NEXT.JS</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">SUPABASE</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">TAILWIND CSS</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">TYPESCRIPT</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">PRISMA</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">NODE.JS</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant font-pixel text-sm text-on-surface">DOCKER</span>
+</div>
+</section>
+<!-- System Logs -->
+<section class="px-6 py-16 bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-8">
+<span class="w-2 h-2 bg-primary-container animate-pulse"></span>
+<h2 class="font-pixel font-bold text-sm tracking-widest uppercase">SYSTEM LOGS</h2>
+</div>
+<div class="space-y-4 font-mono text-[10px]">
+<div class="flex gap-4">
+<span class="text-outline">24.05.12</span>
+<span class="text-primary-container">[UPDATE]</span>
+<span class="text-on-surface-variant">v1.0.4 CORE KERNEL STABILIZED</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline">24.05.08</span>
+<span class="text-primary-container">[LOG]</span>
+<span class="text-on-surface-variant">NEW PROJECT: NEST DEPLOYED</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline">24.04.30</span>
+<span class="text-error">[WARN]</span>
+<span class="text-on-surface-variant">UI REFRACTORING COMPLETED</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="flex flex-col gap-8 p-10 w-full items-start bg-[#0E0E0E] mb-20 border-t border-[#474747]/10">
+<div class="font-pixel text-[#E5E2E1] text-4xl">GRAFF.</div>
+<div class="flex flex-col gap-4">
+<a class="font-pixel text-sm tracking-widest uppercase text-[#01F600] underline underline-offset-4" href="#">SYSTEM</a>
+<a class="font-pixel text-sm tracking-widest uppercase text-[#474747] hover:text-[#E5E2E1]" href="#">ARCHIVE</a>
+<a class="font-pixel text-sm tracking-widest uppercase text-[#474747] hover:text-[#E5E2E1]" href="#">DECRYPT</a>
+</div>
+<div class="font-pixel text-[10px] tracking-widest uppercase text-[#474747] mt-8">
+            © 2024 GRAFF. ARCHITECTURAL OS [V1.0]
+        </div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 bg-[#131313]/90 backdrop-blur-md z-50 border-t-2 border-[#474747]/20 shadow-[0_-4px_20px_rgba(1,246,0,0.05)]">
+<a class="flex flex-col items-center justify-center bg-[#01F600] text-[#131313] p-3 active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#E5E2E1] p-3 hover:text-[#01F600] transition-colors duration-0 active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">layers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#E5E2E1] p-3 hover:text-[#01F600] transition-colors duration-0 active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">sensors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#E5E2E1] p-3 hover:text-[#01F600] transition-colors duration-0 active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+</a>
+</nav>
+</body></html>
