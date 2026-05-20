@@ -215,7 +215,7 @@ function ScreenText({
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
       <Text
-        font="/Inter-Medium.woff"
+        font="/Silkscreen-Regular.ttf"
         position={[x, y, 0]}
         ref={textRef}
         fontSize={3}

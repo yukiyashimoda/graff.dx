@@ -46,7 +46,7 @@ export default function HeroScene() {
       </group>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <EffectComposer disableNormalPass {...({} as any)}>
-        <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={6} />
+        <Bloom luminanceThreshold={0.4} mipmapBlur luminanceSmoothing={0.1} intensity={2} />
       </EffectComposer>
       <CameraRig />
       <BakeShadows />
