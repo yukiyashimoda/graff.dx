@@ -232,7 +232,7 @@ function ScreenInteractive(props: { frame: string; panel: string; [key: string]:
   return (
     <Screen {...props}>
       <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 10]} />
-      <color attach="background" args={['orange']} />
+      <color attach="background" args={['#ffa500']} />
       <ambientLight intensity={0.2} />
       <pointLight position={[10, 10, 10]} intensity={0.75} />
       <pointLight position={[-10, -10, -10]} />

@@ -1,12 +1,13 @@
 'use client'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, MeshReflectorMaterial, BakeShadows } from '@react-three/drei'
-import { EffectComposer, Bloom, DepthOfField } from '@react-three/postprocessing'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { easing } from 'maath'
 import { suspend } from 'suspend-react'
 import { Instances, Computers } from './Computers'
 import * as THREE from 'three'
-import { useRef } from 'react'
+
+useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/')
 
 const suzi = import('@pmndrs/assets/models/bunny.glb')
 
@@ -28,12 +29,12 @@ export default function HeroScene() {
         <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[50, 50]} />
           <MeshReflectorMaterial
-            blur={[100, 30]}
-            resolution={2048}
-            mixBlur={1}
-            mixStrength={80}
+            blur={[0, 0]}
+            resolution={512}
+            mixBlur={0}
+            mixStrength={40}
             roughness={1}
-            depthScale={1.2}
+            depthScale={0}
             minDepthThreshold={0.4}
             maxDepthThreshold={1.4}
             color="#202020"
@@ -41,12 +42,11 @@ export default function HeroScene() {
           />
         </mesh>
         <Bun scale={0.4} position={[0, 0.3, 0.5]} rotation={[0, -Math.PI * 0.85, 0]} />
-        <pointLight distance={1.5} intensity={1} position={[-0.15, 0.7, 0]} color="orange" />
+        <pointLight distance={1.5} intensity={1} position={[-0.15, 0.7, 0]} color={0xffa500} />
       </group>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <EffectComposer disableNormalPass {...({} as any)}>
         <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={6} />
-        <DepthOfField target={[0, 0, 13]} focalLength={0.3} bokehScale={15} height={700} />
       </EffectComposer>
       <CameraRig />
       <BakeShadows />
