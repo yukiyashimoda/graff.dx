@@ -1,6 +1,8 @@
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col justify-end px-margin-mobile md:px-margin-desktop pb-24 overflow-hidden">
+      {/* 周辺ぼかしオーバーレイ: 中心シャープ・周辺円状ぼけ */}
+      <div className="hero-radial-blur" />
       <div className="relative z-10 max-w-4xl">
         <div className="mb-6">
           <p className="font-label-sm text-label-sm tracking-[0.4em] uppercase text-on-surface-variant mb-2">

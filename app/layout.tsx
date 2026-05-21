@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Syne, JetBrains_Mono, Hanken_Grotesk, Playfair_Display } from 'next/font/google'
+import { Montserrat, JetBrains_Mono, Hanken_Grotesk, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
-const syne = Syne({ weight: ['400', '700', '800'], variable: '--ff-syne', subsets: ['latin'], display: 'swap' })
+const montserrat = Montserrat({ weight: ['700'], variable: '--ff-montserrat', subsets: ['latin'], display: 'swap' })
 const jetbrains = JetBrains_Mono({ weight: ['400', '500'], variable: '--ff-jetbrains', subsets: ['latin'], display: 'swap' })
 const hanken = Hanken_Grotesk({ weight: ['400', '500'], variable: '--ff-hanken', subsets: ['latin'], display: 'swap' })
 const playfair = Playfair_Display({ weight: ['400'], variable: '--ff-playfair', subsets: ['latin'], display: 'swap' })
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="ja"
-      className={`dark ${syne.variable} ${jetbrains.variable} ${hanken.variable} ${playfair.variable}`}
+      className={`dark ${montserrat.variable} ${jetbrains.variable} ${hanken.variable} ${playfair.variable}`}
     >
       <head>
         <link

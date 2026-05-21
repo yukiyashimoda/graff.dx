@@ -72,9 +72,9 @@
   --spacing-unit:            0.5rem;
 
   /* Font families */
-  --font-display-lg:         var(--ff-syne), sans-serif;
-  --font-headline-lg:        var(--ff-syne), sans-serif;
-  --font-headline-lg-mobile: var(--ff-syne), sans-serif;
+  --font-display-lg:         var(--ff-montserrat), sans-serif;
+  --font-headline-lg:        var(--ff-montserrat), sans-serif;
+  --font-headline-lg-mobile: var(--ff-montserrat), sans-serif;
   --font-label-sm:           var(--ff-jetbrains), monospace;
   --font-body-lg:            var(--ff-hanken), sans-serif;
   --font-title-md:           var(--ff-playfair), serif;
@@ -130,6 +130,18 @@ body {
   color: #e2e3e0;
   cursor: crosshair;
   overflow-x: hidden;
+}
+
+/* 中心シャープ・周辺円状ぼかし */
+.hero-radial-blur {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  mask-image: radial-gradient(ellipse 55% 55% at 55% 50%, transparent 35%, black 70%);
+  -webkit-mask-image: radial-gradient(ellipse 55% 55% at 55% 50%, transparent 35%, black 70%);
 }
 
 .glass-panel {

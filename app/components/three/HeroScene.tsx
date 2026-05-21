@@ -1,7 +1,7 @@
 'use client'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, MeshReflectorMaterial, BakeShadows } from '@react-three/drei'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { EffectComposer, Bloom, DepthOfField } from '@react-three/postprocessing'
 import { easing } from 'maath'
 import { suspend } from 'suspend-react'
 import { Instances, Computers } from './Computers'
@@ -45,8 +45,9 @@ export default function HeroScene() {
         <pointLight distance={1.5} intensity={1} position={[-0.15, 0.7, 0]} color={0xffa500} />
       </group>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <EffectComposer disableNormalPass {...({} as any)}>
-        <Bloom luminanceThreshold={0.4} mipmapBlur luminanceSmoothing={0.1} intensity={2} />
+        <Bloom luminanceThreshold={0.1} mipmapBlur luminanceSmoothing={0.1} intensity={3} />
       </EffectComposer>
       <CameraRig />
       <BakeShadows />
