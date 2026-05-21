@@ -132,16 +132,13 @@ body {
   overflow-x: hidden;
 }
 
-/* 中心シャープ・周辺円状ぼかし */
+/* 周辺減光ビネット */
 .hero-radial-blur {
   position: absolute;
   inset: 0;
   z-index: 5;
   pointer-events: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  mask-image: radial-gradient(ellipse 55% 55% at 55% 50%, transparent 35%, black 70%);
-  -webkit-mask-image: radial-gradient(ellipse 55% 55% at 55% 50%, transparent 35%, black 70%);
+  background: radial-gradient(ellipse 70% 65% at 55% 50%, transparent 40%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.85) 100%);
 }
 
 .glass-panel {

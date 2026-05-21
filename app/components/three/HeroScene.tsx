@@ -20,7 +20,7 @@ export default function HeroScene() {
       style={{ width: '100%', height: '100%' }}
     >
       <color attach="background" args={['black']} />
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={0.2} color="#6677aa" groundColor="black" />
       <spotLight position={[10, 20, 10]} angle={0.12} penumbra={1} intensity={1} castShadow shadow-mapSize={1024} />
       <group position={[0, -1, 0]}>
         <Instances>
@@ -47,7 +47,7 @@ export default function HeroScene() {
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <EffectComposer disableNormalPass {...({} as any)}>
-        <Bloom luminanceThreshold={0.1} mipmapBlur luminanceSmoothing={0.1} intensity={3} />
+        <Bloom luminanceThreshold={0.25} mipmapBlur luminanceSmoothing={0.1} intensity={2.5} />
       </EffectComposer>
       <CameraRig />
       <BakeShadows />
