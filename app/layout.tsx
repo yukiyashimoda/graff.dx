@@ -1,49 +1,22 @@
-import type { Metadata } from "next";
-import { Jersey_10, Space_Grotesk, Inter, Zen_Kaku_Gothic_New } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Syne, JetBrains_Mono, Hanken_Grotesk, Playfair_Display } from 'next/font/google'
+import './globals.css'
 
-const jersey10 = Jersey_10({
-  weight: "400",
-  variable: "--ff-jersey",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--ff-space-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  weight: ["400", "700"],
-  variable: "--ff-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const zenKaku = Zen_Kaku_Gothic_New({
-  weight: ["400", "700"],
-  variable: "--ff-zen-kaku",
-  subsets: ["latin"],
-  display: "swap",
-});
+const syne = Syne({ weight: ['400', '700', '800'], variable: '--ff-syne', subsets: ['latin'], display: 'swap' })
+const jetbrains = JetBrains_Mono({ weight: ['400', '500'], variable: '--ff-jetbrains', subsets: ['latin'], display: 'swap' })
+const hanken = Hanken_Grotesk({ weight: ['400', '500'], variable: '--ff-hanken', subsets: ['latin'], display: 'swap' })
+const playfair = Playfair_Display({ weight: ['400'], variable: '--ff-playfair', subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
-  title: "GRAFF. | ARCHITECTURAL OS",
-  description: "アナログな現場に、デジタルな鼓動を。",
-};
+  title: 'GRAFF. | Design Studio',
+  description: 'graphic design / web design / planner',
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="ja"
-      className={`dark ${jersey10.variable} ${spaceGrotesk.variable} ${inter.variable} ${zenKaku.variable}`}
+      className={`dark ${syne.variable} ${jetbrains.variable} ${hanken.variable} ${playfair.variable}`}
     >
       <head>
         <link
@@ -53,5 +26,5 @@ export default function RootLayout({
       </head>
       <body>{children}</body>
     </html>
-  );
+  )
 }

@@ -3,94 +3,165 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* ── Colors ─────────────────────────────────────────────── */
-  --color-background:                  #131313;
-  --color-surface:                     #131313;
-  --color-surface-dim:                 #131313;
-  --color-surface-bright:              #3a3939;
-  --color-surface-variant:             #353534;
-  --color-surface-container-lowest:    #0e0e0e;
-  --color-surface-container-low:       #1c1b1b;
-  --color-surface-container:           #201f1f;
-  --color-surface-container-high:      #2a2a2a;
-  --color-surface-container-highest:   #353534;
-  --color-on-surface:                  #e5e2e1;
-  --color-on-surface-variant:          #c6c6c6;
-  --color-on-background:               #e5e2e1;
-  --color-inverse-surface:             #e5e2e1;
-  --color-inverse-on-surface:          #313030;
+  /* Colors */
+  --color-background:                  #111413;
+  --color-surface:                     #111413;
+  --color-surface-dim:                 #111413;
+  --color-surface-bright:              #373a38;
+  --color-surface-variant:             #333534;
+  --color-surface-container-lowest:    #0c0f0d;
+  --color-surface-container-low:       #191c1b;
+  --color-surface-container:           #1d201f;
+  --color-surface-container-high:      #282b29;
+  --color-surface-container-highest:   #333534;
+  --color-on-surface:                  #e2e3e0;
+  --color-on-surface-variant:          #b9cac3;
+  --color-on-background:               #e2e3e0;
+  --color-inverse-surface:             #e2e3e0;
+  --color-inverse-on-surface:          #2e312f;
 
   --color-primary:                     #ffffff;
-  --color-on-primary:                  #002200;
-  --color-primary-container:           #01f600;
-  --color-on-primary-container:        #000000;
-  --color-primary-fixed:               #026e00;
-  --color-primary-fixed-dim:           #015300;
-  --color-on-primary-fixed:            #ffffff;
-  --color-on-primary-fixed-variant:    #77ff61;
-  --color-inverse-primary:             #026e00;
-  --color-surface-tint:                #02e600;
+  --color-on-primary:                  #00382c;
+  --color-primary-container:           #3efed3;
+  --color-on-primary-container:        #00725c;
+  --color-primary-fixed:               #3efed3;
+  --color-primary-fixed-dim:           #00e0b8;
+  --color-on-primary-fixed:            #002019;
+  --color-on-primary-fixed-variant:    #005141;
+  --color-inverse-primary:             #006b57;
+  --color-surface-tint:                #00e0b8;
 
-  --color-secondary:                   #c6c6c7;
-  --color-on-secondary:                #1a1c1c;
-  --color-secondary-container:         #454747;
-  --color-on-secondary-container:      #e2e2e2;
-  --color-secondary-fixed:             #c6c6c7;
-  --color-secondary-fixed-dim:         #aaabab;
-  --color-on-secondary-fixed:          #1a1c1c;
-  --color-on-secondary-fixed-variant:  #3a3c3c;
+  --color-secondary:                   #ffdb9d;
+  --color-on-secondary:                #412d00;
+  --color-secondary-container:         #feb700;
+  --color-on-secondary-container:      #6b4b00;
+  --color-secondary-fixed:             #ffdea8;
+  --color-secondary-fixed-dim:         #ffba20;
+  --color-on-secondary-fixed:          #271900;
+  --color-on-secondary-fixed-variant:  #5e4200;
 
-  --color-tertiary:                    #77ff61;
-  --color-on-tertiary:                 #002200;
-  --color-tertiary-container:          #03a800;
-  --color-on-tertiary-container:       #000000;
-  --color-tertiary-fixed:              #026e00;
-  --color-tertiary-fixed-dim:          #015300;
-  --color-on-tertiary-fixed:           #ffffff;
-  --color-on-tertiary-fixed-variant:   #77ff61;
+  --color-tertiary:                    #ffffff;
+  --color-on-tertiary:                 #2a322e;
+  --color-tertiary-container:          #dce5de;
+  --color-on-tertiary-container:       #5e6661;
+  --color-tertiary-fixed:              #dce5de;
+  --color-tertiary-fixed-dim:          #c0c9c2;
+  --color-on-tertiary-fixed:           #151d19;
+  --color-on-tertiary-fixed-variant:   #404944;
 
   --color-error:                       #ffb4ab;
   --color-on-error:                    #690005;
   --color-error-container:             #93000a;
   --color-on-error-container:          #ffdad6;
 
-  --color-outline:                     #919191;
-  --color-outline-variant:             #474747;
+  --color-outline:                     #84948e;
+  --color-outline-variant:             #3b4a44;
 
-  /* ── Border radius ───────────────────────────────────────── */
-  --radius:      0px;
-  --radius-sm:   0px;
-  --radius-md:   0px;
-  --radius-lg:   0px;
-  --radius-xl:   0px;
-  --radius-2xl:  0px;
+  /* Border radius */
+  --radius:      0.25rem;
+  --radius-sm:   0.25rem;
+  --radius-md:   0.375rem;
+  --radius-lg:   0.5rem;
+  --radius-xl:   0.75rem;
   --radius-full: 9999px;
 
-  /* ── Font families ───────────────────────────────────────── */
-  --font-headline: var(--ff-jersey), "Space Grotesk", sans-serif;
-  --font-body:     "Inter", "Zen Kaku Gothic New", sans-serif;
-  --font-label:    "Inter", sans-serif;
-  --font-pixel:    var(--ff-jersey), sans-serif;
+  /* Spacing */
+  --spacing-gutter:          2rem;
+  --spacing-margin-mobile:   1.5rem;
+  --spacing-margin-desktop:  5rem;
+  --spacing-unit:            0.5rem;
+
+  /* Font families */
+  --font-display-lg:         var(--ff-syne), sans-serif;
+  --font-headline-lg:        var(--ff-syne), sans-serif;
+  --font-headline-lg-mobile: var(--ff-syne), sans-serif;
+  --font-label-sm:           var(--ff-jetbrains), monospace;
+  --font-body-lg:            var(--ff-hanken), sans-serif;
+  --font-title-md:           var(--ff-playfair), serif;
+}
+
+@layer utilities {
+  .text-display-lg {
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+  }
+  .text-display-lg-mobile {
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+  .text-label-sm {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .text-headline-lg {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .text-headline-lg-mobile {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+  }
+  .text-title-md {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+  .max-w-container-max {
+    max-width: 1440px;
+  }
 }
 
 body {
-  background-color: #131313;
-  background-image: radial-gradient(#474747 0.5px, transparent 0.5px);
-  background-size: 20px 20px;
-  min-height: max(884px, 100dvh);
-  color: #e5e2e1;
-  font-family: var(--font-body);
+  background-color: #111413;
+  color: #e2e3e0;
+  cursor: crosshair;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-pixel);
+.glass-panel {
+  background: rgba(29, 32, 31, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-.steps-4 {
-  transition-timing-function: steps(4);
 }
