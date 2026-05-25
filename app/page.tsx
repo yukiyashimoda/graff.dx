@@ -1,4 +1,5 @@
 import HeroSceneLoader from './components/three/HeroSceneLoader'
+import LoadingScreen from './components/LoadingScreen'
 import TopNavBar from './components/TopNavBar'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
@@ -11,6 +12,8 @@ import SiteFooter from './components/SiteFooter'
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
+
       {/* Three.js: ヒーロー背景として固定 */}
       <div
         className="fixed inset-0 z-0"
