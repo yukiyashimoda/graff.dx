@@ -1,8 +1,8 @@
 export default function AboutSection() {
   return (
-    <section className="py-section-v-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center flex flex-col items-center">
-      <h2 className="font-headline-md text-headline-lg-mobile md:text-headline-md mb-12 max-w-4xl">
-        アナログな現場に、<br className="md:hidden" />デジタルの解像度を。
+    <section className="py-section-v-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <h2 className="font-headline-md text-[6.5vw] md:text-headline-md mb-12 whitespace-nowrap">
+        アナログな現場に、デジタルの解像度を。
       </h2>
       <p className="font-body-main text-body-main text-on-surface-variant max-w-[600px] mb-12 leading-relaxed">
         graffは、現場の課題を構造で解くための個人プロジェクトです。15年の飲食業界経験を起点に、複数のプロダクトと制作実績を通じて、現場の景色を変える試みを続けています。
