@@ -6,7 +6,7 @@ export default function HeroSection() {
         <p className="font-label-mono text-[11px] tracking-[0.25em] text-on-surface-variant mb-4 uppercase">
           ビジョンを可視化するデザイン
         </p>
-        <h1 className="font-display-xl text-[52px] md:text-[80px] lg:text-display-xl uppercase leading-[1.05] tracking-[0.08em] font-bold">
+        <h1 className="text-[52px] md:text-[80px] lg:text-display-xl uppercase leading-[1.05] tracking-[0.08em]" style={{ fontFamily: 'var(--ff-share-tech)' }}>
           Visualizing<br />the Field
         </h1>
       </div>
