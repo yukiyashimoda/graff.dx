@@ -71,7 +71,7 @@ function CameraRig() {
   const settled = useRef(false)
 
   useFrame((state, delta) => {
-    const target = [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5] as const
+    const target: [number, number, number] = [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5]
     const dist = Math.abs(state.camera.position.x - target[0]) + Math.abs(state.camera.position.y - target[1])
 
     if (settled.current && dist < 0.001) return
