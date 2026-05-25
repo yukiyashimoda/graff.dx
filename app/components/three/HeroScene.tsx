@@ -19,9 +19,10 @@ export default function HeroScene() {
       camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 1, far: 20 }}
       style={{ width: '100%', height: '100%' }}
     >
-      <color attach="background" args={['black']} />
-      <hemisphereLight intensity={0.2} color="#6677aa" groundColor="black" />
-      <spotLight position={[10, 20, 10]} angle={0.12} penumbra={1} intensity={1} castShadow shadow-mapSize={1024} />
+      <color attach="background" args={['#050505']} />
+      <hemisphereLight intensity={0.6} color="#88aacc" groundColor="#111111" />
+      <spotLight position={[10, 20, 10]} angle={0.12} penumbra={1} intensity={3} castShadow shadow-mapSize={1024} />
+      <ambientLight intensity={0.15} />
       <group position={[0, -1, 0]}>
         <Instances>
           <Computers scale={0.5} />
@@ -42,12 +43,12 @@ export default function HeroScene() {
           />
         </mesh>
         <Bun scale={0.4} position={[0, 0.3, 0.5]} rotation={[0, -Math.PI * 0.85, 0]} />
-        <pointLight distance={1.5} intensity={1} position={[-0.15, 0.7, 0]} color={0xffa500} />
+        <pointLight distance={2} intensity={2} position={[-0.15, 0.7, 0]} color={0xffa500} />
       </group>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <EffectComposer disableNormalPass {...({} as any)}>
-        <Bloom luminanceThreshold={0.25} mipmapBlur luminanceSmoothing={0.1} intensity={2.5} />
+        <Bloom luminanceThreshold={0.15} mipmapBlur luminanceSmoothing={0.05} intensity={3.5} />
       </EffectComposer>
       <CameraRig />
       <BakeShadows />

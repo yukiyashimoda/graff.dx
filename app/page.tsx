@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       {/* Three.js: ヒーロー背景として固定 */}
-      <div className="fixed inset-0 z-0 opacity-40">
+      <div className="fixed inset-0 z-0 opacity-70">
         <HeroSceneLoader />
       </div>
 
