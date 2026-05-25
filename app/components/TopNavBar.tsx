@@ -17,7 +17,8 @@ export default function TopNavBar() {
       }`}
     >
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
-        <div className="font-headline-md text-body-main font-bold tracking-tighter text-foreground">graff</div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/graffLogo.svg" alt="graff" className="h-5 w-auto text-white" style={{ filter: 'brightness(0) invert(1)' }} />
         <nav className="hidden md:flex gap-12 font-label-mono text-label-mono uppercase tracking-widest">
           <a className="text-accent-neon border-b border-accent-neon pb-1" href="#">HOME</a>
           <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="#">ABOUT</a>

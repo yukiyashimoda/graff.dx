@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-[100svh] w-full overflow-hidden">
       {/* コピー：左下固定 */}
       <div className="absolute bottom-20 left-[24px] md:left-[80px] z-10">
         <p className="font-label-mono text-[11px] tracking-[0.25em] text-on-surface-variant mb-4 uppercase">
