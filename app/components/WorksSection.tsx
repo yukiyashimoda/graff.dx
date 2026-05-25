@@ -1,65 +1,48 @@
-import ScrollReveal from './ScrollReveal'
-
 const works = [
-  {
-    colSpan: 'md:col-span-8',
-    imgClass: 'w-full aspect-video object-cover',
-    year: 'WEB DESIGN / 2024',
-    title: 'Elysian Digital',
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCOg2KeDTiPbsGWk1vWCWyKFKFeml9OKV5L6_8Hzed-DoxxUDZ3G3e1LY-ZKN4apRY4-95SjYUkpDx_UVxxaf6ZHMKO9YwV-9Gw6gl6jlnAF-hbpJeaEYD7q7DHmT0bL0X9FjXjblfojKhcO_NMIIfs709wdOLf3FwNBq9SzKkZyp8IBM9A5iQPrPOgV7LON3beL6ykxPSrPZ-VxVvfVOxG9azl7tU8ehFWJISLlSnmo7I_W9hmNdAfUFF19AMh1NsvMBis1KlWvpV8',
-  },
-  {
-    colSpan: 'md:col-span-4',
-    imgClass: 'w-full aspect-video md:aspect-auto md:h-full object-cover',
-    year: '3D ART',
-    title: 'Void',
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAj5nhMMApzQwUFUL4XOKS8KxcfSkGKEBaVX07wnO5uwyTku7zZCPO-9ssFfBxrxT3ftIzxhH6gF2R0NJiHc5kxibzr7kJ9FNljHlqoSGcSoXQ5BFdTW78CsSoyw00baU_EtSykSClnw6B1hIns-bvfeSU4A20g7mQmljeIeWBUlzsW-lT7b70KnpJYd5uTxOY970e0m8TlOk-EOTSL4zCvmnnAa8POJESm8BDs_jLTaK4FxXlh98XtqQQzgoJeIeW-4FtFLuaNiJ35',
-  },
-  {
-    colSpan: 'md:col-span-4',
-    imgClass: 'w-full aspect-video md:aspect-auto md:h-full object-cover',
-    year: 'PLANNER',
-    title: 'Legacy',
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0TOjK1kvoA86kAzZSyfLrL-SPgnaNHKIm5uxe_URe3DVihSpUoCVxoC75XoZFMEYg07doujv8QQajIp4ZmserB4RgdEhOPOJM9rDc7l--TDHCeGXuXcZb4-dS6kMAlV7ygx_uBAPtvydINXrD60_fbwFRftS61xkBnT194G8baiKWj5eH5_RUifCSPBxD0gayviu3UWLVD7NdKFv9SyJvDnwZ-ZkxJKvD-8IMrHN8RwHc8O5wdLTjT2EgRUY-9b0KR6j2862cPAlu',
-  },
-  {
-    colSpan: 'md:col-span-8',
-    imgClass: 'w-full aspect-video object-cover',
-    year: 'GRAPHIC DESIGN',
-    title: 'Synthesis',
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA0Bue7Q3JMgXZBe8edWMa-dCqnbNd8m4hkPKEJrZJHsLPWCDCuYDNUHEFnC1_WCCCiMSGfV_x3blKCKmPEDFSyBBTiLfqxxkMGvSjmvFGnhMk5ZpRWXHfqiHIf-SdNVJMFXJfABnTrgH-zDCEiKYEFjpCIbblDyMxfT84fNT7qGeSkyMCOI2YPJIb0WqV7wZ-IkMz2T8yb5JiGRIbzFGiV5FvTKjHFnbKhcuG0sKEzrCNMc2gJHhJ9aPFBqbZ1nAKbXi5Oq_C',
-  },
+  { num: '01', title: 'graff.bms',         tag: 'PRODUCT',     accent: true,  desc: 'Bar Management System (OSS for restaurants)' },
+  { num: '02', title: 'ichiyanagi-clinic', tag: 'CLIENT WORK', accent: false, desc: '内科消化器科クリニック' },
+  { num: '03', title: 'Trioki',            tag: 'PRODUCT',     accent: true,  desc: 'LINE Mini App (Reservation system)' },
+  { num: '04', title: 'Avis',              tag: 'PRODUCT',     accent: true,  desc: 'Data analysis platform' },
 ]
 
 export default function WorksSection() {
   return (
-    <section className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="works">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-        <div>
-          <span className="font-label-sm text-label-sm text-primary-fixed tracking-[0.3em] uppercase">Portfolio</span>
-          <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mt-2">Selected Works</h2>
-        </div>
-        <p className="font-body-lg text-on-surface-variant max-w-md">
-          Exploring the intersection of cinematic aesthetics and functional digital interfaces. Each project is a unique visual narrative.
+    <section className="py-section-v-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div className="mb-24">
+        <h2 className="font-display-lg text-headline-lg-mobile md:text-display-lg uppercase mb-4">WORKS</h2>
+        <p className="font-subtext-jp text-subtext-jp text-on-surface-variant">現場と現場のあいだに、橋をかける。</p>
+        <p className="mt-8 font-body-main text-body-main text-on-surface-variant max-w-lg">
+          複数のプロダクト開発とクライアントワークを通じて、現場の課題を可視化します。
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        {works.map((work, i) => (
-          <ScrollReveal key={i} className={work.colSpan}>
-            <div className="group relative overflow-hidden bg-surface-container h-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className={`${work.imgClass} grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110`}
-                src={work.src}
-                alt={work.title}
-              />
-              <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-gutter backdrop-blur-sm">
-                <span className="font-label-sm text-label-sm text-primary-fixed mb-2">{work.year}</span>
-                <h3 className="font-headline-lg text-headline-lg-mobile text-primary uppercase">{work.title}</h3>
+
+      <div className="border-t border-outline-variant">
+        {works.map((w) => (
+          <div
+            key={w.num}
+            className="group relative border-b border-outline-variant py-12 flex flex-col md:flex-row justify-between items-start md:items-center cursor-pointer transition-colors hover:bg-surface-container-lowest px-0 hover:px-6 duration-300"
+          >
+            <div className="flex items-center gap-8 md:gap-16">
+              <span className="font-label-mono text-[32px] md:text-headline-md opacity-20 group-hover:opacity-100 transition-opacity">
+                {w.num}
+              </span>
+              <div>
+                <h3 className="font-headline-md text-[24px] md:text-[40px] uppercase">{w.title}</h3>
+                {w.accent
+                  ? <span className="font-label-mono text-[10px] border border-accent-neon px-2 text-accent-neon">{w.tag}</span>
+                  : <span className="font-label-mono text-[10px] border border-on-surface-variant px-2 text-on-surface-variant">{w.tag}</span>
+                }
               </div>
             </div>
-          </ScrollReveal>
+            <p className="font-body-sm text-body-sm text-on-surface-variant mt-4 md:mt-0 md:max-w-xs">{w.desc}</p>
+          </div>
         ))}
+      </div>
+
+      <div className="mt-20 text-right">
+        <button className="font-label-mono text-label-mono uppercase tracking-widest text-on-surface-variant hover:text-accent-neon transition-colors">
+          View All Works →
+        </button>
       </div>
     </section>
   )

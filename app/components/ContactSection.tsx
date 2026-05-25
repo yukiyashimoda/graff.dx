@@ -1,30 +1,26 @@
-import ScrollReveal from './ScrollReveal'
-
 export default function ContactSection() {
   return (
-    <section className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center" id="contact">
-      <ScrollReveal>
-        <span className="font-label-sm text-label-sm text-primary-fixed tracking-[0.3em] uppercase block mb-8">
-          Get in Touch
-        </span>
-        <a
-          className="font-display-lg text-display-lg-mobile md:text-[120px] leading-none break-all text-primary hover:text-primary-fixed transition-colors duration-700"
-          href="mailto:hello@graff.studio"
-        >
-          HELLO@GRAFF.STUDIO
-        </a>
-        <div className="mt-20 flex justify-center gap-16">
-          {['Instagram', 'LinkedIn', 'Dribbble'].map((s) => (
-            <a
-              key={s}
-              className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
-              href="#"
-            >
-              {s}
-            </a>
-          ))}
+    <section className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
+      <div className="marquee-container py-12">
+        <div className="marquee-content">
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
         </div>
-      </ScrollReveal>
+      </div>
+
+      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mt-8">
+        <p className="font-subtext-jp text-subtext-jp text-on-surface-variant mb-12">
+          お仕事のご相談、お気軽にどうぞ。
+        </p>
+        <a
+          className="inline-block bg-accent-neon text-background px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300"
+          href="#"
+        >
+          Contact →
+        </a>
+      </div>
     </section>
   )
 }

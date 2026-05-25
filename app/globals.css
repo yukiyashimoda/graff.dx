@@ -3,174 +3,130 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Colors */
-  --color-background:                  #111413;
-  --color-surface:                     #111413;
-  --color-surface-dim:                 #111413;
-  --color-surface-bright:              #373a38;
-  --color-surface-variant:             #333534;
-  --color-surface-container-lowest:    #0c0f0d;
-  --color-surface-container-low:       #191c1b;
-  --color-surface-container:           #1d201f;
-  --color-surface-container-high:      #282b29;
-  --color-surface-container-highest:   #333534;
-  --color-on-surface:                  #e2e3e0;
-  --color-on-surface-variant:          #b9cac3;
-  --color-on-background:               #e2e3e0;
-  --color-inverse-surface:             #e2e3e0;
-  --color-inverse-on-surface:          #2e312f;
+  /* === Colors === */
+  --color-background:               #0a0a0a;
+  --color-foreground:               #ffffff;
+  --color-surface:                  #141313;
+  --color-surface-dim:              #141313;
+  --color-surface-bright:           #3a3939;
+  --color-surface-variant:          #353434;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low:    #1c1b1b;
+  --color-surface-container:        #201f1f;
+  --color-surface-container-high:   #2b2a2a;
+  --color-surface-container-highest:#353434;
+  --color-on-surface:               #e5e2e1;
+  --color-on-surface-variant:       #c4c7c7;
+  --color-on-background:            #e5e2e1;
+  --color-primary:                  #c9c6c5;
+  --color-primary-container:        #0a0a0a;
+  --color-primary-fixed:            #e5e2e1;
+  --color-primary-fixed-dim:        #c9c6c5;
+  --color-on-primary:               #313030;
+  --color-on-primary-container:     #7b7979;
+  --color-on-primary-fixed:         #1c1b1b;
+  --color-secondary:                #c6c6c7;
+  --color-secondary-container:      #454747;
+  --color-on-secondary:             #2f3131;
+  --color-on-secondary-container:   #b4b5b5;
+  --color-tertiary:                 #00e0b8;
+  --color-tertiary-container:       #000d08;
+  --color-tertiary-fixed:           #3efed3;
+  --color-tertiary-fixed-dim:       #00e0b8;
+  --color-on-tertiary:              #00382c;
+  --color-on-tertiary-container:    #008a70;
+  --color-on-tertiary-fixed:        #002019;
+  --color-error:                    #ffb4ab;
+  --color-error-container:          #93000a;
+  --color-on-error:                 #690005;
+  --color-on-error-container:       #ffdad6;
+  --color-outline:                  #8e9192;
+  --color-outline-variant:          #444748;
+  --color-inverse-surface:          #e5e2e1;
+  --color-inverse-on-surface:       #313030;
+  --color-inverse-primary:          #5f5e5e;
+  --color-accent-neon:              #40ffd4;
+  --color-muted-gray:               #222222;
 
-  --color-primary:                     #ffffff;
-  --color-on-primary:                  #00382c;
-  --color-primary-container:           #3efed3;
-  --color-on-primary-container:        #00725c;
-  --color-primary-fixed:               #3efed3;
-  --color-primary-fixed-dim:           #00e0b8;
-  --color-on-primary-fixed:            #002019;
-  --color-on-primary-fixed-variant:    #005141;
-  --color-inverse-primary:             #006b57;
-  --color-surface-tint:                #00e0b8;
+  /* === Spacing === */
+  --spacing-margin-mobile:       24px;
+  --spacing-margin-desktop:      80px;
+  --spacing-gutter:              32px;
+  --spacing-section-v-padding:   160px;
 
-  --color-secondary:                   #ffdb9d;
-  --color-on-secondary:                #412d00;
-  --color-secondary-container:         #feb700;
-  --color-on-secondary-container:      #6b4b00;
-  --color-secondary-fixed:             #ffdea8;
-  --color-secondary-fixed-dim:         #ffba20;
-  --color-on-secondary-fixed:          #271900;
-  --color-on-secondary-fixed-variant:  #5e4200;
-
-  --color-tertiary:                    #ffffff;
-  --color-on-tertiary:                 #2a322e;
-  --color-tertiary-container:          #dce5de;
-  --color-on-tertiary-container:       #5e6661;
-  --color-tertiary-fixed:              #dce5de;
-  --color-tertiary-fixed-dim:          #c0c9c2;
-  --color-on-tertiary-fixed:           #151d19;
-  --color-on-tertiary-fixed-variant:   #404944;
-
-  --color-error:                       #ffb4ab;
-  --color-on-error:                    #690005;
-  --color-error-container:             #93000a;
-  --color-on-error-container:          #ffdad6;
-
-  --color-outline:                     #84948e;
-  --color-outline-variant:             #3b4a44;
-
-  /* Border radius */
-  --radius:      0.25rem;
-  --radius-sm:   0.25rem;
-  --radius-md:   0.375rem;
-  --radius-lg:   0.5rem;
-  --radius-xl:   0.75rem;
-  --radius-full: 9999px;
-
-  /* Spacing */
-  --spacing-gutter:          2rem;
-  --spacing-margin-mobile:   1.5rem;
-  --spacing-margin-desktop:  5rem;
-  --spacing-unit:            0.5rem;
-
-  /* Font families */
-  --font-display-lg:         var(--ff-montserrat), sans-serif;
-  --font-headline-lg:        var(--ff-montserrat), sans-serif;
-  --font-headline-lg-mobile: var(--ff-montserrat), sans-serif;
-  --font-label-sm:           var(--ff-jetbrains), monospace;
-  --font-body-lg:            var(--ff-hanken), sans-serif;
-  --font-title-md:           var(--ff-playfair), serif;
+  /* === Font families === */
+  --font-display-xl:         var(--ff-sora), sans-serif;
+  --font-display-lg:         var(--ff-sora), sans-serif;
+  --font-headline-md:        var(--ff-sora), sans-serif;
+  --font-headline-lg-mobile: var(--ff-sora), sans-serif;
+  --font-subtext-jp:         var(--ff-hanken), sans-serif;
+  --font-body-main:          var(--ff-hanken), sans-serif;
+  --font-body-sm:            var(--ff-hanken), sans-serif;
+  --font-label-mono:         var(--ff-jetbrains), monospace;
 }
 
 @layer utilities {
+  .max-w-container-max { max-width: 1440px; }
+
+  /* Typography scale */
+  .text-display-xl {
+    font-size: 120px; line-height: 110%;
+    letter-spacing: -0.04em; font-weight: 700;
+  }
   .text-display-lg {
-    font-size: 80px;
-    line-height: 90px;
-    letter-spacing: -0.04em;
-    font-weight: 800;
+    font-size: 80px; line-height: 110%;
+    letter-spacing: -0.03em; font-weight: 600;
   }
-  .text-display-lg-mobile {
-    font-size: 48px;
-    line-height: 54px;
-    letter-spacing: -0.03em;
-    font-weight: 800;
-  }
-  .text-label-sm {
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-  .text-body-lg {
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 400;
-  }
-  .text-headline-lg {
-    font-size: 48px;
-    line-height: 56px;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+  .text-headline-md {
+    font-size: 60px; line-height: 120%;
+    letter-spacing: -0.02em; font-weight: 600;
   }
   .text-headline-lg-mobile {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 700;
+    font-size: 48px; line-height: 110%; font-weight: 700;
   }
-  .text-title-md {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 400;
+  .text-subtext-jp {
+    font-size: 22px; line-height: 160%;
+    letter-spacing: 0.05em; font-weight: 400;
   }
-  .max-w-container-max {
-    max-width: 1440px;
+  .text-body-main {
+    font-size: 16px; line-height: 180%; font-weight: 400;
   }
+  .text-body-sm {
+    font-size: 14px; line-height: 180%; font-weight: 400;
+  }
+  .text-label-mono {
+    font-size: 12px; line-height: 100%;
+    letter-spacing: 0.1em; font-weight: 500;
+  }
+
+  .outline-text {
+    -webkit-text-stroke: 1px #ffffff;
+    color: transparent;
+  }
+}
+
+/* Marquee */
+.marquee-container { overflow: hidden; white-space: nowrap; }
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 body {
-  background-color: #111413;
-  color: #e2e3e0;
-  cursor: crosshair;
+  background-color: #0a0a0a;
+  color: #e5e2e1;
   overflow-x: hidden;
-}
-
-/* 周辺減光ビネット */
-.hero-radial-blur {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-  background: radial-gradient(ellipse 70% 65% at 55% 50%, transparent 40%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.85) 100%);
-}
-
-.glass-panel {
-  background: rgba(29, 32, 31, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.scroll-reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #ffffff;
-  transition: width 0.3s ease;
-}
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }

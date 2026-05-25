@@ -1,30 +1,32 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function TopNavBar() {
-  const [, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 100)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-[20px] bg-background/10">
-      <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-gutter max-w-container-max mx-auto">
-        <a className="font-display-lg text-display-lg-mobile tracking-widest text-primary" href="#">
-          GRAFF.
-        </a>
-        <div className="hidden md:flex gap-12">
-          <a className="nav-link relative font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary-fixed transition-colors duration-500" href="#news">
-            News
-          </a>
-          <a className="nav-link relative font-label-sm text-label-sm tracking-[0.2em] uppercase text-primary border-b border-primary pb-1" href="#works">
-            Works
-          </a>
-          <a className="nav-link relative font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary-fixed transition-colors duration-500" href="#contact">
-            Contact
-          </a>
-        </div>
-        <button className="md:hidden material-symbols-outlined text-primary" onClick={() => setOpen(v => !v)}>
-          menu
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 border-b border-outline-variant ${
+        scrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-transparent backdrop-blur-none border-transparent'
+      }`}
+    >
+      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+        <div className="font-headline-md text-body-main font-bold tracking-tighter text-foreground">graff</div>
+        <nav className="hidden md:flex gap-12 font-label-mono text-label-mono uppercase tracking-widest">
+          <a className="text-accent-neon border-b border-accent-neon pb-1" href="#">HOME</a>
+          <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="#">ABOUT</a>
+          <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="#">WORKS</a>
+        </nav>
+        <button className="font-label-mono text-label-mono uppercase tracking-widest text-accent-neon hover:opacity-70 transition-opacity">
+          GET IN TOUCH
         </button>
-      </nav>
+      </div>
     </header>
   )
 }
