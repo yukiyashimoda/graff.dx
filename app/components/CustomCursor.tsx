@@ -10,10 +10,16 @@ export default function CustomCursor() {
 
     let mx = 0, my = 0, rx = 0, ry = 0
     let rafId: number
+    let visible = false
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX
       my = e.clientY
+      if (!visible) {
+        visible = true
+        if (ringRef.current) ringRef.current.style.opacity = '1'
+        if (dotRef.current)  dotRef.current.style.opacity  = '1'
+      }
       if (dotRef.current) {
         dotRef.current.style.transform = `translate(${mx}px, ${my}px)`
       }
@@ -50,8 +56,8 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
-      <div ref={dotRef}  className="cursor-dot"  aria-hidden="true" />
+      <div ref={ringRef} className="cursor-ring" aria-hidden="true" style={{ opacity: 0 }} />
+      <div ref={dotRef}  className="cursor-dot"  aria-hidden="true" style={{ opacity: 0 }} />
     </>
   )
 }
