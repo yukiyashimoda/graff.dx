@@ -16,8 +16,8 @@ export default function Home() {
 
       {/* Three.js: ヒーロー背景として固定 */}
       <div
-        className="fixed inset-0 z-0"
-        style={{ opacity: 0.7, willChange: 'transform', transform: 'translateZ(0)' }}
+        className="fixed top-0 left-0 w-full z-0"
+        style={{ height: '100svh', opacity: 0.7, willChange: 'transform', transform: 'translateZ(0)' }}
       >
         <HeroSceneLoader />
       </div>
