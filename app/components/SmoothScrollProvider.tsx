@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    if (navigator.maxTouchPoints > 0) return
+
     const lenis = new Lenis({ duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 3) })
 
     lenis.on('scroll', ScrollTrigger.update)
