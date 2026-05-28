@@ -30,7 +30,7 @@ export default function TopNavBar() {
         <nav className="hidden md:flex gap-12 font-label-mono text-label-mono uppercase tracking-widest">
           <a className="text-accent-neon border-b border-accent-neon pb-1" href="#">HOME</a>
           <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="#">ABOUT</a>
-          <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="#">WORKS</a>
+          <a className="text-on-surface-variant hover:text-foreground transition-colors duration-300" href="/works">WORKS</a>
         </nav>
         <button className="font-label-mono text-label-mono uppercase tracking-widest text-accent-neon hover:opacity-70 transition-opacity">
           GET IN TOUCH
