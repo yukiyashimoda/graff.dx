@@ -46,14 +46,15 @@ export async function createWork(_: unknown, formData: FormData) {
   const short_desc = (formData.get('short_desc') as string).trim()
   const body = (formData.get('body') as string).trim()
   const tech_stack = (formData.get('tech_stack') as string).split(',').map(s => s.trim()).filter(Boolean)
+  const images = JSON.parse((formData.get('images') as string) || '[]') as string[]
   const url = (formData.get('url') as string).trim()
   const github = (formData.get('github') as string).trim()
   const status = formData.get('status') as string
 
   await db.execute({
-    sql: `INSERT INTO works (slug, num, title, tag, year, role, short_desc, body, tech_stack, url, github, status)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    args: [slug, num, title, tag, year, JSON.stringify(role), short_desc, body, JSON.stringify(tech_stack), url, github, status],
+    sql: `INSERT INTO works (slug, num, title, tag, year, role, short_desc, body, tech_stack, images, url, github, status)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    args: [slug, num, title, tag, year, JSON.stringify(role), short_desc, body, JSON.stringify(tech_stack), JSON.stringify(images), url, github, status],
   })
 
   revalidatePath('/works')
@@ -74,14 +75,15 @@ export async function updateWork(_: unknown, formData: FormData) {
   const short_desc = (formData.get('short_desc') as string).trim()
   const body = (formData.get('body') as string).trim()
   const tech_stack = (formData.get('tech_stack') as string).split(',').map(s => s.trim()).filter(Boolean)
+  const images = JSON.parse((formData.get('images') as string) || '[]') as string[]
   const url = (formData.get('url') as string).trim()
   const github = (formData.get('github') as string).trim()
   const status = formData.get('status') as string
 
   await db.execute({
-    sql: `UPDATE works SET slug=?, num=?, title=?, tag=?, year=?, role=?, short_desc=?, body=?, tech_stack=?, url=?, github=?, status=?, updated_at=datetime('now')
+    sql: `UPDATE works SET slug=?, num=?, title=?, tag=?, year=?, role=?, short_desc=?, body=?, tech_stack=?, images=?, url=?, github=?, status=?, updated_at=datetime('now')
           WHERE id=?`,
-    args: [slug, num, title, tag, year, JSON.stringify(role), short_desc, body, JSON.stringify(tech_stack), url, github, status, id],
+    args: [slug, num, title, tag, year, JSON.stringify(role), short_desc, body, JSON.stringify(tech_stack), JSON.stringify(images), url, github, status, id],
   })
 
   revalidatePath('/works')

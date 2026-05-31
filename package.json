@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1057.0",
     "@libsql/client": "^0.17.3",
     "@pmndrs/assets": "^1.7.0",
     "@react-three/drei": "^10.7.7",

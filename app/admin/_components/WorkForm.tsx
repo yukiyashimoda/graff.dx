@@ -2,6 +2,7 @@
 
 import { useActionState } from 'react'
 import type { Work } from '@/app/lib/db'
+import ImageUploader from './ImageUploader'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Props = {
@@ -68,6 +69,11 @@ export default function WorkForm({ action, work }: Props) {
           className={`${FIELD} resize-y font-mono text-xs`}
           placeholder="## 概要&#10;&#10;プロジェクトの詳細をMarkdownで記述..."
         />
+      </div>
+
+      <div>
+        <label className={LABEL}>Images</label>
+        <ImageUploader defaultImages={work?.images ?? []} />
       </div>
 
       <div>
