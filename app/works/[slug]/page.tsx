@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function WorkDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const work = await getWorkBySlug(slug)
-  if (!work || work.status !== 'published') notFound()
+  if (!work) notFound()
 
   const allWorks = await getPublishedWorks()
   const idx = allWorks.findIndex(w => w.slug === slug)

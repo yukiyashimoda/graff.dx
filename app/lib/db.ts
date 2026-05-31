@@ -123,10 +123,10 @@ export type ContactSubmission = {
 function parseWork(r: Record<string, unknown>): Work {
   return {
     id: Number(r.id),
-    slug: String(r.slug ?? ''),
+    slug: String(r.slug ?? '').trim(),
     num: String(r.num ?? ''),
     title: String(r.title ?? ''),
-    tag: (r.tag ?? 'PRODUCT') as Work['tag'],
+    tag: String(r.tag ?? 'PRODUCT').trim() as Work['tag'],
     year: Number(r.year ?? 0),
     role: JSON.parse(String(r.role || '[]')),
     short_desc: String(r.short_desc ?? ''),
@@ -135,7 +135,7 @@ function parseWork(r: Record<string, unknown>): Work {
     images: JSON.parse(String(r.images || '[]')),
     url: String(r.url ?? ''),
     github: String(r.github ?? ''),
-    status: (r.status ?? 'draft') as Work['status'],
+    status: String(r.status ?? 'draft').trim() as Work['status'],
     created_at: String(r.created_at ?? ''),
     updated_at: String(r.updated_at ?? ''),
   }
@@ -152,15 +152,18 @@ export async function getPublishedWorks(): Promise<Work[]> {
 }
 
 export async function getWorkBySlug(slug: string): Promise<Work | null> {
-  const result = await db.execute({ sql: 'SELECT * FROM works WHERE slug = ?', args: [slug] })
-  if (!result.rows[0]) return null
-  return parseWork(result.rows[0] as Record<string, unknown>)
+  // parameterized args を使わず全件取得してJS側でフィルタ（libsql args の互換性問題を回避）
+  const result = await db.execute('SELECT * FROM works')
+  const row = result.rows.find(r => String(r.slug).trim() === slug.trim())
+  if (!row) return null
+  return parseWork(row as Record<string, unknown>)
 }
 
 export async function getWorkById(id: number): Promise<Work | null> {
-  const result = await db.execute({ sql: 'SELECT * FROM works WHERE id = ?', args: [id] })
-  if (!result.rows[0]) return null
-  return parseWork(result.rows[0] as Record<string, unknown>)
+  const result = await db.execute('SELECT * FROM works')
+  const row = result.rows.find(r => Number(r.id) === id)
+  if (!row) return null
+  return parseWork(row as Record<string, unknown>)
 }
 
 export async function getAllServices(): Promise<Service[]> {
