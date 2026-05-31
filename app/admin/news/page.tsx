@@ -3,8 +3,8 @@ import { createNews, updateNews, deleteNews } from '@/app/actions/admin'
 import DeleteButton from '../_components/DeleteButton'
 import type { NewsItem } from '@/app/lib/db'
 
-const FIELD = 'bg-surface-container border border-outline-variant rounded px-3 py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
-const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1'
+const FIELD = 'bg-surface-container border border-outline-variant rounded px-3 py-3 md:py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
+const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1.5'
 
 const TAGS = ['RELEASE', 'WORKS', 'EVENT', 'NEWS', 'OTHER']
 
@@ -40,7 +40,7 @@ function NewsRow({ item }: { item: NewsItem }) {
             <input name="url" type="url" defaultValue={item.url} className={`${FIELD} w-full`} placeholder="https://..." />
           </div>
           <div className="flex gap-2">
-            <button type="submit" className="px-4 py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
+            <button type="submit" className="px-4 py-2.5 md:py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
               Update
             </button>
             <DeleteButton action={deleteNews.bind(null, item.id)} label="Delete" />
@@ -89,7 +89,7 @@ export default async function NewsPage() {
             <label className={LABEL}>URL（任意）</label>
             <input name="url" type="url" className={`${FIELD} w-full`} placeholder="https://..." />
           </div>
-          <button type="submit" className="px-4 py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
+          <button type="submit" className="px-4 py-2.5 md:py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
             Create
           </button>
         </form>

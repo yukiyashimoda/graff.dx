@@ -3,8 +3,8 @@ import { updateContactSettings, updateSubmissionStatus, deleteSubmission } from 
 import DeleteButton from '../_components/DeleteButton'
 import SubmissionStatus from '../_components/SubmissionStatus'
 
-const FIELD = 'w-full bg-surface-container border border-outline-variant rounded px-3 py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
-const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1'
+const FIELD = 'w-full bg-surface-container border border-outline-variant rounded px-3 py-3 md:py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
+const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1.5'
 
 export default async function ContactPage() {
   await initSchema()
@@ -28,7 +28,7 @@ export default async function ContactPage() {
             <label className={LABEL}>Email</label>
             <input name="email" type="email" defaultValue={settings.email} className={FIELD} placeholder="hello@example.com" />
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label className={LABEL}>Twitter</label>
               <input name="twitter" defaultValue={settings.twitter} className={FIELD} placeholder="@username" />
@@ -42,7 +42,7 @@ export default async function ContactPage() {
               <input name="instagram" defaultValue={settings.instagram} className={FIELD} placeholder="@username" />
             </div>
           </div>
-          <button type="submit" className="px-4 py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
+          <button type="submit" className="px-4 py-2.5 md:py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
             Save Settings
           </button>
         </form>

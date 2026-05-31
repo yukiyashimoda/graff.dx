@@ -48,10 +48,10 @@ export default async function WorksPage() {
                       {work.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 flex gap-2 justify-end">
+                  <td className="px-3 py-3 flex gap-2 justify-end">
                     <Link
                       href={`/admin/works/${work.id}`}
-                      className="px-3 py-1 border border-outline-variant rounded text-[10px] uppercase tracking-widest hover:border-accent-neon hover:text-accent-neon transition-colors"
+                      className="px-3 py-2 border border-outline-variant rounded text-[10px] uppercase tracking-widest hover:border-accent-neon hover:text-accent-neon transition-colors"
                     >
                       Edit
                     </Link>

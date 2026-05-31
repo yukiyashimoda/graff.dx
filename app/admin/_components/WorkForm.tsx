@@ -10,8 +10,8 @@ type Props = {
   work?: Work
 }
 
-const FIELD = 'w-full bg-surface-container border border-outline-variant rounded px-3 py-2 text-sm text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
-const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1'
+const FIELD = 'w-full bg-surface-container border border-outline-variant rounded px-3 py-3 text-sm text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
+const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1.5'
 
 export default function WorkForm({ action, work }: Props) {
   const [, formAction, pending] = useActionState(action, null)
@@ -20,10 +20,11 @@ export default function WorkForm({ action, work }: Props) {
     <form action={formAction} className="space-y-5 max-w-2xl">
       {work && <input type="hidden" name="id" value={work.id} />}
 
-      <div className="grid grid-cols-2 gap-4">
+      {/* Slug / Num — SPで縦積み */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={LABEL}>Slug *</label>
-          <input name="slug" required defaultValue={work?.slug} className={FIELD} placeholder="my-project" />
+          <input name="slug" required defaultValue={work?.slug} className={FIELD} placeholder="my-project" inputMode="url" />
         </div>
         <div>
           <label className={LABEL}>Num</label>
@@ -36,7 +37,8 @@ export default function WorkForm({ action, work }: Props) {
         <input name="title" required defaultValue={work?.title} className={FIELD} />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      {/* Tag / Year — SPで縦積み */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={LABEL}>Tag</label>
           <select name="tag" defaultValue={work?.tag ?? 'PRODUCT'} className={FIELD}>
@@ -46,7 +48,7 @@ export default function WorkForm({ action, work }: Props) {
         </div>
         <div>
           <label className={LABEL}>Year</label>
-          <input name="year" type="number" defaultValue={work?.year ?? new Date().getFullYear()} className={FIELD} />
+          <input name="year" type="number" defaultValue={work?.year ?? new Date().getFullYear()} className={FIELD} inputMode="numeric" />
         </div>
       </div>
 
@@ -65,8 +67,8 @@ export default function WorkForm({ action, work }: Props) {
         <textarea
           name="body"
           defaultValue={work?.body}
-          rows={16}
-          className={`${FIELD} resize-y font-mono text-xs`}
+          rows={12}
+          className={`${FIELD} resize-y font-mono text-xs leading-relaxed`}
           placeholder="## 概要&#10;&#10;プロジェクトの詳細をMarkdownで記述..."
         />
       </div>
@@ -81,14 +83,15 @@ export default function WorkForm({ action, work }: Props) {
         <input name="tech_stack" defaultValue={work?.tech_stack?.join(', ')} className={FIELD} placeholder="Next.js, TypeScript, Supabase" />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      {/* URL / GitHub — SPで縦積み */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={LABEL}>URL</label>
-          <input name="url" type="url" defaultValue={work?.url} className={FIELD} placeholder="https://..." />
+          <input name="url" type="url" defaultValue={work?.url} className={FIELD} placeholder="https://..." inputMode="url" />
         </div>
         <div>
           <label className={LABEL}>GitHub</label>
-          <input name="github" type="url" defaultValue={work?.github} className={FIELD} placeholder="https://github.com/..." />
+          <input name="github" type="url" defaultValue={work?.github} className={FIELD} placeholder="https://github.com/..." inputMode="url" />
         </div>
       </div>
 
@@ -100,17 +103,17 @@ export default function WorkForm({ action, work }: Props) {
         </select>
       </div>
 
-      <div className="flex gap-4 pt-2">
+      <div className="flex gap-3 pt-2">
         <button
           type="submit"
           disabled={pending}
-          className="px-6 py-2 bg-accent-neon text-background text-xs uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="flex-1 sm:flex-none px-6 py-3 bg-accent-neon text-background text-xs uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           {pending ? '...' : work ? 'Update' : 'Create'}
         </button>
         <a
           href="/admin/works"
-          className="px-6 py-2 border border-outline-variant text-xs uppercase tracking-widest rounded hover:border-on-surface-variant transition-colors"
+          className="flex-1 sm:flex-none px-6 py-3 border border-outline-variant text-xs uppercase tracking-widest rounded hover:border-on-surface-variant transition-colors text-center"
         >
           Cancel
         </a>

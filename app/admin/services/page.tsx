@@ -3,8 +3,8 @@ import { createService, updateService, deleteService } from '@/app/actions/admin
 import DeleteButton from '../_components/DeleteButton'
 import type { Service } from '@/app/lib/db'
 
-const FIELD = 'bg-surface-container border border-outline-variant rounded px-3 py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
-const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1'
+const FIELD = 'bg-surface-container border border-outline-variant rounded px-3 py-3 md:py-2 text-xs text-on-surface focus:outline-none focus:border-accent-neon transition-colors'
+const LABEL = 'block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1.5'
 
 function ServiceRow({ service }: { service: Service }) {
   return (
@@ -38,7 +38,7 @@ function ServiceRow({ service }: { service: Service }) {
             <input name="sort_order" type="number" defaultValue={service.sort_order} className={`${FIELD} w-24`} />
           </div>
           <div className="flex gap-2">
-            <button type="submit" className="px-4 py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
+            <button type="submit" className="px-4 py-2.5 md:py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
               Update
             </button>
             <DeleteButton action={deleteService.bind(null, service.id)} label="Delete" />
@@ -85,7 +85,7 @@ export default async function ServicesPage() {
             <label className={LABEL}>Sort Order</label>
             <input name="sort_order" type="number" defaultValue={services.length} className={`${FIELD} w-24`} />
           </div>
-          <button type="submit" className="px-4 py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
+          <button type="submit" className="px-4 py-2.5 md:py-1.5 bg-accent-neon text-background text-[10px] uppercase tracking-widest font-bold rounded hover:opacity-90 transition-opacity">
             Create
           </button>
         </form>
