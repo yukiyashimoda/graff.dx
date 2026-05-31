@@ -65,7 +65,8 @@ export default function CarouselClient({ works }: { works: Work[] }) {
                 {work.images[0] ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none"
+                    className="w-full h-full object-cover transition-all duration-700 pointer-events-none
+                               grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100"
                     src={work.images[0]}
                     alt={work.title}
                     draggable={false}
@@ -80,7 +81,13 @@ export default function CarouselClient({ works }: { works: Work[] }) {
                     </span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-accent-neon/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                {/* サイトトーン：暗め+teal被せ → ホバーで消える */}
+                <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                               bg-background/30 mix-blend-multiply
+                               opacity-100 group-hover:opacity-0" />
+                <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                               bg-accent-neon/8
+                               opacity-100 group-hover:opacity-0" />
               </div>
               <div className="flex items-baseline gap-4">
                 <span className="font-label-mono text-label-mono text-on-surface-variant">

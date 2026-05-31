@@ -46,7 +46,8 @@ export default async function WorksPage() {
                       <img
                         src={work.images[0]}
                         alt={work.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover transition-all duration-700
+                                   grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center select-none">
@@ -58,7 +59,10 @@ export default async function WorksPage() {
                         </span>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-accent-neon/0 group-hover:bg-accent-neon/5 transition-colors duration-300" />
+                    <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                    bg-background/30 mix-blend-multiply opacity-100 group-hover:opacity-0" />
+                    <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                    bg-accent-neon/8 opacity-100 group-hover:opacity-0" />
                   </div>
 
                   <div className="p-6 md:p-8">

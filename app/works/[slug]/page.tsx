@@ -82,10 +82,16 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
           </div>
         </div>
 
-        <div className="w-full aspect-video md:aspect-[21/9] bg-surface-container mb-16 overflow-hidden">
+        {/* ヒーロー画像：タップ/マウスオーバーでフィルター解除 */}
+        <div className="group w-full aspect-video md:aspect-[21/9] bg-surface-container mb-16 overflow-hidden relative cursor-pointer">
           {work.images[0] ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={work.images[0]} alt={work.title} className="w-full h-full object-cover" />
+            <img
+              src={work.images[0]}
+              alt={work.title}
+              className="w-full h-full object-cover transition-all duration-700
+                         grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100"
+            />
           ) : (
             <div className="w-full h-full flex items-center justify-center select-none">
               <span
@@ -96,6 +102,10 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
               </span>
             </div>
           )}
+          <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                          bg-background/30 mix-blend-multiply opacity-100 group-hover:opacity-0" />
+          <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                          bg-accent-neon/8 opacity-100 group-hover:opacity-0" />
         </div>
 
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
@@ -125,9 +135,18 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
           {work.images.length > 1 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
               {work.images.slice(1).map((src, i) => (
-                <div key={i} className="aspect-video bg-surface-container overflow-hidden">
+                <div key={i} className="group aspect-video bg-surface-container overflow-hidden relative cursor-pointer">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={`${work.title} screenshot ${i + 2}`} className="w-full h-full object-cover" />
+                  <img
+                    src={src}
+                    alt={`${work.title} screenshot ${i + 2}`}
+                    className="w-full h-full object-cover transition-all duration-700
+                               grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100"
+                  />
+                  <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                  bg-background/30 mix-blend-multiply opacity-100 group-hover:opacity-0" />
+                  <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                  bg-accent-neon/8 opacity-100 group-hover:opacity-0" />
                 </div>
               ))}
             </div>
