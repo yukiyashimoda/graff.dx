@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import HeroSceneLoader from './components/three/HeroSceneLoader'
 import LoadingScreen from './components/LoadingScreen'
 import TopNavBar from './components/TopNavBar'

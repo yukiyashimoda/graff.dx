@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function ContactSection() {
   return (
     <section className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
@@ -14,12 +16,12 @@ export default function ContactSection() {
         <p className="font-subtext-jp text-subtext-jp text-on-surface-variant mb-12">
           お仕事のご相談、お気軽にどうぞ。
         </p>
-        <a
+        <Link
+          href="/contact"
           className="inline-block bg-accent-neon text-background px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300"
-          href="#"
         >
           Contact →
-        </a>
+        </Link>
       </div>
     </section>
   )

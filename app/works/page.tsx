@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import TopNavBar from '../components/TopNavBar'
 import ScrollReveal from '../components/ScrollReveal'
-import { works } from '../data/works'
+import { initSchema, getPublishedWorks } from '../lib/db'
 
+export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Works — graff' }
 
-export default function WorksPage() {
+export default async function WorksPage() {
+  await initSchema()
+  const works = await getPublishedWorks()
+
   return (
     <>
       <TopNavBar />
       <main className="min-h-screen bg-background pt-28 pb-32 px-margin-mobile md:px-margin-desktop">
         <div className="max-w-container-max mx-auto">
 
-          {/* ページヘッダー */}
           <div className="flex items-end justify-between mb-16 border-b border-outline-variant pb-8">
             <div>
               <span className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-[0.3em] block mb-4">
@@ -30,7 +33,6 @@ export default function WorksPage() {
             </span>
           </div>
 
-          {/* グリッド */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant">
             {works.map((work, i) => (
               <ScrollReveal key={work.slug} delay={i * 0.08}>
@@ -38,7 +40,6 @@ export default function WorksPage() {
                   href={`/works/${work.slug}`}
                   className="group block bg-background hover:bg-surface-container-low transition-colors duration-300"
                 >
-                  {/* 画像エリア */}
                   <div className="relative aspect-video overflow-hidden bg-surface-container">
                     {work.images[0] ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -53,27 +54,23 @@ export default function WorksPage() {
                           className="font-bold leading-none text-on-surface-variant/10"
                           style={{ fontSize: 'clamp(80px, 12vw, 160px)', fontFamily: 'var(--ff-share-tech)' }}
                         >
-                          {work.num}
+                          {work.num || String(i + 1).padStart(2, '0')}
                         </span>
                       </div>
                     )}
-                    {/* ホバーオーバーレイ */}
                     <div className="absolute inset-0 bg-accent-neon/0 group-hover:bg-accent-neon/5 transition-colors duration-300" />
                   </div>
 
-                  {/* カード情報 */}
                   <div className="p-6 md:p-8">
                     <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`font-label-mono text-[10px] border px-2 py-0.5 uppercase tracking-widest ${
-                          work.tag === 'PRODUCT'
-                            ? 'border-accent-neon text-accent-neon'
-                            : 'border-on-surface-variant text-on-surface-variant'
-                        }`}
-                      >
+                      <span className={`font-label-mono text-[10px] border px-2 py-0.5 uppercase tracking-widest ${
+                        work.tag === 'PRODUCT'
+                          ? 'border-accent-neon text-accent-neon'
+                          : 'border-on-surface-variant text-on-surface-variant'
+                      }`}>
                         {work.tag}
                       </span>
-                      <span className="font-label-mono text-[10px] text-on-surface-variant/40">{work.year}</span>
+                      <span className="font-label-mono text-[10px] text-on-surface-variant/40">{work.year || ''}</span>
                     </div>
 
                     <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent-neon transition-colors duration-300">
@@ -81,22 +78,18 @@ export default function WorksPage() {
                     </h2>
 
                     <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 line-clamp-2">
-                      {work.shortDesc}
+                      {work.short_desc}
                     </p>
 
-                    {/* テックスタック */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {work.techStack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="font-label-mono text-[10px] text-on-surface-variant/60 border border-outline-variant px-2 py-0.5"
-                        >
+                      {work.tech_stack.slice(0, 4).map((tech) => (
+                        <span key={tech} className="font-label-mono text-[10px] text-on-surface-variant/60 border border-outline-variant px-2 py-0.5">
                           {tech}
                         </span>
                       ))}
-                      {work.techStack.length > 4 && (
+                      {work.tech_stack.length > 4 && (
                         <span className="font-label-mono text-[10px] text-on-surface-variant/40 px-2 py-0.5">
-                          +{work.techStack.length - 4}
+                          +{work.tech_stack.length - 4}
                         </span>
                       )}
                     </div>
@@ -107,7 +100,6 @@ export default function WorksPage() {
                     </div>
                   </div>
 
-                  {/* ボトムライン */}
                   <div className="h-px w-0 bg-accent-neon group-hover:w-full transition-all duration-700 ease-out" />
                 </Link>
               </ScrollReveal>
