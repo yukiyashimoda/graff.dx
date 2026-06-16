@@ -10,7 +10,7 @@ export const metadata = {
     title: 'ワダチフイルム / wadachi film',
     description: '記録ではなく、追憶を残す。歩いた道を一本の轍として残す散歩記録アプリ。',
     url: 'https://graff-dx.dev/works/wadachi-film',
-    images: ['https://graff-dx.dev/works/wadachi-film/cover.png'],
+    images: ['https://graff-dx.dev/works/wadachi-film/cover.jpg'],
     type: 'website',
   },
 }
@@ -45,9 +45,9 @@ export default function WadachiFilmWorkPage() {
 
           {/* Cover */}
           <div className="rounded-2xl overflow-hidden border border-outline-variant/40 mb-20">
-            {/* 素材画像を public/works/wadachi-film/cover.png に配置 */}
+            {/* 素材画像を public/works/wadachi-film/cover.jpg に配置 */}
             <img
-              src="/works/wadachi-film/cover.png"
+              src="/works/wadachi-film/cover.jpg"
               alt="ワダチフイルム アプリの紹介ビジュアル"
               className="w-full h-auto block"
             />

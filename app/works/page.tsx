@@ -43,7 +43,7 @@ export default async function WorksPage() {
                 <div className="relative aspect-video overflow-hidden bg-surface-container">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/works/wadachi-film/cover.png"
+                    src="/works/wadachi-film/cover.jpg"
                     alt="ワダチフイルム"
                     className="w-full h-full object-cover transition-all duration-700
                                grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105"
