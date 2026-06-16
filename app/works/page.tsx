@@ -29,11 +29,59 @@ export default async function WorksPage() {
               </h1>
             </div>
             <span className="font-label-mono text-label-mono text-on-surface-variant/40 mb-2">
-              {String(works.length).padStart(2, '0')} PROJECTS
+              {String(works.length + 1).padStart(2, '0')} PROJECTS
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant">
+            {/* wadachi film（静的ページ /works/wadachi-film への固定カード） */}
+            <ScrollReveal delay={0}>
+              <Link
+                href="/works/wadachi-film"
+                className="group block bg-background hover:bg-surface-container-low transition-colors duration-300"
+              >
+                <div className="relative aspect-video overflow-hidden bg-surface-container">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/works/wadachi-film/cover.png"
+                    alt="ワダチフイルム"
+                    className="w-full h-full object-cover transition-all duration-700
+                               grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                  bg-background/30 mix-blend-multiply opacity-100 group-hover:opacity-0" />
+                  <div className="absolute inset-0 pointer-events-none transition-opacity duration-700
+                                  bg-accent-neon/8 opacity-100 group-hover:opacity-0" />
+                </div>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-label-mono text-[10px] border px-2 py-0.5 uppercase tracking-widest border-accent-neon text-accent-neon">
+                      PRODUCT
+                    </span>
+                    <span className="font-label-mono text-[10px] text-on-surface-variant/40">2026</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3 group-hover:text-accent-neon transition-colors duration-300">
+                    ワダチフイルム
+                  </h2>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 line-clamp-2">
+                    記録ではなく、追憶を残す。歩いた道を一本の轍として残す散歩記録アプリ。
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {['Kotlin', 'Compose', 'MapLibre', 'Room'].map((t) => (
+                      <span key={t} className="font-label-mono text-[10px] text-on-surface-variant/60 border border-outline-variant px-2 py-0.5">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-2 font-label-mono text-[11px] text-accent-neon uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span>View case</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </div>
+                </div>
+                <div className="h-px w-0 bg-accent-neon group-hover:w-full transition-all duration-700 ease-out" />
+              </Link>
+            </ScrollReveal>
+
             {works.map((work, i) => (
               <ScrollReveal key={work.slug} delay={i * 0.08}>
                 <Link
