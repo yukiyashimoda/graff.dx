@@ -95,6 +95,27 @@ export default function WadachiFilmWorkPage() {
             <p className="pt-2">ぜひ一度、触れてみてください。</p>
           </article>
 
+          {/* Gallery */}
+          <section className="mt-24">
+            <p className="font-label-mono text-[11px] text-on-surface-variant uppercase tracking-widest mb-8 text-center">
+              Visuals
+            </p>
+            <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+              {/* eslint-disable @next/next/no-img-element */}
+              <img
+                src="/works/wadachi-film/poster-features.jpg"
+                alt="ワダチフイルム — フィルムで残す・タイトル・日付"
+                className="w-full h-auto rounded-2xl border border-outline-variant/40"
+              />
+              <img
+                src="/works/wadachi-film/poster-map.jpg"
+                alt="ワダチフイルム — 歩いたルートを地図に記録"
+                className="w-full h-auto rounded-2xl border border-outline-variant/40"
+              />
+              {/* eslint-enable @next/next/no-img-element */}
+            </div>
+          </section>
+
           {/* CTA */}
           <div className="max-w-2xl mx-auto mt-16 flex flex-col sm:flex-row items-center gap-5">
             <span className="font-label-mono text-[12px] uppercase tracking-widest text-on-surface-variant border border-outline-variant/60 rounded-full px-5 py-2.5">
