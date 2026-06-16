@@ -108,7 +108,12 @@ export default function WadachiPrivacyPage() {
             <section>
               <h2 className="text-foreground text-xl font-bold mb-4">お問い合わせ</h2>
               <p>本ポリシーに関するお問い合わせは、開発者（graff）までご連絡ください。</p>
-              <p className="mt-2">連絡先メール: <span className="italic">（公開前に連絡用メールアドレスを記載）</span></p>
+              <p className="mt-2">
+                連絡先メール:{' '}
+                <a href="mailto:graff-dx@icloud.com" className="text-accent-neon hover:underline">
+                  graff-dx@icloud.com
+                </a>
+              </p>
             </section>
           </div>
         </div>
