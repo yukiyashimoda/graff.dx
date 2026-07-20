@@ -91,7 +91,7 @@ export default function GraffLabPage() {
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <Link
             href="/works"
-            className="inline-flex items-center gap-2 font-label-mono text-[11px] text-[#14151a]/55 hover:text-[#14151a] uppercase tracking-widest transition-colors mb-12"
+            className="inline-flex items-center gap-2 font-label-mono text-[11px] text-[#14151a] hover:text-[#14151a] uppercase tracking-widest transition-colors mb-12"
           >
             <span className="material-symbols-outlined text-sm">arrow_back</span>
             Back to Works
@@ -119,13 +119,13 @@ export default function GraffLabPage() {
             id="testing"
             className="rounded-2xl p-8 md:p-12 bg-white/75 backdrop-blur-md border border-[#14151a]/10 shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]"
           >
-            <p className="font-label-mono text-[11px] text-[#5457d6] uppercase tracking-widest mb-5">
+            <p className="font-label-mono text-[11px] text-[#14151a] uppercase tracking-widest mb-5">
               Recruiting Testers
             </p>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-5">
               テスターを募集しています
             </h2>
-            <p className="text-[#14151a]/70 leading-[1.9] text-[15px] mb-10 max-w-2xl">
+            <p className="text-[#14151a] leading-[1.9] text-[15px] mb-10 max-w-2xl">
               Google Play のルールにより、アプリを一般公開するには公開前に一定期間のテストが
               必要です。ご協力いただける方は、以下の3ステップでご参加ください。
               <span className="text-[#14151a] font-bold">費用は一切かかりません。</span>
@@ -141,7 +141,7 @@ export default function GraffLabPage() {
                     下のボタンから Google グループに参加してください。参加に使った Google
                     アカウントが、そのままテスターとして登録されます。
                     <br />
-                    <span className="text-[#14151a]/50 text-[13px]">
+                    <span className="text-[#14151a] text-[13px]">
                       ※ Android 端末で普段お使いの Google アカウントでご参加ください。
                     </span>
                   </>
@@ -155,7 +155,7 @@ export default function GraffLabPage() {
                     グループ参加後、下のアプリ一覧にある「テストに参加」から Google Play を開き、
                     インストールしてください。
                     <br />
-                    <span className="text-[#14151a]/50 text-[13px]">
+                    <span className="text-[#14151a] text-[13px]">
                       ※ 参加直後は反映まで数分〜数時間かかることがあります。
                     </span>
                   </>
@@ -170,7 +170,7 @@ export default function GraffLabPage() {
                     使いにくい点や不具合に気づいたら、
                     <a
                       href={`mailto:${CONTACT_MAIL}`}
-                      className="text-[#5457d6] hover:underline"
+                      className="text-[#14151a] hover:underline"
                     >
                       {CONTACT_MAIL}
                     </a>
@@ -184,14 +184,14 @@ export default function GraffLabPage() {
               href={TESTER_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#14151a] text-white font-bold px-8 py-4 rounded-full hover:bg-[#5457d6] transition-colors"
+              className="inline-flex items-center gap-3 bg-[#14151a] text-white font-bold px-8 py-4 rounded-full hover:bg-[#14151a] transition-colors"
             >
               テスターグループに参加する
               <span className="material-symbols-outlined text-lg">open_in_new</span>
             </a>
-            <p className="text-[#14151a]/50 text-[13px] mt-5">
+            <p className="text-[#14151a] text-[13px] mt-5">
               グループへの参加が難しい場合は、お使いの Google アカウントのメールアドレスを{' '}
-              <a href={`mailto:${CONTACT_MAIL}`} className="text-[#5457d6] hover:underline">
+              <a href={`mailto:${CONTACT_MAIL}`} className="text-[#14151a] hover:underline">
                 {CONTACT_MAIL}
               </a>{' '}
               までお送りください。こちらで登録します。
@@ -204,7 +204,7 @@ export default function GraffLabPage() {
           <section>
             <div className="flex items-end justify-between mb-12 border-b border-[#14151a]/12 pb-6">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">アプリ</h2>
-              <span className="font-label-mono text-[11px] text-[#14151a]/35">
+              <span className="font-label-mono text-[11px] text-[#14151a]">
                 {String(APPS.length).padStart(2, '0')} APPS
               </span>
             </div>
@@ -221,7 +221,7 @@ export default function GraffLabPage() {
           {/* ── よくある質問 ── */}
           <section className="mt-28 max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-10">よくある質問</h2>
-            <div className="space-y-8 text-[#14151a]/70 leading-[1.9] text-[15px]">
+            <div className="space-y-8 text-[#14151a] leading-[1.9] text-[15px]">
               <Faq q="お金はかかりますか？">
                 テスト期間中は無料です。課金や自動更新は一切ありません。
               </Faq>
@@ -237,7 +237,7 @@ export default function GraffLabPage() {
                 現在は Android のみの提供です。
               </Faq>
               <Faq q="感想はどこに送ればいいですか？">
-                <a href={`mailto:${CONTACT_MAIL}`} className="text-[#5457d6] hover:underline">
+                <a href={`mailto:${CONTACT_MAIL}`} className="text-[#14151a] hover:underline">
                   {CONTACT_MAIL}
                 </a>{' '}
                 までお気軽にお送りください。良かった点も、使いにくかった点も歓迎します。
@@ -253,12 +253,12 @@ export default function GraffLabPage() {
 function Step({ n, title, body }: { n: number; title: string; body: React.ReactNode }) {
   return (
     <li className="flex gap-5">
-      <span className="shrink-0 w-9 h-9 rounded-full border border-[#5457d6]/45 text-[#5457d6] font-label-mono text-sm flex items-center justify-center">
+      <span className="shrink-0 w-9 h-9 rounded-full border border-[#14151a]/45 text-[#14151a] font-label-mono text-sm flex items-center justify-center">
         {n}
       </span>
       <div className="pt-1">
         <h3 className="text-[#14151a] font-bold mb-2">{title}</h3>
-        <p className="text-[#14151a]/70 leading-[1.9] text-[15px]">{body}</p>
+        <p className="text-[#14151a] leading-[1.9] text-[15px]">{body}</p>
       </div>
     </li>
   )
@@ -289,14 +289,14 @@ function AppRow({ app }: { app: App }) {
             />
           </div>
           <div>
-            <p className="font-label-mono text-[11px] text-[#14151a]/45 uppercase tracking-widest mb-1">
+            <p className="font-label-mono text-[11px] text-[#14151a] uppercase tracking-widest mb-1">
               {app.reading}
             </p>
             <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{app.name}</h3>
           </div>
         </div>
         <p className="text-[#14151a] text-lg mb-4">{app.tagline}</p>
-        <p className="text-[#14151a]/70 leading-[1.9] text-[15px] mb-6 max-w-2xl">
+        <p className="text-[#14151a] leading-[1.9] text-[15px] mb-6 max-w-2xl">
           {app.description}
         </p>
 
@@ -304,7 +304,7 @@ function AppRow({ app }: { app: App }) {
           {app.points.map((p) => (
             <li
               key={p}
-              className="font-label-mono text-[11px] text-[#14151a]/65 border border-[#14151a]/15 rounded-full px-4 py-2"
+              className="font-label-mono text-[11px] text-[#14151a] border border-[#14151a]/15 rounded-full px-4 py-2"
             >
               {p}
             </li>
@@ -317,20 +317,20 @@ function AppRow({ app }: { app: App }) {
               href={app.optInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-[#5457d6] text-[#5457d6] font-bold px-6 py-3 rounded-full hover:bg-[#5457d6] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 border border-[#14151a] text-[#14151a] font-bold px-6 py-3 rounded-full hover:bg-[#14151a] hover:text-white transition-colors"
             >
               テストに参加
               <span className="material-symbols-outlined text-base">open_in_new</span>
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 border border-[#14151a]/15 text-[#14151a]/40 px-6 py-3 rounded-full font-label-mono text-[12px] uppercase tracking-widest">
+            <span className="inline-flex items-center gap-2 border border-[#14151a]/15 text-[#14151a] px-6 py-3 rounded-full font-label-mono text-[12px] uppercase tracking-widest">
               準備中
             </span>
           )}
 
           <Link
             href={`/works/${app.slug}/privacy`}
-            className="font-label-mono text-[11px] text-[#14151a]/55 hover:text-[#14151a] uppercase tracking-widest transition-colors"
+            className="font-label-mono text-[11px] text-[#14151a] hover:text-[#14151a] uppercase tracking-widest transition-colors"
           >
             プライバシーポリシー
           </Link>

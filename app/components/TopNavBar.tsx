@@ -39,11 +39,11 @@ export default function TopNavBar({ light = false }: { light?: boolean }) {
           style={{ filter: light ? 'brightness(0)' : 'brightness(0) invert(1)' }}
         />
         <nav className="hidden md:flex gap-12 font-label-mono text-label-mono uppercase tracking-widest">
-          <a className={light ? 'text-[#5457d6] border-b border-[#5457d6] pb-1' : 'text-accent-neon border-b border-accent-neon pb-1'} href="#">HOME</a>
-          <a className={`transition-colors duration-300 ${light ? 'text-[#14151a]/60 hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="#">ABOUT</a>
-          <Link className={`transition-colors duration-300 ${light ? 'text-[#14151a]/60 hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="/works">WORKS</Link>
+          <a className={light ? 'text-[#14151a] border-b border-[#14151a] pb-1' : 'text-accent-neon border-b border-accent-neon pb-1'} href="#">HOME</a>
+          <a className={`transition-colors duration-300 ${light ? 'text-[#14151a] hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="#">ABOUT</a>
+          <Link className={`transition-colors duration-300 ${light ? 'text-[#14151a] hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="/works">WORKS</Link>
         </nav>
-        <button className={`font-label-mono text-label-mono uppercase tracking-widest hover:opacity-70 transition-opacity ${light ? 'text-[#5457d6]' : 'text-accent-neon'}`}>
+        <button className={`font-label-mono text-label-mono uppercase tracking-widest hover:opacity-70 transition-opacity ${light ? 'text-[#14151a]' : 'text-accent-neon'}`}>
           GET IN TOUCH
         </button>
       </div>
