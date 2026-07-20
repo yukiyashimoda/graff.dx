@@ -39,12 +39,10 @@ export default function WaveGridBackground() {
   if (!enabled) return null
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true">
-      <div className="absolute inset-0 opacity-40">
-        <WaveGrid active={active} />
-      </div>
-      {/* 本文の可読性を確保するための覆い。上下だけ濃くして中央の波は残す。 */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/55 to-background" />
+    <div className="fixed inset-0 -z-10 pointer-events-none bg-[#f4f4f5]" aria-hidden="true">
+      <WaveGrid active={active} />
+      {/* 本文が乗る帯をわずかに白へ寄せて可読性を上げる（波は透けたまま） */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f4f4f5]/55 via-transparent to-[#f4f4f5]/70" />
     </div>
   )
 }

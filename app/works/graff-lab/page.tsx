@@ -79,13 +79,13 @@ const APPS: App[] = [
 export default function GraffLabPage() {
   return (
     <>
-      <TopNavBar />
+      <TopNavBar light />
       <WaveGridBackground />
-      <main className="relative min-h-screen pt-28 pb-32">
+      <main className="relative min-h-screen pt-28 pb-32 text-[#14151a]">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <Link
             href="/works"
-            className="inline-flex items-center gap-2 font-label-mono text-[11px] text-on-surface-variant hover:text-foreground uppercase tracking-widest transition-colors mb-12"
+            className="inline-flex items-center gap-2 font-label-mono text-[11px] text-[#14151a]/55 hover:text-[#14151a] uppercase tracking-widest transition-colors mb-12"
           >
             <span className="material-symbols-outlined text-sm">arrow_back</span>
             Back to Works
@@ -93,16 +93,16 @@ export default function GraffLabPage() {
 
           {/* ── Hero ── */}
           <header className="max-w-3xl mb-20">
-            <p className="font-label-mono text-[11px] text-accent-neon uppercase tracking-widest mb-6">
+            <p className="font-label-mono text-[11px] text-[#5457d6] uppercase tracking-widest mb-6">
               App Series · Android
             </p>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">GRAFF.LAB</h1>
-            <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-8">
+            <p className="text-[#14151a]/70 text-lg md:text-xl leading-relaxed mb-8">
               画面の中のボタンに、押した手応えを。
               <br />
               実在する道具のような質感を目指した Android アプリシリーズです。
             </p>
-            <p className="text-on-surface-variant leading-[1.9] text-[15px]">
+            <p className="text-[#14151a]/70 leading-[1.9] text-[15px]">
               現在3つのアプリを公開準備中です。ストア公開の前に、実際に使っていただける
               テスターを募集しています。
             </p>
@@ -113,18 +113,18 @@ export default function GraffLabPage() {
           <FlowIn>
           <section
             id="testing"
-            className="border border-accent-neon/30 rounded-2xl p-8 md:p-12 bg-background/80 backdrop-blur-md"
+            className="rounded-2xl p-8 md:p-12 bg-white/75 backdrop-blur-md border border-[#14151a]/10 shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]"
           >
-            <p className="font-label-mono text-[11px] text-accent-neon uppercase tracking-widest mb-5">
+            <p className="font-label-mono text-[11px] text-[#5457d6] uppercase tracking-widest mb-5">
               Recruiting Testers
             </p>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-5">
               テスターを募集しています
             </h2>
-            <p className="text-on-surface-variant leading-[1.9] text-[15px] mb-10 max-w-2xl">
+            <p className="text-[#14151a]/70 leading-[1.9] text-[15px] mb-10 max-w-2xl">
               Google Play のルールにより、アプリを一般公開するには公開前に一定期間のテストが
               必要です。ご協力いただける方は、以下の3ステップでご参加ください。
-              <span className="text-foreground">費用は一切かかりません。</span>
+              <span className="text-[#14151a] font-bold">費用は一切かかりません。</span>
             </p>
 
             {/* 手順 */}
@@ -137,7 +137,7 @@ export default function GraffLabPage() {
                     下のボタンから Google グループに参加してください。参加に使った Google
                     アカウントが、そのままテスターとして登録されます。
                     <br />
-                    <span className="text-on-surface-variant/70 text-[13px]">
+                    <span className="text-[#14151a]/50 text-[13px]">
                       ※ Android 端末で普段お使いの Google アカウントでご参加ください。
                     </span>
                   </>
@@ -151,7 +151,7 @@ export default function GraffLabPage() {
                     グループ参加後、下のアプリ一覧にある「テストに参加」から Google Play を開き、
                     インストールしてください。
                     <br />
-                    <span className="text-on-surface-variant/70 text-[13px]">
+                    <span className="text-[#14151a]/50 text-[13px]">
                       ※ 参加直後は反映まで数分〜数時間かかることがあります。
                     </span>
                   </>
@@ -166,7 +166,7 @@ export default function GraffLabPage() {
                     使いにくい点や不具合に気づいたら、
                     <a
                       href={`mailto:${CONTACT_MAIL}`}
-                      className="text-accent-neon hover:underline"
+                      className="text-[#5457d6] hover:underline"
                     >
                       {CONTACT_MAIL}
                     </a>
@@ -180,14 +180,14 @@ export default function GraffLabPage() {
               href={TESTER_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-accent-neon text-background font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-3 bg-[#14151a] text-white font-bold px-8 py-4 rounded-full hover:bg-[#5457d6] transition-colors"
             >
               テスターグループに参加する
               <span className="material-symbols-outlined text-lg">open_in_new</span>
             </a>
-            <p className="text-on-surface-variant/70 text-[13px] mt-5">
+            <p className="text-[#14151a]/50 text-[13px] mt-5">
               グループへの参加が難しい場合は、お使いの Google アカウントのメールアドレスを{' '}
-              <a href={`mailto:${CONTACT_MAIL}`} className="text-accent-neon hover:underline">
+              <a href={`mailto:${CONTACT_MAIL}`} className="text-[#5457d6] hover:underline">
                 {CONTACT_MAIL}
               </a>{' '}
               までお送りください。こちらで登録します。
@@ -198,9 +198,9 @@ export default function GraffLabPage() {
 
           {/* ── アプリ一覧 ── */}
           <section>
-            <div className="flex items-end justify-between mb-12 border-b border-outline-variant pb-6">
+            <div className="flex items-end justify-between mb-12 border-b border-[#14151a]/12 pb-6">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">アプリ</h2>
-              <span className="font-label-mono text-[11px] text-on-surface-variant/40">
+              <span className="font-label-mono text-[11px] text-[#14151a]/35">
                 {String(APPS.length).padStart(2, '0')} APPS
               </span>
             </div>
@@ -217,7 +217,7 @@ export default function GraffLabPage() {
           {/* ── よくある質問 ── */}
           <section className="mt-28 max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-10">よくある質問</h2>
-            <div className="space-y-8 text-on-surface-variant leading-[1.9] text-[15px]">
+            <div className="space-y-8 text-[#14151a]/70 leading-[1.9] text-[15px]">
               <Faq q="お金はかかりますか？">
                 テスト期間中は無料です。課金や自動更新は一切ありません。
               </Faq>
@@ -233,7 +233,7 @@ export default function GraffLabPage() {
                 現在は Android のみの提供です。
               </Faq>
               <Faq q="感想はどこに送ればいいですか？">
-                <a href={`mailto:${CONTACT_MAIL}`} className="text-accent-neon hover:underline">
+                <a href={`mailto:${CONTACT_MAIL}`} className="text-[#5457d6] hover:underline">
                   {CONTACT_MAIL}
                 </a>{' '}
                 までお気軽にお送りください。良かった点も、使いにくかった点も歓迎します。
@@ -249,12 +249,12 @@ export default function GraffLabPage() {
 function Step({ n, title, body }: { n: number; title: string; body: React.ReactNode }) {
   return (
     <li className="flex gap-5">
-      <span className="shrink-0 w-9 h-9 rounded-full border border-accent-neon/50 text-accent-neon font-label-mono text-sm flex items-center justify-center">
+      <span className="shrink-0 w-9 h-9 rounded-full border border-[#5457d6]/45 text-[#5457d6] font-label-mono text-sm flex items-center justify-center">
         {n}
       </span>
       <div className="pt-1">
-        <h3 className="text-foreground font-bold mb-2">{title}</h3>
-        <p className="text-on-surface-variant leading-[1.9] text-[15px]">{body}</p>
+        <h3 className="text-[#14151a] font-bold mb-2">{title}</h3>
+        <p className="text-[#14151a]/70 leading-[1.9] text-[15px]">{body}</p>
       </div>
     </li>
   )
@@ -262,8 +262,8 @@ function Step({ n, title, body }: { n: number; title: string; body: React.ReactN
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start rounded-2xl border border-outline-variant/40 bg-background/80 backdrop-blur-md p-7 md:p-10">
-      <div className="w-[140px] md:w-full aspect-square rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface-container">
+    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start rounded-2xl border border-[#14151a]/10 bg-white/75 backdrop-blur-md p-7 md:p-10 shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]">
+      <div className="w-[140px] md:w-full aspect-square rounded-2xl overflow-hidden border border-[#14151a]/10 bg-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={app.image}
@@ -273,12 +273,12 @@ function AppRow({ app }: { app: App }) {
       </div>
 
       <div>
-        <p className="font-label-mono text-[11px] text-on-surface-variant/60 uppercase tracking-widest mb-2">
+        <p className="font-label-mono text-[11px] text-[#14151a]/45 uppercase tracking-widest mb-2">
           {app.reading}
         </p>
         <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{app.name}</h3>
-        <p className="text-foreground text-lg mb-4">{app.tagline}</p>
-        <p className="text-on-surface-variant leading-[1.9] text-[15px] mb-6 max-w-2xl">
+        <p className="text-[#14151a] text-lg mb-4">{app.tagline}</p>
+        <p className="text-[#14151a]/70 leading-[1.9] text-[15px] mb-6 max-w-2xl">
           {app.description}
         </p>
 
@@ -286,7 +286,7 @@ function AppRow({ app }: { app: App }) {
           {app.points.map((p) => (
             <li
               key={p}
-              className="font-label-mono text-[11px] text-on-surface-variant border border-outline-variant rounded-full px-4 py-2"
+              className="font-label-mono text-[11px] text-[#14151a]/65 border border-[#14151a]/15 rounded-full px-4 py-2"
             >
               {p}
             </li>
@@ -299,20 +299,20 @@ function AppRow({ app }: { app: App }) {
               href={app.optInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-accent-neon text-accent-neon font-bold px-6 py-3 rounded-full hover:bg-accent-neon hover:text-background transition-colors"
+              className="inline-flex items-center gap-2 border border-[#5457d6] text-[#5457d6] font-bold px-6 py-3 rounded-full hover:bg-[#5457d6] hover:text-white transition-colors"
             >
               テストに参加
               <span className="material-symbols-outlined text-base">open_in_new</span>
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 border border-outline-variant text-on-surface-variant/50 px-6 py-3 rounded-full font-label-mono text-[12px] uppercase tracking-widest">
+            <span className="inline-flex items-center gap-2 border border-[#14151a]/15 text-[#14151a]/40 px-6 py-3 rounded-full font-label-mono text-[12px] uppercase tracking-widest">
               準備中
             </span>
           )}
 
           <Link
             href={`/works/${app.slug}/privacy`}
-            className="font-label-mono text-[11px] text-on-surface-variant hover:text-foreground uppercase tracking-widest transition-colors"
+            className="font-label-mono text-[11px] text-[#14151a]/55 hover:text-[#14151a] uppercase tracking-widest transition-colors"
           >
             プライバシーポリシー
           </Link>
@@ -325,7 +325,7 @@ function AppRow({ app }: { app: App }) {
 function Faq({ q, children }: { q: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="text-foreground font-bold mb-2">{q}</h3>
+      <h3 className="text-[#14151a] font-bold mb-2">{q}</h3>
       <p>{children}</p>
     </div>
   )
