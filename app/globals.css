@@ -63,6 +63,7 @@
   --font-body-main:          var(--ff-hanken), sans-serif;
   --font-body-sm:            var(--ff-hanken), sans-serif;
   --font-label-mono:         var(--ff-jetbrains), monospace;
+  --font-audiowide:          var(--ff-audiowide), sans-serif;
 }
 
 @layer utilities {

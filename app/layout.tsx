@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Sora, JetBrains_Mono, Hanken_Grotesk, Share_Tech } from 'next/font/google'
+import { Sora, JetBrains_Mono, Hanken_Grotesk, Share_Tech, Audiowide } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from './components/SmoothScrollProvider'
 import CustomCursor from './components/CustomCursor'
@@ -8,6 +8,7 @@ const sora      = Sora({ weight: ['400', '600', '700'], variable: '--ff-sora',  
 const jetbrains = JetBrains_Mono({ weight: ['400', '500'],  variable: '--ff-jetbrains', subsets: ['latin'], display: 'swap' })
 const hanken    = Hanken_Grotesk({ weight: ['400', '500'],  variable: '--ff-hanken',    subsets: ['latin'], display: 'swap' })
 const shareTech = Share_Tech({ weight: '400',               variable: '--ff-share-tech', subsets: ['latin'], display: 'swap' })
+const audiowide = Audiowide({ weight: '400',                variable: '--ff-audiowide',  subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'graff | Visualizing the Field',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" className={`dark ${sora.variable} ${jetbrains.variable} ${hanken.variable} ${shareTech.variable}`}>
+    <html lang="ja" className={`dark ${sora.variable} ${jetbrains.variable} ${hanken.variable} ${shareTech.variable} ${audiowide.variable}`}>
       <head>
         <link
           rel="stylesheet"

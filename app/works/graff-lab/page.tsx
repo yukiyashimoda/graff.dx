@@ -91,12 +91,12 @@ export default function GraffLabPage() {
             Back to Works
           </Link>
 
-          {/* ── Hero ── */}
-          <header className="max-w-3xl mb-20">
+          {/* ── Hero（画面いっぱい。背景の波を見せる余白として機能させる） ── */}
+          <header className="max-w-3xl min-h-[100svh] flex flex-col justify-center -mt-28 pt-28">
             <p className="font-label-mono text-[11px] text-[#5457d6] uppercase tracking-widest mb-6">
               App Series · Android
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">GRAFF.LAB</h1>
+            <h1 className="font-audiowide text-4xl md:text-6xl tracking-tight mb-6">GRAFF.LAB</h1>
             <p className="text-[#14151a]/70 text-lg md:text-xl leading-relaxed mb-8">
               画面の中のボタンに、押した手応えを。
               <br />
