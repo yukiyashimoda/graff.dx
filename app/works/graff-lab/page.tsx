@@ -78,11 +78,12 @@ export default function GraffLabPage() {
   return (
     <>
       <TopNavBar />
-      <main className="min-h-screen bg-background pt-28 pb-32">
+      {/* アプリのダークテーマと同じ地色。ここから内側がニューモーフィズムの世界。 */}
+      <main className="neu-scope min-h-screen pt-28 pb-32">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <Link
             href="/works"
-            className="inline-flex items-center gap-2 font-label-mono text-[11px] text-on-surface-variant hover:text-foreground uppercase tracking-widest transition-colors mb-12"
+            className="inline-flex items-center gap-2 font-label-mono text-[11px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity mb-12"
           >
             <span className="material-symbols-outlined text-sm">arrow_back</span>
             Back to Works
@@ -94,35 +95,31 @@ export default function GraffLabPage() {
               App Series · Android
             </p>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">GRAFF.LAB</h1>
-            <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-8">
+            <p className="text-lg md:text-xl leading-relaxed opacity-80 mb-8">
               画面の中のボタンに、押した手応えを。
               <br />
               実在する道具のような質感を目指した Android アプリシリーズです。
             </p>
-            <p className="text-on-surface-variant leading-[1.9] text-[15px]">
+            <p className="leading-[1.9] text-[15px] opacity-70">
               現在3つのアプリを公開準備中です。ストア公開の前に、実際に使っていただける
               テスターを募集しています。
             </p>
           </header>
 
-          {/* ── テスター募集 ── */}
-          <section
-            id="testing"
-            className="border border-accent-neon/30 rounded-2xl p-8 md:p-12 mb-24 bg-surface-container-low/40"
-          >
+          {/* ── テスター募集（凸パネル） ── */}
+          <section id="testing" className="neu-raised rounded-[28px] p-8 md:p-12 mb-24">
             <p className="font-label-mono text-[11px] text-accent-neon uppercase tracking-widest mb-5">
               Recruiting Testers
             </p>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-5">
               テスターを募集しています
             </h2>
-            <p className="text-on-surface-variant leading-[1.9] text-[15px] mb-10 max-w-2xl">
+            <p className="leading-[1.9] text-[15px] opacity-75 mb-10 max-w-2xl">
               Google Play のルールにより、アプリを一般公開するには公開前に一定期間のテストが
               必要です。ご協力いただける方は、以下の3ステップでご参加ください。
-              <span className="text-foreground">費用は一切かかりません。</span>
+              <span className="opacity-100 font-bold">費用は一切かかりません。</span>
             </p>
 
-            {/* 手順 */}
             <ol className="space-y-8 mb-12">
               <Step
                 n={1}
@@ -132,7 +129,7 @@ export default function GraffLabPage() {
                     下のボタンから Google グループに参加してください。参加に使った Google
                     アカウントが、そのままテスターとして登録されます。
                     <br />
-                    <span className="text-on-surface-variant/70 text-[13px]">
+                    <span className="opacity-60 text-[13px]">
                       ※ Android 端末で普段お使いの Google アカウントでご参加ください。
                     </span>
                   </>
@@ -146,7 +143,7 @@ export default function GraffLabPage() {
                     グループ参加後、下のアプリ一覧にある「テストに参加」から Google Play を開き、
                     インストールしてください。
                     <br />
-                    <span className="text-on-surface-variant/70 text-[13px]">
+                    <span className="opacity-60 text-[13px]">
                       ※ 参加直後は反映まで数分〜数時間かかることがあります。
                     </span>
                   </>
@@ -159,10 +156,7 @@ export default function GraffLabPage() {
                   <>
                     テスト期間中はアプリを削除せず、ときどき起動して使ってみてください。
                     使いにくい点や不具合に気づいたら、
-                    <a
-                      href={`mailto:${CONTACT_MAIL}`}
-                      className="text-accent-neon hover:underline"
-                    >
+                    <a href={`mailto:${CONTACT_MAIL}`} className="text-accent-neon hover:underline">
                       {CONTACT_MAIL}
                     </a>
                     までお知らせいただけると助かります。
@@ -171,16 +165,19 @@ export default function GraffLabPage() {
               />
             </ol>
 
+            {/* 主 CTA = アプリのキーと同じ凸ボタン。押すと凹む。 */}
             <a
               href={TESTER_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-accent-neon text-background font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+              className="neu-raised-sm neu-key neu-press-on-active rounded-[22px] inline-flex items-center gap-3
+                         px-10 py-5 font-bold text-accent-neon transition-shadow"
             >
               テスターグループに参加する
               <span className="material-symbols-outlined text-lg">open_in_new</span>
             </a>
-            <p className="text-on-surface-variant/70 text-[13px] mt-5">
+
+            <p className="text-[13px] opacity-55 mt-6">
               グループへの参加が難しい場合は、お使いの Google アカウントのメールアドレスを{' '}
               <a href={`mailto:${CONTACT_MAIL}`} className="text-accent-neon hover:underline">
                 {CONTACT_MAIL}
@@ -191,24 +188,24 @@ export default function GraffLabPage() {
 
           {/* ── アプリ一覧 ── */}
           <section>
-            <div className="flex items-end justify-between mb-12 border-b border-outline-variant pb-6">
+            <div className="flex items-end justify-between mb-12">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">アプリ</h2>
-              <span className="font-label-mono text-[11px] text-on-surface-variant/40">
+              <span className="font-label-mono text-[11px] opacity-35">
                 {String(APPS.length).padStart(2, '0')} APPS
               </span>
             </div>
 
-            <div className="space-y-16">
+            <div className="space-y-10">
               {APPS.map((app) => (
-                <AppRow key={app.slug} app={app} />
+                <AppCard key={app.slug} app={app} />
               ))}
             </div>
           </section>
 
-          {/* ── よくある質問 ── */}
-          <section className="mt-28 max-w-3xl">
+          {/* ── よくある質問（凹パネル） ── */}
+          <section className="mt-28">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-10">よくある質問</h2>
-            <div className="space-y-8 text-on-surface-variant leading-[1.9] text-[15px]">
+            <div className="neu-pressed rounded-[28px] p-8 md:p-12 space-y-8 leading-[1.9] text-[15px] max-w-3xl">
               <Faq q="お金はかかりますか？">
                 テスト期間中は無料です。課金や自動更新は一切ありません。
               </Faq>
@@ -220,9 +217,7 @@ export default function GraffLabPage() {
                 いつでもアンインストールしていただけます。ただし公開までの期間、テスターの人数が
                 一定数必要なため、可能であれば期間中は残していただけると助かります。
               </Faq>
-              <Faq q="iPhone でも使えますか？">
-                現在は Android のみの提供です。
-              </Faq>
+              <Faq q="iPhone でも使えますか？">現在は Android のみの提供です。</Faq>
               <Faq q="感想はどこに送ればいいですか？">
                 <a href={`mailto:${CONTACT_MAIL}`} className="text-accent-neon hover:underline">
                   {CONTACT_MAIL}
@@ -240,70 +235,71 @@ export default function GraffLabPage() {
 function Step({ n, title, body }: { n: number; title: string; body: React.ReactNode }) {
   return (
     <li className="flex gap-5">
-      <span className="shrink-0 w-9 h-9 rounded-full border border-accent-neon/50 text-accent-neon font-label-mono text-sm flex items-center justify-center">
+      {/* 番号は凹み＝盤面に刻まれた印字のイメージ */}
+      <span className="neu-pressed shrink-0 w-10 h-10 rounded-full text-accent-neon font-label-mono text-sm flex items-center justify-center">
         {n}
       </span>
-      <div className="pt-1">
-        <h3 className="text-foreground font-bold mb-2">{title}</h3>
-        <p className="text-on-surface-variant leading-[1.9] text-[15px]">{body}</p>
+      <div className="pt-1.5">
+        <h3 className="font-bold mb-2">{title}</h3>
+        <p className="leading-[1.9] text-[15px] opacity-75">{body}</p>
       </div>
     </li>
   )
 }
 
-function AppRow({ app }: { app: App }) {
+function AppCard({ app }: { app: App }) {
   return (
-    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start">
-      <div className="w-[140px] md:w-full aspect-square rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface-container">
+    <article className="neu-raised rounded-[28px] p-7 md:p-10 grid md:grid-cols-[180px_1fr] gap-8 md:gap-12 items-start">
+      {/* アイコンは凹んだ窓にはめ込む */}
+      <div className="neu-pressed w-[130px] md:w-full aspect-square rounded-[24px] p-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={app.image}
           alt={`${app.name} のアイコン`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-[16px]"
         />
       </div>
 
       <div>
-        <p className="font-label-mono text-[11px] text-on-surface-variant/60 uppercase tracking-widest mb-2">
+        <p className="font-label-mono text-[11px] opacity-50 uppercase tracking-widest mb-2">
           {app.reading}
         </p>
         <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{app.name}</h3>
-        <p className="text-foreground text-lg mb-4">{app.tagline}</p>
-        <p className="text-on-surface-variant leading-[1.9] text-[15px] mb-6 max-w-2xl">
-          {app.description}
-        </p>
+        <p className="text-lg mb-4">{app.tagline}</p>
+        <p className="leading-[1.9] text-[15px] opacity-70 mb-6 max-w-2xl">{app.description}</p>
 
-        <ul className="flex flex-wrap gap-2 mb-8">
+        <ul className="flex flex-wrap gap-2.5 mb-8">
           {app.points.map((p) => (
             <li
               key={p}
-              className="font-label-mono text-[11px] text-on-surface-variant border border-outline-variant rounded-full px-4 py-2"
+              className="neu-raised-sm rounded-full font-label-mono text-[11px] px-4 py-2 opacity-80"
             >
               {p}
             </li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-5">
           {app.optInUrl ? (
             <a
               href={app.optInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-accent-neon text-accent-neon font-bold px-6 py-3 rounded-full hover:bg-accent-neon hover:text-background transition-colors"
+              className="neu-raised-sm neu-key neu-press-on-active rounded-[22px] inline-flex items-center gap-2
+                         px-7 py-3.5 font-bold text-accent-neon transition-shadow"
             >
               テストに参加
               <span className="material-symbols-outlined text-base">open_in_new</span>
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 border border-outline-variant text-on-surface-variant/50 px-6 py-3 rounded-full font-label-mono text-[12px] uppercase tracking-widest">
+            <span className="neu-pressed rounded-[22px] inline-flex items-center px-7 py-3.5 font-label-mono text-[12px] uppercase tracking-widest opacity-45">
               準備中
             </span>
           )}
 
           <Link
             href={`/works/${app.slug}/privacy`}
-            className="font-label-mono text-[11px] text-on-surface-variant hover:text-foreground uppercase tracking-widest transition-colors"
+            className="font-label-mono text-[11px] uppercase tracking-widest opacity-55 hover:opacity-100 transition-opacity"
           >
             プライバシーポリシー
           </Link>
@@ -316,8 +312,8 @@ function AppRow({ app }: { app: App }) {
 function Faq({ q, children }: { q: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="text-foreground font-bold mb-2">{q}</h3>
-      <p>{children}</p>
+      <h3 className="font-bold mb-2">{q}</h3>
+      <p className="opacity-75">{children}</p>
     </div>
   )
 }
