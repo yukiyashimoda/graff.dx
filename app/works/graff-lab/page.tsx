@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import TopNavBar from '../../components/TopNavBar'
+import WaveGridBackground from '../../components/three/WaveGridBackground'
+import FlowIn from '../../components/FlowIn'
 
 export const metadata = {
   title: 'GRAFF.LAB — アプリシリーズとテスター募集 — graff',
@@ -78,7 +80,8 @@ export default function GraffLabPage() {
   return (
     <>
       <TopNavBar />
-      <main className="min-h-screen bg-background pt-28 pb-32">
+      <WaveGridBackground />
+      <main className="relative min-h-screen pt-28 pb-32">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <Link
             href="/works"
@@ -106,9 +109,11 @@ export default function GraffLabPage() {
           </header>
 
           {/* ── テスター募集 ── */}
+          <div className="flow-in-stage mb-24">
+          <FlowIn>
           <section
             id="testing"
-            className="border border-accent-neon/30 rounded-2xl p-8 md:p-12 mb-24 bg-surface-container-low/40"
+            className="border border-accent-neon/30 rounded-2xl p-8 md:p-12 bg-background/80 backdrop-blur-md"
           >
             <p className="font-label-mono text-[11px] text-accent-neon uppercase tracking-widest mb-5">
               Recruiting Testers
@@ -188,6 +193,8 @@ export default function GraffLabPage() {
               までお送りください。こちらで登録します。
             </p>
           </section>
+          </FlowIn>
+          </div>
 
           {/* ── アプリ一覧 ── */}
           <section>
@@ -198,9 +205,11 @@ export default function GraffLabPage() {
               </span>
             </div>
 
-            <div className="space-y-16">
-              {APPS.map((app) => (
-                <AppRow key={app.slug} app={app} />
+            <div className="flow-in-stage space-y-16">
+              {APPS.map((app, i) => (
+                <FlowIn key={app.slug} delay={i * 0.12}>
+                  <AppRow app={app} />
+                </FlowIn>
               ))}
             </div>
           </section>
@@ -253,7 +262,7 @@ function Step({ n, title, body }: { n: number; title: string; body: React.ReactN
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start">
+    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start rounded-2xl border border-outline-variant/40 bg-background/80 backdrop-blur-md p-7 md:p-10">
       <div className="w-[140px] md:w-full aspect-square rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface-container">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

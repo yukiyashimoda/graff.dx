@@ -131,6 +131,25 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Flow in（奥から手前へ流れてくる出現） ── */
+.flow-in-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+.flow-in {
+  opacity: 0;
+  transform: translate3d(0, 60px, -420px) rotateX(14deg);
+  transition:
+    opacity 0.9s ease,
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: opacity, transform;
+}
+.flow-in.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+}
+
 /* ── Scroll reveal (IntersectionObserver fallback) ── */
 .scroll-reveal {
   opacity: 0;
