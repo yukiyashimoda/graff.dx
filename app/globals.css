@@ -68,58 +68,6 @@
 @layer utilities {
   .max-w-container-max { max-width: 1440px; }
 
-  /* ===========================================================
-     Neumorphism — GRAFF.LAB アプリのダークテーマ(DarkGraff)を web に移植。
-     地と同色の面を、左上の光・右下の影の2枚だけで押し出す。
-     色は graff-core の GraffTheme と同じ値。
-     =========================================================== */
-  .neu-scope {
-    --neu-surface:  #2b2b2e;  /* 地 */
-    --neu-dark:     #141416;  /* 影 */
-    --neu-light:    #4a4a52;  /* 光 */
-    --neu-key-top:  #3a3a3f;
-    --neu-key-bot:  #232326;
-    --neu-ink:      #eaeae6;
-    background-color: var(--neu-surface);
-    color: var(--neu-ink);
-  }
-
-  /* 凸（通常のパネル・カード） */
-  .neu-raised {
-    background-color: var(--neu-surface);
-    box-shadow:
-       8px  8px 16px var(--neu-dark),
-      -8px -8px 16px color-mix(in srgb, var(--neu-light) 45%, transparent);
-  }
-
-  /* 凸（小さめ。ボタン・チップ用に影を締める） */
-  .neu-raised-sm {
-    background-color: var(--neu-surface);
-    box-shadow:
-       4px  4px  8px var(--neu-dark),
-      -4px -4px  8px color-mix(in srgb, var(--neu-light) 45%, transparent);
-  }
-
-  /* 凹（へこみ。押下状態・情報の窪み） */
-  .neu-pressed {
-    background-color: var(--neu-surface);
-    box-shadow:
-      inset  5px  5px 10px var(--neu-dark),
-      inset -5px -5px 10px color-mix(in srgb, var(--neu-light) 45%, transparent);
-  }
-
-  /* キー本体の斜めグラデ（ライトほど強くないが、面に丸みを与える） */
-  .neu-key {
-    background-image: linear-gradient(135deg, var(--neu-key-top), var(--neu-key-bot));
-  }
-
-  /* 押すと凹む。アプリのキーと同じ挙動 */
-  .neu-press-on-active:active {
-    box-shadow:
-      inset  5px  5px 10px var(--neu-dark),
-      inset -5px -5px 10px color-mix(in srgb, var(--neu-light) 45%, transparent);
-  }
-
   /* Typography scale */
   .text-display-xl {
     font-size: 120px; line-height: 110%;
