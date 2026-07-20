@@ -35,7 +35,10 @@ type App = {
   tagline: string
   description: string
   points: string[]
+  /** 正方形アイコン */
   image: string
+  /** 2:1 の紹介バナー */
+  banner: string
   /** Play Console のクローズドテスト オプトイン URL。未発行のうちは null。 */
   optInUrl: string | null
 }
@@ -50,6 +53,7 @@ const APPS: App[] = [
       '7セグメント表示とシリコンキーの手触りにこだわった電卓。横スワイプで為替換算に切り替わり、最新レートで計算できます。',
     points: ['電卓 ⇄ 為替換算の2画面', '12通貨に対応', '計算履歴・多言語（日英韓中西）'],
     image: '/works/graff-lab/calc-rate.png',
+    banner: '/works/graff-lab/banner-calc-rate.png',
     optInUrl: null, // TODO
   },
   {
@@ -61,6 +65,7 @@ const APPS: App[] = [
       'SNS やよく開くページを液晶パネル付きの筐体に並べるリンク管理。QR 表示で相手にすぐ渡せます。ホーム画面ウィジェット対応。',
     points: ['51種のサービスアイコン', 'QRコードを端末内で生成', '筐体カラー6色・ウィジェット対応'],
     image: '/works/graff-lab/shake-link.png',
+    banner: '/works/graff-lab/banner-shake-link.jpg',
     optInUrl: null, // TODO
   },
   {
@@ -72,6 +77,7 @@ const APPS: App[] = [
       '月齢と時刻を金属筐体のガジェット風に表示するウィジェット。今夜の月がどんな形かひと目で分かります。',
     points: ['ホーム画面ウィジェット', '月齢を端末内で計算', '権限・通信なし'],
     image: '/works/graff-lab/moonphasetime.png',
+    banner: '/works/graff-lab/banner-moonphasetime.jpg',
     optInUrl: null, // TODO
   },
 ]
@@ -262,21 +268,35 @@ function Step({ n, title, body }: { n: number; title: string; body: React.ReactN
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start rounded-2xl border border-[#14151a]/10 bg-white/75 backdrop-blur-md p-7 md:p-10 shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]">
-      <div className="w-[140px] md:w-full aspect-square rounded-2xl overflow-hidden border border-[#14151a]/10 bg-white">
+    <article className="rounded-2xl border border-[#14151a]/10 bg-white/75 backdrop-blur-md overflow-hidden shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]">
+      {/* 紹介バナー（2:1）。カード幅いっぱいに見せる */}
+      <div className="aspect-[2/1] bg-white border-b border-[#14151a]/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={app.image}
-          alt={`${app.name} のアイコン`}
+          src={app.banner}
+          alt={`${app.name} の紹介画像`}
           className="w-full h-full object-cover"
         />
       </div>
 
-      <div>
-        <p className="font-label-mono text-[11px] text-[#14151a]/45 uppercase tracking-widest mb-2">
-          {app.reading}
-        </p>
-        <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{app.name}</h3>
+      <div className="p-7 md:p-10">
+        {/* アイコンはアイコンとして、見出しの隣に並べる */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-14 h-14 shrink-0 rounded-[14px] overflow-hidden border border-[#14151a]/10 bg-white">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={app.image}
+              alt={`${app.name} のアイコン`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div>
+            <p className="font-label-mono text-[11px] text-[#14151a]/45 uppercase tracking-widest mb-1">
+              {app.reading}
+            </p>
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{app.name}</h3>
+          </div>
+        </div>
         <p className="text-[#14151a] text-lg mb-4">{app.tagline}</p>
         <p className="text-[#14151a]/70 leading-[1.9] text-[15px] mb-6 max-w-2xl">
           {app.description}
