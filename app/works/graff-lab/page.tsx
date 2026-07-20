@@ -103,14 +103,12 @@ export default function GraffLabPage() {
               App Series · Android
             </p>
             <h1 className="font-audiowide text-4xl md:text-6xl tracking-tight mb-6">GRAFF.LAB</h1>
-            <p className="text-[#14151a]/70 text-lg md:text-xl leading-relaxed mb-8">
-              画面の中のボタンに、押した手応えを。
+            <p className="text-[#14151a] text-[15px] leading-[2.1]">
+              アプリケーションに手触りを。
               <br />
-              実在する道具のような質感を目指した Android アプリシリーズです。
-            </p>
-            <p className="text-[#14151a]/70 leading-[1.9] text-[15px]">
-              現在3つのアプリを公開準備中です。ストア公開の前に、実際に使っていただける
-              テスターを募集しています。
+              シンプルでどこか懐かしい。
+              <br />
+              愛着の湧く”道具”を目指します。
             </p>
           </header>
 
