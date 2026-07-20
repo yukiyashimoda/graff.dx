@@ -99,7 +99,7 @@ export default function GraffLabPage() {
 
           {/* ── Hero（画面いっぱい。背景の波を見せる余白として機能させる） ── */}
           <header className="max-w-3xl min-h-[100svh] flex flex-col justify-center -mt-28 pt-28">
-            <p className="font-label-mono text-[11px] text-[#5457d6] uppercase tracking-widest mb-6">
+            <p className="font-label-mono text-[11px] text-[#14151a] uppercase tracking-widest mb-6">
               App Series · Android
             </p>
             <h1 className="font-audiowide text-4xl md:text-6xl tracking-tight mb-6">GRAFF.LAB</h1>
