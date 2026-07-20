@@ -70,8 +70,8 @@ const APPS: App[] = [
   },
   {
     slug: 'moonphasetime',
-    name: 'MoonPhaseTime',
-    reading: 'ムーンフェイズタイム',
+    name: 'MOON PHASE WATCH WIDGET',
+    reading: 'ムーンフェイズ ウォッチウィジェット',
     tagline: '月の満ち欠けを、ホーム画面に。',
     description:
       '月齢と時刻を金属筐体のガジェット風に表示するウィジェット。今夜の月がどんな形かひと目で分かります。',

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import TopNavBar from '../../../components/TopNavBar'
 
 export const metadata = {
-  title: 'MoonPhaseTime プライバシーポリシー — graff',
-  description: 'MoonPhaseTime（ムーンフェイズタイム）のプライバシーポリシー。',
+  title: 'MOON PHASE WATCH WIDGET プライバシーポリシー — graff',
+  description: 'MOON PHASE WATCH WIDGET（ムーンフェイズ ウォッチウィジェット）のプライバシーポリシー。',
 }
 
 export default function MoonPhaseTimePrivacyPage() {
@@ -21,7 +21,7 @@ export default function MoonPhaseTimePrivacyPage() {
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-            MoonPhaseTime プライバシーポリシー
+            MOON PHASE WATCH WIDGET プライバシーポリシー
           </h1>
           <p className="font-label-mono text-[11px] text-on-surface-variant uppercase tracking-widest mb-12">
             Last updated: 2026-07-20
@@ -29,7 +29,7 @@ export default function MoonPhaseTimePrivacyPage() {
 
           <div className="space-y-10 text-on-surface-variant leading-[1.9] text-[15px]">
             <p>
-              MoonPhaseTime（ムーンフェイズタイム、以下「本アプリ」）は、graff（以下「開発者」）が提供する月齢・時刻表示ウィジェットアプリです。
+              MOON PHASE WATCH WIDGET（ムーンフェイズ ウォッチウィジェット、以下「本アプリ」）は、graff（以下「開発者」）が提供する月齢・時刻表示ウィジェットアプリです。
               本アプリは利用者のプライバシーを尊重します。本ポリシーは、本アプリが扱う情報とその取り扱いを説明します。
             </p>
 
