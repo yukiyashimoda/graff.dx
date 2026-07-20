@@ -160,7 +160,8 @@ export default function WaveGrid({ active }: { active: boolean }) {
       waveJitter: 0.2,
       waveMaxHeight: 0.4,
       colorBase: '#ffffff',
-      colorHigh: '#0055ff',
+      // 原典は #0055ff。GRAFF.LAB アプリのキー押下発光と同じアンバーに差し替え
+      colorHigh: '#ff6a00',
     }
     const bounds = gridSize * (cubeWidth + params.gap)
 
