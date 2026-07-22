@@ -44,6 +44,29 @@ const TESTER_GROUP_URL = 'https://groups.google.com/g/graff-lab-testers'
 /** 問い合わせ先。グループが使えない人向けの受け口。 */
 const CONTACT_MAIL = 'graff_dx@icloud.com'
 
+const CALC_RATE_PROMOTION_CODES = [
+  'XLJAHTZKXUX2FQ7HGWE8MLR',
+  'XDZBBXEM9TC0TBNM5HL0N7Z',
+  'G2XUQCHTU1G5VLT4MQB35PV',
+  '5UY2KDBZ826X0GRKBKH3QVT',
+  'GF4NEPU99WFNAX2FPPB4M8A',
+  'Y50J999KVLE9DANSZBLJ5BM',
+  'DQCPMWQHJK2MMW4VHH7A27M',
+  '0E31ZXEHQUZYX4C8XYLJDQE',
+  'RFZ5ABMHVGH3DJ4AUVGGK9X',
+  '62274J0FJU3V8UWSE37AVN0',
+  'JKYACX3N6JVRNJKGLK9RNPB',
+  'WMY8MMSY91XMGDN0ESVB74L',
+  '1PFA6XM59AVEDYM26U5L7EA',
+  'DB77H75F9N1WL9GDYL916FH',
+  '1KQ7M1EDKAFJSXPXE5VS400',
+  'SQTTCQ2564CW1J8SLV99AMS',
+  '7GK362PD8MX7SBS8V2013CW',
+  '57MLSP539H4RVNBUG3EPCL0',
+  'SDFGXLWYCY3N8V99T4Z8AYX',
+  'UY3MPS5EJPBL4DF8B1S10RZ',
+]
+
 type App = {
   slug: string
   name: string
@@ -212,6 +235,28 @@ export default function GraffLabPage() {
               </a>{' '}
               までお送りください。こちらで登録します。
             </p>
+            <div className="mt-10 border-t border-[#14151a]/10 pt-8">
+              <p className="font-label-mono text-[11px] text-[#14151a] uppercase tracking-widest mb-4">
+                CALC/RATE Promo Codes
+              </p>
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
+                CALC/RATE は先着20名まで無料で参加できます
+              </h3>
+              <p className="text-[#14151a] leading-[1.9] text-[14px] mb-6 max-w-2xl">
+                Google Play の支払い画面で、未使用のプロモーションコードを1つ入力してください。
+                使われたコードは再利用できません。
+              </p>
+              <div className="grid gap-2 md:grid-cols-2">
+                {CALC_RATE_PROMOTION_CODES.map((code) => (
+                  <code
+                    key={code}
+                    className="block rounded-xl border border-[#14151a]/10 bg-white/70 px-4 py-3 font-label-mono text-[12px] text-[#14151a]"
+                  >
+                    {code}
+                  </code>
+                ))}
+              </div>
+            </div>
           </section>
           </FlowIn>
           </div>
