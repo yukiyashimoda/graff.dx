@@ -4,6 +4,7 @@ import WaveGridBackground from '../../components/three/WaveGridBackground'
 import FlowIn from '../../components/FlowIn'
 
 export const metadata = {
+  metadataBase: new URL('https://graff-dx.dev'),
   title: 'GRAFF.LAB — アプリシリーズとテスター募集 — graff',
   description:
     '実在する道具のような手触りを目指した Android アプリシリーズ GRAFF.LAB。公開前のクローズドテストに参加いただける方を募集しています。',
@@ -13,7 +14,22 @@ export const metadata = {
     description:
       '実在する道具のような手触りを目指した Android アプリシリーズ。クローズドテスト参加者を募集中。',
     url: 'https://graff-dx.dev/works/graff-lab',
+    images: [
+      {
+        url: '/works/graff-lab/banner-calc-rate.png',
+        width: 1024,
+        height: 500,
+        alt: 'GRAFF.LAB Android app series',
+      },
+    ],
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GRAFF.LAB — アプリシリーズとテスター募集',
+    description:
+      '実在する道具のような手触りを目指した Android アプリシリーズ。クローズドテスト参加者を募集中。',
+    images: ['/works/graff-lab/banner-calc-rate.png'],
   },
 }
 
@@ -23,10 +39,10 @@ export const metadata = {
 // ───────────────────────────────────────────────────────────
 
 /** テスター用 Google グループ。参加申請するとテスターとして登録される。 */
-const TESTER_GROUP_URL = 'https://groups.google.com/g/graff-lab-testers' // TODO: 作成後に確定URLへ
+const TESTER_GROUP_URL = 'https://groups.google.com/g/graff-lab-testers'
 
 /** 問い合わせ先。グループが使えない人向けの受け口。 */
-const CONTACT_MAIL = 'graff-dx@icloud.com'
+const CONTACT_MAIL = 'graff_dx@icloud.com'
 
 type App = {
   slug: string
