@@ -2,6 +2,7 @@ import Link from 'next/link'
 import TopNavBar from '../../components/TopNavBar'
 import WaveGridBackground from '../../components/three/WaveGridBackground'
 import FlowIn from '../../components/FlowIn'
+import PromoCodeIssuer from './PromoCodeIssuer'
 
 export const metadata = {
   metadataBase: new URL('https://graff-dx.dev'),
@@ -243,30 +244,21 @@ export default function GraffLabPage() {
                 CALC/RATE は先着20名まで無料で参加できます
               </h3>
               <p className="text-[#14151a] leading-[1.9] text-[14px] mb-6 max-w-2xl">
-                Google Play の支払い画面で、未使用のプロモーションコードを1つ入力してください。
-                使われたコードは再利用できません。
+                「コードを発行する」を押すと、プロモーションコードが1つ表示されます。
+                使われたコードは再利用できません。先着分が終了していた場合はご了承ください。
               </p>
               <div className="mb-6 rounded-2xl border border-[#14151a]/10 bg-white/55 p-5">
                 <p className="font-bold text-[#14151a] mb-3">コードの使い方</p>
                 <ol className="list-decimal pl-5 space-y-2 text-[#14151a] leading-[1.8] text-[14px]">
                   <li>テスターグループに参加して、CALC/RATE の「テストに参加」を開きます。</li>
                   <li>Google Play の購入画面で、支払い方法の欄から「コードを利用」を選びます。</li>
-                  <li>下の未使用コードを1つ入力して、画面の案内に沿って進めてください。</li>
+                  <li>表示されたコードを入力して、画面の案内に沿って進めてください。</li>
                 </ol>
                 <p className="text-[#14151a] leading-[1.8] text-[13px] mt-3">
                   うまく表示されない場合は、Google Play の「コードを利用」画面から直接入力してください。
                 </p>
               </div>
-              <div className="grid gap-2 md:grid-cols-2">
-                {CALC_RATE_PROMOTION_CODES.map((code) => (
-                  <code
-                    key={code}
-                    className="block rounded-xl border border-[#14151a]/10 bg-white/70 px-4 py-3 font-label-mono text-[12px] text-[#14151a]"
-                  >
-                    {code}
-                  </code>
-                ))}
-              </div>
+              <PromoCodeIssuer codes={CALC_RATE_PROMOTION_CODES} />
             </div>
           </section>
           </FlowIn>
