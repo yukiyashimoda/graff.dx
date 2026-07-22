@@ -70,7 +70,7 @@ const APPS: App[] = [
     points: ['電卓 ⇄ 為替換算の2画面', '12通貨に対応', '計算履歴・多言語（日英韓中西）'],
     image: '/works/graff-lab/calc-rate.png',
     banner: '/works/graff-lab/banner-calc-rate.png',
-    optInUrl: null, // TODO
+    optInUrl: 'https://play.google.com/apps/testing/com.graff.calc',
   },
   {
     slug: 'shake-link',
