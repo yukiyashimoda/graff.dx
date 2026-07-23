@@ -2,7 +2,6 @@ import Link from 'next/link'
 import TopNavBar from '../../components/TopNavBar'
 import WaveGridBackground from '../../components/three/WaveGridBackground'
 import FlowIn from '../../components/FlowIn'
-import PromoCodeIssuer from './PromoCodeIssuer'
 
 export const metadata = {
   metadataBase: new URL('https://graff-dx.dev'),
@@ -44,29 +43,6 @@ const TESTER_GROUP_URL = 'https://groups.google.com/g/graff-lab-testers'
 
 /** 問い合わせ先。グループが使えない人向けの受け口。 */
 const CONTACT_MAIL = 'graff_dx@icloud.com'
-
-const CALC_RATE_PROMOTION_CODES = [
-  'XLJAHTZKXUX2FQ7HGWE8MLR',
-  'XDZBBXEM9TC0TBNM5HL0N7Z',
-  'G2XUQCHTU1G5VLT4MQB35PV',
-  '5UY2KDBZ826X0GRKBKH3QVT',
-  'GF4NEPU99WFNAX2FPPB4M8A',
-  'Y50J999KVLE9DANSZBLJ5BM',
-  'DQCPMWQHJK2MMW4VHH7A27M',
-  '0E31ZXEHQUZYX4C8XYLJDQE',
-  'RFZ5ABMHVGH3DJ4AUVGGK9X',
-  '62274J0FJU3V8UWSE37AVN0',
-  'JKYACX3N6JVRNJKGLK9RNPB',
-  'WMY8MMSY91XMGDN0ESVB74L',
-  '1PFA6XM59AVEDYM26U5L7EA',
-  'DB77H75F9N1WL9GDYL916FH',
-  '1KQ7M1EDKAFJSXPXE5VS400',
-  'SQTTCQ2564CW1J8SLV99AMS',
-  '7GK362PD8MX7SBS8V2013CW',
-  '57MLSP539H4RVNBUG3EPCL0',
-  'SDFGXLWYCY3N8V99T4Z8AYX',
-  'UY3MPS5EJPBL4DF8B1S10RZ',
-]
 
 type App = {
   slug: string
@@ -168,7 +144,9 @@ export default function GraffLabPage() {
             <p className="text-[#14151a] leading-[1.9] text-[15px] mb-10 max-w-2xl">
               Google Play のルールにより、アプリを一般公開するには公開前に一定期間のテストが
               必要です。ご協力いただける方は、以下の3ステップでご参加ください。
-              <span className="text-[#14151a] font-bold">費用は一切かかりません。</span>
+              <span className="text-[#14151a] font-bold">
+                CALC/RATE はクローズドテスト期間中、Google Play のセール価格で提供しています。
+              </span>
             </p>
 
             {/* 手順 */}
@@ -193,7 +171,7 @@ export default function GraffLabPage() {
                 body={
                   <>
                     グループ参加後、下のアプリ一覧にある「テストに参加」から Google Play を開き、
-                    インストールしてください。
+                    表示されるセール価格でインストールしてください。
                     <br />
                     <span className="text-[#14151a] text-[13px]">
                       ※ 参加直後は反映まで数分〜数時間かかることがあります。
@@ -238,27 +216,24 @@ export default function GraffLabPage() {
             </p>
             <div className="mt-10 border-t border-[#14151a]/10 pt-8">
               <p className="font-label-mono text-[11px] text-[#14151a] uppercase tracking-widest mb-4">
-                CALC/RATE Promo Codes
+                CALC/RATE Closed Test Sale
               </p>
               <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
-                CALC/RATE は先着20名まで無料で参加できます
+                CALC/RATE はクローズドテスト期間中セール価格です
               </h3>
               <p className="text-[#14151a] leading-[1.9] text-[14px] mb-6 max-w-2xl">
-                「コードを発行する」を押すと、プロモーションコードが1つ表示されます。
-                使われたコードは再利用できません。先着分が終了していた場合はご了承ください。
+                プロモーションコードの配布ではなく、Google Play 側のセールとして提供しています。
+                テスターグループ参加後、CALC/RATE の「テストに参加」から Google Play を開いてください。
               </p>
-              <div className="mb-6 rounded-2xl border border-[#14151a]/10 bg-white/55 p-5">
-                <p className="font-bold text-[#14151a] mb-3">コードの使い方</p>
-                <ol className="list-decimal pl-5 space-y-2 text-[#14151a] leading-[1.8] text-[14px]">
-                  <li>テスターグループに参加して、CALC/RATE の「テストに参加」を開きます。</li>
-                  <li>Google Play の購入画面で、支払い方法の欄から「コードを利用」を選びます。</li>
-                  <li>表示されたコードを入力して、画面の案内に沿って進めてください。</li>
-                </ol>
+              <div className="rounded-2xl border border-[#14151a]/10 bg-white/55 p-5">
+                <p className="font-bold text-[#14151a] mb-3">セール期間</p>
+                <p className="text-[#14151a] leading-[1.8] text-[14px]">
+                  2026年7月23日〜2026年8月2日
+                </p>
                 <p className="text-[#14151a] leading-[1.8] text-[13px] mt-3">
-                  うまく表示されない場合は、Google Play の「コードを利用」画面から直接入力してください。
+                  セール価格と対象地域は Google Play の表示が優先されます。
                 </p>
               </div>
-              <PromoCodeIssuer codes={CALC_RATE_PROMOTION_CODES} />
             </div>
           </section>
           </FlowIn>
@@ -287,7 +262,8 @@ export default function GraffLabPage() {
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-10">よくある質問</h2>
             <div className="space-y-8 text-[#14151a] leading-[1.9] text-[15px]">
               <Faq q="お金はかかりますか？">
-                テスト期間中は無料です。課金や自動更新は一切ありません。
+                CALC/RATE はクローズドテスト期間中、Google Play のセール価格で提供しています。
+                価格は Google Play の表示をご確認ください。
               </Faq>
               <Faq q="個人情報は収集されますか？">
                 いずれのアプリも、氏名・メールアドレス・位置情報などの個人データを収集しません。
