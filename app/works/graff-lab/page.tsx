@@ -49,7 +49,7 @@ type App = {
   name: string
   reading: string
   tagline: string
-  description: string
+  description: React.ReactNode
   points: string[]
   /** 正方形アイコン */
   image: string
@@ -95,6 +95,34 @@ const APPS: App[] = [
     image: '/works/graff-lab/moonphasetime.png',
     banner: '/works/graff-lab/banner-moonphasetime.jpg',
     optInUrl: null, // TODO
+  },
+  {
+    slug: 'cache-snap',
+    name: 'CACHE/SNAP',
+    reading: 'キャッシュスナップ',
+    tagline: '“消える”写真アプリ',
+    description: (
+      <>
+        スマホのストレージを圧迫する写真。
+        <br />
+        そのほとんどは見返されることもなく、ただ積み上がっていきます。
+        <br />
+        <br />
+        CACHE/SNAPで撮影した写真は、スマホのギャラリーには保存されません。
+        <br />
+        <br />
+        アプリ内にキャッシュのように一時保管され、
+        <br />
+        7日後に自動で消えていきます。
+        <br />
+        <br />
+        大切な写真だけ、端末に保存してください。
+      </>
+    ),
+    points: ['一時保存ギャラリー', '保存期間設定', 'お気に入り・端末保存'],
+    image: '/works/graff-lab/cache-snap.jpg',
+    banner: '/works/graff-lab/cache-snap.jpg',
+    optInUrl: null, // 準備中
   },
 ]
 
