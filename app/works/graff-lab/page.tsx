@@ -73,30 +73,6 @@ const APPS: App[] = [
     optInUrl: 'https://play.google.com/apps/testing/com.graff.calc',
   },
   {
-    slug: 'shake-link',
-    name: 'SHAKE/LINK',
-    reading: 'シェイクリンク',
-    tagline: 'よく使うリンクを、手のひらのガジェットに。',
-    description:
-      'SNS やよく開くページを液晶パネル付きの筐体に並べるリンク管理。QR 表示で相手にすぐ渡せます。ホーム画面ウィジェット対応。',
-    points: ['51種のサービスアイコン', 'QRコードを端末内で生成', '筐体カラー6色・ウィジェット対応'],
-    image: '/works/graff-lab/shake-link.png',
-    banner: '/works/graff-lab/banner-shake-link.jpg',
-    optInUrl: null, // TODO
-  },
-  {
-    slug: 'moonphasetime',
-    name: 'MOON PHASE WATCH WIDGET',
-    reading: 'ムーンフェイズ ウォッチウィジェット',
-    tagline: '月の満ち欠けを、ホーム画面に。',
-    description:
-      '月齢と時刻を金属筐体のガジェット風に表示するウィジェット。今夜の月がどんな形かひと目で分かります。',
-    points: ['ホーム画面ウィジェット', '月齢を端末内で計算', '権限・通信なし'],
-    image: '/works/graff-lab/moonphasetime.png',
-    banner: '/works/graff-lab/banner-moonphasetime.jpg',
-    optInUrl: null, // TODO
-  },
-  {
     slug: 'cache-snap',
     name: 'CACHE/SNAP',
     reading: 'キャッシュスナップ',
@@ -123,6 +99,30 @@ const APPS: App[] = [
     image: '/works/graff-lab/cache-snap.jpg',
     banner: '/works/graff-lab/cache-snap.jpg',
     optInUrl: null, // 準備中
+  },
+  {
+    slug: 'shake-link',
+    name: 'SHAKE/LINK',
+    reading: 'シェイクリンク',
+    tagline: 'よく使うリンクを、手のひらのガジェットに。',
+    description:
+      'SNS やよく開くページを液晶パネル付きの筐体に並べるリンク管理。QR 表示で相手にすぐ渡せます。ホーム画面ウィジェット対応。',
+    points: ['51種のサービスアイコン', 'QRコードを端末内で生成', '筐体カラー6色・ウィジェット対応'],
+    image: '/works/graff-lab/shake-link.png',
+    banner: '/works/graff-lab/banner-shake-link.jpg',
+    optInUrl: null, // TODO
+  },
+  {
+    slug: 'moonphasetime',
+    name: 'MOON PHASE WATCH WIDGET',
+    reading: 'ムーンフェイズ ウォッチウィジェット',
+    tagline: '月の満ち欠けを、ホーム画面に。',
+    description:
+      '月齢と時刻を金属筐体のガジェット風に表示するウィジェット。今夜の月がどんな形かひと目で分かります。',
+    points: ['ホーム画面ウィジェット', '月齢を端末内で計算', '権限・通信なし'],
+    image: '/works/graff-lab/moonphasetime.png',
+    banner: '/works/graff-lab/banner-moonphasetime.jpg',
+    optInUrl: null, // TODO
   },
 ]
 
