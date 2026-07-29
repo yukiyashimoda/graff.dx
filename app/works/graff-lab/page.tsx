@@ -95,7 +95,7 @@ const APPS: App[] = [
         大切な写真だけ、端末に保存してください。
       </>
     ),
-    points: ['一時保存ギャラリー', '保存期間設定', 'お気に入り・端末保存'],
+    points: ['一時保存ギャラリー', '7日後に自動削除', '端末保存'],
     image: '/works/graff-lab/cache-snap.jpg',
     banner: '/works/graff-lab/cache-snap.jpg',
     optInUrl: null, // 準備中
