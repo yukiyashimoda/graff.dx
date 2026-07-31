@@ -16,10 +16,10 @@ export const metadata = {
     url: 'https://graff-dx.dev/works/graff-lab',
     images: [
       {
-        url: '/works/graff-lab/banner-calc-rate.png',
-        width: 1024,
-        height: 500,
-        alt: 'GRAFF.LAB Android app series',
+        url: '/works/graff-lab/cache-snap.jpg',
+        width: 1672,
+        height: 941,
+        alt: 'CACHE/SNAP Android closed test',
       },
     ],
     type: 'website',
@@ -29,7 +29,7 @@ export const metadata = {
     title: 'GRAFF.LAB — アプリシリーズとテスター募集',
     description:
       '実在する道具のような手触りを目指した Android アプリシリーズ。クローズドテスト参加者を募集中。',
-    images: ['/works/graff-lab/banner-calc-rate.png'],
+    images: ['/works/graff-lab/cache-snap.jpg'],
   },
 }
 
@@ -98,7 +98,7 @@ const APPS: App[] = [
     points: ['一時保存ギャラリー', '7日後に自動削除', '端末保存'],
     image: '/works/graff-lab/cache-snap.jpg',
     banner: '/works/graff-lab/cache-snap.jpg',
-    optInUrl: null, // 準備中
+    optInUrl: 'https://play.google.com/apps/testing/com.graff.cachelink',
   },
   {
     slug: 'shake-link',
@@ -295,7 +295,8 @@ export default function GraffLabPage() {
               </Faq>
               <Faq q="個人情報は収集されますか？">
                 いずれのアプリも、氏名・メールアドレス・位置情報などの個人データを収集しません。
-                解析ツールや広告も入っていません。詳細は各アプリのプライバシーポリシーをご覧ください。
+                cache/snap は広告表示と広告解除購入のため Google の SDK を使用します。
+                詳細は各アプリのプライバシーポリシーをご覧ください。
               </Faq>
               <Faq q="途中でやめられますか？">
                 いつでもアンインストールしていただけます。ただし公開までの期間、テスターの人数が

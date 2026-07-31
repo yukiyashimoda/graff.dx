@@ -24,7 +24,7 @@ export default function CacheSnapPrivacyPage() {
             CACHE/SNAP プライバシーポリシー
           </h1>
           <p className="font-label-mono text-[11px] text-on-surface-variant uppercase tracking-widest mb-12">
-            Last updated: 2026-07-28
+            Last updated: 2026-07-31
           </p>
 
           <div className="space-y-10 text-on-surface-variant leading-[1.9] text-[15px]">
@@ -47,8 +47,8 @@ export default function CacheSnapPrivacyPage() {
                 </li>
                 <li>
                   <span className="text-foreground font-semibold">個人を特定する情報</span>
-                  ：氏名、メールアドレス、電話番号、位置情報、連絡先、端末の識別子などは
-                  <span className="text-foreground">一切取得しません</span>。
+                  ：本アプリは、氏名、メールアドレス、電話番号、位置情報、連絡先を開発者のサーバー等へ送信しません。
+                  広告配信および購入処理に関する情報については、下記「広告・購入について」をご確認ください。
                 </li>
               </ul>
             </section>
@@ -57,7 +57,30 @@ export default function CacheSnapPrivacyPage() {
               <h2 className="text-foreground text-xl font-bold mb-4">通信について</h2>
               <p>
                 本アプリは、撮影した写真や設定を外部サーバーへ送信しません。
-                解析ツール・広告 SDK・クラッシュレポート送信 SDK も組み込んでいません。
+                クラッシュレポート送信 SDK や、開発者独自の解析ツールは組み込んでいません。
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-foreground text-xl font-bold mb-4">広告・購入について</h2>
+              <ul className="list-disc pl-5 space-y-3">
+                <li>
+                  本アプリは、広告表示のため Google Mobile Ads SDK（AdMob）を使用します。
+                  広告 SDK は、広告配信、測定、不正利用防止などの目的で、
+                  IP アドレス、広告 ID、アプリ操作情報、診断情報、端末またはアカウントに関連する識別子などを
+                  収集・共有する場合があります。
+                </li>
+                <li>
+                  本アプリは、広告を非表示にする 1 回限りの購入機能のため Google Play Billing を使用します。
+                  購入処理、決済情報、購入状態の管理は Google Play によって処理されます。
+                  開発者が利用者のクレジットカード番号等の決済情報を取得することはありません。
+                </li>
+                <li>
+                  広告を非表示にする購入状態は、アプリ内に保存し、再インストール時などに Google Play から復元します。
+                </li>
+              </ul>
+              <p className="mt-4">
+                これらの第三者サービスによるデータの取り扱いは、Google のポリシーおよび各サービスの設定に従います。
               </p>
             </section>
 
@@ -66,7 +89,7 @@ export default function CacheSnapPrivacyPage() {
               <ul className="list-disc pl-5 space-y-3">
                 <li>撮影した写真は端末内に保存されます。</li>
                 <li>設定した保存期間を過ぎた写真は、本アプリ内の一時保存領域から削除されます。</li>
-                <li>お気に入りにした写真、または端末に保存した写真は、自動削除の対象外です。</li>
+                <li>端末に保存した写真は本アプリの一時保存領域から削除され、以後は端末側の写真ライブラリで管理されます。</li>
                 <li>アプリをアンインストールすると、本アプリ内に保存されたデータは削除されます。</li>
               </ul>
             </section>
@@ -75,7 +98,8 @@ export default function CacheSnapPrivacyPage() {
               <h2 className="text-foreground text-xl font-bold mb-4">権限</h2>
               <ul className="list-disc pl-5 space-y-3">
                 <li>カメラ：写真撮影のため</li>
-                <li>写真・メディアへの保存権限：撮影した写真を端末へ保存するため</li>
+                <li>インターネット接続：広告表示、広告解除購入、購入状態の確認のため</li>
+                <li>写真・メディアへの保存権限：Android 8〜9 において、撮影した写真を端末へ保存するため</li>
               </ul>
               <p className="mt-4">
                 上記以外の権限（位置情報、連絡先等）は要求しません。
@@ -85,7 +109,8 @@ export default function CacheSnapPrivacyPage() {
             <section>
               <h2 className="text-foreground text-xl font-bold mb-4">第三者への提供・送信</h2>
               <p>
-                開発者は、利用者の写真や設定を収集しません。したがって、第三者への提供、販売、広告目的の利用はありません。
+                開発者は、利用者の写真や設定を収集しません。これらの情報を第三者へ提供、販売、広告目的で利用することはありません。
+                広告表示および購入処理に関連するデータは、上記の第三者サービスによって処理される場合があります。
               </p>
             </section>
 
