@@ -96,7 +96,7 @@ const APPS: App[] = [
       </>
     ),
     points: ['一時保存ギャラリー', '7日後に自動削除', '端末保存'],
-    image: '/works/graff-lab/cache-snap.jpg',
+    image: '/works/graff-lab/cacheLogo.png',
     banner: '/works/graff-lab/cache-snap.jpg',
     optInUrl: 'https://play.google.com/apps/testing/com.graff.cachelink',
   },
