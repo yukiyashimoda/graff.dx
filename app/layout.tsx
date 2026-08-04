@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Sora, JetBrains_Mono, Hanken_Grotesk, Share_Tech, Audiowide, Manrope } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import SmoothScrollProvider from './components/SmoothScrollProvider'
 import CustomCursor from './components/CustomCursor'
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CustomCursor />
           {children}
         </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   )
