@@ -31,13 +31,15 @@ export default function TopNavBar({ light = false }: { light?: boolean }) {
       }`}
     >
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/graffLogo.svg"
-          alt="graff"
-          className="h-5 w-auto"
-          style={{ filter: 'brightness(0)' }}
-        />
+        <Link href="/" aria-label="graff ホームへ戻る">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/graffLogo.svg"
+            alt="graff"
+            className="h-5 w-auto"
+            style={{ filter: 'brightness(0)' }}
+          />
+        </Link>
         <nav className="hidden md:flex gap-12 font-label-mono text-label-mono uppercase tracking-widest">
           <a className={light ? 'text-[#14151a] border-b border-[#14151a] pb-1' : 'text-accent-neon border-b border-accent-neon pb-1'} href="#">HOME</a>
           <a className={`transition-colors duration-300 ${light ? 'text-[#14151a] hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="#apps">APPS</a>

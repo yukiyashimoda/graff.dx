@@ -5,10 +5,10 @@ export default function ContactSection() {
     <section id="contact" className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
       <div className="marquee-container py-12">
         <div className="marquee-content">
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
         </div>
       </div>
 
@@ -18,7 +18,7 @@ export default function ContactSection() {
         </p>
         <Link
           href="/contact"
-          className="neu-raised inline-block rounded-full text-tertiary px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
+          className="inline-block rounded-full bg-tertiary text-on-tertiary px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
         >
           Contact →
         </Link>

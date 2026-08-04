@@ -154,6 +154,10 @@ function ChapterCopy({
             テストに参加
             <span className="material-symbols-outlined text-base">open_in_new</span>
           </a>
+        ) : app.comingSoon ? (
+          <span className="neu-pressed inline-flex items-center gap-2 text-on-surface-variant font-bold px-6 py-3 rounded-full">
+            Coming soon
+          </span>
         ) : (
           <Link
             href={detailHref}
@@ -161,6 +165,17 @@ function ChapterCopy({
           >
             詳しく見る
           </Link>
+        )}
+        {app.playStoreUrl && (
+          <a
+            href={app.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neu-raised inline-flex items-center gap-2 text-tertiary font-bold px-6 py-3 rounded-full hover:scale-[1.02] transition-transform"
+          >
+            Google Playで見る
+            <span className="material-symbols-outlined text-base">open_in_new</span>
+          </a>
         )}
       </div>
     </div>

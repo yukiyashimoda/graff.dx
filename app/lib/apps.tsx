@@ -13,6 +13,10 @@ export type App = {
   screens: string[]
   /** Play Console のクローズドテスト オプトイン URL。未発行/対象外は null。 */
   optInUrl: string | null
+  /** Google Play の製品版ストアURL。公開済みアプリのみ。 */
+  playStoreUrl?: string
+  /** trueの場合「詳しく見る」の代わりにComing soon表示にする（詳細ページ未整備）。 */
+  comingSoon?: boolean
 }
 
 /** GRAFF.LAB（クローズドテスト中）の4アプリ。 */
@@ -71,6 +75,7 @@ export const APPS: App[] = [
     banner: '/works/graff-lab/banner-shake-link.jpg',
     screens: ['/works/graff-lab/screen-widget.jpg', '/works/graff-lab/screen-links.jpg'],
     optInUrl: null, // TODO
+    comingSoon: true,
   },
   {
     slug: 'moonphasetime',
@@ -84,6 +89,7 @@ export const APPS: App[] = [
     banner: '/works/graff-lab/banner-moonphasetime.jpg',
     screens: ['/works/graff-lab/screen-moon-home.jpg', '/works/graff-lab/screen-moon-widgets.jpg'],
     optInUrl: null, // TODO
+    comingSoon: true,
   },
 ]
 
@@ -100,6 +106,7 @@ export const WADACHI_FILM: App = {
   banner: '/works/wadachi-film/cover.jpg',
   screens: ['/works/wadachi-film/screen-shelf.jpg', '/works/wadachi-film/screen-map.jpg'],
   optInUrl: null,
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.graff.wadachifilm',
 }
 
 /** HOME画面のアプリショーケース用ラインナップ（表示順）。 */
