@@ -24,19 +24,32 @@ export default function StatementSection() {
       invalidateOnRefresh: true,
     })
 
-    return () => pinTrigger.kill()
+    const fadeTrigger = ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      onUpdate: ({ progress }) => {
+        const fadeProgress = Math.max(0, (progress - 0.28) / 0.72)
+        gsap.set(content, { opacity: 1 - fadeProgress })
+      },
+    })
+
+    return () => {
+      pinTrigger.kill()
+      fadeTrigger.kill()
+    }
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative h-[160vh] w-full">
+    <section ref={sectionRef} className="relative h-[170svh] w-full" aria-label="Statement">
       <div
         ref={contentRef}
-        className="h-svh w-full flex items-center justify-center text-center px-margin-mobile"
+        className="h-svh w-full flex touch-pan-y items-center justify-center overflow-hidden text-center px-margin-mobile"
       >
         <DissolveText
-          as="p"
           triggerRef={sectionRef}
-          className="text-[7vw] md:text-[42px] leading-[1.6] tracking-tight"
+          className="max-w-[920px] select-none text-[7vw] md:text-[42px] leading-[1.6] tracking-tight"
           style={{ fontFamily: 'var(--ff-manrope)' }}
         >
           無駄のない画面。

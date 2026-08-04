@@ -2,7 +2,6 @@ export const dynamic = 'force-dynamic'
 
 import LoadingScreen from './components/LoadingScreen'
 import TopNavBar from './components/TopNavBar'
-import HeroSection from './components/HeroSection'
 import StatementSection from './components/StatementSection'
 import AppShowcaseSection from './components/AppShowcaseSection'
 import NewsSection from './components/NewsSection'
@@ -17,7 +16,6 @@ export default function Home() {
       <TopNavBar />
 
       <main className="bg-background">
-        <HeroSection />
         <StatementSection />
         <AppShowcaseSection />
         <NewsSection />
