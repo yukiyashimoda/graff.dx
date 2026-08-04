@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function ContactSection() {
   return (
-    <section className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
+    <section id="contact" className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
       <div className="marquee-container py-12">
         <div className="marquee-content">
           <span className="font-display-xl text-[100px] md:text-[180px] uppercase outline-text tracking-tighter mx-8">GETINTOUCH</span>
@@ -18,7 +18,7 @@ export default function ContactSection() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-accent-neon text-background px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300"
+          className="neu-raised inline-block rounded-full text-tertiary px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
         >
           Contact →
         </Link>

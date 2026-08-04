@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function SiteFooter() {
   return (
     <footer className="bg-background border-t border-outline-variant w-full py-section-v-padding px-margin-mobile md:px-margin-desktop">
@@ -6,7 +8,7 @@ export default function SiteFooter() {
         <div>
           <div className="font-headline-md text-body-main font-bold text-foreground mb-8">graff</div>
           <p className="font-body-sm text-body-sm text-on-surface-variant max-w-[240px]">
-            Visualizing the field through structure and digital craftsmanship.
+            Application development, UI design.
           </p>
         </div>
 
@@ -14,8 +16,8 @@ export default function SiteFooter() {
         <div className="grid grid-cols-2 gap-8 font-label-mono text-label-mono uppercase tracking-widest">
           <div className="flex flex-col gap-4">
             <a className="text-on-surface-variant hover:text-accent-neon transition-colors" href="#">HOME</a>
-            <a className="text-on-surface-variant hover:text-accent-neon transition-colors" href="#">ABOUT</a>
-            <a className="text-on-surface-variant hover:text-accent-neon transition-colors" href="#">WORKS</a>
+            <a className="text-on-surface-variant hover:text-accent-neon transition-colors" href="#apps">APPS</a>
+            <Link className="text-on-surface-variant hover:text-accent-neon transition-colors" href="/works">WORKS</Link>
           </div>
           <div className="flex flex-col gap-4">
             <a className="text-on-surface-variant hover:text-accent-neon transition-colors" href="#">X</a>

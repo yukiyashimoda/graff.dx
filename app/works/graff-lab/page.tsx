@@ -2,6 +2,7 @@ import Link from 'next/link'
 import TopNavBar from '../../components/TopNavBar'
 import WaveGridBackground from '../../components/three/WaveGridBackground'
 import FlowIn from '../../components/FlowIn'
+import { APPS, type App } from '../../lib/apps'
 
 export const metadata = {
   metadataBase: new URL('https://graff-dx.dev'),
@@ -43,88 +44,6 @@ const TESTER_GROUP_URL = 'https://groups.google.com/g/graff-lab-testers'
 
 /** 問い合わせ先。グループが使えない人向けの受け口。 */
 const CONTACT_MAIL = 'graff_dx@icloud.com'
-
-type App = {
-  slug: string
-  name: string
-  reading: string
-  tagline: string
-  description: React.ReactNode
-  points: string[]
-  /** 正方形アイコン */
-  image: string
-  /** 2:1 の紹介バナー */
-  banner: string
-  /** Play Console のクローズドテスト オプトイン URL。未発行のうちは null。 */
-  optInUrl: string | null
-}
-
-const APPS: App[] = [
-  {
-    slug: 'calc-rate',
-    name: 'CALC/RATE',
-    reading: 'カルクレート',
-    tagline: '押した手応えのある電卓と、為替換算。',
-    description:
-      '7セグメント表示とシリコンキーの手触りにこだわった電卓。横スワイプで為替換算に切り替わり、最新レートで計算できます。',
-    points: ['電卓 ⇄ 為替換算の2画面', '12通貨に対応', '計算履歴・多言語（日英韓中西）'],
-    image: '/works/graff-lab/calc-rate.png',
-    banner: '/works/graff-lab/banner-calc-rate.png',
-    optInUrl: 'https://play.google.com/apps/testing/com.graff.calc',
-  },
-  {
-    slug: 'cache-snap',
-    name: 'CACHE/SNAP',
-    reading: 'キャッシュスナップ',
-    tagline: '“消える”写真アプリ',
-    description: (
-      <>
-        スマホのストレージを圧迫する写真。
-        <br />
-        そのほとんどは見返されることもなく、ただ積み上がっていきます。
-        <br />
-        <br />
-        CACHE/SNAPで撮影した写真は、スマホのギャラリーには保存されません。
-        <br />
-        <br />
-        アプリ内にキャッシュのように一時保管され、
-        <br />
-        7日後に自動で消えていきます。
-        <br />
-        <br />
-        大切な写真だけ、端末に保存してください。
-      </>
-    ),
-    points: ['一時保存ギャラリー', '7日後に自動削除', '端末保存'],
-    image: '/works/graff-lab/cacheLogo.png',
-    banner: '/works/graff-lab/cache-snap.jpg',
-    optInUrl: 'https://play.google.com/apps/testing/com.graff.cachelink',
-  },
-  {
-    slug: 'shake-link',
-    name: 'SHAKE/LINK',
-    reading: 'シェイクリンク',
-    tagline: 'よく使うリンクを、手のひらのガジェットに。',
-    description:
-      'SNS やよく開くページを液晶パネル付きの筐体に並べるリンク管理。QR 表示で相手にすぐ渡せます。ホーム画面ウィジェット対応。',
-    points: ['51種のサービスアイコン', 'QRコードを端末内で生成', '筐体カラー6色・ウィジェット対応'],
-    image: '/works/graff-lab/shake-link.png',
-    banner: '/works/graff-lab/banner-shake-link.jpg',
-    optInUrl: null, // TODO
-  },
-  {
-    slug: 'moonphasetime',
-    name: 'MOON PHASE WATCH WIDGET',
-    reading: 'ムーンフェイズ ウォッチウィジェット',
-    tagline: '月の満ち欠けを、ホーム画面に。',
-    description:
-      '月齢と時刻を金属筐体のガジェット風に表示するウィジェット。今夜の月がどんな形かひと目で分かります。',
-    points: ['ホーム画面ウィジェット', '月齢を端末内で計算', '権限・通信なし'],
-    image: '/works/graff-lab/moonphasetime.png',
-    banner: '/works/graff-lab/banner-moonphasetime.jpg',
-    optInUrl: null, // TODO
-  },
-]
 
 export default function GraffLabPage() {
   return (
@@ -335,7 +254,7 @@ function Step({ n, title, body }: { n: number; title: string; body: React.ReactN
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="rounded-2xl border border-[#14151a]/10 bg-white/75 backdrop-blur-md overflow-hidden shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]">
+    <article id={app.slug} className="scroll-mt-28 rounded-2xl border border-[#14151a]/10 bg-white/75 backdrop-blur-md overflow-hidden shadow-[0_20px_60px_-30px_rgba(20,21,26,0.35)]">
       {/* 紹介バナー（2:1）。カード幅いっぱいに見せる */}
       <div className="aspect-[2/1] bg-white border-b border-[#14151a]/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}

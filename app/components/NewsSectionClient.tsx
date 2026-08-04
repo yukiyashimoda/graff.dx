@@ -27,12 +27,12 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
   }, [])
 
   return (
-    <section className="py-section-v-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <section id="news" className="py-section-v-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
       <div className="flex justify-between items-end mb-20">
         <div>
           <RevealLine className="mb-1">
             <span className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-[0.3em]">
-              004 — News
+              002 — News
             </span>
           </RevealLine>
           <RevealLine delay={0.08}>
