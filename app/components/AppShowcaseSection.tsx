@@ -25,6 +25,51 @@ export default function AppShowcaseSection() {
       const imgLayers = Array.from(
         phoneRoot.querySelectorAll<HTMLElement>('[data-screen-index]'),
       )
+      const phoneStages = Array.from(
+        phoneRoot.querySelectorAll<HTMLElement>('[data-phone-stage]'),
+      )
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const finalRotations = [-11, 11]
+      let entranceTween: gsap.core.Tween | undefined
+
+      if (reduceMotion) {
+        phoneStages.forEach((phone, index) => {
+          gsap.set(phone, {
+            opacity: 1,
+            rotateX: -3,
+            rotateY: finalRotations[index] ?? 0,
+            transformPerspective: 1100,
+          })
+        })
+      } else {
+        entranceTween = gsap.fromTo(
+          phoneStages,
+          {
+            opacity: 0,
+            y: 48,
+            scale: 0.92,
+            rotateX: 0,
+            rotateY: 0,
+            transformPerspective: 1100,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: -3,
+            rotateY: (index) => finalRotations[index] ?? 0,
+            duration: 1.45,
+            stagger: 0.16,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: phoneRoot,
+              start: 'top 82%',
+              once: true,
+            },
+          },
+        )
+      }
 
       const showScreen = (index: number) => {
         imgLayers.forEach((img) => {
@@ -46,6 +91,8 @@ export default function AppShowcaseSection() {
 
       return () => {
         chapterTriggers.forEach((t) => t?.kill())
+        entranceTween?.scrollTrigger?.kill()
+        entranceTween?.kill()
       }
     })
 
@@ -88,8 +135,12 @@ export default function AppShowcaseSection() {
 
         <div className="relative">
           <div ref={phoneRootRef} className="sticky top-0 h-svh flex items-center justify-center gap-6">
-            <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[0])} />
-            <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[1] ?? app.screens[0])} />
+            <div data-phone-stage className="will-change-transform">
+              <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[0])} />
+            </div>
+            <div data-phone-stage className="will-change-transform">
+              <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[1] ?? app.screens[0])} />
+            </div>
           </div>
         </div>
       </div>
