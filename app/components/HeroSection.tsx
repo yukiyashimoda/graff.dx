@@ -9,15 +9,13 @@ gsap.registerPlugin(ScrollTrigger)
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const logoRef = useRef<HTMLImageElement>(null)
-  const taglineRef = useRef<HTMLParagraphElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
     const content = contentRef.current
-    const logo = logoRef.current
-    const tagline = taglineRef.current
-    if (!section || !content || !logo || !tagline) return
+    const card = cardRef.current
+    if (!section || !content || !card) return
 
     const pinTrigger = ScrollTrigger.create({
       trigger: section,
@@ -36,13 +34,9 @@ export default function HeroSection() {
         const p = self.progress
         const s = 1 - p
         gsap.set(content, { opacity: s })
-        logo.style.filter =
-          `brightness(0) ` +
-          `drop-shadow(${-3 * s}px ${-3 * s}px ${4 * s}px var(--neu-shadow-light)) ` +
-          `drop-shadow(${3 * s}px ${3 * s}px ${4 * s}px var(--neu-shadow-dark))`
-        tagline.style.textShadow =
-          `${-2 * s}px ${-2 * s}px ${3 * s}px var(--neu-shadow-light), ` +
-          `${2 * s}px ${2 * s}px ${3 * s}px var(--neu-shadow-dark)`
+        card.style.boxShadow =
+          `${8 * s}px ${8 * s}px ${16 * s}px var(--neu-shadow-dark), ` +
+          `${-8 * s}px ${-8 * s}px ${16 * s}px var(--neu-shadow-light)`
       },
     })
 
@@ -56,30 +50,26 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative h-[160vh] w-full">
       <div
         ref={contentRef}
-        className="h-svh w-full flex flex-col items-center justify-center gap-7 px-margin-mobile"
+        className="h-svh w-full flex items-center justify-center px-margin-mobile"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          ref={logoRef}
-          src="/graffLogo.svg"
-          alt="graff"
-          className="h-14 md:h-24 w-auto"
-          style={{
-            filter:
-              'brightness(0) drop-shadow(-3px -3px 4px var(--neu-shadow-light)) drop-shadow(3px 3px 4px var(--neu-shadow-dark))',
-          }}
-        />
-        <p
-          ref={taglineRef}
-          className="text-[12px] md:text-[15px] uppercase tracking-[0.35em] text-on-surface-variant"
-          style={{
-            fontFamily: 'var(--ff-manrope)',
-            textShadow:
-              '-2px -2px 3px var(--neu-shadow-light), 2px 2px 3px var(--neu-shadow-dark)',
-          }}
+        <div
+          ref={cardRef}
+          className="neu-raised rounded-[36px] md:rounded-[44px] px-14 py-16 md:px-24 md:py-20 flex flex-col items-center gap-7"
         >
-          Application development, UI design
-        </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/graffLogo.svg"
+            alt="graff"
+            className="h-14 md:h-24 w-auto"
+            style={{ filter: 'brightness(0)' }}
+          />
+          <p
+            className="text-[12px] md:text-[15px] uppercase tracking-[0.35em] text-on-surface-variant"
+            style={{ fontFamily: 'var(--ff-manrope)' }}
+          >
+            Application development, UI design
+          </p>
+        </div>
       </div>
     </section>
   )

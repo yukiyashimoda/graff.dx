@@ -43,9 +43,14 @@ export default function StatementSection() {
           <br />
           手放せない手触り。
           <br />
-          時代を超えて愛される文具のように、
           <br />
-          あなたの手に馴染むプロダクトを。
+          時代を超えて愛される
+          <br />
+          文具のように、
+          <br />
+          あなたの手に
+          <br />
+          馴染むプロダクトを。
         </DissolveText>
       </div>
     </section>

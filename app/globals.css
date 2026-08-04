@@ -155,6 +155,8 @@ body {
   background-color: #f2f2f0;
   color: #1c1c1e;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* ── Flow in（奥から手前へ流れてくる出現） ── */

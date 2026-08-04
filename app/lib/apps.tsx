@@ -2,7 +2,7 @@ export type App = {
   slug: string
   name: string
   reading: string
-  tagline: string
+  tagline: React.ReactNode
   description: React.ReactNode
   points: string[]
   /** 正方形アイコン */
@@ -17,6 +17,8 @@ export type App = {
   playStoreUrl?: string
   /** trueの場合「詳しく見る」の代わりにComing soon表示にする（詳細ページ未整備）。 */
   comingSoon?: boolean
+  /** 説明の下に小さく添える注記（為替レートの出典など）。 */
+  footnote?: React.ReactNode
 }
 
 /** GRAFF.LAB（クローズドテスト中）の4アプリ。 */
@@ -33,6 +35,8 @@ export const APPS: App[] = [
     banner: '/works/graff-lab/banner-calc-rate.png',
     screens: ['/works/graff-lab/screen-calc.jpg', '/works/graff-lab/screen-rate.jpg'],
     optInUrl: 'https://play.google.com/apps/testing/com.graff.calc',
+    footnote:
+      '為替レートは Frankfurter API（欧州中央銀行が公表するリファレンスレートを提供するオープンソースの無料API）を使用しています。銀行の窓口レート（TTB/TTS）とは異なり、平日16:00（CET）頃更新の参考値です。',
   },
   {
     slug: 'cache-snap',
@@ -98,7 +102,13 @@ export const WADACHI_FILM: App = {
   slug: 'wadachi-film',
   name: 'ワダチフイルム',
   reading: 'ワダチフイルム',
-  tagline: '撮ることが、思い出になる。記録ではなく、追憶を残す散歩記録アプリ。',
+  tagline: (
+    <>
+      道を残そう。
+      <br />
+      記録ではなく追憶のための写真アプリ。
+    </>
+  ),
   description:
     '出かける前にフィルムをセットし、使い切るまで撮影した写真は確認できません。現像ボタンを押した瞬間、歩いた道が地図に一本の軌跡として浮かび上がります。',
   points: ['12/24/36枚のフィルム制', '現像後に軌跡が地図に浮かぶ', '個人情報を収集しない'],

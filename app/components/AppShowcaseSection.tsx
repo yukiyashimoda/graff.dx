@@ -87,7 +87,7 @@ export default function AppShowcaseSection() {
         </div>
 
         <div className="relative">
-          <div ref={phoneRootRef} className="sticky top-0 h-screen flex items-center justify-center gap-6">
+          <div ref={phoneRootRef} className="sticky top-0 h-svh flex items-center justify-center gap-6">
             <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[0])} />
             <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[1] ?? app.screens[0])} />
           </div>
@@ -98,7 +98,7 @@ export default function AppShowcaseSection() {
       <div className="md:hidden px-margin-mobile flex flex-col gap-20">
         {SHOWCASE_APPS.map((app, i) => (
           <FlowIn key={app.slug} delay={i * 0.06}>
-            <div className="flex flex-col items-center text-center gap-8">
+            <div className="flex flex-col items-start text-left gap-8">
               <PhoneMockup screens={[app.screens[0]]} />
               <ChapterCopy app={app} index={i} />
             </div>
@@ -119,31 +119,33 @@ function ChapterCopy({
   const detailHref = app.slug === 'wadachi-film' ? '/works/wadachi-film' : `/works/graff-lab#${app.slug}`
 
   return (
-    <div className="max-w-md mx-auto md:mx-0">
-      <span className="font-label-mono text-label-mono text-on-surface-variant/60">
+    <div className="max-w-md mx-0">
+      <span className="font-label-mono text-[10px] md:text-label-mono text-on-surface-variant/60 tracking-widest">
         {String(index + 1).padStart(2, '0')}
       </span>
-      <p className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mt-2">
+      <p className="font-label-mono text-[10px] md:text-label-mono text-on-surface-variant uppercase tracking-[0.2em] md:tracking-widest mt-2">
         {app.reading}
       </p>
-      <h3 className="text-[32px] md:text-[40px] font-bold tracking-tight mt-2 mb-4">
+      <h3 className="text-[24px] md:text-[40px] font-bold tracking-normal md:tracking-tight leading-snug mt-2 mb-4">
         {app.name}
       </h3>
-      <p className="text-lg mb-4">{app.tagline}</p>
-      <p className="text-on-surface-variant leading-[1.9] text-[15px] mb-6">{app.description}</p>
+      <p className="text-base md:text-lg leading-relaxed tracking-wide mb-4">{app.tagline}</p>
+      <p className="text-on-surface-variant leading-[2] md:leading-[1.9] text-[13px] md:text-[15px] tracking-wide mb-6">
+        {app.description}
+      </p>
 
-      <ul className="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
+      <ul className="flex flex-wrap gap-2 mb-8 justify-start">
         {app.points.map((p) => (
           <li
             key={p}
-            className="neu-raised-sm font-label-mono text-[11px] text-on-surface-variant rounded-full px-4 py-2"
+            className="neu-raised-sm font-label-mono text-[10px] md:text-[11px] text-on-surface-variant rounded-full px-4 py-2 tracking-wide"
           >
             {p}
           </li>
         ))}
       </ul>
 
-      <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
+      <div className="flex flex-wrap items-center gap-4 justify-start">
         {app.optInUrl ? (
           <a
             href={app.optInUrl}
@@ -178,6 +180,12 @@ function ChapterCopy({
           </a>
         )}
       </div>
+
+      {app.footnote && (
+        <p className="text-on-surface-variant/70 text-[11px] leading-relaxed mt-6">
+          {app.footnote}
+        </p>
+      )}
     </div>
   )
 }
