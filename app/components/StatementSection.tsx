@@ -49,7 +49,7 @@ export default function StatementSection() {
       >
         <DissolveText
           triggerRef={sectionRef}
-          className="max-w-[920px] select-none text-[7vw] md:text-[42px] leading-[1.6] tracking-tight"
+          className="max-w-[820px] select-none text-[5.6vw] md:text-[32px] leading-[1.7] tracking-tight"
           style={{ fontFamily: 'var(--ff-manrope)' }}
         >
           無駄のない画面。

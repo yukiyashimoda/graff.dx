@@ -6,7 +6,7 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(SplitText)
 
-/** 散らばった文字が、最初のポインター操作で本来の文章へ収束する。 */
+/** 画面を漂う文字がポインター操作で文章へ収束し、放置すると再び散開する。 */
 export default function DissolveText({
   children,
   className = '',
@@ -40,8 +40,8 @@ export default function DissolveText({
     const chars = split.chars as HTMLElement[]
     if (chars.length === 0) return
 
-    const spreadX = Math.min(window.innerWidth * 0.36, 340)
-    const spreadY = Math.min(window.innerHeight * 0.3, 240)
+    const spreadX = Math.min(window.innerWidth * 0.47, 620)
+    const spreadY = Math.min(window.innerHeight * 0.4, 380)
     const seeds = chars.map((_, index) => {
       // 再描画のたびに配置が跳ねない、文字番号由来の疑似乱数。
       const random = (salt: number) => {
@@ -54,6 +54,10 @@ export default function DissolveText({
         rotation: (random(3) - 0.5) * 240,
         scale: 0.35 + random(4) * 0.5,
         opacity: 0.12 + random(5) * 0.24,
+        driftX: (random(6) - 0.5) * 90,
+        driftY: (random(7) - 0.5) * 80,
+        driftRotation: (random(8) - 0.5) * 36,
+        driftDuration: 3.8 + random(9) * 4.2,
       }
     })
 
@@ -71,10 +75,28 @@ export default function DissolveText({
       })
     })
 
+    const startDrifting = () => {
+      chars.forEach((char, index) => {
+        const seed = seeds[index]
+        gsap.to(char, {
+          x: seed.x + seed.driftX,
+          y: seed.y + seed.driftY,
+          rotation: seed.rotation + seed.driftRotation,
+          duration: seed.driftDuration,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        })
+      })
+    }
+
     let assembled = false
+    let idleTimer: number | undefined
+
     const assemble = () => {
       if (assembled) return
       assembled = true
+      gsap.killTweensOf(chars)
       gsap.to(chars, {
         x: 0,
         y: 0,
@@ -90,12 +112,40 @@ export default function DissolveText({
       })
     }
 
-    trigger.addEventListener('pointermove', assemble, { once: true })
-    trigger.addEventListener('pointerdown', assemble, { once: true })
+    const scatter = () => {
+      assembled = false
+      gsap.killTweensOf(chars)
+      gsap.to(chars, {
+        x: (index) => seeds[index].x,
+        y: (index) => seeds[index].y,
+        rotation: (index) => seeds[index].rotation,
+        scale: (index) => seeds[index].scale,
+        opacity: (index) => seeds[index].opacity,
+        filter: 'blur(1.5px)',
+        duration: 1.5,
+        stagger: { each: 0.008, from: 'random' },
+        ease: 'power3.inOut',
+        overwrite: true,
+        onComplete: () => {
+          if (!assembled) startDrifting()
+        },
+      })
+    }
+
+    const interact = () => {
+      assemble()
+      if (idleTimer !== undefined) window.clearTimeout(idleTimer)
+      idleTimer = window.setTimeout(scatter, 4200)
+    }
+
+    startDrifting()
+    trigger.addEventListener('pointermove', interact)
+    trigger.addEventListener('pointerdown', interact)
 
     return () => {
-      trigger.removeEventListener('pointermove', assemble)
-      trigger.removeEventListener('pointerdown', assemble)
+      trigger.removeEventListener('pointermove', interact)
+      trigger.removeEventListener('pointerdown', interact)
+      if (idleTimer !== undefined) window.clearTimeout(idleTimer)
       gsap.killTweensOf(chars)
       split.revert()
     }
