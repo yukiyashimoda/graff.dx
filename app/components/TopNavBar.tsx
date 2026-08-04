@@ -45,9 +45,12 @@ export default function TopNavBar({ light = false }: { light?: boolean }) {
           <a className={`transition-colors duration-300 ${light ? 'text-[#14151a] hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="#apps">APPS</a>
           <Link className={`transition-colors duration-300 ${light ? 'text-[#14151a] hover:text-[#14151a]' : 'text-on-surface-variant hover:text-foreground'}`} href="/works">WORKS</Link>
         </nav>
-        <button className={`font-label-mono text-label-mono uppercase tracking-widest hover:opacity-70 transition-opacity ${light ? 'text-[#14151a]' : 'text-accent-neon'}`}>
-          GET IN TOUCH
-        </button>
+        <Link
+          href="/contact"
+          className={`font-label-mono text-label-mono uppercase tracking-widest hover:opacity-70 transition-opacity ${light ? 'text-[#14151a]' : 'text-accent-neon'}`}
+        >
+          CONTACT
+        </Link>
       </div>
     </header>
   )

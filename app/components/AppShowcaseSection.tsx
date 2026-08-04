@@ -28,53 +28,59 @@ export default function AppShowcaseSection() {
       const phoneStages = Array.from(
         phoneRoot.querySelectorAll<HTMLElement>('[data-phone-stage]'),
       )
+      const phoneShells = Array.from(
+        phoneRoot.querySelectorAll<HTMLElement>('[data-phone-shell]'),
+      )
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      const finalRotations = [-11, 11]
-      let entranceTween: gsap.core.Tween | undefined
+      let entranceTimeline: gsap.core.Timeline | undefined
 
       if (reduceMotion) {
-        phoneStages.forEach((phone, index) => {
-          gsap.set(phone, {
-            opacity: 1,
-            rotateX: -3,
-            rotateY: finalRotations[index] ?? 0,
-            transformPerspective: 1100,
-          })
-        })
+        gsap.set(phoneStages, { opacity: 1 })
       } else {
-        entranceTween = gsap.fromTo(
-          phoneStages,
-          {
-            opacity: 0,
-            y: 48,
-            scale: 0.92,
-            rotateX: 0,
-            rotateY: 0,
-            transformPerspective: 1100,
+        entranceTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: phoneRoot,
+            start: 'top 82%',
+            once: true,
           },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotateX: -3,
-            rotateY: (index) => finalRotations[index] ?? 0,
-            duration: 1.45,
-            stagger: 0.16,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: phoneRoot,
-              start: 'top 82%',
-              once: true,
+          onComplete: () => gsap.set(phoneShells, { clearProps: 'boxShadow' }),
+        })
+        entranceTimeline
+          .fromTo(
+            phoneStages,
+            { opacity: 0, y: 42, scale: 0.96 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.35,
+              stagger: 0.14,
+              ease: 'power3.out',
             },
-          },
-        )
+          )
+          .fromTo(
+            phoneShells,
+            { boxShadow: '0 0 0 rgba(163, 161, 156, 0), 0 0 0 rgba(255, 255, 255, 0)' },
+            {
+              boxShadow: '8px 8px 16px rgba(163, 161, 156, 0.45), -8px -8px 16px #ffffff',
+              duration: 1.35,
+              stagger: 0.14,
+              ease: 'power2.out',
+            },
+            0,
+          )
       }
 
       const showScreen = (index: number) => {
         imgLayers.forEach((img) => {
           const idx = Number(img.dataset.screenIndex)
-          gsap.to(img, { opacity: idx === index ? 1 : 0, duration: 0.6, overwrite: true })
+          gsap.to(img, {
+            opacity: idx === index ? 1 : 0,
+            duration: 0.95,
+            ease: 'power2.inOut',
+            overwrite: 'auto',
+          })
         })
       }
 
@@ -91,8 +97,8 @@ export default function AppShowcaseSection() {
 
       return () => {
         chapterTriggers.forEach((t) => t?.kill())
-        entranceTween?.scrollTrigger?.kill()
-        entranceTween?.kill()
+        entranceTimeline?.scrollTrigger?.kill()
+        entranceTimeline?.kill()
       }
     })
 
@@ -117,7 +123,7 @@ export default function AppShowcaseSection() {
         </RevealLine>
       </div>
 
-      {/* ─── デスクトップ：商品説明が左スクロール、スマホ3Dモックは右固定 ─── */}
+      {/* ─── デスクトップ：商品説明が左スクロール、スマホモックは右固定 ─── */}
       <div className="hidden md:grid md:grid-cols-[1fr_1fr] gap-16 px-margin-desktop max-w-container-max mx-auto">
         <div>
           {SHOWCASE_APPS.map((app, i) => (

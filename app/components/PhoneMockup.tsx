@@ -11,6 +11,7 @@ const PhoneMockup = forwardRef<
   return (
     <div
       ref={ref}
+      data-phone-shell
       className={`neu-raised relative mx-auto w-[150px] md:w-[190px] aspect-[9/19.5] rounded-[32px] p-[7px] ${className}`}
     >
       {/* 側面ボタン */}
@@ -27,8 +28,8 @@ const PhoneMockup = forwardRef<
             src={src}
             alt={alt}
             data-screen-index={i}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: i === 0 ? 1 : 0 }}
+            className="absolute inset-0 w-full h-full object-cover will-change-[opacity]"
+            style={{ opacity: i === 0 ? 1 : 0, pointerEvents: 'none' }}
           />
         ))}
         {/* パンチホールカメラ */}

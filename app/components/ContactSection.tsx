@@ -5,10 +5,10 @@ export default function ContactSection() {
     <section id="contact" className="py-section-v-padding overflow-hidden relative bg-surface-container-lowest">
       <div className="marquee-container py-12">
         <div className="marquee-content">
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
-          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">GETINTOUCH</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">CONTACT</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">CONTACT</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">CONTACT</span>
+          <span className="font-display-xl text-[100px] md:text-[180px] uppercase text-foreground tracking-tighter mx-8">CONTACT</span>
         </div>
       </div>
 
