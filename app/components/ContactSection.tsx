@@ -18,7 +18,7 @@ export default function ContactSection() {
         </p>
         <Link
           href="/contact"
-          className="inline-block rounded-full bg-tertiary text-on-tertiary px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
+          className="contact-cta inline-block rounded-full bg-tertiary text-on-tertiary px-16 py-6 font-label-mono text-[18px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
         >
           Contact →
         </Link>

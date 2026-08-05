@@ -159,6 +159,37 @@ body {
   text-size-adjust: 100%;
 }
 
+/* トップページは文字色と書体を意図的に単色・単一ファミリーへ統一。 */
+.home-monochrome,
+.home-monochrome * {
+  color: #000000 !important;
+  font-family: var(--ff-manrope), sans-serif !important;
+}
+
+/* アイコン名を通常文字として描画しないよう、専用フォントだけ戻す。 */
+.home-monochrome .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+}
+
+.home-monochrome .contact-cta {
+  color: #ffffff !important;
+}
+
+/* 白い薄紙を一枚重ねたような、控えめな繊維感。UI操作には干渉しない。 */
+.home-monochrome::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.05;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.72'/%3E%3C/svg%3E");
+  filter: blur(0.2px);
+  backdrop-filter: blur(0.3px);
+  -webkit-backdrop-filter: blur(0.3px);
+}
+
 /* ── Flow in（奥から手前へ流れてくる出現） ── */
 .flow-in-stage {
   perspective: 1200px;

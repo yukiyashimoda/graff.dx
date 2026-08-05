@@ -10,7 +10,7 @@ import SiteFooter from './components/SiteFooter'
 
 export default function Home() {
   return (
-    <>
+    <div className="home-monochrome">
       <LoadingScreen />
 
       <TopNavBar />
@@ -22,6 +22,6 @@ export default function Home() {
         <ContactSection />
         <SiteFooter />
       </main>
-    </>
+    </div>
   )
 }

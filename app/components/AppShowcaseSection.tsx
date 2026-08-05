@@ -25,9 +25,6 @@ export default function AppShowcaseSection() {
       const imgLayers = Array.from(
         phoneRoot.querySelectorAll<HTMLElement>('[data-screen-index]'),
       )
-      const phoneStages = Array.from(
-        phoneRoot.querySelectorAll<HTMLElement>('[data-phone-stage]'),
-      )
       const phoneShells = Array.from(
         phoneRoot.querySelectorAll<HTMLElement>('[data-phone-shell]'),
       )
@@ -35,9 +32,7 @@ export default function AppShowcaseSection() {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       let entranceTimeline: gsap.core.Timeline | undefined
 
-      if (reduceMotion) {
-        gsap.set(phoneStages, { opacity: 1 })
-      } else {
+      if (!reduceMotion) {
         entranceTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: phoneRoot,
@@ -48,18 +43,6 @@ export default function AppShowcaseSection() {
         })
         entranceTimeline
           .fromTo(
-            phoneStages,
-            { opacity: 0, y: 42, scale: 0.96 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.35,
-              stagger: 0.14,
-              ease: 'power3.out',
-            },
-          )
-          .fromTo(
             phoneShells,
             { boxShadow: '0 0 0 rgba(163, 161, 156, 0), 0 0 0 rgba(255, 255, 255, 0)' },
             {
@@ -68,7 +51,6 @@ export default function AppShowcaseSection() {
               stagger: 0.14,
               ease: 'power2.out',
             },
-            0,
           )
       }
 
@@ -141,10 +123,10 @@ export default function AppShowcaseSection() {
 
         <div className="relative">
           <div ref={phoneRootRef} className="sticky top-0 h-svh flex items-center justify-center gap-6">
-            <div data-phone-stage className="will-change-transform">
+            <div>
               <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[0])} />
             </div>
-            <div data-phone-stage className="will-change-transform">
+            <div>
               <PhoneMockup screens={SHOWCASE_APPS.map((app) => app.screens[1] ?? app.screens[0])} />
             </div>
           </div>

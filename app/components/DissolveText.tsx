@@ -40,8 +40,9 @@ export default function DissolveText({
     const chars = split.chars as HTMLElement[]
     if (chars.length === 0) return
 
-    const spreadX = Math.min(window.innerWidth * 0.47, 620)
-    const spreadY = Math.min(window.innerHeight * 0.4, 380)
+    // 原文の輪郭がうっすら残る範囲で散らし、完全なランダムノイズにはしない。
+    const spreadX = Math.min(window.innerWidth * 0.16, 180)
+    const spreadY = Math.min(window.innerHeight * 0.13, 190)
     const seeds = chars.map((_, index) => {
       // 再描画のたびに配置が跳ねない、文字番号由来の疑似乱数。
       const random = (salt: number) => {
@@ -51,13 +52,13 @@ export default function DissolveText({
       return {
         x: (random(1) - 0.5) * spreadX * 2,
         y: (random(2) - 0.5) * spreadY * 2,
-        rotation: (random(3) - 0.5) * 240,
-        scale: 0.35 + random(4) * 0.5,
-        opacity: 0.12 + random(5) * 0.24,
-        driftX: (random(6) - 0.5) * 90,
-        driftY: (random(7) - 0.5) * 80,
-        driftRotation: (random(8) - 0.5) * 36,
-        driftDuration: 3.8 + random(9) * 4.2,
+        rotation: (random(3) - 0.5) * 28,
+        scale: 0.88 + random(4) * 0.2,
+        opacity: 0.62 + random(5) * 0.28,
+        driftX: (random(6) - 0.5) * 30,
+        driftY: (random(7) - 0.5) * 28,
+        driftRotation: (random(8) - 0.5) * 6,
+        driftDuration: 4.8 + random(9) * 4.5,
       }
     })
 
@@ -69,7 +70,7 @@ export default function DissolveText({
         rotation: seed.rotation,
         scale: seed.scale,
         opacity: seed.opacity,
-        filter: 'blur(1.5px)',
+        filter: 'blur(0px)',
         transformOrigin: '50% 50%',
         willChange: 'transform, opacity, filter',
       })
@@ -121,7 +122,7 @@ export default function DissolveText({
         rotation: (index) => seeds[index].rotation,
         scale: (index) => seeds[index].scale,
         opacity: (index) => seeds[index].opacity,
-        filter: 'blur(1.5px)',
+        filter: 'blur(0px)',
         duration: 1.5,
         stagger: { each: 0.008, from: 'random' },
         ease: 'power3.inOut',
