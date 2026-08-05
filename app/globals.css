@@ -182,12 +182,12 @@ body {
   inset: 0;
   z-index: 9997;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.15;
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.72'/%3E%3C/svg%3E");
-  filter: blur(0.2px);
-  backdrop-filter: blur(0.3px);
-  -webkit-backdrop-filter: blur(0.3px);
+  filter: blur(0.6px);
+  backdrop-filter: blur(1.25px);
+  -webkit-backdrop-filter: blur(1.25px);
 }
 
 /* ── Flow in（奥から手前へ流れてくる出現） ── */

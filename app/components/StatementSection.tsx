@@ -47,31 +47,24 @@ export default function StatementSection() {
         ref={contentRef}
         className="h-svh w-full flex touch-pan-y items-center justify-center overflow-hidden text-center px-margin-mobile"
       >
-        <div className="flex flex-col items-center gap-8 md:gap-10">
-          <p
-            className="font-label-mono text-[9px] md:text-[11px] tracking-[0.28em] text-on-surface-variant"
-          >
-            app develop &amp; UI design
-          </p>
-          <DissolveText
-            triggerRef={sectionRef}
-            className="max-w-[820px] select-none text-[5.6vw] md:text-[32px] leading-[1.7] tracking-tight"
-            style={{ fontFamily: 'var(--ff-manrope)' }}
-          >
-            無駄のない画面。
-            <br />
-            手放せない手触り。
-            <br />
-            <br />
-            時代を超えて愛される
-            <br />
-            文具のように、
-            <br />
-            あなたの手に馴染む
-            <br />
-            プロダクトを。
-          </DissolveText>
-        </div>
+        <DissolveText
+          triggerRef={sectionRef}
+          className="max-w-[820px] select-none text-[5.6vw] md:text-[32px] leading-[1.7] tracking-tight"
+          style={{ fontFamily: 'var(--ff-manrope)' }}
+        >
+          無駄のない画面。
+          <br />
+          手放せない手触り。
+          <br />
+          <br />
+          時代を超えて愛される
+          <br />
+          文具のように、
+          <br />
+          あなたの手に馴染む
+          <br />
+          プロダクトを。
+        </DissolveText>
       </div>
     </section>
   )

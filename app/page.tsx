@@ -13,7 +13,7 @@ export default function Home() {
     <div className="home-monochrome">
       <LoadingScreen />
 
-      <TopNavBar />
+      <TopNavBar showTagline />
 
       <main className="bg-background">
         <StatementSection />
