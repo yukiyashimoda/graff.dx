@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#222222">
+<title>airsig への招待</title>
+<meta property="og:title" content="airsig への招待">
+<meta property="og:description" content="タップして、つながりを承認してください。">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --paper: #222222;
+    --ink: #f3f1ea;
+    --rule: #3a3a3a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(24px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+  .wordmark {
+    font-size: 13px;
+    letter-spacing: 0.6em;
+    margin: 0 0 56px;
+    padding-left: 0.6em;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 12px;
+  }
+  p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+  }
+  .open {
+    display: block;
+    margin: 40px 0 0;
+    padding: 16px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+  }
+  .open:active { background: var(--ink); color: var(--paper); }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 48px 0 32px;
+  }
+  .steps {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 16px 0 0;
+    padding-left: 1.4em;
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="wordmark">AIR/SIG</p>
+
+  <div id="valid" hidden>
+    <h1>招待が届いています</h1>
+    <p>下のボタンで airsig を開き、<br>つながりを承認してください。</p>
+    <a class="open" id="open" href="#">OPEN IN AIRSIG</a>
+
+    <hr>
+
+    <p class="label">アプリをまだお持ちでない方</p>
+    <ol class="steps">
+      <li>App Store で airsig をインストール<br>（現在公開準備中です）</li>
+      <li>アプリを一度開いて、モーションの利用を許可</li>
+      <li>このリンクが届いたトークに戻り、もう一度リンクをタップ</li>
+    </ol>
+  </div>
+
+  <div id="invalid" hidden>
+    <h1>招待リンクが正しくありません</h1>
+    <p>送ってくれた人に、もう一度<br>招待リンクを作ってもらってください。</p>
+  </div>
+</main>
+<script>
+  // /i/<32 hex> → airsig://i/<token>. The app does all real validation;
+  // this only decides which message to show.
+  (function () {
+    var match = location.pathname.match(/^\/i\/([0-9a-fA-F]{32})\/?$/);
+    if (match) {
+      document.getElementById("open").href = "airsig://i/" + match[1].toLowerCase();
+      document.getElementById("valid").hidden = false;
+    } else {
+      document.getElementById("invalid").hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>

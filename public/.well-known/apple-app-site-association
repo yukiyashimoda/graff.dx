@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["X954W285BW.com.graff.airsig"],
+        "components": [
+          { "/": "/i/*", "comment": "airsig invite links" }
+        ]
+      }
+    ]
+  }
+}
