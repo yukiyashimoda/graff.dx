@@ -764,6 +764,13 @@ html.motion .rings { max-width: min(48vh, 520px); }
   .draft-badge { font-size: 10px; left: 8px; bottom: 8px; }
 }
 
+/* ヒラギノ系に変更したディスプレイ文字はExtra Boldで統一 */
+.menu-nav .mt, .hero-kicker, .statement-title, .process-title,
+.step-text h4, .marquee--sapporo em, .sap-title, .vc-name,
+.policy-title, .pol-word, .org-big, .works-title, .future-title,
+.fl-text, .marquee--partners .jp, .partners-title, .recruit-title,
+.rental-title, .stack-card p, .cta-btn, .finale-text { font-weight: 800; }
+
 /* 動きを減らす設定：CSSアニメーション・遷移を止める */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
