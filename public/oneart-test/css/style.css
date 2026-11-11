@@ -125,10 +125,12 @@ html.motion.theme-js .sec { background: transparent; }
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 7000; height: var(--header-h);
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  padding: 0 var(--pad); color: #fff; mix-blend-mode: difference; pointer-events: none;
+  padding: 0 var(--pad); color: #141414; background: rgba(241,236,225,.94); pointer-events: none;
 }
 .site-header > * { pointer-events: auto; }
 .brand { justify-self: start; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-latin); font-weight: 800; font-size: 22px; letter-spacing: -.01em; font-stretch: 80%; }
+.brand-logo { display: block; width: 130px; height: auto; }
+.hero-logo { display: block; width: calc(100vw - var(--pad) * 2); height: auto; }
 .brand-dots { position: relative; width: 26px; height: 18px; }
 .brand-dots i { position: absolute; top: 0; width: 18px; height: 18px; border-radius: 50%; border: 2px solid currentColor; }
 .brand-dots i:nth-child(1) { left: 0; } .brand-dots i:nth-child(2) { left: 4px; } .brand-dots i:nth-child(3) { left: 8px; }

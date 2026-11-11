@@ -158,6 +158,12 @@
   }
 
   function heroIntro() {
+    if ($('.hero-logo')) {
+      gsap.from('.hero-logo', { opacity: 0, y: 24, duration: 1.1, ease: 'power2.out' });
+      gsap.from('[data-hero-line], [data-hero-fade]', { opacity: 0, y: 20, stagger: 0.12, duration: 0.8 });
+      gsap.to('.hero-title', { yPercent: -35, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+      return;
+    }
     var key = $('[data-wm-key]');
     var layers = $$('.wm-layer:not(.wm-key)');
     // 黒い版（キー版）は1文字ずつ下から
