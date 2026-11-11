@@ -191,7 +191,17 @@ html.has-cursor input[type="range"] { cursor: ew-resize; }
 .cursor.is-down .cursor-ring { transform: scale(.82); }
 
 .loader { display: none; }
-.loader-logo { position: absolute; width: min(56vw, 360px); height: auto; opacity: 0; }
+.loader-logo-stack { position: absolute; isolation: isolate; }
+.loader-logo { position: relative; width: 100%; height: auto; opacity: 0; }
+.loader-color {
+  position: absolute; inset: 0; opacity: 0; mix-blend-mode: multiply;
+  -webkit-mask: url('../assets/img/oneart-logo.png') center / 100% 100% no-repeat;
+  mask: url('../assets/img/oneart-logo.png') center / 100% 100% no-repeat;
+  will-change: transform, opacity;
+}
+.loader-color-pink { background: var(--pink); }
+.loader-color-yellow { background: var(--yellow); }
+.loader-color-blue { background: var(--blue); }
 html.motion .loader {
   display: grid; place-items: center; position: fixed; inset: 0; z-index: 10000; background: var(--paper); color: var(--ink); overflow: hidden;
 }

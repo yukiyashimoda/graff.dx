@@ -129,13 +129,22 @@
     function begin() {
       if (finished) return;
       var rect = heroLogo.getBoundingClientRect();
-      var width = Math.min(window.innerWidth * 0.56, 360);
-      gsap.set(logo, { left: (window.innerWidth - width) / 2, top: (window.innerHeight - width * rect.height / rect.width) / 2, width: width, opacity: 0 });
+      // 座標・サイズは最初からHEROと一致。色版のtransformだけを動かす。
+      gsap.set($('.loader-logo-stack'), { autoRound: false, left: rect.left, top: rect.top, width: rect.width, height: rect.height });
+      gsap.set(logo, { opacity: 0 });
+      var colors = $$('.loader-color');
+      var offset = Math.min(18, rect.width * 0.025);
+      gsap.set(colors[0], { x: -offset, y: offset * 0.35 });
+      gsap.set(colors[1], { x: offset * 0.25, y: -offset * 0.65 });
+      gsap.set(colors[2], { x: offset, y: offset * 0.3 });
       gsap.set(heroLogo, { opacity: 0 });
       tl = gsap.timeline({ onComplete: finish });
-      tl.to(logo, { opacity: 1, duration: 0.65, ease: 'sine.out' }, 0)
-        .to(logo, { left: rect.left, top: rect.top, width: rect.width, duration: 1.15, ease: 'sine.inOut' }, 0.45)
-        .to(L, { backgroundColor: 'rgba(241,236,225,0)', duration: 1.0, ease: 'sine.inOut' }, 0.65);
+      tl.to(colors, { opacity: 0.85, stagger: 0.12, duration: 0.6, ease: 'sine.out' }, 0)
+        .to(colors, { x: 0, y: 0, duration: 1.25, ease: 'sine.inOut' }, 0.35)
+        .to(logo, { opacity: 1, duration: 0.65, ease: 'sine.inOut' }, 1.1)
+        .to(colors, { opacity: 0, duration: 0.65, ease: 'sine.inOut' }, 1.1)
+        .set(heroLogo, { opacity: 1 }, 1.75)
+        .to(L, { opacity: 0, duration: 0.95, ease: 'sine.inOut' }, 1.75);
     }
     // 読み込み失敗でも画面やスクロールを塞がない
     var fallback = setTimeout(finish, 4000);
