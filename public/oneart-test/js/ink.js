@@ -1,7 +1,7 @@
 /* =====================================================================
    最初の画面の WebGL インク（自作・外部ライブラリなし）
    - なぞった所に「版の色（ピンク／黄／青）」の絵の具が置かれ、
-     ゆっくり渦を巻いて流れ、網点（リソグラフ風）で刷られて見える。
+     ゆっくり流れ、紙へのにじみ・顔料の粒状感・乾き際の縁を描く。
    - 触っていない間は、見えない筆が自動で描き続ける。
    - 低解像度のシミュレーション＋1回の表示描画だけ（毎フレーム2回の描画）。
    - 画面外・タブ非表示のときは止める。WebGLが無ければ null を返す（呼び出し側が静止画に切り替え）。
@@ -62,23 +62,29 @@
   var DISPLAY = [
     '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif',
     'varying vec2 vUv;',
-    'uniform sampler2D uDye;uniform float uCell;uniform vec2 uMis;',
+    'uniform sampler2D uDye;uniform vec2 uResolution;uniform vec2 uMis;',
     'uniform vec3 uPaper;uniform vec3 uPink;uniform vec3 uYellow;uniform vec3 uBlue;',
     'float hash(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}',
-    'float screenDot(float dens,float ang,vec2 frag){',
-    ' float c=cos(ang),s=sin(ang);vec2 q=mat2(c,-s,s,c)*frag/uCell;',
-    ' vec2 f=fract(q)-0.5;float r=sqrt(clamp(dens,0.0,1.0))*0.76;',
-    ' float aa=1.3/uCell;return 1.0-smoothstep(r-aa,r+aa,length(f));}',
+    NOISE,
+    'vec3 wash(vec2 uv){return max(texture2D(uDye,uv).rgb,vec3(0.0));}',
     'void main(){',
     ' vec2 frag=gl_FragCoord.xy;',
-    ' float dp=smoothstep(0.03,0.9,texture2D(uDye,vUv+uMis).r);',
-    ' float dy=smoothstep(0.03,0.9,texture2D(uDye,vUv-uMis*0.7).g);',
-    ' float db=smoothstep(0.03,0.9,texture2D(uDye,vUv+vec2(-uMis.y,uMis.x)).b);',
+    ' vec2 paper=frag/uResolution.y;',
+    ' float cloud=snoise(paper*11.0)*0.55+snoise(paper*29.0)*0.30+snoise(paper*73.0)*0.15;',
+    ' vec2 warp=vec2(snoise(paper*39.0),snoise(paper*39.0+17.0))*0.0016;',
+    ' vec2 uv=vUv+warp;vec2 px=vec2(2.5)/uResolution;',
+    ' vec3 dye=wash(uv);',
+    ' vec3 wet=(wash(uv+vec2(px.x,0.0))+wash(uv-vec2(px.x,0.0))+wash(uv+vec2(0.0,px.y))+wash(uv-vec2(0.0,px.y)))*0.25;',
+    ' vec3 edge=abs(dye-wet)*2.8;',
+    ' vec3 rim=smoothstep(vec3(0.015),vec3(0.12),dye)*(vec3(1.0)-smoothstep(vec3(0.12),vec3(0.38),dye))*0.09;',
+    ' float grain=snoise(paper*240.0)*0.045;',
+    ' vec3 pigment=max(mix(dye,wet,0.35)*(0.70+cloud*0.27+grain)+edge+rim,vec3(0.0));',
+    ' vec3 density=vec3(1.0)-exp(-pigment*1.65);',
     ' vec3 col=uPaper;',
-    ' col*=mix(vec3(1.0),uYellow,screenDot(dy,0.0,frag));',
-    ' col*=mix(vec3(1.0),uPink,screenDot(dp,0.2618,frag));',
-    ' col*=mix(vec3(1.0),uBlue,screenDot(db,1.309,frag));',
-    ' col+=(hash(floor(frag*0.5))-0.5)*0.035;',
+    ' col*=mix(vec3(1.0),uYellow,density.g);',
+    ' col*=mix(vec3(1.0),uPink,density.r);',
+    ' col*=mix(vec3(1.0),uBlue,density.b);',
+    ' col+=(hash(floor(frag))-0.5)*0.018;',
     ' gl_FragColor=vec4(col,1.0);',
     '}'
   ].join('\n');
@@ -292,7 +298,7 @@
       gl.useProgram(dispP.p);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, targets[cur].tex);
       gl.uniform1i(dispP.u.uDye, 0);
-      gl.uniform1f(dispP.u.uCell, (cssW < 768 ? 6 : 7.5) * dpr);
+      gl.uniform2f(dispP.u.uResolution, canvas.width, canvas.height);
       gl.uniform2f(dispP.u.uMis, mis[0], mis[1]);
       var P = hex('#f1ece1'), PK = hex('#ff4fa3'), Y = hex('#ffe500'), B = hex('#2f52ff');
       gl.uniform3f(dispP.u.uPaper, P[0], P[1], P[2]);
