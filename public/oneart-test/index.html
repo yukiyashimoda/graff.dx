@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <base href="/oneart-test/" />
+  <meta name="theme-color" content="#f1ece1" />
+  <title>ONEART LP 試作 第2案（concept-v2）</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='30' r='18' fill='%23ff4fa3'/%3E%3Ccircle cx='38' cy='30' r='18' fill='%232f52ff' style='mix-blend-mode:multiply'/%3E%3Ccircle cx='32' cy='40' r='18' fill='%23ffe500' style='mix-blend-mode:multiply'/%3E%3C/svg%3E" />
+  <link rel="preload" href="./assets/fonts/bricolage-sub.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/dela-gothic-one-sub.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script>
+    /* 動きを付けてよい環境かを最初に判定（動きを減らす設定ではローディング幕も出さない） */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===== 読み込み演出（3色の版が刷り重なって見当が合う） ===== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word">
+      <p class="lw lw-pink">ONEART</p>
+      <p class="lw lw-yellow">ONEART</p>
+      <p class="lw lw-blue">ONEART</p>
+      <p class="lw lw-key"><span>O</span><span>N</span><span>E</span><span>A</span><span>R</span><span>T</span></p>
+    </div>
+    <p class="loader-plates-label"><span data-plate-label="pink">PINK</span><span data-plate-label="yellow">YELLOW</span><span data-plate-label="blue">BLUE</span><span data-plate-label="key">KEY</span></p>
+    <p class="loader-count"><b id="loaderCount">000</b><small>PRINTING…</small></p>
+    <i class="loader-line" aria-hidden="true"></i>
+  </div>
+
+  <!-- ===== 画面切り替え用の幕（メニューから移動するときに使う） ===== -->
+  <div class="wipe" id="wipe" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <!-- ===== PC用の独自カーソル ===== -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-ring"><span class="cursor-label"></span></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#about" data-nav aria-label="ONEART ページの先頭へ">
+      <span class="brand-dots" aria-hidden="true"><i></i><i></i><i></i></span>ONEART
+    </a>
+    <p class="chapter" aria-hidden="true"><span class="chapter-num" id="chapterNum">01</span><span class="chapter-name" id="chapterName">ABOUT／活動紹介</span></p>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" data-magnetic>
+      <span class="menu-btn-label">MENU</span><span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </header>
+
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <!-- ===== 全画面メニュー（PC・スマホ共通） ===== -->
+  <div class="menu" id="menu" aria-hidden="true" inert>
+    <div class="menu-bg" aria-hidden="true"><i data-plate="pink"></i><i data-plate="yellow"></i><i data-plate="blue"></i></div>
+    <nav class="menu-nav" aria-label="ページ内メニュー">
+      <a href="#about" data-nav data-plate="pink"><span class="mn">01</span><span class="mt">活動紹介</span></a>
+      <a href="#sapporo" data-nav data-plate="yellow"><span class="mn">02</span><span class="mt">札幌展</span></a>
+      <a href="#policy" data-nav data-plate="blue"><span class="mn">03</span><span class="mt">活動方針</span></a>
+      <a href="#org-1" data-nav data-plate="pink"><span class="mn">04</span><span class="mt">運営法人</span></a>
+      <a href="#works" data-nav data-plate="yellow"><span class="mn">05</span><span class="mt">作品</span></a>
+      <a href="#future" data-nav data-plate="blue"><span class="mn">06</span><span class="mt">展開</span></a>
+      <a href="#partners" data-nav data-plate="pink"><span class="mn">07</span><span class="mt">パートナー</span></a>
+      <a href="#rental" data-nav data-plate="yellow"><span class="mn">08</span><span class="mt">レンタル</span></a>
+    </nav>
+    <p class="menu-foot">ONEART／一般財団法人ゆめいく　<span>試作 第2案</span></p>
+  </div>
+
+  <main id="main">
+
+    <!-- ================================================================
+         01 活動紹介（ONEARTとは）— 最初の画面を兼ねる
+         ================================================================ -->
+    <section class="sec t-paper" id="about" data-theme="paper" data-chapter="01" data-chapter-name="ABOUT／活動紹介">
+
+      <div class="hero" id="hero">
+        <canvas class="hero-canvas" id="inkCanvas" aria-hidden="true"></canvas>
+        <!-- WebGLが使えない・動きを減らす設定のときの静止した代替表示 -->
+        <div class="hero-fallback" aria-hidden="true">
+          <i class="hf hf-pink"></i><i class="hf hf-yellow"></i><i class="hf hf-blue"></i>
+        </div>
+
+        <div class="hero-top">
+          <p class="hero-tag"><span class="dot-live" aria-hidden="true"></span><span data-scramble>ORIGINAL → ARTWORK</span></p>
+          <p class="hero-hint" aria-hidden="true">
+            <span class="for-fine">ドラッグで描く・クリックで色を替える</span>
+            <span class="for-touch">指でなぞって描く・タップで色を替える</span>
+            <span class="hero-swatch" id="heroSwatch"><i data-plate="pink" class="is-on"></i><i data-plate="yellow"></i><i data-plate="blue"></i></span>
+          </p>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="visually-hidden">ONEART　子どもたちが描いた絵がアート作品になる</span>
+          <span class="wordmark" id="wordmark" aria-hidden="true">
+            <span class="wm-layer wm-pink">ONE<br class="sp-br" />ART</span>
+            <span class="wm-layer wm-yellow">ONE<br class="sp-br" />ART</span>
+            <span class="wm-layer wm-blue">ONE<br class="sp-br" />ART</span>
+            <span class="wm-layer wm-key" data-wm-key>ONE<br class="sp-br" />ART</span>
+          </span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-kicker" aria-hidden="true"><span data-hero-line>子どもたちが描いた絵が</span><span data-hero-line>アート作品になる</span></p>
+          <p class="hero-lead" data-hero-fade>ONEARTは障がいのある子どもたちが描いた絵をもとに、プロのアーティストが作品をつくる活動です。</p>
+          <p class="hero-scroll" aria-hidden="true"><span>SCROLL</span><i></i></p>
+        </div>
+      </div>
+
+      <!-- 理念：スクロールに合わせて1文字ずつ刷り上がる -->
+      <div class="statement">
+        <p class="eyebrow"><span class="eb-num">01</span>ABOUT ONEART</p>
+        <h2 class="statement-title" data-fill>アートに<br />障がいは<br />存在しない</h2>
+        <div class="statement-body">
+          <p data-mask>ONEARTは障がいのある子どもたちとアーティストが一緒に作品をつくる活動です。</p>
+          <p data-mask>子どもたちが自由に描いた線や色をもとに、アーティストがその子の表現を生かした作品に仕上げます。</p>
+        </div>
+        <div class="statement-blob" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+
+      <!-- 作品ができるまで：PCは画面に固定して横に流れる／スマホはスワイプ -->
+      <div class="process" id="process">
+        <div class="process-pin">
+          <div class="process-head">
+            <h3 class="process-title" data-chars>作品ができるまで</h3>
+            <p class="process-hint" aria-hidden="true"><span class="for-fine">SCROLL →</span><span class="for-touch">← SWIPE →</span></p>
+          </div>
+          <ol class="process-track" id="processTrack">
+            <li class="step" data-plate="pink">
+              <span class="step-num" aria-hidden="true">01</span>
+              <figure class="step-media"><canvas data-halftone="./assets/img/act-2.jpg" data-ink="#141414" data-tint="#ff4fa3" aria-hidden="true"></canvas><img src="./assets/img/act-2.jpg" alt="施設で子どもたちが絵を描いている様子" loading="lazy" /></figure>
+              <div class="step-text"><h4>施設を訪問する</h4><p>ONEARTのスタッフやアーティストが参加施設を訪問します。</p></div>
+            </li>
+            <li class="step" data-plate="yellow">
+              <span class="step-num" aria-hidden="true">02</span>
+              <figure class="step-media"><canvas data-halftone="./assets/img/act-1.jpg" data-ink="#141414" data-tint="#ffe500" aria-hidden="true"></canvas><img src="./assets/img/act-1.jpg" alt="子どもたちと大人が一緒に絵を描いている様子" loading="lazy" /></figure>
+              <div class="step-text"><h4>子どもたちが絵を描く</h4><p>それぞれの身体の動きに合わせて自由に描きます。筆を持つことが難しい場合は指や手を使います。</p></div>
+            </li>
+            <li class="step" data-plate="blue">
+              <span class="step-num" aria-hidden="true">03</span>
+              <figure class="step-media step-media--draw" aria-hidden="true">
+                <svg viewBox="0 0 400 300" class="draw-svg">
+                  <path class="draw-line" d="M30 220 C 80 80, 140 260, 190 140 S 300 40, 370 170" />
+                  <path class="draw-line draw-line--2" d="M50 90 C 120 130, 150 40, 230 90 S 330 230, 360 250" />
+                  <circle class="draw-dot" cx="300" cy="90" r="34" />
+                  <rect class="draw-frame" x="12" y="12" width="376" height="276" />
+                </svg>
+              </figure>
+              <div class="step-text"><h4>アーティストが作品に仕上げる</h4><p>子どもたちの原画をもとにアーティストが作品を制作します。</p></div>
+            </li>
+            <li class="step" data-plate="pink">
+              <span class="step-num" aria-hidden="true">04</span>
+              <figure class="step-media"><canvas data-halftone="./assets/img/expo-2.jpg" data-ink="#141414" data-tint="#2f52ff" aria-hidden="true"></canvas><img src="./assets/img/expo-2.jpg" alt="展示会場で作品を見る人たち" loading="lazy" /></figure>
+              <div class="step-text"><h4>展示会で発表する</h4><p>完成した作品を各地のONEART展示会で発表します。</p></div>
+            </li>
+            <li class="step step--last" data-plate="yellow">
+              <span class="step-num" aria-hidden="true">05</span>
+              <figure class="step-media step-media--big" aria-hidden="true"><b class="big60">60<small>%</small></b></figure>
+              <div class="step-text"><h4>奨学金をご家族へ届ける</h4><p>売上の60％を奨学金として絵を描いた子どものご家族へ届けます。</p><p class="kari"><span class="kari-stamp">仮</span>割合の対象は確認中</p></div>
+            </li>
+          </ol>
+          <div class="process-bar" aria-hidden="true"><i id="processBar"></i></div>
+          <p class="photo-note"><span class="kari-stamp">仮</span>写真は資料画像から切り出して網点に加工したもの。掲載する写真と掲載許可は確認中です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         02 札幌展
+         ================================================================ -->
+    <section class="sec t-ink" id="sapporo" data-theme="ink" data-chapter="02" data-chapter-name="SAPPORO／札幌展">
+      <div class="marquee marquee--sapporo" data-marquee="1" aria-hidden="true">
+        <div class="marquee-track"><span>SAPPORO</span><em>札幌</em><span>SAPPORO</span><em>札幌</em></div>
+      </div>
+
+      <div class="sap-intro wrap">
+        <p class="eyebrow"><span class="eb-num">02</span>ONEART SAPPORO</p>
+        <h2 class="sap-title" data-chars>ONEART札幌</h2>
+        <p class="sap-lead" data-mask><span class="label">お絵描き活動</span>2026年6月から7月頃に参加施設を訪問しました。</p>
+      </div>
+
+      <!-- 会場の写真が窓から全画面に広がる -->
+      <div class="zoom" id="zoom">
+        <div class="zoom-pin">
+          <div class="zoom-window" id="zoomWindow">
+            <canvas data-halftone="./assets/img/expo-1.jpg" data-ink="#141414" data-tint="#ffe500" data-paper="#f1ece1" data-cell="9" aria-hidden="true"></canvas>
+            <img src="./assets/img/expo-1.jpg" alt="ONEART展示会の会場の様子" loading="lazy" />
+          </div>
+          <p class="zoom-word" aria-hidden="true"><span class="zw-l">SAPPORO</span><span class="zw-r">2026</span></p>
+          <div class="zoom-cards">
+            <div class="venue-card">
+              <p class="vc-date"><b>8.20</b><i>—</i><b>8.22</b></p>
+              <p class="vc-name">BAR LOUNGE RUDAN</p>
+              <p class="vc-sub">2026年8月20日から22日</p>
+            </div>
+            <div class="venue-card">
+              <p class="vc-date"><b>8.24</b><i>—</i><b>8.26</b></p>
+              <p class="vc-name">札幌駅前通地下歩行空間 チ・カ・ホ</p>
+              <p class="vc-sub">2026年8月24日から26日</p>
+            </div>
+            <p class="kari kari--light"><span class="kari-stamp">仮</span>会場名・写真の掲載可否は確認中（写真は開催地未確認の資料画像）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 数字：桁ごとに回って止まる -->
+      <div class="wrap stats-wrap">
+        <p class="kari kari--light"><span class="kari-stamp">仮</span>数値は原稿案の値。対象期間・掲載許可は確認中です。</p>
+        <dl class="stats">
+          <div class="stat"><dt>開催期間</dt><dd><span class="odo" data-odo="9">9</span><small>年間</small></dd></div>
+          <div class="stat"><dt>展示作品 合計</dt><dd><span class="odo" data-odo="216">216</span><small>点</small></dd></div>
+          <div class="stat"><dt>参加施設</dt><dd><span class="odo" data-odo="8">8</span><small>施設</small></dd></div>
+          <div class="stat"><dt>2026 成約作品</dt><dd><span class="odo" data-odo="13">13</span><small>点</small></dd></div>
+        </dl>
+        <p class="stat-note">1回の展示作品 24点（仮）</p>
+      </div>
+
+      <!-- 地図（イメージ）と日程 -->
+      <div class="wrap mapgrid">
+        <figure class="map" id="map">
+          <svg viewBox="0 0 600 600" role="img" aria-labelledby="mapTitle">
+            <title id="mapTitle">札幌の会場と参加施設を示すイメージ図（実際の位置・縮尺ではありません）</title>
+            <g class="map-grid" transform="rotate(-8 300 300)">
+              <path d="M-60 60H660M-60 120H660M-60 180H660M-60 240H660M-60 300H660M-60 360H660M-60 420H660M-60 480H660M-60 540H660" />
+              <path d="M60 -60V660M120 -60V660M180 -60V660M240 -60V660M360 -60V660M420 -60V660M480 -60V660M540 -60V660" />
+              <path class="map-main" d="M300 -60V660" />
+            </g>
+            <path class="map-river" d="M640 120 C 520 200, 470 260, 430 330 S 300 520, 200 640" />
+            <path class="map-route" d="M282 160 C 240 230, 190 250, 170 330 S 250 430, 320 410" />
+            <g class="map-dots">
+              <circle cx="120" cy="140" r="7" /><circle cx="460" cy="120" r="7" /><circle cx="520" cy="250" r="7" />
+              <circle cx="90" cy="420" r="7" /><circle cx="210" cy="520" r="7" /><circle cx="470" cy="470" r="7" />
+              <circle cx="560" cy="380" r="7" /><circle cx="380" cy="560" r="7" />
+            </g>
+            <g class="map-pin" data-pin="1" transform="translate(282 160)" tabindex="0" role="button" aria-label="会場1 札幌駅前通地下歩行空間 チ・カ・ホ（仮）">
+              <g class="pin-body"><path d="M0 0 C -18 -26, -26 -40, -26 -52 A 26 26 0 1 1 26 -52 C 26 -40, 18 -26, 0 0Z" /><text x="0" y="-45">1</text></g>
+            </g>
+            <g class="map-pin" data-pin="2" transform="translate(320 410)" tabindex="0" role="button" aria-label="会場2 BAR LOUNGE RUDAN（仮）">
+              <g class="pin-body"><path d="M0 0 C -18 -26, -26 -40, -26 -52 A 26 26 0 1 1 26 -52 C 26 -40, 18 -26, 0 0Z" /><text x="0" y="-45">2</text></g>
+            </g>
+          </svg>
+          <div class="map-tip" id="mapTip" role="status" aria-live="polite"></div>
+          <figcaption>イメージ図。実際の位置・縮尺とは異なります。点は参加施設（8・名称と所在地は掲載許可の確認後に表示／仮）</figcaption>
+        </figure>
+
+        <div class="schedule">
+          <h3 class="schedule-title" data-chars>ONEART SAPPORO 2026</h3>
+          <ol class="sched">
+            <li><span class="sched-when" data-flip>6月–7月頃</span><span class="sched-what">お絵描き活動<small>参加施設を訪問</small></span></li>
+            <li><span class="sched-when" data-flip>8.20–8.22</span><span class="sched-what">展示会<small>BAR LOUNGE RUDAN（仮）</small></span></li>
+            <li><span class="sched-when" data-flip>8.24–8.26</span><span class="sched-what">展示会<small>札幌駅前通地下歩行空間 チ・カ・ホ（仮）</small></span></li>
+            <li><span class="sched-when" data-flip>結果</span><span class="sched-what">13点の作品が成約しました<small class="kari-inline">仮・掲載許可確認中</small></span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 展示風景：網点→カラー -->
+      <div class="strip" id="strip">
+        <ul class="strip-track">
+          <li data-speed="0.9"><canvas data-halftone="./assets/img/expo-3.jpg" data-ink="#141414" data-tint="#ff4fa3" aria-hidden="true"></canvas><img src="./assets/img/expo-3.jpg" alt="展示会場の様子（作品の展示台）" loading="lazy" /></li>
+          <li data-speed="1.15"><canvas data-halftone="./assets/img/expo-4.jpg" data-ink="#141414" data-tint="#2f52ff" aria-hidden="true"></canvas><img src="./assets/img/expo-4.jpg" alt="展示会場の様子（会場入口）" loading="lazy" /></li>
+          <li data-speed="0.8"><canvas data-halftone="./assets/img/expo-5.jpg" data-ink="#141414" data-tint="#ffe500" aria-hidden="true"></canvas><img src="./assets/img/expo-5.jpg" alt="展示会場の様子（棚に並んだ作品）" loading="lazy" /></li>
+          <li data-speed="1.05"><canvas data-halftone="./assets/img/expo-2.jpg" data-ink="#141414" data-tint="#ff4fa3" aria-hidden="true"></canvas><img src="./assets/img/expo-2.jpg" alt="展示会場の様子（作品を見る来場者）" loading="lazy" /></li>
+        </ul>
+        <p class="strip-note"><span class="for-fine">写真にポインターを乗せると元の色に戻ります。</span><span class="for-touch">写真をタップすると元の色に戻ります。</span><span class="kari-inline">仮・開催地未確認の資料画像</span></p>
+      </div>
+
+      <div class="wrap sap-sub">
+        <div>
+          <p class="label">これまでの参加施設</p>
+          <p class="placeholder">参加施設名（8施設）は、正式名称と掲載許可の確認後に表示します。<span class="kari-inline">仮</span></p>
+        </div>
+        <div>
+          <p class="label">札幌展のメディア掲載 <span class="kari-inline">仮・掲載年と表記確認中</span></p>
+          <ul class="media-list">
+            <li>NHK札幌</li><li>HBC</li><li>Yahoo!ニュース</li><li>札幌経済新聞</li><li>北海道新聞</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         03 活動方針（原稿準備中）— 画面に固定して3場面を切り替え
+         ================================================================ -->
+    <section class="sec t-plate" id="policy" data-theme="yellow" data-chapter="03" data-chapter-name="POLICY／活動方針">
+      <div class="policy" id="policyScene">
+        <div class="policy-pin">
+          <div class="policy-bgs" aria-hidden="true"><i class="pbg pbg-yellow"></i><i class="pbg pbg-pink"></i><i class="pbg pbg-blue"></i></div>
+          <div class="policy-head">
+            <p class="eyebrow"><span class="eb-num">03</span>POLICY</p>
+            <h2 class="policy-title">活動方針</h2>
+            <p class="kari"><span class="kari-stamp">仮</span>原稿準備中。下の言葉はすべて仮の文です</p>
+          </div>
+          <p class="policy-bignum" aria-hidden="true"><span id="policyNum">01</span><small>/03</small></p>
+          <ol class="policy-list">
+            <li class="pol is-active"><span class="pol-label">方針 01</span><b class="pol-word">〔原稿準備中〕方針の言葉が入ります</b><p>ここに1つ目の方針の説明文が入ります（仮）。</p></li>
+            <li class="pol"><span class="pol-label">方針 02</span><b class="pol-word">〔原稿準備中〕方針の言葉が入ります</b><p>ここに2つ目の方針の説明文が入ります（仮）。</p></li>
+            <li class="pol"><span class="pol-label">方針 03</span><b class="pol-word">〔原稿準備中〕方針の言葉が入ります</b><p>ここに3つ目の方針の説明文が入ります（仮）。</p></li>
+          </ol>
+          <div class="policy-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         04 運用団体（1回目・通常版）— 静かなマスク表示
+         ================================================================ -->
+    <section class="sec t-paper" id="org-1" data-theme="paper" data-chapter="04" data-chapter-name="ORGANIZATION／運営法人">
+      <div class="wrap org">
+        <p class="eyebrow"><span class="eb-num">04</span>ORGANIZATION</p>
+        <div class="org-rule" aria-hidden="true"></div>
+        <h2 class="org-name"><span class="org-small" data-mask>運営法人</span><span class="org-big" data-track>一般財団法人ゆめいく</span></h2>
+        <div class="org-body">
+          <p data-mask>ONEARTは一般財団法人ゆめいくが運営しています。</p>
+          <p data-mask>一般財団法人ゆめいくは、家庭や社会の事情で学びや体験の機会を得にくい子どもや若者を支援する団体です。相談支援、教育支援、アート活動、農業・料理体験、イベントなどを行っています。</p>
+          <a class="btn btn-line" href="https://you-make.org/" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="link"><span class="btn-text">一般財団法人ゆめいく公式サイトを見る</span><span class="btn-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         05 作品 — ドラッグ・めくり・原画と作品の比較
+         ================================================================ -->
+    <section class="sec t-ink" id="works" data-theme="ink" data-chapter="05" data-chapter-name="WORKS／作品">
+      <div class="wrap works-head">
+        <p class="eyebrow"><span class="eb-num">05</span>WORKS</p>
+        <h2 class="works-title" aria-label="原画と完成作品"><span class="wt wt-a" data-chars>原画</span><span class="wt-arrow" aria-hidden="true">→</span><span class="wt wt-b" data-chars>作品</span></h2>
+        <p class="works-lead" data-mask>子どもたちが描いた原画をもとに、アーティストが一点の作品として仕上げています。</p>
+      </div>
+
+      <div class="gallery" id="gallery" data-cursor="drag">
+        <ul class="gallery-track" id="galleryTrack">
+          <!-- 各カード：上に原画、下に作品。PCはカーソルで角をめくる／スマホはタップでめくる -->
+          <li><button class="card" type="button" data-work="1" aria-label="作品01 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a1.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o1.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>01</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card" type="button" data-work="2" aria-label="作品02 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a2.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o2.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>02</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card card--tall" type="button" data-work="5" aria-label="作品03 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a5.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o5.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>03</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card" type="button" data-work="3" aria-label="作品04 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a3.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o3.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>04</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card card--tall" type="button" data-work="6" aria-label="作品05 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a6.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o6.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>05</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card" type="button" data-work="4" aria-label="作品06 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a4.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o4.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>06</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+          <li><button class="card card--tall" type="button" data-work="7" aria-label="作品07 原画と作品を比べる"><span class="card-art"><img src="./assets/img/works/a7.jpg" alt="" /></span><span class="card-orig"><img src="./assets/img/works/o7.jpg" alt="" /></span><span class="card-flap" aria-hidden="true"></span><span class="card-meta"><b>07</b><small>作品名・作者名 確認中（仮）</small></span></button></li>
+        </ul>
+      </div>
+
+      <div class="wrap works-foot">
+        <p class="works-hint">
+          <span class="for-fine">左右にドラッグ。角にポインターを近づけると原画がめくれて作品が見えます。押すと原画と作品を並べて比べられます。</span>
+          <span class="for-touch">左右にスワイプ。タップで原画をめくると作品、もう一度タップで比べる画面が開きます。</span>
+        </p>
+        <p class="kari kari--light"><span class="kari-stamp">仮</span>画像は資料から切り出したもの（粗い）。掲載する代表作品と許可は確認中</p>
+        <a class="btn btn-yellow" href="https://you-make.org/gallery/" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="link"><span class="btn-text">作品をもっと見る</span><span class="btn-arrow" aria-hidden="true">↗</span></a>
+      </div>
+
+      <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+        <div class="viewer-inner">
+          <div class="viewer-head">
+            <p id="viewerTitle">作品 01</p>
+            <button type="button" class="viewer-close" data-close aria-label="閉じる" data-cursor="link">×</button>
+          </div>
+          <div class="compare" id="compare" style="--x:50%">
+            <img class="compare-art" id="compareArt" src="" alt="完成作品" />
+            <img class="compare-orig" id="compareOrig" src="" alt="原画" />
+            <span class="compare-tag compare-tag--l" aria-hidden="true">原画</span>
+            <span class="compare-tag compare-tag--r" aria-hidden="true">作品</span>
+            <input class="compare-range" id="compareRange" type="range" min="0" max="100" value="50" aria-label="原画と作品の境目を動かす" />
+            <span class="compare-handle" aria-hidden="true"><i>⇆</i></span>
+          </div>
+          <p class="viewer-note">境目を左右に動かして比べられます。<span class="kari-inline">仮・作品名／子どもの名前（公開名）／参加アーティストは確認中</span></p>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- ================================================================
+         06 展開 — 輪が広がる
+         ================================================================ -->
+    <section class="sec t-blue" id="future" data-theme="blue" data-chapter="06" data-chapter-name="NEXT／展開">
+      <div class="future" id="futureScene">
+        <div class="future-pin">
+          <div class="future-head">
+            <p class="eyebrow"><span class="eb-num">06</span>NEXT STEP</p>
+            <h2 class="future-title" data-chars>今後の案</h2>
+            <p class="kari kari--light"><span class="kari-stamp">仮</span>すべて検討中。公開する項目は未定</p>
+          </div>
+          <div class="rings" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+            <b class="rings-core">ONE<br />ART</b>
+          </div>
+          <ol class="future-list">
+            <li><span class="fl-num">01</span><span class="fl-text">スポーツの試合会場などでのPOPUP展示</span><span class="pill">検討中</span></li>
+            <li><span class="fl-num">02</span><span class="fl-text">オンラインでの作品閲覧、成約、決済</span><span class="pill">検討中</span></li>
+            <li><span class="fl-num">03</span><span class="fl-text">作品を使ったレプリカやグッズの販売</span><span class="pill">検討中</span></li>
+            <li><span class="fl-num">04</span><span class="fl-text">パートナー企業内への販売ブース設置</span><span class="pill">検討中</span></li>
+            <li><span class="fl-num">05</span><span class="fl-text">コラボアーティストの紹介ページ</span><span class="pill">検討中</span></li>
+          </ol>
+          <p class="future-note">上記は検討中の内容です。実施が決まった内容だけを公開します。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         07 パートナー紹介
+         ================================================================ -->
+    <section class="sec t-yellow" id="partners" data-theme="yellow" data-chapter="07" data-chapter-name="PARTNERS／パートナー">
+      <div class="marquee marquee--partners" data-marquee="1" aria-hidden="true">
+        <div class="marquee-track"><span>PARTNERS</span><em>✶</em><span class="jp">パートナー</span><em>✶</em></div>
+      </div>
+      <div class="marquee marquee--partners marquee--rev" data-marquee="-1" aria-hidden="true">
+        <div class="marquee-track"><span class="outline">WITH ONEART</span><em>✶</em><span class="outline jp">一緒につくる</span><em>✶</em></div>
+      </div>
+
+      <div class="wrap partners-head">
+        <p class="eyebrow"><span class="eb-num">07</span>PARTNERS</p>
+        <h2 class="partners-title" data-chars>パートナー紹介</h2>
+        <p class="kari"><span class="kari-stamp">仮</span>パートナー名・ロゴは掲載許可の確認後に表示。下は仮の枠です</p>
+      </div>
+      <ul class="logos wrap" aria-label="パートナーのロゴ（仮の枠）">
+        <li data-plate="pink"><span>LOGO</span><small>仮</small></li>
+        <li data-plate="blue"><span>LOGO</span><small>仮</small></li>
+        <li data-plate="yellow"><span>LOGO</span><small>仮</small></li>
+        <li data-plate="pink"><span>LOGO</span><small>仮</small></li>
+        <li data-plate="blue"><span>LOGO</span><small>仮</small></li>
+        <li data-plate="yellow"><span>LOGO</span><small>仮</small></li>
+      </ul>
+
+      <!-- パートナー募集：紹介と同じ枠に置くか未定のため、仮にここへ置いている -->
+      <div class="wrap recruit">
+        <div class="recruit-copy">
+          <p class="kari"><span class="kari-stamp">仮</span>扱い未定：募集をこのセクションに含めるか検討中</p>
+          <h3 class="recruit-title" data-mask>作品を紹介する機会を一緒につくる企業を募集しています</h3>
+          <p data-mask>ONEART札幌では、作品を知ってもらう機会と作品が選ばれる機会を増やすため、活動に協力してくださる企業や団体を募集します。</p>
+          <a class="btn btn-ink is-pending" href="#" data-pending data-magnetic data-cursor="link"><span class="btn-text">パートナーについて相談する</span><span class="btn-arrow" aria-hidden="true">↗</span><em class="pending-label">リンク未設定</em></a>
+        </div>
+        <ul class="recruit-list">
+          <li><span>01</span>展示会やPOPUPの開催協力</li>
+          <li><span>02</span>社内や店舗への作品展示</li>
+          <li><span>03</span>作品を紹介する場所の提供</li>
+          <li><span>04</span>社員や取引先への活動紹介</li>
+          <li><span>05</span>社内への作品販売ブース設置</li>
+          <li><span>06</span>活動の周知</li>
+          <li><span>07</span>事務局運営への協力</li>
+          <li class="recruit-note">協力内容は企業ごとに相談して決定します。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         08 レンタル（購入の導線も外部リンクのボタンで置く）
+         ================================================================ -->
+    <section class="sec t-paper" id="rental" data-theme="paper" data-chapter="08" data-chapter-name="RENTAL／レンタル">
+      <div class="wrap rental-head">
+        <p class="eyebrow"><span class="eb-num">08</span>PURCHASE &amp; RENTAL</p>
+        <h2 class="rental-title" data-chars>作品を購入・<br />レンタルする</h2>
+        <p data-mask>ONEARTの作品は法人と個人のどちらも購入・レンタルできます。受付中の作品と条件は作品ページで確認できます。</p>
+      </div>
+
+      <ol class="stack wrap" id="stack">
+        <li class="stack-card" data-plate="pink"><span class="sc-num">STEP 01</span><p>作品ページで受付中の作品を見る</p><i class="sc-shape" aria-hidden="true"></i></li>
+        <li class="stack-card" data-plate="yellow"><span class="sc-num">STEP 02</span><p>購入またはレンタルの条件を確認する</p><i class="sc-shape" aria-hidden="true"></i></li>
+        <li class="stack-card" data-plate="blue"><span class="sc-num">STEP 03</span><p>外部ページから申し込む</p><i class="sc-shape" aria-hidden="true"></i></li>
+      </ol>
+
+      <div class="wrap cta">
+        <a class="cta-btn cta-btn--rent is-pending" href="#" data-pending data-magnetic data-cursor="link">
+          <span class="cta-fill" aria-hidden="true"></span>
+          <span class="cta-label">レンタルできる作品を見る</span><span class="cta-arrow" aria-hidden="true">↗</span>
+          <em class="pending-label">リンク未設定</em>
+        </a>
+        <a class="cta-btn cta-btn--buy is-pending" href="#" data-pending data-magnetic data-cursor="link">
+          <span class="cta-fill" aria-hidden="true"></span>
+          <span class="cta-label">購入できる作品を見る</span><span class="cta-arrow" aria-hidden="true">↗</span>
+          <em class="pending-label">リンク未設定</em>
+        </a>
+        <p class="cta-note">外部ページ（BASEまたは専用システム）のURL受領後に接続します。</p>
+      </div>
+
+      <div class="wrap rental-info">
+        <dl class="conditions">
+          <div><dt>料金</dt><dd><span class="kari-stamp">仮</span>確認中</dd></div>
+          <div><dt>レンタル期間</dt><dd><span class="kari-stamp">仮</span>確認中</dd></div>
+          <div><dt>申込方法</dt><dd><span class="kari-stamp">仮</span>確認中</dd></div>
+        </dl>
+        <div class="share" id="share">
+          <p class="label">売上の使い道 <span class="kari-inline">仮・対象と割合の確認中</span></p>
+          <p>作品の売上は60％を奨学金としてご家族へ届け、20％をアーティスト、20％を次回の展示や広報などの運営費に使用します。</p>
+          <div class="share-bars">
+            <div class="sb sb-pink" style="--w:60"><span class="sb-fill"></span><b><span data-count="60">60</span>%</b><small>奨学金</small></div>
+            <div class="sb sb-yellow" style="--w:20"><span class="sb-fill"></span><b><span data-count="20">20</span>%</b><small>アーティスト</small></div>
+            <div class="sb sb-blue" style="--w:20"><span class="sb-fill"></span><b><span data-count="20">20</span>%</b><small>運営費</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         09 運用団体（2回目・短縮版）— 最後に巨大な文字が立ち上がる
+         位置を変えるときは、この section をまるごと移すだけでよい。
+         ================================================================ -->
+    <section class="sec t-ink" id="org-2" data-theme="ink" data-chapter="09" data-chapter-name="ORGANIZATION／運営法人">
+      <div class="wrap finale">
+        <p class="eyebrow"><span class="eb-num">09</span>ORGANIZATION</p>
+        <p class="finale-text" data-mask>ONEARTは一般財団法人ゆめいくが運営しています。</p>
+        <a class="btn btn-yellow" href="https://you-make.org/" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="link"><span class="btn-text">一般財団法人ゆめいく公式サイトを見る</span><span class="btn-arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <p class="giant" id="giant" aria-hidden="true"><span data-plate="pink">O</span><span data-plate="yellow">N</span><span data-plate="blue">E</span><span data-plate="pink">A</span><span data-plate="yellow">R</span><span data-plate="blue">T</span></p>
+      <footer class="site-footer">
+        <p>© ONEART／YUMEIKU</p>
+        <a href="#about" data-nav data-cursor="link">PAGE TOP ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <p class="draft-badge" aria-hidden="true">試作 第2案・仮の内容を含みます</p>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="stamps" id="stamps" aria-hidden="true"></div>
+
+  <script src="./vendor/gsap.min.js" defer></script>
+  <script src="./vendor/ScrollTrigger.min.js" defer></script>
+  <script src="./vendor/Draggable.min.js" defer></script>
+  <script src="./vendor/InertiaPlugin.min.js" defer></script>
+  <script src="./vendor/lenis.min.js" defer></script>
+  <script src="./js/halftone.js" defer></script>
+  <script src="./js/ink.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

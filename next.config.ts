@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       // otherwise — or inside an in-app browser like LINE's — this
       // standalone page offers an "open in app" button and install steps.
       { source: "/i/:token", destination: "/airsig/invite.html" },
+      { source: "/oneart-test", destination: "/oneart-test/index.html" },
+      { source: "/oneart-test/", destination: "/oneart-test/index.html" },
     ];
   },
 
