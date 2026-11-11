@@ -143,6 +143,10 @@
   /* ---------------- 最初の画面 ---------------- */
   var ink = null;
   function setupHero() {
+    var header = $('#siteHeader');
+    function updateHeader() { header.classList.toggle('is-scrolled', window.scrollY > 24); }
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
     var hero = $('#hero'), canvas = $('#inkCanvas');
     var swatch = $$('#heroSwatch i');
     function onPlate(i) {

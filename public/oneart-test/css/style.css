@@ -28,7 +28,7 @@
   --yellow: #ffe500;
   --blue: #2f52ff;
   --f-latin: "Bricolage", "Helvetica Neue", Arial, sans-serif;
-  --f-disp: "Dela Gothic One", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  --f-disp: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
   --f-body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, sans-serif;
   --pad: clamp(20px, 4.4vw, 72px);
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -125,8 +125,11 @@ html.motion.theme-js .sec { background: transparent; }
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 7000; height: var(--header-h);
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  padding: 0 var(--pad); color: #141414; background: rgba(241,236,225,.94); pointer-events: none;
+  padding: 0 var(--pad); color: #141414; background: transparent; pointer-events: none;
+  transition: background-color 180ms ease;
 }
+.site-header.is-scrolled { background: rgba(241,236,225,.94); }
+@media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
 .site-header > * { pointer-events: auto; }
 .brand { justify-self: start; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-latin); font-weight: 800; font-size: 22px; letter-spacing: -.01em; font-stretch: 80%; }
 .brand-logo { display: block; width: 130px; height: auto; }

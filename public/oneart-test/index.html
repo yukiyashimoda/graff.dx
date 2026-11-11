@@ -9,7 +9,6 @@
   <title>ONEART LP 試作 第2案（concept-v2）</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='30' r='18' fill='%23ff4fa3'/%3E%3Ccircle cx='38' cy='30' r='18' fill='%232f52ff' style='mix-blend-mode:multiply'/%3E%3Ccircle cx='32' cy='40' r='18' fill='%23ffe500' style='mix-blend-mode:multiply'/%3E%3C/svg%3E" />
   <link rel="preload" href="./assets/fonts/bricolage-sub.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="./assets/fonts/dela-gothic-one-sub.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="./css/style.css" />
   <script>
     /* 動きを付けてよい環境かを最初に判定（動きを減らす設定ではローディング幕も出さない） */
@@ -86,15 +85,6 @@
         <!-- WebGLが使えない・動きを減らす設定のときの静止した代替表示 -->
         <div class="hero-fallback" aria-hidden="true">
           <i class="hf hf-pink"></i><i class="hf hf-yellow"></i><i class="hf hf-blue"></i>
-        </div>
-
-        <div class="hero-top">
-          <p class="hero-tag"><span class="dot-live" aria-hidden="true"></span><span data-scramble>ORIGINAL → ARTWORK</span></p>
-          <p class="hero-hint" aria-hidden="true">
-            <span class="for-fine">ドラッグで描く・クリックで色を替える</span>
-            <span class="for-touch">指でなぞって描く・タップで色を替える</span>
-            <span class="hero-swatch" id="heroSwatch"><i data-plate="pink" class="is-on"></i><i data-plate="yellow"></i><i data-plate="blue"></i></span>
-          </p>
         </div>
 
         <h1 class="hero-title">
