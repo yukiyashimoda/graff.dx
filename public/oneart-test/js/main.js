@@ -109,35 +109,41 @@
   }
 
   /* ---------------- 読み込み演出 ---------------- */
+  var logoTransferred = false;
   function runLoader(done) {
-    var L = $('#loader');
-    if (!MOTION || !L || params.has('noloader')) { if (L) L.style.display = 'none'; done(); return; }
+    var L = $('#loader'), logo = $('.loader-logo'), heroLogo = $('.hero-logo');
+    if (!MOTION || !L || !heroLogo || params.has('noloader')) { if (L) L.style.display = 'none'; done(); return; }
     lockScroll(true);
-    var countEl = $('#loaderCount'), count = { v: 0 };
-    var finished = false;
-    function finish() { if (finished) return; finished = true; lockScroll(false); }
-    // 3色の版（文字）が別々の方向から飛んできて、最後に黒い版が刷られる
-    var labels = {}; $$('[data-plate-label]', L).forEach(function (s) { labels[s.getAttribute('data-plate-label')] = s; });
-    function on(name) { return function () { labels[name].classList.add('is-on'); }; }
-    gsap.set('.lw-pink', { xPercent: -60, yPercent: 30, rotate: -8, opacity: 0 });
-    gsap.set('.lw-yellow', { yPercent: -140, rotate: 6, opacity: 0 });
-    gsap.set('.lw-blue', { xPercent: 60, yPercent: 40, rotate: 10, opacity: 0 });
-    gsap.set('.lw-key span', { yPercent: 110 });
-    var tl = gsap.timeline({ onComplete: function () { L.style.display = 'none'; finish(); } });
-    tl.to(count, { v: 100, duration: 1.55, ease: 'power2.inOut', onUpdate: function () { countEl.textContent = String(Math.round(count.v)).padStart(3, '0'); } }, 0)
-      .to('.loader-line', { scaleX: 1, duration: 1.55, ease: 'power2.inOut' }, 0)
-      .to('.lw-pink', { xPercent: -3, yPercent: 4, rotate: -1.5, opacity: 1, duration: 0.9, ease: 'expo.out' }, 0.05).add(on('pink'), 0.05)
-      .to('.lw-yellow', { xPercent: 2.5, yPercent: -5, rotate: 1, opacity: 1, duration: 0.9, ease: 'expo.out' }, 0.25).add(on('yellow'), 0.25)
-      .to('.lw-blue', { xPercent: 1.5, yPercent: 6, rotate: 1.5, opacity: 1, duration: 0.9, ease: 'expo.out' }, 0.45).add(on('blue'), 0.45)
-      .to('.lw-key span', { yPercent: 0, stagger: 0.05, duration: 0.7, ease: 'expo.out' }, 0.7).add(on('key'), 0.7)
-      // 見当が合う（版がぴたりと重なる）→ 少しだけずれた位置に戻る
-      .to('.lw:not(.lw-key)', { xPercent: 0, yPercent: 0, rotate: 0, duration: 0.28, ease: 'power4.inOut' }, 1.3)
-      .to('.lw-pink', { xPercent: -1.2, yPercent: 1.5, duration: 0.25, ease: 'power2.out' }, 1.6)
-      .to('.lw-blue', { xPercent: 0.8, yPercent: 2.4, duration: 0.25, ease: 'power2.out' }, 1.6)
-      .to('.loader-word', { scale: 1.06, duration: 0.5, ease: 'power2.in' }, 1.6)
-      .to(L, { clipPath: 'inset(0% 0% 100% 0%)', duration: 0.85, ease: 'expo.inOut' }, 1.85)
-      .add(function () { finish(); done(); }, 1.95);
-    L.addEventListener('click', function () { tl.timeScale(3); });
+    var finished = false, tl;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      clearTimeout(fallback);
+      if (tl) tl.kill();
+      L.style.display = 'none';
+      gsap.set(heroLogo, { clearProps: 'opacity' });
+      logoTransferred = true;
+      lockScroll(false);
+      done();
+    }
+    function begin() {
+      if (finished) return;
+      var rect = heroLogo.getBoundingClientRect();
+      var width = Math.min(window.innerWidth * 0.56, 360);
+      gsap.set(logo, { left: (window.innerWidth - width) / 2, top: (window.innerHeight - width * rect.height / rect.width) / 2, width: width, opacity: 0 });
+      gsap.set(heroLogo, { opacity: 0 });
+      tl = gsap.timeline({ onComplete: finish });
+      tl.to(logo, { opacity: 1, duration: 0.65, ease: 'sine.out' }, 0)
+        .to(logo, { left: rect.left, top: rect.top, width: rect.width, duration: 1.15, ease: 'sine.inOut' }, 0.45)
+        .to(L, { backgroundColor: 'rgba(241,236,225,0)', duration: 1.0, ease: 'sine.inOut' }, 0.65);
+    }
+    // 読み込み失敗でも画面やスクロールを塞がない
+    var fallback = setTimeout(finish, 4000);
+    L.addEventListener('click', finish, { once: true });
+    window.addEventListener('resize', finish, { once: true });
+    Promise.all([logo.decode(), heroLogo.decode()]).then(begin, finish).finally(function () {
+      if (finished) clearTimeout(fallback);
+    });
   }
 
   /* ---------------- 最初の画面 ---------------- */
@@ -163,7 +169,7 @@
 
   function heroIntro() {
     if ($('.hero-logo')) {
-      gsap.from('.hero-logo', { opacity: 0, y: 24, duration: 1.1, ease: 'power2.out' });
+      if (!logoTransferred) gsap.from('.hero-logo', { opacity: 0, y: 24, duration: 1.1, ease: 'power2.out' });
       gsap.from('[data-hero-line], [data-hero-fade]', { opacity: 0, y: 20, stagger: 0.12, duration: 0.8 });
       gsap.to('.hero-title', { yPercent: -35, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
       return;
