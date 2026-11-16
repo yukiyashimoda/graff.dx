@@ -3,7 +3,6 @@ import { Sora, JetBrains_Mono, Hanken_Grotesk, Share_Tech, Audiowide, Manrope } 
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import SmoothScrollProvider from './components/SmoothScrollProvider'
-import CustomCursor from './components/CustomCursor'
 
 const sora      = Sora({ weight: ['400', '600', '700'], variable: '--ff-sora',       subsets: ['latin'], display: 'swap' })
 const jetbrains = JetBrains_Mono({ weight: ['400', '500'],  variable: '--ff-jetbrains', subsets: ['latin'], display: 'swap' })
@@ -28,7 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <SmoothScrollProvider>
-          <CustomCursor />
           {children}
         </SmoothScrollProvider>
         <Analytics />
