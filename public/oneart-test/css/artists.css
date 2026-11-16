@@ -1,0 +1,39 @@
+/* ONEART アーティスト一覧ページ。動きなしの静的ページ（style.css とは独立）。 */
+@font-face { font-family: "Bricolage"; src: url("../assets/fonts/bricolage-sub.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Dela Gothic One"; src: url("../assets/fonts/dela-gothic-one-sub.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+:root { --paper:#f1ece1; --ink:#141414; --pink:#ff4fa3; --yellow:#ffe500; --blue:#2f52ff;
+  --f-latin:"Bricolage","Helvetica Neue",Arial,sans-serif;
+  --f-disp:"Dela Gothic One","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  --f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",system-ui,sans-serif;
+  --pad:clamp(20px,4.4vw,72px); }
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.9;letter-spacing:.02em;font-feature-settings:"palt" 1;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,p,ul,li{margin:0;padding:0}ul{list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.ah{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);border-bottom:2px solid var(--ink)}
+.ah-brand{display:flex;align-items:center;gap:10px;font:800 22px/1 var(--f-latin);text-decoration:none;letter-spacing:.04em}
+.ah-brand span{display:flex}
+.ah-brand i{width:16px;height:16px;border-radius:50%;margin-right:-6px;mix-blend-mode:multiply}
+.ah-brand i:nth-child(1){background:var(--pink)}.ah-brand i:nth-child(2){background:var(--blue)}.ah-brand i:nth-child(3){background:var(--yellow)}
+.ah-back{font-size:14px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--ink)}
+.ah-back:hover{background:var(--yellow)}
+.intro{padding:clamp(48px,9vw,120px) var(--pad) clamp(28px,5vw,64px)}
+.eyebrow{font:700 14px/1 var(--f-latin);letter-spacing:.2em;color:var(--blue);margin-bottom:16px}
+h1{font:400 clamp(32px,6.4vw,80px)/1.2 var(--f-disp);letter-spacing:.02em}
+.lead{margin-top:20px;max-width:40em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:28px;padding:0 var(--pad) 64px}
+.ac{--plate:var(--pink);background:#fff;border:2px solid var(--ink);padding:22px 22px 20px;box-shadow:6px 6px 0 var(--plate);display:flex;flex-direction:column}
+.ac[data-plate="yellow"]{--plate:var(--yellow)}.ac[data-plate="blue"]{--plate:var(--blue)}
+.ac-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;background:var(--paper);border:2px solid var(--ink);margin-bottom:16px}
+.ac-photo img{width:100%;height:100%;object-fit:cover}
+.ac-name{font:800 20px/1.4 var(--f-body)}
+.ac-role{font:600 12px/1.5 var(--f-latin);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:2px 0 10px}
+.ac-bio{font-size:14px;line-height:1.8;flex:1}
+.ac-links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font:700 13px/1.4 var(--f-latin)}
+.ac-links a{text-decoration:none;border-bottom:2px solid var(--ink)}
+.ac-links a:hover{background:var(--yellow)}
+.credit{padding:0 var(--pad) 48px;font-size:13px}
+.af{display:flex;justify-content:space-between;padding:22px var(--pad);background:var(--ink);color:var(--paper);font:600 13px/1 var(--f-latin)}
+@media (max-width:520px){.ac{box-shadow:4px 4px 0 var(--plate)}}
