@@ -565,7 +565,8 @@
       var n = card.getAttribute('data-work');
       art.src = './assets/img/works/a' + n + '.jpg';
       orig.src = './assets/img/works/o' + n + '.jpg';
-      title.textContent = '作品 ' + $('.card-meta b', card).textContent;
+      title.textContent = card.getAttribute('data-title') || ('作品 ' + $('.card-meta b', card).textContent);
+      var ar = $('#viewerArtist'); if (ar) ar.textContent = card.getAttribute('data-artist') ? 'アーティスト：' + card.getAttribute('data-artist') : '';
       cmp.classList.toggle('is-tall', card.classList.contains('card--tall'));
       dlg.showModal(); lockScroll(true);
       if (MOTION) {

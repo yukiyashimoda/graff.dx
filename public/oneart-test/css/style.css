@@ -589,7 +589,73 @@ html.webgl .hero-fallback { display: none; }
 .sb-blue { color: var(--paper); }
 
 /* =====================================================================
-   09 運用団体（2回目）＋ 終わり
+   09 お知らせ・活動記録（you-make.org の更新を表示）
+   ===================================================================== */
+.news-head { padding-top: 18vh; padding-bottom: 6vh; display: grid; gap: 22px; max-width: 1100px; }
+.news-title { font-family: var(--f-disp); font-weight: 400; font-size: clamp(44px, 7.4vw, 124px); line-height: 1.08; }
+.news-lead { font-size: 17px; font-weight: 600; max-width: 32em; }
+.news-groups { display: grid; gap: clamp(44px, 7vw, 96px); min-height: 40vh; padding-bottom: 8vh; }
+.news-fallback { font-weight: 700; }
+.news-fallback a { color: var(--yellow); }
+.news-gh { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid currentColor; }
+.news-gh-jp { font-family: var(--f-disp); font-weight: 400; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.25; }
+.news-gh-en { font-family: var(--f-latin); font-weight: 700; font-size: 13px; letter-spacing: .22em; opacity: .85; }
+.news-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.news-item { min-width: 0; }
+.news-card {
+  position: relative; display: grid; grid-template-rows: auto 1fr; height: 100%;
+  background: var(--paper); color: var(--ink); border: 2px solid var(--ink); text-decoration: none; overflow: hidden;
+  box-shadow: 0 0 0 var(--ink); transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.news-thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink); border-bottom: 2px solid var(--ink); }
+.news-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.news-thumb.is-empty { display: grid; place-items: center; background: var(--pink); }
+.news-thumb.is-empty[data-plate="yellow"] { background: var(--yellow); }
+.news-thumb.is-empty b { font-family: var(--f-latin); font-weight: 800; font-stretch: 75%; font-size: 22px; letter-spacing: .08em; }
+.news-body { display: grid; align-content: start; gap: 6px; padding: 14px 16px 18px; min-width: 0; }
+.news-date { font-family: var(--f-latin); font-weight: 700; font-size: 13px; letter-spacing: .12em; opacity: .75; }
+.news-ttl, .news-ex { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.news-ttl { -webkit-line-clamp: 3; font-weight: 800; font-size: 16px; line-height: 1.55; }
+.news-ex { -webkit-line-clamp: 2; font-size: 13px; line-height: 1.7; opacity: .8; }
+.gal-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.gal-item { min-width: 0; }
+.gal-card { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper); border: 2px solid var(--paper); text-decoration: none; color: var(--ink); }
+.gal-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.gal-ttl {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px; background: var(--yellow); font-weight: 800; font-size: 13px; line-height: 1.4;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: translateY(100%); transition: transform .4s var(--ease);
+}
+.gal-card:focus-visible .gal-ttl { transform: none; }
+.news-foot { display: grid; justify-items: start; gap: 16px; padding-bottom: 18vh; }
+.news-updated { font-size: 13px; font-weight: 700; opacity: .85; }
+.news-card:focus-visible, .gal-card:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+@media (hover: hover) {
+  .news-card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--pink); }
+  .news-card:hover .news-thumb img, .gal-card:hover img { transform: scale(1.06); }
+  .gal-card:hover .gal-ttl { transform: none; }
+}
+@media (max-width: 1023px) {
+  .news-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gal-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .news-head { padding-top: 14vh; }
+  .news-title { font-size: 12vw; }
+  .news-lead { font-size: 15px; }
+  .news-list { grid-template-columns: 1fr; gap: 12px; }
+  .news-card { grid-template-rows: none; grid-template-columns: 112px minmax(0, 1fr); }
+  .news-thumb { aspect-ratio: auto; min-height: 100%; border-bottom: 0; border-right: 2px solid var(--ink); }
+  .news-thumb img { position: absolute; inset: 0; }
+  .news-body { padding: 12px 14px; }
+  .news-ttl { font-size: 14px; line-height: 1.5; }
+  .news-ex { display: none; }
+  .gal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gal-ttl { transform: none; font-size: 12px; }
+  .news-foot { padding-bottom: 12vh; }
+}
+
+/* =====================================================================
+   10 運用団体（2回目）＋ 終わり
    ===================================================================== */
 .finale { display: grid; gap: 26px; justify-items: start; padding-top: 22vh; padding-bottom: 8vh; }
 .finale .eyebrow { margin-bottom: 0; }
