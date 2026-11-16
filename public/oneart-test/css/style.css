@@ -394,7 +394,7 @@ html.webgl .hero-fallback { display: none; }
 .strip li.ht-ready > img { opacity: 1; } /* 写真ストリップは下にカラー写真を残す */
 .strip-note { padding: 14px var(--pad) 0; font-size: 12px; opacity: .8; }
 
-.sap-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; padding-bottom: 16vh; }
+.sap-sub { display: grid; grid-template-columns: 1fr; gap: 5vw; padding-bottom: 16vh; }
 .media-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .media-list li { border: 1.5px solid currentColor; border-radius: 999px; padding: 2px 14px; font-weight: 700; font-size: 14px; }
 
@@ -721,6 +721,7 @@ html.motion .pol.is-active { visibility: visible; }
 html.motion .policy-dots { display: flex; gap: 10px; }
 html.motion .policy-dots i { width: 40px; height: 4px; background: currentColor; opacity: .25; transition: opacity .4s, width .4s var(--ease); }
 html.motion .policy-dots i.is-on { opacity: 1; width: 80px; }
+html.motion .policy-pin { color: var(--ink); }
 html.motion .policy-pin[data-scene="2"] { color: var(--paper); --pol-stroke: #f1ece1; }
 html.motion .pol-word { max-width: 11em; }
 
@@ -846,7 +847,7 @@ html.motion .rings { max-width: min(48vh, 520px); }
 .step-text h4, .marquee--sapporo em, .sap-title, .vc-name,
 .policy-title, .pol-word, .org-big, .works-title, .future-title,
 .fl-text, .marquee--partners .jp, .partners-title, .recruit-title,
-.rental-title, .stack-card p, .cta-btn, .finale-text { font-weight: 800; }
+.rental-title, .news-title, .news-gh-jp, .stack-card p, .cta-btn, .finale-text { font-weight: 800; }
 
 /* 動きを減らす設定：CSSアニメーション・遷移を止める */
 @media (prefers-reduced-motion: reduce) {
@@ -860,3 +861,7 @@ html.motion .rings { max-width: min(48vh, 520px); }
   html.motion .step { gap: 10px; }
   html.motion .step:nth-child(even) { margin-top: 3vh; }
 }
+
+.facility-list li { border-radius: 14px; }
+.sap-sub .strip-note { padding: 12px 0 0; }
+.facility-city { margin: 18px 0 8px; }
