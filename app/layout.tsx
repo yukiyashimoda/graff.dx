@@ -1,15 +1,59 @@
 import type { Metadata } from 'next'
-import { Sora, JetBrains_Mono, Hanken_Grotesk, Share_Tech, Audiowide, Manrope } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import SmoothScrollProvider from './components/SmoothScrollProvider'
 
-const sora      = Sora({ weight: ['400', '600', '700'], variable: '--ff-sora',       subsets: ['latin'], display: 'swap' })
-const jetbrains = JetBrains_Mono({ weight: ['400', '500'],  variable: '--ff-jetbrains', subsets: ['latin'], display: 'swap' })
-const hanken    = Hanken_Grotesk({ weight: ['400', '500'],  variable: '--ff-hanken',    subsets: ['latin'], display: 'swap' })
-const shareTech = Share_Tech({ weight: '400',               variable: '--ff-share-tech', subsets: ['latin'], display: 'swap' })
-const audiowide = Audiowide({ weight: '400',                variable: '--ff-audiowide',  subsets: ['latin'], display: 'swap' })
-const manrope   = Manrope({ weight: ['400', '500', '600', '700', '800'], variable: '--ff-manrope', subsets: ['latin'], display: 'swap' })
+const sora = localFont({
+  src: [
+    { path: './fonts/sora-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/sora-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/sora-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--ff-sora',
+  display: 'swap',
+})
+const jetbrains = localFont({
+  src: [
+    { path: './fonts/jetbrains-mono-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/jetbrains-mono-latin-500-normal.woff2', weight: '500', style: 'normal' },
+  ],
+  variable: '--ff-jetbrains',
+  display: 'swap',
+})
+const hanken = localFont({
+  src: [
+    { path: './fonts/hanken-grotesk-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/hanken-grotesk-latin-500-normal.woff2', weight: '500', style: 'normal' },
+  ],
+  variable: '--ff-hanken',
+  display: 'swap',
+})
+const shareTech = localFont({
+  src: [
+    { path: './fonts/share-tech-latin-400-normal.woff2', weight: '400', style: 'normal' },
+  ],
+  variable: '--ff-share-tech',
+  display: 'swap',
+})
+const audiowide = localFont({
+  src: [
+    { path: './fonts/audiowide-latin-400-normal.woff2', weight: '400', style: 'normal' },
+  ],
+  variable: '--ff-audiowide',
+  display: 'swap',
+})
+const manrope = localFont({
+  src: [
+    { path: './fonts/manrope-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/manrope-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/manrope-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/manrope-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/manrope-latin-800-normal.woff2', weight: '800', style: 'normal' },
+  ],
+  variable: '--ff-manrope',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'graff | Visualizing the Field',
