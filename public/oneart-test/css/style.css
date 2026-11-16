@@ -73,6 +73,8 @@ ol, ul { list-style: none; }
 .t-ink { background: var(--ink); color: var(--paper); }
 .t-blue { background: var(--blue); color: var(--paper); }
 .t-yellow, .t-plate { background: var(--yellow); color: var(--ink); }
+/* 背景色と文字色は body 側で同時に変化させる */
+html.theme-js .sec { background: transparent; color: inherit; }
 /* 動きありのときは背景を body 側で色変化させる（セクション間の切り替え演出） */
 /* 背景は各セクション自身の色を使う（文字と背景がずれて読めなくなるのを防ぐ） */
 

@@ -680,6 +680,7 @@
   /* ---------------- 背景色の切り替え・章の表示・進み具合 ---------------- */
   function setupThemes() {
     var map = { paper: COLORS.paper, ink: COLORS.ink, blue: COLORS.blue, yellow: COLORS.yellow };
+    var txt = { paper: COLORS.ink, ink: COLORS.paper, blue: COLORS.paper, yellow: COLORS.ink };
     var meta = $('meta[name="theme-color"]');
     var numEl = $('#chapterNum'), nameEl = $('#chapterName');
     html.classList.add('theme-js');
@@ -687,7 +688,8 @@
       ScrollTrigger.create({ trigger: sec, start: 'top 55%', end: 'bottom 55%', onToggle: function (self) {
         if (!self.isActive) return;
         var c = map[sec.getAttribute('data-theme')] || COLORS.paper;
-        gsap.to(document.body, { backgroundColor: c, duration: 0.7, ease: 'power2.out', overwrite: true });
+        var th = sec.getAttribute('data-theme');
+        gsap.to(document.body, { backgroundColor: c, color: txt[th] || COLORS.ink, duration: MOTION ? 0.7 : 0, ease: 'power2.out', overwrite: true });
         if (meta) meta.setAttribute('content', c);
         if (numEl.textContent !== sec.getAttribute('data-chapter')) {
           scramble(numEl, sec.getAttribute('data-chapter'), 0.4);
