@@ -200,8 +200,8 @@ img{display:block;width:100%}
       <div class="ul l2" data-line><span data-chars>一緒に</span></div><br>
       <div class="ul l3" data-line><span data-chars>働きませんか？</span></div>
     </div>
-    <div class="cut owner" data-speed="0.12"><img class="sway" src="img/cut_c1.png" alt="代表 南真白"></div>
-    <div class="photo p2" data-speed="-0.06"><img src="img/g11.jpg" alt="Club燭台のソファ席"></div>
+    <div class="cut owner"><img src="img/cut_c1.png" alt="代表 南真白"></div>
+    <div class="photo p2"><img src="img/g11.jpg" alt="Club燭台のソファ席"></div>
   </header>
 
   <section class="want" id="want">
@@ -381,8 +381,9 @@ function play(el){el.innerHTML='<iframe src="https://www.youtube-nocookie.com/em
     .from('.hero .owner',{y:80,opacity:0,rotate:12,duration:1.1,ease:'back.out(1.6)'},1.1)
     .from('.vert',{opacity:0,y:10,duration:.6},1.6);
   // スクロールで写真と人が別々の速さで動く
-  gsap.to('.hero .p1 img',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
-  $$('[data-speed]').forEach(function(el){gsap.to(el,{y:function(){return -innerHeight*parseFloat(el.dataset.speed)*2},ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}})});
+  // トップは上の写真の中だけを小さく動かし、人と下の写真は動かさない（2026-11-17：動きすぎ・カクカク・下の写真が下に動くのが気持ち悪い）。
+  gsap.to('.hero .p1 img',{yPercent:10,ease:'none',force3D:true,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+  $$('[data-speed]').forEach(function(el){gsap.to(el,{y:function(){return -innerHeight*parseFloat(el.dataset.speed)},ease:'none',force3D:true,scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.8}})});
 
   // 見出し：番号がせり上がり、文字が1つずつ、下線が伸びる
   $$('[data-num]').forEach(function(el){gsap.from(el,{yPercent:100,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:el,start:'top 88%'}})});
