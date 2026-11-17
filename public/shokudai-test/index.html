@@ -49,9 +49,8 @@ img{display:block;width:100%}
 .hero .ul{font-size:26px;margin-bottom:16px}
 .hero .l1{rotate:-2deg}.hero .l2{rotate:-5deg;margin-left:-6px}.hero .l3{rotate:2deg}
 .hero em{font-style:normal;color:var(--or)}
-/* 南真白は下のソファ席の写真の後ろに腰から下を入れ、写真の上に立っているように置く（2026-11-17：画像だけが宙に浮くのが嫌）。 */
-.hero .owner{width:168px;right:-4px;top:440px;z-index:6;rotate:0deg}
-.hero .p2{left:0;right:0;top:650px;height:150px;z-index:7;border-top-right-radius:28px}
+.hero .owner{width:150px;right:-10px;top:418px;z-index:6;rotate:3deg}
+.hero .p2{left:0;right:40px;top:650px;height:150px;z-index:7;border-top-right-radius:28px}
 .vert{position:absolute;left:16px;top:22px;writing-mode:vertical-rl;font-size:12px;letter-spacing:.14em;z-index:5}
 .vert::after{content:"";display:inline-block;width:1px;height:60px;background:var(--ink);margin-top:10px}
 
@@ -383,10 +382,7 @@ function play(el){el.innerHTML='<iframe src="https://www.youtube-nocookie.com/em
     .from('.vert',{opacity:0,y:10,duration:.6},1.6);
   // スクロールで写真と人が別々の速さで動く
   // トップは上の写真の中だけを小さく動かし、人と下の写真は動かさない（2026-11-17：動きすぎ・カクカク・下の写真が下に動くのが気持ち悪い）。
-  gsap.to('.hero .p1 img',{yPercent:10,ease:'none',force3D:true,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
-  // 南真白と下の写真はひとつのまとまりとして一緒に少し上がる（人だけが浮いて見えないように）。
-  gsap.to(['.hero .owner','.hero .p2'],{y:-40,ease:'none',force3D:true,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
-  $$('[data-speed]').forEach(function(el){gsap.to(el,{y:function(){return -innerHeight*parseFloat(el.dataset.speed)},ease:'none',force3D:true,scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.8}})});
+  gsap.to('.hero .p1 img',{yPercent:10,ease:'none',force3D:true,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});  $$('[data-speed]').forEach(function(el){gsap.to(el,{y:function(){return -innerHeight*parseFloat(el.dataset.speed)},ease:'none',force3D:true,scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.8}})});
 
   // 見出し：番号がせり上がり、文字が1つずつ、下線が伸びる
   $$('[data-num]').forEach(function(el){gsap.from(el,{yPercent:100,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:el,start:'top 88%'}})});
