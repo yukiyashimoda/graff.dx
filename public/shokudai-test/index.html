@@ -63,9 +63,12 @@ img{display:block;width:100%}
 .want{position:relative;padding:90px 0 0}
 .want .big{padding:0 22px;font-size:30px;font-weight:900;line-height:1.45}
 .want .big em{font-style:normal;color:var(--or)}
-.wcards{position:relative;padding:26px 22px 0}
-/* 重ねずに縦に並べる（2026-11-17：重なり方が汚い）。 */
-.wcard{background:#fff;border:2px solid var(--ink);border-radius:24px;padding:22px 20px 24px;margin-bottom:14px}
+.wcards{position:relative;padding:26px 22px 1px}
+.wcard{position:sticky;top:90px;background:#fff;border:2px solid var(--ink);border-radius:24px;padding:22px 20px 24px;margin-bottom:18px;box-shadow:0 -6px 18px rgba(0,0,0,.06);transform-origin:center top}
+.wcard:nth-child(2){top:104px}.wcard:nth-child(3){top:118px}.wcard:nth-child(4){top:132px}
+/* 重なったあとに全部が一緒に流れていくように（2026-11-17：2枚目だけ置いていかれる）。
+   止まる位置（top）が14pxずつ違うので、下の余白を逆に14pxずつ足して、離れるタイミングをそろえる。高さはJSでそろえる。 */
+.wcard:nth-child(1){margin-bottom:60px}.wcard:nth-child(2){margin-bottom:46px}.wcard:nth-child(3){margin-bottom:32px}.wcard:nth-child(4){margin-bottom:18px}
 .wcard .n{font-family:"Josefin Sans";font-weight:700;color:var(--or);font-size:14px}
 .wcard h3{font-size:21px;font-weight:900;line-height:1.45;margin-top:4px}
 .wcard p{font-size:14px;color:#444;margin-top:8px}
@@ -398,9 +401,16 @@ function play(el){el.innerHTML='<iframe src="https://www.youtube-nocookie.com/em
   $$('[data-mask]').forEach(function(el){gsap.from(el,{clipPath:'inset(0 0 100% 0)',y:30,duration:1.1,ease:E,scrollTrigger:{trigger:el,start:'top 85%'}})});
   $$('[data-up]').forEach(function(el){gsap.from(el,{y:40,opacity:0,duration:.9,ease:E,scrollTrigger:{trigger:el,start:'top 90%'}})});
 
-  // こんな方を：カードが1枚ずつ下から出てくる（重ねない）
-  $$('.wcard').forEach(function(c){
-    gsap.from(c,{y:50,opacity:0,duration:.9,ease:E,scrollTrigger:{trigger:c,start:'top 90%'}});
+  // こんな方を：カードが重なりながら積み上がる。奥のカードは少し小さく
+  // 高さをそろえて、重なったあと全部が一緒に流れていくようにする
+  var syncCards=function(){var cs=$$('.wcard');cs.forEach(function(c){c.style.minHeight=''});var h=Math.max.apply(null,cs.map(function(c){return c.offsetHeight}));cs.forEach(function(c){c.style.minHeight=h+'px'})};
+  syncCards();addEventListener('resize',syncCards);
+  // 文字の書体が読み込まれると高さが変わるので、そのあともう一度そろえる
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){syncCards();ScrollTrigger.refresh()});
+  addEventListener('load',syncCards);
+  $$('.wcard').forEach(function(c,i,all){
+    gsap.from(c,{y:80,rotate:i%2?3:-3,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:c,start:'top 92%'}});
+    if(i<all.length-1)gsap.to(c,{scale:.93,ease:'none',scrollTrigger:{trigger:all[i+1],start:'top 85%',end:'top 30%',scrub:true}});
   });
   // いいところ：番号がはじけて、文が横から入る
   $$('[data-row]').forEach(function(r){
