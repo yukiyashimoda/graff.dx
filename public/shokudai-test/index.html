@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CLUB燭台</title>
+<meta name="description" content="すすきのの紹介制ラウンジ Club燭台で一緒に働きませんか。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Josefin+Sans:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* 採用LP v10 2026-11-17。求職者へのプレゼン。白・黒・橙のアクセント。
+   構成はTabio、動きはONEARTと同じGSAP＋ScrollTrigger。
+   一緒に働きませんか → こんな方を → 01お店 → 02質問 → 03条件 → 04会社 → 05南真白 → 06声 → 応募
+   下のメニューからいつでも各章へ。写真は公式サイト・代表のInstagramから仮で使用。
+   「要確認」「案」は燭台に確かめて差し替える */
+:root{ --ink:#1c1c1c; --or:#ff6a1a; --or2:#fff0e6; --soft:#f6f4f0; --line:#e8e6e1; --sub:#77736c; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Zen Maru Gothic",sans-serif;font-weight:500;color:var(--ink);background:#fff;line-height:1.85;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+.wrap{max-width:480px;margin:0 auto;background:#fff;position:relative;overflow-x:clip}
+.en{font-family:"Josefin Sans",sans-serif;font-weight:600;letter-spacing:.08em}
+.check{display:inline-block;font-family:"Zen Maru Gothic";font-size:10px;font-weight:700;color:#c0392b;border:1px dashed #c0392b;border-radius:3px;padding:0 4px;margin-left:6px;vertical-align:middle;line-height:1.7;background:#fff}
+.ch{display:inline-block;will-change:transform}
+
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--or);transform-origin:left;transform:scaleX(0);z-index:60}
+
+.photo{overflow:hidden;position:absolute}
+.photo img{height:100%;object-fit:cover;filter:brightness(1.1) saturate(.92)}
+.cut{position:absolute;filter:drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 10px 16px rgba(0,0,0,.18));will-change:transform}
+.cut img{width:100%}
+.sway{animation:sway 6.5s ease-in-out infinite}
+@keyframes sway{0%,100%{rotate:0deg;translate:0 0}50%{rotate:1.2deg;translate:0 -5px}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ul{display:inline-block;position:relative;font-weight:900;line-height:1.1;padding:0 6px 11px}
+.ul .bar{position:absolute;left:-4px;right:-10px;bottom:0;height:2.5px;background:var(--ink);border-radius:2px;transform-origin:left}
+.bubble{position:absolute;z-index:5}
+.bubble svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.bubble p{position:absolute;left:22px;top:16px;font-size:14.5px;line-height:1.55}
+
+.hero{position:relative;height:100svh;min-height:700px;max-height:900px}
+.logo{position:absolute;left:18px;top:18px;font-size:13px;z-index:10}
+.hero .p1{right:0;top:0;width:78%;height:46%;border-bottom-left-radius:28px}
+.hero .bubble{left:14px;top:calc(46% - 60px);width:270px;height:104px;rotate:-3deg}
+.hero .lines{position:absolute;left:22px;top:calc(46% + 70px);z-index:5}
+.hero .ul{font-size:26px;margin-bottom:16px}
+.hero .l1{rotate:-2deg}.hero .l2{rotate:-5deg;margin-left:-6px}.hero .l3{rotate:2deg}
+.hero em{font-style:normal;color:var(--or)}
+.hero .owner{width:172px;right:-22px;top:calc(46% + 50px);z-index:6;rotate:3deg}
+.hero .p2{left:0;right:40px;bottom:72px;height:150px;z-index:7;border-top-right-radius:28px}
+.vert{position:absolute;left:16px;top:84px;writing-mode:vertical-rl;font-size:12px;letter-spacing:.14em;z-index:5}
+.vert::after{content:"";display:inline-block;width:1px;height:60px;background:var(--ink);margin-top:10px}
+
+.chap{position:relative;padding:96px 0 0}
+.chap-head{position:relative;padding:0 22px}
+.chap-head .num{font-family:"Josefin Sans";font-weight:700;font-size:60px;line-height:1;color:var(--or);display:block;overflow:hidden}
+.chap-head .ul{font-size:28px;margin-top:10px;rotate:-2deg}
+.lead{padding:18px 22px 0;font-size:15px}
+
+.want{position:relative;padding:90px 0 0}
+.want .big{padding:0 22px;font-size:30px;font-weight:900;line-height:1.45}
+.want .big em{font-style:normal;color:var(--or)}
+.wcards{position:relative;padding:26px 22px 0}
+.wcard{position:sticky;top:90px;background:#fff;border:2px solid var(--ink);border-radius:24px;padding:22px 20px 24px;margin-bottom:18px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+.wcard:nth-child(2){top:104px}.wcard:nth-child(3){top:118px}.wcard:nth-child(4){top:132px}
+.wcard .n{font-family:"Josefin Sans";font-weight:700;color:var(--or);font-size:14px}
+.wcard h3{font-size:21px;font-weight:900;line-height:1.45;margin-top:4px}
+.wcard p{font-size:14px;color:#444;margin-top:8px}
+.merit{margin:30px 22px 0;border-radius:24px;background:var(--ink);color:#fff;padding:26px 20px 18px}
+.merit h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.mrow{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:12px 0;border-top:1px solid rgba(255,255,255,.18)}
+.mrow b{font-family:"Josefin Sans";font-weight:700;font-size:20px;color:var(--or)}
+.mrow p{font-size:15px;font-weight:700;line-height:1.6}
+.mrow em{font-style:normal;color:#ffb27f}
+.diff{margin:30px 22px 0;border-radius:24px;background:var(--soft);padding:24px 18px}
+.diff h3{font-size:18px;font-weight:900;text-align:center}
+.diff h3 small{display:block;font-size:12px;color:var(--sub);font-weight:700}
+.row{display:grid;grid-template-columns:1fr 28px 1fr;align-items:center;gap:6px;margin-top:12px}
+.row .a{background:#fff;border-radius:14px;padding:10px 12px;font-size:12.5px;color:var(--sub);line-height:1.5}
+.row .b{background:var(--ink);color:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:700;line-height:1.5}
+.row .b em{font-style:normal;color:#ffb27f}
+.row i{font-style:normal;text-align:center;color:var(--or);font-weight:900}
+.diff .heads{display:grid;grid-template-columns:1fr 28px 1fr;gap:6px;margin-top:16px;font-size:11.5px;font-weight:700;text-align:center}
+.diff .heads span:last-child{color:var(--or)}
+
+.hscroll{position:relative;height:100svh;max-height:820px;overflow:hidden;margin-top:26px}
+.htrack{display:flex;gap:14px;height:100%;align-items:center;padding:0 22px;width:max-content}
+.hcard{position:relative;width:76vw;max-width:330px;height:64%;border-radius:26px;overflow:hidden;flex:none}
+.hcard img{height:100%;object-fit:cover;filter:brightness(1.1) saturate(.92)}
+.hcard span{position:absolute;left:14px;bottom:14px;background:#fff;border-radius:999px;padding:5px 14px;font-weight:900;font-size:13px}
+.hcard.txt{background:var(--or);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.hcard.txt b{font-size:26px;line-height:1.4;font-weight:900}
+.points{display:grid;gap:12px;padding:10px 22px 0}
+.point{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.point b{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Josefin Sans";font-weight:700;font-size:15px}
+.point h3{font-size:17px;font-weight:900;line-height:1.4;padding-top:10px}
+.point p{font-size:13.5px;color:#444}
+.sns{padding:34px 22px 0}
+.sns h3{display:flex;justify-content:space-between;align-items:baseline;font-size:16px;font-weight:900;margin:18px 0 8px}
+.sns h3 a{font-size:12px;color:var(--or)}
+.ig-slot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.ig-slot div{aspect-ratio:1/1;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:10px;color:#9a958d;text-align:center;padding:4px;border-radius:8px}
+
+.faq{padding:18px 22px 0}
+.faq details{border-bottom:1.5px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:15px 30px 15px 0;font-weight:700;font-size:15px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"Josefin Sans";font-weight:700;color:var(--or);margin-right:10px}
+.faq summary::after{content:"+";position:absolute;right:2px;top:11px;font-size:22px;transition:rotate .3s}
+.faq details[open] summary::after{rotate:45deg}
+.faq .a{padding:0 0 15px 22px;font-size:14px;color:#444}
+
+.flow{position:relative;display:flex;gap:6px;padding:26px 22px 0;text-align:center}
+.flow .track{position:absolute;left:52px;right:52px;top:47px;height:2px;background:var(--line)}
+.flow .track i{position:absolute;inset:0;background:var(--or);transform-origin:left}
+.flow div.s{flex:1;font-weight:700;font-size:12.5px;line-height:1.5;position:relative}
+.flow b{display:flex;width:42px;height:42px;margin:0 auto 6px;border-radius:50%;background:var(--ink);color:#fff;align-items:center;justify-content:center;font-family:"Josefin Sans";font-size:16px}
+.table{margin:24px 22px 0;border-top:2px solid var(--ink)}
+.table div{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.table dt{font-weight:700;font-size:13px;color:var(--sub)}
+
+.marquee{overflow:hidden;margin-top:26px}
+.marquee .track{display:flex;width:max-content;animation:slide 26s linear infinite;font-family:"Josefin Sans";font-weight:700;font-size:46px;white-space:nowrap;color:var(--or)}
+.marquee .track span{padding-right:26px}
+.marquee .track span:nth-child(even){color:var(--ink)}
+.acts{display:grid;gap:12px;padding:20px 22px 0}
+.act{position:relative;border-radius:24px;padding:20px;overflow:hidden;min-height:118px}
+.act:nth-child(1){background:var(--ink);color:#fff}
+.act:nth-child(2){background:var(--or);color:#fff}
+.act:nth-child(3){background:var(--soft)}
+.act:nth-child(4){background:var(--or2)}
+.act small{font-family:"Josefin Sans";font-size:12px;letter-spacing:.12em;opacity:.8}
+.act h3{font-size:19px;font-weight:900;line-height:1.45;margin-top:2px}
+.act p{font-size:13px;margin-top:4px;opacity:.85}
+.act .big{position:absolute;right:-6px;bottom:-14px;font-family:"Josefin Sans";font-weight:700;font-size:70px;line-height:1;opacity:.12}
+
+.ms{position:relative;height:480px;margin-top:20px}
+.ms .m1{width:186px;left:8px;top:16px;z-index:3;rotate:-3deg}
+.ms .m2{width:196px;right:-8px;top:70px;z-index:2;rotate:3deg}
+.ms .m3{width:186px;left:112px;top:272px;z-index:4;rotate:-2deg}
+.ms .bubble{right:14px;top:340px;width:150px;height:84px;rotate:4deg}
+.ms .bubble p{left:16px;top:12px;font-size:13px}
+.profile{margin:0 22px;background:var(--soft);border-radius:24px;padding:22px 20px}
+.profile .nm small{display:block;font-size:12px;color:var(--or);font-weight:700}
+.profile .nm b{font-size:30px;font-weight:900;line-height:1.3}
+.profile p{font-size:14px;color:#444;margin-top:8px}
+.yt{margin:16px 0 0;border-radius:18px;overflow:hidden;aspect-ratio:16/9;position:relative;cursor:pointer;background:#000}
+.yt img{height:100%;object-fit:cover}
+.yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytl{display:flex;justify-content:space-between;margin-top:16px;font-weight:900;font-size:14px}
+.ytl a{color:var(--or);font-size:12px}
+.shorts{display:flex;gap:8px;overflow-x:auto;margin-top:8px}
+.shorts a{flex:0 0 104px;aspect-ratio:3/4;border-radius:12px;overflow:hidden}
+.shorts img{height:100%;object-fit:cover}
+
+.voices{display:grid;gap:16px;padding:24px 22px 0}
+.voice{position:relative;background:var(--soft);border-radius:24px;padding:18px 18px 18px 112px;min-height:156px}
+.voice .cut{width:92px;left:10px;bottom:0}
+.voice b{display:block;font-size:12px;color:var(--or)}
+.voice h3{font-size:16px;font-weight:900;line-height:1.5;margin-top:2px}
+.voice p{font-size:13px;color:#444;margin-top:4px}
+
+.entry{position:relative;margin-top:100px;background:var(--ink);color:#fff;padding:70px 22px 60px;border-radius:32px 32px 0 0;overflow:hidden}
+.entry .ul{font-size:28px;rotate:-2deg}
+.entry .ul .bar{background:#fff}
+.entry p{font-size:14px;margin-top:14px;color:#ddd}
+.btns{display:grid;gap:10px;margin-top:24px}
+.btn{display:flex;align-items:center;justify-content:space-between;height:58px;border-radius:999px;padding:0 10px 0 24px;font-weight:900;font-size:15.5px;border:2px solid #fff;color:#fff}
+.btn i{font-style:normal;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.btn.or{background:var(--or);border-color:var(--or)}
+.btn.or i{color:var(--or)}
+.foot{background:var(--ink);color:#aaa;padding:10px 22px 120px;text-align:center;font-size:11.5px}
+
+.nav{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 20px);max-width:460px;display:grid;grid-template-columns:repeat(4,1fr) 1.25fr;gap:4px;padding:6px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;box-shadow:0 8px 28px rgba(0,0,0,.16);z-index:50}
+.nav a{display:flex;align-items:center;justify-content:center;height:42px;border-radius:999px;font-size:12px;font-weight:700;transition:background .25s,color .25s}
+.nav a.on{background:var(--soft)}
+.nav a.go{background:var(--or);color:#fff;font-weight:900}
+@media (prefers-reduced-motion:reduce){.sway,.marquee .track{animation:none}}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<div class="wrap">
+
+  <header class="hero" id="top">
+    <div class="logo en">CLUB SHOKUDAI</div>
+    <div class="vert en">SUSUKINO　scroll</div>
+    <div class="photo p1"><img src="img/g6.jpg" alt="窓から光が入るClub燭台の席"></div>
+    <div class="bubble">
+      <svg viewBox="0 0 270 104" preserveAspectRatio="none"><path d="M6 12 L264 5 L259 74 L136 79 L116 100 L111 79 L11 83 Z" fill="#fff" stroke="#1c1c1c" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      <p class="en">CLUB SHOKUDAI<br>SUSUKINO LOUNGE</p>
+    </div>
+    <div class="lines">
+      <div class="ul l1" data-line><span data-chars><em>Club燭台</em>で</span></div><br>
+      <div class="ul l2" data-line><span data-chars>一緒に</span></div><br>
+      <div class="ul l3" data-line><span data-chars>働きませんか？</span></div>
+    </div>
+    <div class="cut owner" data-speed="0.12"><img class="sway" src="img/cut_c1.png" alt="代表 南真白"></div>
+    <div class="photo p2" data-speed="-0.06"><img src="img/g11.jpg" alt="Club燭台のソファ席"></div>
+  </header>
+
+  <section class="want" id="want">
+    <p class="big" data-mask>こんな方を<br><em>求めています</em></p>
+    <div class="wcards">
+      <div class="wcard"><span class="n">01</span><h3>家庭やプライバシーを<br>大切にしながら働きたい方</h3><p>顔出しやSNSへの掲載は、本人が決めます。家族との時間や昼の生活を守りながら続けられます。<span class="check">案</span></p></div>
+      <div class="wcard"><span class="n">02</span><h3>大人の女性の魅力を<br>活かしたい方</h3><p>若さや派手さではなく、落ち着いた会話と気配りが喜ばれるお店です。<span class="check">案</span></p></div>
+      <div class="wcard"><span class="n">03</span><h3>ひとりひとりのお客様と<br>丁寧に向き合いたい方</h3><p>紹介制なので、顔の見えるお客様との関係を長く育てられます。<span class="check">案</span></p></div>
+      <div class="wcard"><span class="n">04</span><h3>学びながら<br>自分を磨きたい方</h3><p>代表から直接、接客や立ち居振る舞いを教わります。夜が初めてでも大丈夫です。<span class="check">案</span></p></div>
+    </div>
+    <div class="merit" data-up>
+      <h3>Club燭台のいいところ<span class="check">案</span></h3>
+      <div class="mrow" data-row><b>01</b><p>少人数のお店なので、<em>ひとりひとり</em>を大切にできます</p></div>
+      <div class="mrow" data-row><b>02</b><p><em>紹介制</em>なので、顔の見えるお客様とゆっくり話せます</p></div>
+      <div class="mrow" data-row><b>03</b><p><em>大人の落ち着き</em>が、そのまま魅力になります</p></div>
+      <div class="mrow" data-row><b>04</b><p>顔を出さない<em>働き方</em>も選べます</p></div>
+    </div>
+  </section>
+
+  <section class="chap" id="shop">
+    <div class="chap-head"><span class="num" data-num>01</span><div class="ul" data-line><span data-chars>こんなお店</span></div></div>
+    <p class="lead" data-up>すすきの N・Squareビル8Fにある、紹介制のラウンジです。窓から光が入る席と、ゆったりしたソファ席があります。<span class="check">要確認</span></p>
+    <div class="hscroll">
+      <div class="htrack">
+        <div class="hcard txt"><b>8Fの<br>ラウンジへ<br>ようこそ</b></div>
+        <div class="hcard"><img src="img/g6.jpg" alt=""><span>窓から光が入る席</span></div>
+        <div class="hcard"><img src="img/g11.jpg" alt=""><span>ソファ席</span></div>
+        <div class="hcard"><img src="img/g3.jpg" alt=""><span>フロア</span></div>
+        <div class="hcard"><img src="img/g5.jpg" alt=""><span>落ち着いた席</span></div>
+      </div>
+    </div>
+    <div class="points">
+      <div class="point" data-up><b>1</b><div><h3>紹介制のお店</h3><p>初めてのお客様は紹介を通して来店します<span class="check">要確認</span></p></div></div>
+      <div class="point" data-up><b>2</b><div><h3>代表から直接教わる</h3><p>接客の基本を代表から教わります<span class="check">要確認</span></p></div></div>
+      <div class="point" data-up><b>3</b><div><h3>女性目線の教育とサポート</h3><p>女性を支える事業から生まれた考え方を、教え方や働きやすさに生かしています</p></div></div>
+    </div>
+    <div class="sns" data-up>
+      <h3>TikTok<a href="https://www.tiktok.com/@club_shokudai62" target="_blank" rel="noopener">@club_shokudai62 →</a></h3>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@club_shokudai62" data-unique-id="club_shokudai62" data-embed-type="creator" style="max-width:780px;min-width:288px;margin:0"><section><a target="_blank" href="https://www.tiktok.com/@club_shokudai62?refer=creator_embed">@club_shokudai62</a></section></blockquote>
+      <h3>Instagram<a href="https://www.instagram.com/club_shokudai/" target="_blank" rel="noopener">@club_shokudai →</a></h3>
+      <div class="ig-slot"><div>見せたい投稿を<br>埋め込む</div><div>投稿</div><div>投稿</div></div>
+      <p style="font-size:11.5px;color:var(--sub);margin-top:6px">Instagramはアカウント全体を埋め込めないため、投稿を選んで埋め込みます<span class="check">要確認</span></p>
+    </div>
+  </section>
+
+  <section class="chap" id="faq">
+    <div class="chap-head"><span class="num" data-num>02</span><div class="ul" data-line><span data-chars>よくある質問</span></div></div>
+    <div class="faq">
+      <details data-up><summary>ノルマはありますか</summary><div class="a">（燭台の答え）<span class="check">要確認</span></div></details>
+      <details data-up><summary>お給料の受け取り方は</summary><div class="a">（日払い・月払いなど）<span class="check">要確認</span></div></details>
+      <details data-up><summary>体験入店でもお給料は出ますか</summary><div class="a">（体験入店の時給）<span class="check">要確認</span></div></details>
+      <details data-up><summary>送りはありますか</summary><div class="a">（範囲・費用）<span class="check">要確認</span></div></details>
+      <details data-up><summary>お酒が弱くても大丈夫ですか</summary><div class="a">（飲めない場合の対応）<span class="check">要確認</span></div></details>
+      <details data-up><summary>ドレスやヘアメイクは</summary><div class="a">（貸し出し・ヘアメイク）<span class="check">要確認</span></div></details>
+      <details data-up><summary>昼の仕事や家庭と両立できますか</summary><div class="a">（出勤日数・時間の決め方）<span class="check">要確認</span></div></details>
+      <details data-up><summary>家族や知り合いに知られたくない</summary><div class="a">（顔出し・名前・SNS掲載の扱い）<span class="check">要確認</span></div></details>
+      <details data-up><summary>未経験でも大丈夫ですか</summary><div class="a">（最初に教えること）<span class="check">要確認</span></div></details>
+      <details data-up><summary>面接の服装は</summary><div class="a">（普段の服装でよいか）<span class="check">要確認</span></div></details>
+      <details data-up><summary>応募できる年齢は</summary><div class="a">（年齢の条件）<span class="check">要確認</span></div></details>
+    </div>
+  </section>
+
+  <section class="chap" id="terms">
+    <div class="chap-head"><span class="num" data-num>03</span><div class="ul" data-line><span data-chars>条件</span></div></div>
+    <div class="flow">
+      <div class="track"><i data-flowline></i></div>
+      <div class="s" data-up><b>1</b>相談</div><div class="s" data-up><b>2</b>お店で<br>面談</div><div class="s" data-up><b>3</b>体験<br>入店</div><div class="s" data-up><b>4</b>入店</div>
+    </div>
+    <dl class="table" data-up>
+      <div><dt>仕事内容</dt><dd>ラウンジでの接客</dd></div>
+      <div><dt>給与</dt><dd>（時給・バック）<span class="check">要確認</span></dd></div>
+      <div><dt>時間</dt><dd>（営業時間・出勤の決め方）<span class="check">要確認</span></dd></div>
+      <div><dt>資格</dt><dd>（年齢など）<span class="check">要確認</span></dd></div>
+      <div><dt>待遇</dt><dd>（送り・ドレス・日払いなど）<span class="check">要確認</span></dd></div>
+      <div><dt>場所</dt><dd>札幌市中央区南5条西4丁目 N・Squareビル8F　<a href="https://maps.google.com/?q=CLUB燭台 すすきの" target="_blank" rel="noopener" style="text-decoration:underline">地図</a></dd></div>
+    </dl>
+  </section>
+
+  <section class="chap" id="company">
+    <div class="chap-head"><span class="num" data-num>04</span><div class="ul" data-line><span data-chars>こんな活動も</span></div><br><div class="ul" data-line style="margin-top:6px"><span data-chars>している会社です</span></div></div>
+    <p class="lead" data-up>Club燭台を運営する橙環グループは、夜のお店だけでなく、食や健康、地域の子どもたちを支える活動もしています。</p>
+    <div class="marquee"><div class="track"><span>NIGHT</span><span>FOOD</span><span>HEALTH</span><span>KIDS</span><span>NIGHT</span><span>FOOD</span><span>HEALTH</span><span>KIDS</span></div></div>
+    <div class="acts">
+      <div class="act" data-fly><small>NIGHT</small><h3>3つのお店</h3><p>紹介制 Club燭台・BAR lounge LUDAN・会員制 salon 余白</p><span class="big">01</span></div>
+      <div class="act" data-fly><small>FOOD</small><h3>料理のYouTubeと<br>シャンパンの代理店</h3><p>ホステスましろのモテ料理・collet シャンパン代理店</p><span class="big">02</span></div>
+      <div class="act" data-fly><small>HEALTH</small><h3>ピラティススタジオ</h3><p>円山ピラティススタジオ ME</p><span class="big">03</span></div>
+      <div class="act" data-fly><small>KIDS</small><h3>地域の子ども食堂</h3><p>すこやか子供食堂</p><span class="big">04</span></div>
+    </div>
+  </section>
+
+  <section class="chap" id="owner">
+    <div class="chap-head"><span class="num" data-num>05</span><div class="ul" data-line><span data-chars>南真白ってこんな人</span></div></div>
+    <div class="ms">
+      <div class="cut m1" data-pop data-speed="0.10"><img class="sway" src="img/cut_c1.png" alt="南真白"></div>
+      <div class="cut m2" data-pop data-speed="-0.08"><img class="sway" style="animation-delay:-2s" src="img/cut_mashiro_wine.png" alt=""></div>
+      <div class="cut m3" data-pop data-speed="0.16"><img class="sway" style="animation-delay:-4s" src="img/cut_mashiro_laugh.png" alt=""></div>
+      <div class="bubble" data-draw>
+        <svg viewBox="0 0 150 84" preserveAspectRatio="none"><path d="M5 8 L145 4 L141 58 L70 61 L58 80 L55 61 L8 64 Z" fill="#fff" stroke="#1c1c1c" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        <p class="en">OWNER<br>MASHIRO</p>
+      </div>
+    </div>
+    <div class="profile" data-up>
+      <div class="nm"><small>橙環グループ代表</small><b>南 真白</b></div>
+      <p>すすきので店を営みながら、料理のYouTubeやピラティススタジオ、子ども食堂まで手がけています。Instagramでは約2.6万人が日々の発信を見ています。</p>
+      <div class="ytl">ホステスましろのモテ料理<a href="https://www.youtube.com/channel/UCrBlgj7K8WXBh0gPYU-Yv3w" target="_blank" rel="noopener">チャンネル →</a></div>
+      <div class="yt" data-id="JhRppztaMb4" onclick="play(this)"><img src="https://i.ytimg.com/vi/JhRppztaMb4/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+      <div class="shorts">
+        <a href="https://www.youtube.com/watch?v=Tu29_isTyJo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Tu29_isTyJo/hqdefault.jpg" alt="豚の角煮"></a>
+        <a href="https://www.youtube.com/watch?v=D5sTBFrAYmM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/D5sTBFrAYmM/hqdefault.jpg" alt="エビチリ"></a>
+        <a href="https://www.youtube.com/watch?v=OZlyAasmlIA" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/OZlyAasmlIA/hqdefault.jpg" alt="ナポリタン"></a>
+        <a href="https://www.youtube.com/watch?v=6uFcaNBb9G0" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/6uFcaNBb9G0/hqdefault.jpg" alt="三色弁当"></a>
+      </div>
+      <div class="ytl"><span>Instagram</span><a href="https://www.instagram.com/minamimashiro/" target="_blank" rel="noopener">@minamimashiro →</a></div>
+    </div>
+  </section>
+
+  <section class="chap" id="voice">
+    <div class="chap-head"><span class="num" data-num>06</span><div class="ul" data-line><span data-chars>働いている人の声</span></div></div>
+    <div class="voices">
+      <div class="voice" data-side="l"><div class="cut"><img src="img/cut_c4.png" alt=""></div><b>夜は初めてで入店</b><h3>（見出しになる一言）</h3><p>（入店のきっかけ、働いてみて安心したこと）<span class="check">了承した人のみ</span></p></div>
+      <div class="voice" data-side="r"><div class="cut"><img src="img/cut_c3.png" alt=""></div><b>家庭と両立</b><h3>（見出しになる一言）</h3><p>（両立のしかた、出勤の決め方）<span class="check">了承した人のみ</span></p></div>
+      <div class="voice" data-side="l"><div class="cut"><img src="img/cut_c2.png" alt=""></div><b>代表から教わったこと</b><h3>（見出しになる一言）</h3><p>（身についたこと）<span class="check">了承した人のみ</span></p></div>
+    </div>
+  </section>
+
+  <section class="entry" id="entry">
+    <div class="ul" data-line><span data-chars>話を聞いてみませんか</span></div>
+    <p data-up>聞きたいことだけでも大丈夫です</p>
+    <div class="btns">
+      <a class="btn or" href="#" data-up>体験入店を申し込む<i>→</i></a>
+      <a class="btn" href="#" data-up>LINEで相談する<i>→</i></a>
+      <a class="btn" href="#" data-up>ポケパラ体入から<i>→</i></a>
+    </div>
+  </section>
+  <footer class="foot">橙環グループ　紹介制 Club 燭台<br>札幌市中央区南5条西4丁目 N・Squareビル8F</footer>
+</div>
+
+<nav class="nav" aria-label="ページ内メニュー">
+  <a href="#want">求める方</a><a href="#shop">お店</a><a href="#faq">質問</a><a href="#terms">条件</a><a class="go" href="#entry">応募する</a>
+</nav>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script>
+// 押したときだけYouTubeを読み込む
+function play(el){el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&playsinline=1" title="ホステスましろのモテ料理" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';el.onclick=null}
+
+(function(){
+  var $$=function(s){return [].slice.call(document.querySelectorAll(s))};
+  // 下のメニュー：なめらかに移動する
+  $$('.nav a').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-10,behavior:'smooth'})})});
+  var still=/still/.test(location.search);
+  var motion=!still&&window.gsap&&window.ScrollTrigger&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // 1文字ずつに分ける
+  $$('[data-chars]').forEach(function(el){
+    var out=[];[].slice.call(el.childNodes).forEach(function(n){
+      if(n.nodeType===3){n.textContent.split('').forEach(function(c){out.push('<span class="ch">'+c+'</span>')})}
+      else{n.innerHTML=n.textContent.split('').map(function(c){return '<span class="ch">'+c+'</span>'}).join('');out.push(n.outerHTML)}
+    });el.innerHTML=out.join('');
+  });
+  $$('[data-line]').forEach(function(el){var b=document.createElement('span');b.className='bar';el.appendChild(b)});
+  if(!motion)return;
+  gsap.registerPlugin(ScrollTrigger);
+  var E='expo.out';
+  gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}});
+
+  // 開いたとき：写真 → 吹き出し → 文字 → 人
+  var tl=gsap.timeline({delay:.15});
+  tl.from('.hero .p1',{clipPath:'inset(0 0 100% 0)',duration:1.1,ease:'power3.inOut'},0)
+    .from('.hero .p1 img',{scale:1.25,duration:1.6,ease:E},0)
+    .from('.hero .p2',{clipPath:'inset(100% 0 0 0)',duration:1,ease:'power3.inOut'},.25)
+    .from('.hero .bubble',{y:20,opacity:0,duration:.6,ease:E},.7)
+    .from('.hero .bubble path',{strokeDasharray:900,strokeDashoffset:900,duration:1.1,ease:'power2.out'},.7)
+    .from('.hero .lines .ch',{yPercent:110,rotate:12,opacity:0,stagger:.04,duration:.8,ease:E},.95)
+    .from('.hero .lines .bar',{scaleX:0,stagger:.15,duration:.6,ease:E},1.3)
+    .from('.hero .owner',{y:80,opacity:0,rotate:12,duration:1.1,ease:'back.out(1.6)'},1.1)
+    .from('.vert,.logo',{opacity:0,y:10,duration:.6},1.6);
+  // スクロールで写真と人が別々の速さで動く
+  gsap.to('.hero .p1 img',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  $$('[data-speed]').forEach(function(el){gsap.to(el,{y:function(){return -innerHeight*parseFloat(el.dataset.speed)*2},ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}})});
+
+  // 見出し：番号がせり上がり、文字が1つずつ、下線が伸びる
+  $$('[data-num]').forEach(function(el){gsap.from(el,{yPercent:100,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:el,start:'top 88%'}})});
+  $$('.chap [data-line], .entry [data-line]').forEach(function(el){
+    var st={trigger:el,start:'top 88%'};
+    gsap.from(el.querySelectorAll('.ch'),{yPercent:110,rotate:10,opacity:0,stagger:.035,duration:.9,ease:E,scrollTrigger:st});
+    gsap.from(el.querySelector('.bar'),{scaleX:0,duration:.8,delay:.25,ease:E,scrollTrigger:st});
+  });
+  $$('[data-mask]').forEach(function(el){gsap.from(el,{clipPath:'inset(0 0 100% 0)',y:30,duration:1.1,ease:E,scrollTrigger:{trigger:el,start:'top 85%'}})});
+  $$('[data-up]').forEach(function(el){gsap.from(el,{y:40,opacity:0,duration:.9,ease:E,scrollTrigger:{trigger:el,start:'top 90%'}})});
+
+  // こんな方を：カードが重なりながら積み上がる。奥のカードは少し小さく
+  $$('.wcard').forEach(function(c,i,all){
+    gsap.from(c,{y:80,rotate:i%2?3:-3,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:c,start:'top 92%'}});
+    if(i<all.length-1)gsap.to(c,{scale:.94,opacity:.55,ease:'none',scrollTrigger:{trigger:all[i+1],start:'top 85%',end:'top 30%',scrub:true}});
+  });
+  // いいところ：番号がはじけて、文が横から入る
+  $$('[data-row]').forEach(function(r){
+    var st={trigger:r,start:'top 90%'};
+    gsap.from(r.querySelector('b'),{scale:0,rotate:-30,duration:.6,ease:'back.out(2)',scrollTrigger:st});
+    gsap.from(r.querySelector('p'),{x:30,opacity:0,duration:.8,delay:.15,ease:E,scrollTrigger:st});
+  });
+
+  // お店：画面を止めて、写真を横に流す
+  var track=document.querySelector('.htrack');
+  var dist=function(){return track.scrollWidth-innerWidth+22};
+  var h=gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'.hscroll',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:.7,invalidateOnRefresh:true}});
+  $$('.hcard img').forEach(function(img){gsap.fromTo(img,{scale:1.25,xPercent:-6},{scale:1,xPercent:6,ease:'none',scrollTrigger:{trigger:img.parentNode,containerAnimation:h,start:'left right',end:'right left',scrub:true}})});
+
+  // 条件：流れの線がスクロールに合わせて伸びる
+  gsap.from('[data-flowline]',{scaleX:0,ease:'none',scrollTrigger:{trigger:'.flow',start:'top 85%',end:'top 45%',scrub:true}});
+
+  // 会社：カードが傾いて飛んでくる
+  $$('[data-fly]').forEach(function(c,i){gsap.from(c,{y:90,x:i%2?40:-40,rotate:i%2?6:-6,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:c,start:'top 92%'}});
+    gsap.to(c.querySelector('.big'),{yPercent:-40,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}})});
+
+  // 南真白・吹き出し：はじけるように出る
+  $$('.ms [data-pop]').forEach(function(el,i){gsap.from(el,{scale:.4,opacity:0,rotate:i%2?16:-16,duration:1,delay:i*.15,ease:'back.out(1.7)',scrollTrigger:{trigger:'.ms',start:'top 80%'}})});
+  $$('.chap [data-draw]').forEach(function(el){var st={trigger:el,start:'top 88%'};gsap.from(el,{opacity:0,y:20,duration:.6,delay:.5,ease:E,scrollTrigger:st});gsap.from(el.querySelector('path'),{strokeDasharray:900,strokeDashoffset:900,duration:1.2,delay:.5,ease:'power2.out',scrollTrigger:st})});
+
+  // 声：左右から
+  $$('[data-side]').forEach(function(v){gsap.from(v,{x:v.dataset.side==='l'?-60:60,opacity:0,duration:1,ease:E,scrollTrigger:{trigger:v,start:'top 90%'}});gsap.from(v.querySelector('.cut'),{y:50,opacity:0,rotate:-8,duration:1,delay:.2,ease:'back.out(1.6)',scrollTrigger:{trigger:v,start:'top 90%'}})});
+
+  // メニュー：今いる章を示す
+  $$('.nav a:not(.go)').forEach(function(a){var s=document.querySelector(a.getAttribute('href'));ScrollTrigger.create({trigger:s,start:'top 50%',end:'bottom 50%',onToggle:function(self){a.classList.toggle('on',self.isActive)}})});
+  gsap.from('.nav',{y:100,opacity:0,duration:.8,delay:1.8,ease:E});
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
