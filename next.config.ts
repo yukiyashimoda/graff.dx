@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
       { source: "/i/:token", destination: "/airsig/invite.html" },
       { source: "/oneart-test", destination: "/oneart-test/index.html" },
       { source: "/oneart-test/", destination: "/oneart-test/index.html" },
+      { source: "/shokudai-test", destination: "/shokudai-test/index.html" },
+      { source: "/shokudai-test/", destination: "/shokudai-test/index.html" },
     ];
   },
 
