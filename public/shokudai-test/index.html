@@ -91,8 +91,12 @@ img{display:block;width:100%}
 .hcard{position:relative;width:76vw;max-width:330px;height:64%;border-radius:26px;overflow:hidden;flex:none}
 .hcard img{height:100%;object-fit:cover;filter:brightness(1.1) saturate(.92)}
 .hcard span{position:absolute;left:14px;bottom:14px;background:#fff;border-radius:999px;padding:5px 14px;font-weight:900;font-size:13px}
-.hcard.txt{background:var(--soft);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
-.hcard.txt small{font-family:"Josefin Sans";font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--or);margin-bottom:6px}
+/* 8Fのカード：背景はN・Squareビルの写真（2026-11-17 ユーザー指定）。文字は下を暗くして白で読ませる。 */
+.hcard.txt{display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff}
+.hcard.txt>img{position:absolute;inset:0;object-position:center 30%}
+.hcard.txt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.65) 100%)}
+.hcard.txt small,.hcard.txt b{position:relative;z-index:1}
+.hcard.txt small{font-family:"Josefin Sans";font-weight:700;font-size:13px;letter-spacing:.12em;color:#ffb27f;margin-bottom:6px}
 .hcard.txt b{font-size:26px;line-height:1.4;font-weight:900}
 .points{display:grid;gap:12px;padding:10px 22px 0}
 .point{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
@@ -190,7 +194,7 @@ img{display:block;width:100%}
 
   <header class="hero" id="top">
     <div class="vert en">CLUB SHOKUDAI　scroll</div>
-    <div class="photo p1"><img src="img/nsquare.jpg" alt="Club燭台が入るN・Squareビル" style="object-position:center 22%"></div>
+    <div class="photo p1"><img src="img/g6.jpg" alt="窓から光が入るClub燭台の席"></div>
     <div class="bubble">
       <svg viewBox="0 0 270 104" preserveAspectRatio="none"><path d="M6 12 L264 5 L259 74 L136 79 L116 100 L111 79 L11 83 Z" fill="#fff" stroke="#1c1c1c" stroke-width="2.5" stroke-linejoin="round"/></svg>
       <p style="font-weight:900;font-size:16px;line-height:1.5">ココノ ススキノから<br><span style="color:var(--or)">徒歩30秒</span>　N・Squareビル8F</p>
@@ -226,7 +230,7 @@ img{display:block;width:100%}
     <p class="lead" data-up>すすきの N・Squareビル8Fにある、紹介制のラウンジです。窓から光が入る席と、ゆったりしたソファ席があります。<span class="check">要確認</span></p>
     <div class="hscroll">
       <div class="htrack">
-        <div class="hcard txt"><small>N・SQUARE 8F</small><b>8Fの<br>ラウンジへ<br>ようこそ</b></div>
+        <div class="hcard txt"><img src="img/nsquare.jpg" alt="Club燭台が入るN・Squareビル"><small>N・SQUARE 8F</small><b>8Fの<br>ラウンジへ<br>ようこそ</b></div>
         <div class="hcard"><img src="img/g6.jpg" alt=""><span>窓から光が入る席</span></div>
         <div class="hcard"><img src="img/g11.jpg" alt=""><span>ソファ席</span></div>
         <div class="hcard"><img src="img/g3.jpg" alt=""><span>フロア</span></div>
