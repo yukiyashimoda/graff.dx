@@ -589,3 +589,21 @@ footer b{ font-family:var(--sans) !important; font-weight:900; letter-spacing:.1
 .cv5 .c5-big-w{ top:calc(113cqw - 32.73cqw - 5px) }
 /* 表紙の3行：白＋紺の軽いぼかし（写真の外も白） */
 .cv5 .c5-big{ z-index:3; color:#fff; text-shadow:0 0 22px rgba(28,39,64,.42), 0 1px 4px rgba(28,39,64,.28) }
+
+/* 水色の背景に画用紙のような質感 */
+.cv5, .j2, .sec[style*="kinari"], .sec.k, .ch.k, .info, .door, .bridge, .cover{ background-image:url("img/paper.svg") }
+.wave .paper{ position:absolute; inset:0; background:url("img/paper.svg"); pointer-events:none }
+.wave{ position:relative }
+.wave svg{ position:relative }
+
+/* 視差効果：枠はそのまま、写真だけ少しゆっくり動かす */
+[data-px]{ overflow:hidden }
+.c5-photo[data-px]{ padding:0 !important; border:5px solid #fff; box-sizing:border-box }
+.c5-photo[data-px] img{ height:116% !important; margin-top:-8%; will-change:transform }
+.wavecut[data-px] img{ inset:auto !important; left:0 !important; top:-8% !important; height:116% !important; will-change:transform }
+
+/* よくある質問の Q を手書き風に */
+.qa i{ font-family:"Caveat Brush",var(--hand) !important; font-weight:400 !important; font-size:24px !important; line-height:1 !important; color:var(--gold) }
+.c5-photo[data-px] img{ margin-top:0; position:relative; top:-8% }
+.cv5 .c5-photo[data-px]::after{ left:0; right:0; bottom:0 }
+.cv5, .j2, .sec[style*="kinari"], .sec.k, .ch.k, .info, .door, .bridge, .cover{ background-image:url("img/paper.svg") !important }
