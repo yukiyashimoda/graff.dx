@@ -682,3 +682,8 @@ main{ overflow:clip }
 .st-bar::after{ content:""; position:absolute; left:0; right:0; top:calc(100% - 1px); height:34px; background:#fff; pointer-events:none;
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 60' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L480,0 L480,30 C400,8 320,50 240,26 C160,2 80,58 0,30 Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 60' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L480,0 L480,30 C400,8 320,50 240,26 C160,2 80,58 0,30 Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat }
+/* 章の見出し：見出しが折り返しても、名前の行と重ならないように（名前の上に余白） */
+.ch-head{ height:auto !important; min-height:150px; padding-top:36px; padding-bottom:8px }
+.ch-head h2{ position:relative !important; left:auto !important; right:auto !important; top:auto !important; margin-left:120px }
+.ch-head .who{ position:relative !important; left:auto !important; top:auto !important; display:block; margin:22px 0 0 128px }
+.ch-head .who{ white-space:nowrap; margin-right:-12px }
