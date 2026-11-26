@@ -514,3 +514,6 @@ body{ font-size:16px; color:var(--ink) }
 .cv5 .c5-v1{ top:34% }
 .cv5 .c5-v2{ top:40% }
 .cv5 .c5-btn{ top:auto; bottom:3%; }
+footer{ border-top:none !important }
+.steps2{ grid-template-columns:repeat(4,minmax(0,1fr)) }
+.steps2 div{ font-size:11.5px }
