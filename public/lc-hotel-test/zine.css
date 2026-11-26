@@ -624,3 +624,20 @@ footer b{ font-family:var(--sans) !important; font-weight:900; letter-spacing:.1
 /* 人のblobの下の波線を、blobと次の章の中間へ（次の章の位置は変えない） */
 .bridge + .wave{ margin-top:64px }
 .bridge + .wave + .data{ padding-top:32px !important }
+
+/* ストーリー：ヘッダーは直線なしで上に固定 */
+.st-bar{ position:sticky; top:0; z-index:30; background:#fff; border-bottom:none !important }
+/* 吹き出しのしっぽを右寄りに */
+.bubble.r::after{ left:auto; right:28px }
+/* 見出し横の斜め線はなし */
+.ch-head svg{ display:none }
+/* この人の仕事・次のストーリー：水色のblob＋白いピル */
+.spec2, .st-next2{ display:flex; flex-direction:column; margin:40px var(--pad) 0; padding:34px 28px 30px; background-color:#d4e3ec; background-image:url("img/paper.svg"); text-decoration:none; color:var(--ink); -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat }
+.spec2 b, .st-next2 b{ font-size:19px; font-weight:900; letter-spacing:.04em }
+.st-next2 small{ font-size:12px; color:var(--sub); letter-spacing:.08em; margin-bottom:4px }
+.spec2 .pill, .st-next2 .pill{ align-self:flex-end; margin-top:16px; padding:10px 24px; border-radius:40px; background:#fff; color:var(--ink); font-size:14px; font-weight:700; letter-spacing:.06em }
+.st-next2{ margin-bottom:24px }
+/* 固定ヘッダーが効くように、はみ出しは clip で切る */
+main{ overflow:clip }
+/* セリフの上に余白 */
+.lead-box .quote{ margin-top:32px }

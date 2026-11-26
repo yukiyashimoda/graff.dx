@@ -15,12 +15,14 @@
   // セクションの区切りを、函館の海をイメージしたゆるやかな波にする
   (function(){
     var main=document.querySelector('main'); if(!main) return;
-    var kids=[].slice.call(main.children).filter(function(e){ return e.offsetHeight>0 && !e.classList.contains('wave') && !e.classList.contains('bridge'); });
+    var kids=[].slice.call(main.children).filter(function(e){ return e.offsetHeight>0 && !e.classList.contains('wave') && !e.classList.contains('bridge') && !e.classList.contains('spec2') && !e.classList.contains('st-next2'); });
     function bg(e){ var c=getComputedStyle(e).backgroundColor; return (c==='rgba(0, 0, 0, 0)'||c==='transparent') ? 'rgb(255, 255, 255)' : c; }
     function light(c){ var m=c.match(/\d+/g); if(!m) return false; var r=+m[0],g=+m[1],bl=+m[2]; return !(r===255&&g===255&&bl===255) && (r+g+bl)/3>190; }
     var paths=['M0,30 C80,58 160,2 240,26 C320,50 400,8 480,30','M0,26 C70,4 150,54 240,32 C330,10 410,52 480,24','M0,32 C90,8 170,50 250,28 C330,6 410,46 480,30'];
     for(var i=1;i<kids.length;i++){
-      var a=kids[i-1], b=kids[i]; if(a.tagName==='HEADER' && a.classList.contains('cv4')) {}
+      var a=kids[i-1], b=kids[i];
+      // この人の仕事・次のストーリーのblobの上下には波を入れない
+      var pv=b.previousElementSibling; if(pv && (pv.classList.contains('spec2') || pv.classList.contains('st-next2'))) continue; if(a.tagName==='HEADER' && a.classList.contains('cv4')) {}
       var ca=bg(a), cb=bg(b), d=paths[i%paths.length];
       var w=document.createElement('div'); w.className='wave'; w.setAttribute('aria-hidden','true');
       // 次の章の背景の英字は、この波と同じ曲線に沿わせて、波のすぐ下に置く
