@@ -2,8 +2,8 @@
    スマホ縦を、1枚の誌面が続いていくものとして組む。写真は大小・ずらし・重ね。
    文字は写真に絡める（引き出し線・吹き出し・縦書き）。色はホテルの金とグレー、地は白と生成り */
 :root{
-  --ink:#2a2d31; --text:#4b5257; --sub:#8a8d91; --gold:#998040; --gold-l:#c9b27a; --gray:#767985;
-  --paper:#ffffff; --kinari:#f5f1e9; --line:#d9d2c3;
+  --ink:#1c2740; --text:#47506a; --sub:#8a90a0; --gold:#2c3e78; --gold-l:#b9c4df; --gray:#6d7489;
+  --paper:#ffffff; --kinari:#eef1f6; --line:#dde2ea;
   --sans:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans",sans-serif;
   --hand:"Klee One","Yomogi","Hiragino Maru Gothic ProN",cursive;
   --latin:"Cormorant Garamond","Times New Roman",serif;
@@ -11,7 +11,7 @@
   color-scheme:light;
 }
 *{ box-sizing:border-box; margin:0; padding:0 }
-html,body{ background:#e8e4dc }
+html,body{ background:#e4e8ef }
 body{ font-family:var(--sans); color:var(--ink); font-feature-settings:"palt"; -webkit-font-smoothing:antialiased; line-height:1.9; font-size:15px }
 main{ max-width:480px; margin:0 auto; background:var(--paper); overflow:hidden; padding-bottom:84px }
 img{ display:block; max-width:100% }
@@ -81,8 +81,8 @@ a{ color:inherit }
 .spec .go{ flex:none; font-size:12px; font-weight:700; letter-spacing:.06em; border-bottom:1px solid var(--ink) }
 
 /* 05 仲間 */
-.notebook{ position:relative; margin:28px var(--pad) 0; padding:22px 18px 22px 40px; background:#fffdf6; background-image:repeating-linear-gradient(transparent 0 31px, #e6dcc6 31px 32px); box-shadow:0 8px 20px rgba(42,45,49,.12); transform:rotate(-1.2deg) }
-.notebook::before{ content:""; position:absolute; left:26px; top:0; bottom:0; width:1px; background:#e3b3a6 }
+.notebook{ position:relative; margin:28px var(--pad) 0; padding:22px 18px 22px 40px; background:#ffffff; background-image:repeating-linear-gradient(transparent 0 31px, #dbe1ec 31px 32px); box-shadow:0 8px 20px rgba(42,45,49,.12); transform:rotate(-1.2deg) }
+.notebook::before{ content:""; position:absolute; left:26px; top:0; bottom:0; width:1px; background:#9fb0d6 }
 .notebook h3{ font-family:var(--hand); font-size:16px; line-height:32px; color:var(--gray) }
 .notebook p{ font-family:var(--hand); font-weight:600; font-size:15px; line-height:32px }
 .notebook p span{ color:var(--sub); font-size:12px; margin-left:6px; white-space:nowrap }
@@ -108,11 +108,11 @@ a{ color:inherit }
 .form .lbl{ display:block; font-size:14px; font-weight:700; margin-top:20px }
 .form .lbl:first-child{ margin-top:0 }
 .form .lbl em{ font-style:normal; font-size:11px; color:#fff; background:var(--gold); padding:1px 6px; margin-left:8px; border-radius:3px; vertical-align:1px }
-.form input[type=text], .form input[type=tel]{ width:100%; background:#fff; border:1px solid #cfc8b9; height:50px; margin-top:8px; border-radius:6px; font:inherit; font-size:16px; padding:0 14px; color:var(--ink) }
+.form input[type=text], .form input[type=tel]{ width:100%; background:#fff; border:1px solid #cfd5e0; height:50px; margin-top:8px; border-radius:6px; font:inherit; font-size:16px; padding:0 14px; color:var(--ink) }
 .form .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px }
 .form .chips label{ position:relative }
 .form .chips input{ position:absolute; opacity:0; inset:0 }
-.form .chips span{ display:inline-block; background:#fff; border:1px solid #cfc8b9; font-size:14px; padding:8px 14px; border-radius:24px }
+.form .chips span{ display:inline-block; background:#fff; border:1px solid #cfd5e0; font-size:14px; padding:8px 14px; border-radius:24px }
 .form .chips input:checked + span{ background:var(--ink); color:#fff; border-color:var(--ink) }
 .form .chips input:focus-visible + span{ outline:2px solid var(--gold); outline-offset:2px }
 .form .hint{ font-size:13px; color:var(--sub); margin:20px 0 14px }
@@ -147,17 +147,21 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-of
 .kicker span{ font-size:11px; letter-spacing:.22em; color:var(--gold); font-weight:700 }
 .sec h2{ font-size:22px; font-weight:700; line-height:1.6; letter-spacing:.04em; margin-top:14px }
 
-/* 表紙（静か） */
-.cv{ position:relative; height:100svh; min-height:620px; background:var(--kinari); overflow:hidden }
-.cv .mast{ position:absolute; left:var(--pad); right:var(--pad); top:22px; z-index:2 }
-.cv .issue{ position:absolute; left:var(--pad); right:var(--pad); top:62px; display:flex; justify-content:space-between; font-size:10.5px; letter-spacing:.16em; color:var(--gray); z-index:2 }
-.cv .photo{ position:absolute; left:var(--pad); right:var(--pad); top:96px; bottom:230px; overflow:hidden }
-.cv .photo img{ width:100%; height:100%; object-fit:cover }
-.cv .copy{ position:absolute; left:var(--pad); right:var(--pad); bottom:96px; }
-.cv .copy h1{ font-size:27px; font-weight:700; line-height:1.55; letter-spacing:.06em }
-.cv .copy p{ font-size:13px; color:var(--text); margin-top:8px; letter-spacing:.06em }
-.cv .scroll{ position:absolute; left:var(--pad); right:var(--pad); bottom:28px; display:flex; justify-content:space-between; align-items:center; font-size:11px; letter-spacing:.2em; color:var(--gray); border-top:1px solid var(--line); padding-top:12px }
-.cv .scroll a{ color:var(--ink); text-decoration:none; font-weight:700 }
+/* 表紙（写真を全画面） */
+.cv{ position:relative; height:100svh; min-height:600px; overflow:hidden; background:#1c2740 }
+.cv .photo{ position:absolute; inset:0 }
+.cv .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 60% }
+.cv::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,30,58,.55) 0%, rgba(20,30,58,0) 22%, rgba(20,30,58,0) 48%, rgba(20,30,58,.86) 100%); z-index:1 }
+.cv .mast, .cv .issue, .cv .copy, .cv .scroll{ z-index:2; color:#fff }
+.cv .mast{ position:absolute; left:var(--pad); right:var(--pad); top:20px; border-bottom:1px solid rgba(255,255,255,.7) }
+.cv .mast b{ font-family:var(--sans); font-weight:700; font-size:17px; letter-spacing:.16em }
+.cv .mast span{ color:#fff; font-weight:700; font-size:11px }
+.cv .issue{ position:absolute; left:var(--pad); right:var(--pad); top:62px; display:flex; justify-content:space-between; font-size:12px; font-weight:700; letter-spacing:.12em; color:#fff }
+.cv .copy{ position:absolute; left:var(--pad); right:var(--pad); bottom:96px }
+.cv .copy h1{ font-size:32px; font-weight:700; line-height:1.5; letter-spacing:.06em; text-shadow:0 2px 14px rgba(0,0,0,.35) }
+.cv .copy p{ font-size:14.5px; font-weight:500; margin-top:10px; letter-spacing:.04em }
+.cv .scroll{ position:absolute; left:var(--pad); right:var(--pad); bottom:28px; display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:700; letter-spacing:.16em; border-top:1px solid rgba(255,255,255,.5); padding-top:12px }
+.cv .scroll a{ color:#fff; text-decoration:none; font-weight:700; background:#2c3e78; padding:8px 14px; border-radius:30px; letter-spacing:.06em }
 
 /* 目次（整然） */
 .index{ margin-top:22px }
