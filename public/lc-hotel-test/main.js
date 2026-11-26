@@ -38,6 +38,9 @@
     });
   });
 
+  // トップの「時間帯から探す」から来たら、その時間帯を開く
+  if(location.hash){ var t=document.getElementById(location.hash.slice(1)); if(t && t.getAttribute('role')==='tab'){ t.click(); } }
+
   // 応募フォーム（見本。送信はしない）
   var form=document.querySelector('form.form');
   if(form){
