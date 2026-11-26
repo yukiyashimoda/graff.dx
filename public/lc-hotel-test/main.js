@@ -11,6 +11,28 @@
     setTimeout(go,5000);
   } else go();
 
+
+  // セクションの区切りを、函館の海をイメージしたゆるやかな波にする
+  (function(){
+    var main=document.querySelector('main'); if(!main) return;
+    var kids=[].slice.call(main.children).filter(function(e){ return e.offsetHeight>0 && !e.classList.contains('wave'); });
+    function bg(e){ var c=getComputedStyle(e).backgroundColor; return (c==='rgba(0, 0, 0, 0)'||c==='transparent') ? 'rgb(255, 255, 255)' : c; }
+    var paths=['M0,30 C80,58 160,2 240,26 C320,50 400,8 480,30','M0,26 C70,4 150,54 240,32 C330,10 410,52 480,24','M0,32 C90,8 170,50 250,28 C330,6 410,46 480,30'];
+    for(var i=1;i<kids.length;i++){
+      var a=kids[i-1], b=kids[i]; if(a.tagName==='HEADER' && a.classList.contains('cv4')) {}
+      var ca=bg(a), cb=bg(b), d=paths[i%paths.length];
+      var w=document.createElement('div'); w.className='wave'; w.setAttribute('aria-hidden','true');
+      if(ca===cb){
+        w.style.background=ca;
+        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+'" fill="none" stroke="#2c3e78" stroke-width="1.2" stroke-opacity=".45" vector-effect="non-scaling-stroke"/></svg>';
+      } else {
+        w.style.background=ca;
+        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+' L480,60 L0,60 Z" fill="'+cb+'"/></svg>';
+      }
+      b.parentNode.insertBefore(w,b);
+    }
+  })();
+
   // 読み進めると、各部分が静かに出る
   var rv=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){ [].forEach.call(rv,function(e){ e.classList.add('in'); }); }
