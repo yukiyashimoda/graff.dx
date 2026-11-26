@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
       { source: "/oneart-test/", destination: "/oneart-test/index.html" },
       { source: "/shokudai-test", destination: "/shokudai-test/index.html" },
       { source: "/shokudai-test/", destination: "/shokudai-test/index.html" },
+      { source: "/lc-hotel-test", destination: "/lc-hotel-test/index.html" },
+      { source: "/lc-hotel-test/", destination: "/lc-hotel-test/index.html" },
     ];
   },
 

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<base href="/lc-hotel-test/">
+<title>フロント求人ページ（仮）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* スマホ幅1カラム。青一色のヒーローにシールを散らし、下は白と淡い青を交互に。 */
+:root{
+  --blue:#1f6fd6; --blue-deep:#1450a3; --blue-soft:#eaf2ff; --yellow:#ffd43b;
+  --ink:#1b1f27; --sub:#5b6270; --line:#e2e7ef; --paper:#ffffff; --red:#e0503c;
+  --round:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Noto Sans JP",sans-serif;
+  --sans:"Noto Sans JP","Hiragino Sans",sans-serif;
+  color-scheme:light;
+}
+*{ box-sizing:border-box; margin:0; padding:0 }
+html,body{ background:#cfd9e8 }
+body{ font-family:var(--sans); color:var(--ink); font-feature-settings:"palt"; -webkit-font-smoothing:antialiased }
+.note-bar{ max-width:430px; margin:0 auto; background:var(--ink); color:#fff; font-size:11px; letter-spacing:.05em; padding:8px 18px; line-height:1.6 }
+.note-bar b{ color:var(--yellow) }
+main{ max-width:430px; margin:0 auto; background:var(--paper); padding-bottom:84px; overflow:hidden }
+.kari{ display:inline-block; font-family:var(--sans); font-size:9.5px; font-weight:900; letter-spacing:.06em; color:var(--red); background:#fff; border:1px solid var(--red); padding:0 4px; margin-left:5px; vertical-align:2px; line-height:1.5; border-radius:2px }
+.sticker{ filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 6px 8px rgba(10,30,70,.25)) }
+
+/* ===== 最初の画面 ===== */
+.hero{ position:relative; background:#0b1630 url("img/night-bg.jpg") center 40%/cover no-repeat; color:#fff; min-height:100svh; display:flex; flex-direction:column }
+.hero::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,18,45,.78) 0%, rgba(8,18,45,.35) 42%, rgba(8,18,45,.15) 70%, rgba(8,18,45,.55) 100%); z-index:0 }
+.stage{ position:relative; z-index:1; flex:1; min-height:590px; overflow:hidden }
+.hero-top{ position:absolute; top:14px; left:18px; right:18px; display:flex; justify-content:space-between; font-family:var(--round); font-weight:800; font-size:11.5px; letter-spacing:.08em; z-index:3 }
+.hero-top span:last-child{ background:var(--yellow); color:var(--ink); padding:2px 8px; border-radius:20px }
+.copy{ position:absolute; left:20px; top:56px; z-index:3 }
+.copy h1{ font-family:var(--round); font-weight:900; font-size:38px; line-height:1.28; letter-spacing:.02em }
+.copy h1 em{ font-style:normal; color:var(--ink); background:var(--yellow); padding:0 6px; border-radius:6px; box-decoration-break:clone; -webkit-box-decoration-break:clone }
+.copy p{ font-weight:700; font-size:13.5px; line-height:1.8; margin-top:14px; max-width:16.5em; text-shadow:0 1px 8px rgba(0,0,0,.6) }
+.p{ position:absolute; z-index:2 }
+.p svg{ display:block }
+.p .cap{ position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); white-space:nowrap; font-size:9px; font-weight:700; background:#fff; color:var(--sub); padding:1px 6px; border-radius:10px }
+.it{ position:absolute; z-index:1 }
+.ph{ position:absolute; z-index:2; background:#fff; padding:4px; border-radius:12px; box-shadow:0 8px 16px rgba(10,30,70,.28) }
+.ph img{ display:block; width:100%; height:100%; object-fit:cover; border-radius:8px }
+.ph.it{ z-index:1 }
+.ph.round, .ph.round img{ border-radius:50% }
+.st{ position:absolute; z-index:2; display:block; height:auto; filter:drop-shadow(0 8px 14px rgba(0,0,0,.45)) }
+.big{ position:absolute; left:-6px; right:-6px; bottom:-10px; font-family:var(--round); font-weight:900; font-size:74px; line-height:1; color:rgba(255,255,255,.16); letter-spacing:.02em; white-space:nowrap; z-index:0 }
+.ph-note{ position:absolute; right:12px; bottom:66px; font-size:9.5px; opacity:.8; z-index:3 }
+
+.band{ background:var(--paper); color:var(--ink); padding:16px 20px 20px; border-radius:22px 22px 0 0; margin-top:-22px; position:relative; z-index:4 }
+.pay{ display:flex; align-items:baseline; gap:4px; flex-wrap:wrap }
+.pay .l{ font-family:var(--round); font-weight:800; font-size:14px; background:var(--blue); color:#fff; padding:2px 10px; border-radius:20px; align-self:center; margin-right:4px }
+.pay b{ font-family:var(--round); font-size:46px; font-weight:900; line-height:1; color:var(--blue) }
+.pay .u{ font-weight:900; font-size:15px }
+.tags{ display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 14px }
+.tags span{ font-size:12.5px; font-weight:700; background:var(--blue-soft); color:var(--blue-deep); padding:6px 10px; border-radius:20px }
+.btn{ display:block; text-align:center; background:var(--yellow); color:var(--ink); font-family:var(--round); font-weight:900; font-size:18px; letter-spacing:.06em; padding:15px; text-decoration:none; border-radius:40px; box-shadow:0 4px 0 #d9ac00 }
+.btn small{ display:block; font-family:var(--sans); font-size:11px; font-weight:500; margin-top:1px }
+.btn2{ display:block; text-align:center; color:var(--blue-deep); font-weight:700; font-size:14px; padding:12px; text-decoration:none; border:2px solid var(--blue); border-radius:40px; margin-top:10px }
+
+/* ===== 各セクション ===== */
+section{ padding:44px 20px 12px }
+section.alt{ background:var(--blue-soft) }
+.label{ display:inline-block; font-family:var(--round); font-weight:800; font-size:11.5px; letter-spacing:.1em; color:#fff; background:var(--blue); padding:3px 12px; border-radius:20px }
+h2{ font-family:var(--round); font-weight:900; font-size:25px; line-height:1.4; letter-spacing:.02em; margin-top:10px; text-wrap:balance }
+h2 em{ font-style:normal; background:linear-gradient(transparent 60%, var(--yellow) 60%) }
+.lead{ font-size:14px; line-height:1.9; margin-top:12px; color:#333 }
+
+/* ホテル */
+.nums{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px }
+.nums div{ background:#fff; border-radius:16px; padding:14px 14px 12px; border:2px solid var(--line) }
+.nums b{ font-family:var(--round); font-weight:900; font-size:32px; color:var(--blue); line-height:1.1; display:block }
+.nums b small{ font-size:14px; margin-left:2px }
+.nums span{ font-size:12px; color:var(--sub); line-height:1.6; display:block; margin-top:4px }
+.guests{ margin-top:12px; background:#fff; border-radius:16px; padding:14px 16px; font-size:13px; line-height:1.85; border:2px dashed var(--blue) }
+.guests b{ font-family:var(--round); font-weight:800; color:var(--blue-deep); display:block; font-size:13px }
+
+/* 仕事 */
+.jobs{ display:grid; gap:10px; margin-top:18px }
+.job{ border-radius:16px; padding:14px 16px; border:2px solid var(--line); background:#fff }
+.job b{ font-family:var(--round); font-weight:900; font-size:16px; display:flex; align-items:center; gap:8px }
+.job b i{ font-style:normal; font-size:11px; color:#fff; background:var(--ink); width:22px; height:22px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none }
+.job p{ font-size:13px; color:#444; line-height:1.8; margin-top:4px }
+.job.star{ background:var(--yellow); border-color:var(--yellow) }
+.job.star p{ color:var(--ink) }
+.job.star b i{ background:var(--blue) }
+.day{ margin-top:24px; background:#fff; border-radius:16px; padding:16px; border:2px solid var(--line) }
+.day h3{ font-family:var(--round); font-weight:900; font-size:15px }
+.tl{ margin-top:10px }
+.tl div{ display:grid; grid-template-columns:58px 1fr; align-items:center; padding:6px 0; font-size:13.5px; border-bottom:1px dashed var(--line) }
+.tl div:last-child{ border-bottom:none }
+.tl time{ font-family:var(--round); font-weight:900; color:var(--blue); font-size:14px; font-variant-numeric:tabular-nums }
+
+/* 大変なこと */
+.hard{ display:grid; gap:12px; margin-top:18px }
+.hard div{ position:relative; background:#fff; border-radius:6px; padding:18px 16px 14px; box-shadow:0 2px 0 var(--line), 0 6px 14px rgba(20,40,80,.06); border:1px solid var(--line) }
+.hard div::before{ content:""; position:absolute; top:-8px; left:18px; width:64px; height:16px; background:rgba(255,212,59,.85); transform:rotate(-4deg) }
+.hard b{ font-family:var(--round); font-weight:900; font-size:15.5px }
+.hard p{ font-size:13px; color:#444; line-height:1.8; margin-top:4px }
+
+/* 人 */
+.people{ display:grid; gap:16px; margin-top:20px }
+.person{ display:grid; grid-template-columns:104px 1fr; gap:14px; align-items:start }
+.person .pic{ transform:rotate(-3deg) }
+.person:nth-child(2) .pic{ transform:rotate(3deg) }
+.route{ display:inline-flex; flex-wrap:wrap; align-items:center; gap:4px; font-size:11.5px; font-weight:700 }
+.route .from{ background:#eef0f4; color:var(--sub); padding:2px 8px; border-radius:20px }
+.route .to{ background:var(--blue); color:#fff; padding:2px 8px; border-radius:20px }
+.person h4{ font-family:var(--round); font-weight:900; font-size:15px; margin-top:6px }
+.bubble{ position:relative; background:#fff; border:2px solid var(--line); border-radius:14px; padding:10px 12px; font-size:13px; line-height:1.75; margin-top:6px }
+.src{ font-size:10.5px; color:var(--sub); margin-top:4px }
+
+/* 条件 */
+.cond{ width:100%; border-collapse:separate; border-spacing:0; margin-top:18px; font-size:13px; line-height:1.65; background:#fff; border:2px solid var(--line); border-radius:16px; overflow:hidden }
+.cond th{ text-align:left; vertical-align:top; width:94px; padding:11px 8px 11px 14px; font-size:11.5px; color:var(--sub); font-weight:700; border-top:1px solid var(--line) }
+.cond td{ padding:11px 14px 11px 0; border-top:1px solid var(--line) }
+.cond tr:first-child th,.cond tr:first-child td{ border-top:none }
+.cond tr.key{ background:var(--blue-soft) }
+.cond tr.key td{ font-family:var(--round); font-weight:900; font-size:17px; color:var(--blue-deep) }
+.cond small{ display:block; font-size:11.5px; color:var(--sub); font-weight:400; font-family:var(--sans) }
+.asof{ font-size:11px; color:var(--sub); margin-top:10px; line-height:1.6 }
+
+/* 特典 */
+.perk{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px }
+.perk div{ background:#fff; border-radius:16px; padding:14px; border:2px solid var(--line); position:relative }
+.perk b{ font-family:var(--round); font-weight:900; font-size:15px; display:block }
+.perk span{ font-size:12px; color:var(--sub); line-height:1.6; display:block; margin-top:4px }
+.perk i{ position:absolute; top:-9px; right:10px; font-style:normal; font-size:10px; font-weight:900; color:#fff; background:var(--red); padding:1px 7px; border-radius:10px }
+
+/* 流れ */
+.flow{ margin-top:18px; display:grid; gap:10px }
+.flow div{ display:grid; grid-template-columns:44px 1fr; gap:12px; align-items:center; background:#fff; border-radius:16px; padding:12px 14px; border:2px solid var(--line) }
+.flow div > span:first-child{ width:40px; height:40px; border-radius:50%; background:var(--blue); color:#fff; font-family:var(--round); font-weight:900; font-size:18px; display:flex; align-items:center; justify-content:center }
+.flow b{ font-family:var(--round); font-weight:900; font-size:15px }
+.flow p{ font-size:12.5px; color:#444; line-height:1.7 }
+
+/* Q&A */
+.faq{ margin-top:16px; display:grid; gap:10px }
+.faq div{ background:#fff; border-radius:16px; padding:14px 16px; border:2px solid var(--line) }
+.faq b{ font-family:var(--round); font-weight:900; font-size:14.5px; display:flex; gap:8px }
+.faq b::before{ content:"Q"; flex:none; width:22px; height:22px; border-radius:50%; background:var(--yellow); color:var(--ink); font-size:12px; display:inline-flex; align-items:center; justify-content:center }
+.faq p{ font-size:13px; color:#444; line-height:1.8; margin-top:6px; padding-left:30px }
+
+/* 応募 */
+.form{ margin-top:16px; background:#fff; border-radius:20px; padding:18px 16px; border:2px solid var(--blue) }
+.form label{ display:block; font-size:12.5px; font-weight:700; margin-top:14px }
+.form label:first-child{ margin-top:0 }
+.form label em{ font-style:normal; font-size:10px; color:#fff; background:var(--red); padding:0 5px; margin-left:6px; border-radius:3px; vertical-align:1px }
+.form .in{ background:#f7f9fc; border:2px solid var(--line); height:44px; margin-top:6px; border-radius:12px; font-size:13px; color:#9aa3b2; padding:11px 12px }
+.form .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px }
+.form .chips span{ background:#fff; border:2px solid var(--line); font-size:12.5px; font-weight:700; padding:6px 12px; border-radius:20px }
+.form .chips span.on{ background:var(--blue); color:#fff; border-color:var(--blue) }
+.form .hint{ font-size:11.5px; color:var(--sub); margin-top:14px; line-height:1.6 }
+
+footer{ padding:28px 20px 20px; font-size:11.5px; color:#dfe8f7; line-height:1.8; background:var(--blue-deep); margin-top:40px }
+footer b{ color:#fff; font-family:var(--round); font-weight:900; font-size:14px }
+
+.sticky{ position:fixed; left:50%; bottom:0; transform:translateX(-50%); width:100%; max-width:430px; background:rgba(255,255,255,.97); border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px)); display:grid; grid-template-columns:1fr 1.7fr; gap:8px; z-index:9; transition:transform .25s, opacity .25s }
+.sticky.hide{ opacity:0; pointer-events:none; transform:translate(-50%,100%) }
+.sticky a{ text-align:center; font-family:var(--round); font-weight:900; font-size:14.5px; padding:12px 6px; border-radius:40px; text-decoration:none }
+.sticky .tel{ border:2px solid var(--blue); color:var(--blue-deep) }
+.sticky .go{ background:var(--yellow); color:var(--ink) }
+a:focus-visible{ outline:3px solid var(--ink); outline-offset:2px }
+@media (prefers-reduced-motion:reduce){ .sticky{ transition:none } }
+/* ===== 動き ===== */
+.st{ rotate:var(--r,0deg); animation:pop .7s cubic-bezier(.34,1.56,.64,1) var(--d,0s) both, bob var(--f,4s) ease-in-out calc(var(--d,0s) + .7s) infinite alternate }
+@keyframes pop{ 0%{ opacity:0; scale:.2 } 60%{ opacity:1 } 100%{ opacity:1; scale:1 } }
+@keyframes bob{ from{ translate:0 0 } to{ translate:0 -7px } }
+.copy h1, .copy p{ animation:rise .8s cubic-bezier(.2,.8,.2,1) both }
+.copy h1{ animation-delay:1.2s }
+.copy p{ animation-delay:1.35s }
+.copy h1 em{ display:inline-block; animation:stamp .5s cubic-bezier(.34,1.56,.64,1) 1.9s both }
+@keyframes rise{ from{ opacity:0; translate:0 18px } to{ opacity:1; translate:0 0 } }
+@keyframes stamp{ from{ scale:1.6; rotate:-6deg; opacity:0 } to{ scale:1; rotate:0deg; opacity:1 } }
+.band{ animation:up .8s cubic-bezier(.2,.8,.2,1) 1.3s both }
+@keyframes up{ from{ translate:0 60px } to{ translate:0 0 } }
+
+/* ローディング（仮）：JSなしでも約1.3秒で消える */
+.loader{ position:fixed; inset:0; z-index:100; background:#0b1630; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; animation:loaderOut .45s ease 1.25s forwards }
+.loader b{ font-family:var(--round); font-weight:900; font-size:20px; letter-spacing:.12em; animation:rise .6s ease .1s both }
+.loader small{ font-size:11px; letter-spacing:.2em; opacity:.7 }
+.loader .dots{ display:flex; gap:8px }
+.loader .dots i{ width:10px; height:10px; border-radius:50%; background:var(--yellow); animation:jump .6s ease-in-out infinite alternate }
+.loader .dots i:nth-child(2){ animation-delay:.15s } .loader .dots i:nth-child(3){ animation-delay:.3s }
+@keyframes jump{ from{ translate:0 0 } to{ translate:0 -12px } }
+@keyframes loaderOut{ to{ opacity:0; visibility:hidden } }
+
+@media (prefers-reduced-motion:reduce){
+  .st, .copy h1, .copy p, .copy h1 em, .band{ animation:none }
+  .loader{ display:none }
+}
+
+</style>
+
+<div class="note-bar"><b>方向性の提案（仮）</b>　「仮」「例」の印がある条件・人・数字と、写真（Unsplashの素材）は差し替え前のものです。</div>
+
+<div class="loader" aria-hidden="true"><b>LC五稜郭ホテル</b><div class="dots"><i></i><i></i><i></i></div><small>ローディング（仮）</small></div>
+
+<main>
+
+<!-- ===== 最初の画面 ===== -->
+<div class="hero">
+  <div class="stage">
+    <div class="hero-top"><span>LC五稜郭ホテル｜函館・五稜郭</span><span>フロント募集</span></div>
+
+    <div class="copy">
+      <h1><em>函館一</em>の<br>笑顔を<br>募集します。</h1>
+      <p>夜景と海とごはんの街、函館。<br>その魅力を、旅で来たお客様に<br>一緒に伝えてくれませんか？<br>はじめての人も大丈夫です。</p>
+    </div>
+
+    <!-- 仮の素材写真（Unsplash）を切り抜いたステッカー。撮影後に本人の写真へ差し替え -->
+    <img class="st" src="img/st-w1.png" alt="仮の素材写真：スタッフ役の人物" style="right:-4px; top:118px; width:168px; --r:4deg; --d:1.45s; --f:3.4s">
+    <img class="st" src="img/st-tram.png" alt="仮の素材写真：函館の市電" style="right:-12px; top:352px; width:158px; --r:-5deg; --d:1.62s; --f:3.9s; z-index:1">
+    <img class="st" src="img/st-w2.png" alt="仮の素材写真：スタッフ役の人物" style="left:4px; top:372px; width:162px; --r:-4deg; --d:1.79s; --f:4.4s">
+    <img class="st" src="img/st-m1.png" alt="仮の素材写真：スタッフ役の人物" style="left:150px; top:404px; width:150px; --r:3deg; --d:1.96s; --f:4.9s">
+    <img class="st" src="img/st-ramen.png" alt="仮の素材写真：ラーメン" style="right:14px; top:452px; width:112px; --r:8deg; --d:2.13s; --f:5.4s; z-index:3">
+
+    <span class="ph-note">写真は仮の素材（Unsplash）。撮影した本人の写真に差し替えます</span>
+    <div class="big" aria-hidden="true">GORYOKAKU</div>
+  </div>
+
+  <div class="band">
+    <div class="pay"><span class="l">時給</span><b>1,200</b><span class="u">円〜</span><span class="kari">仮</span></div>
+    <div class="tags"><span>週3日から<i class="kari" style="font-style:normal">仮</i></span><span>1日4時間から<i class="kari" style="font-style:normal">仮</i></span><span>ホテル未経験OK</span><span>市電「五稜郭公園前」徒歩3分</span></div>
+    <a class="btn" href="#apply">応募する<small>入力1分。履歴書は面接の日で大丈夫です</small></a>
+    <a class="btn2" href="#apply">まずは見学したい</a>
+  </div>
+</div>
+
+<!-- ===== このホテル ===== -->
+<section>
+  <span class="label">ホテルのこと</span>
+  <h2>どんなホテル？</h2>
+  <div class="nums">
+    <div><b>119<small>室</small></b><span>本館71室・別館48室</span></div>
+    <div><b>徒歩3<small>分</small></b><span>市電「五稜郭公園前」から</span></div>
+    <div><b>1F</b><span>パン屋「BAKERY ONE CARAT」がある</span></div>
+    <div><b>サウナ</b><span>本格フィンランド式。男女別とプライベート</span></div>
+  </div>
+  <div class="guests"><b>来るお客様</b>函館観光の方、出張の方、サウナが目当ての方。夏と年末年始は海外からのお客様も増えます。<span class="kari">仮</span></div>
+</section>
+
+<!-- ===== 仕事 ===== -->
+<section class="alt">
+  <span class="label">仕事のこと</span>
+  <h2>フロントの<em>仕事</em></h2>
+  <div class="jobs">
+    <div class="job star"><b><i>★</i>あなたの好きな函館を案内する</b><p>「夕飯どこがいい？」「どこを見ればいい？」と聞かれたら、あなたの好きな店や場所をぜひ案内してください。<span class="kari">仮</span></p></div>
+    <div class="job"><b><i>1</i>チェックイン・チェックアウト</b><p>お部屋の案内、お会計、鍵の受け渡し。最初の2週間は先輩と一緒に覚えます。<span class="kari">仮</span></p></div>
+    <div class="job"><b><i>2</i>電話と予約の確認</b><p>予約サイトの管理画面で、その日の予約を確かめます。</p></div>
+    <div class="job"><b><i>3</i>SNSでの発信</b><p>ホテルの様子やお知らせを投稿します。</p></div>
+  </div>
+  <div class="day">
+    <h3>1日の流れ（早番の例）<span class="kari">仮</span></h3>
+    <div class="tl">
+      <div><time>7:00</time><span>出勤。夜勤から引き継ぎ</span></div>
+      <div><time>7:30</time><span>チェックアウトが続く時間</span></div>
+      <div><time>11:00</time><span>予約の確認、電話の対応</span></div>
+      <div><time>12:00</time><span>休憩（45分）</span></div>
+      <div><time>13:00</time><span>SNSの投稿、館内の確認</span></div>
+      <div><time>15:00</time><span>チェックイン開始</span></div>
+      <div><time>16:00</time><span>遅番に引き継いで退勤</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 大変なこと ===== -->
+<section>
+  <span class="label">正直に</span>
+  <h2>先に伝えておく、<br>大変なこと</h2>
+  <div class="hard">
+    <div><b>夕方はチェックインが重なる</b><p>15時〜18時は列ができることがあります。この時間は2人以上で立つようにしています。<span class="kari">仮</span></p></div>
+    <div><b>夏と年末年始は満室が続く</b><p>この時期は、シフトに入れる日を早めに相談させてください。<span class="kari">仮</span></p></div>
+    <div><b>英語のお客様もいる</b><p>話せなくても大丈夫。よく使う言い回しをまとめた紙をフロントに置いています。<span class="kari">仮</span></p></div>
+  </div>
+</section>
+
+<!-- ===== 人 ===== -->
+<section class="alt">
+  <span class="label">働く人</span>
+  <h2>ホテルの経験がない人が、<br><em>多く働いています</em></h2>
+  <p class="lead">さまざまな仕事から来た人がいます。<span class="kari">仮</span>前の仕事で身につけたことが、そのまま活きる仕事です。</p>
+  <div class="people">
+    <div class="person">
+      <div class="pic sticker"><svg width="104" height="124" viewBox="0 0 104 124" aria-hidden="true"><rect width="104" height="124" rx="10" fill="#cfe0fb"/><circle cx="52" cy="48" r="20" fill="#f2d3bd"/><path d="M18 124c0-22 15-38 34-38s34 16 34 38z" fill="#22324d"/></svg></div>
+      <div>
+        <span class="route"><span class="from">知人の紹介で入社</span>→<span class="to">フロント</span></span>
+        <h4>M.K　2023年入社</h4>
+        <p class="bubble">口コミでスタッフ対応に高い評価をいただいた時や、フロントスタッフ同士の連携がうまくいった時にやりがいを感じます。</p>
+        <p class="src">LCグループ「スタッフ紹介」より</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pic sticker"><svg width="104" height="124" viewBox="0 0 104 124" aria-hidden="true"><rect width="104" height="124" rx="10" fill="#ffe9a3"/><circle cx="52" cy="48" r="20" fill="#efcab0"/><path d="M18 124c0-22 15-38 34-38s34 16 34 38z" fill="#22324d"/></svg></div>
+      <div>
+        <span class="route"><span class="from">居酒屋のホール</span>→<span class="to">フロント</span><span class="kari">仮</span></span>
+        <h4>名前（イニシャル）</h4>
+        <p class="bubble">混んでいる時に何から片づけるか。居酒屋で覚えた段取りが、チェックインの時間にそのまま使えています。</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pic sticker"><svg width="104" height="124" viewBox="0 0 104 124" aria-hidden="true"><rect width="104" height="124" rx="10" fill="#d7f0e3"/><circle cx="52" cy="48" r="20" fill="#f4d6c2"/><path d="M18 124c0-22 15-38 34-38s34 16 34 38z" fill="#22324d"/></svg></div>
+      <div>
+        <span class="route"><span class="from">アパレル販売</span>→<span class="to">フロント</span><span class="kari">仮</span></span>
+        <h4>名前（イニシャル）</h4>
+        <p class="bubble">お客様の様子を見て声をかけるのは、販売と同じでした。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 条件 ===== -->
+<section>
+  <span class="label">条件</span>
+  <h2>募集の条件</h2>
+  <table class="cond">
+    <tr class="key"><th>時給</th><td>1,200円〜<span class="kari">仮</span><small>22時〜翌5時は25%増し。試用期間中も同じ</small></td></tr>
+    <tr><th>雇用形態</th><td>アルバイト・パート</td></tr>
+    <tr><th>契約期間</th><td>6か月（更新あり）<span class="kari">仮</span></td></tr>
+    <tr><th>更新の基準</th><td>勤務の状況と、ホテルの業務量で判断。通算の上限なし<span class="kari">仮</span></td></tr>
+    <tr><th>試用期間</th><td>3か月（条件は同じ）</td></tr>
+    <tr><th>仕事内容</th><td>フロント業務全般<small>変更の範囲：ホテル運営の業務全般<span class="kari">仮</span></small></td></tr>
+    <tr><th>勤務地</th><td>LC五稜郭ホテル（函館市本町29-26）<small>変更の範囲：函館市内の当社施設<span class="kari">仮</span></small></td></tr>
+    <tr><th>勤務時間</th><td>7:00〜22:00の間で1日4〜8時間<span class="kari">仮</span><small>6時間を超える日は45分の休憩</small></td></tr>
+    <tr><th>時間外</th><td>あり（月5時間ほど）<span class="kari">仮</span></td></tr>
+    <tr><th>休日</th><td>シフト制。希望を聞いて決めます</td></tr>
+    <tr><th>社会保険</th><td>勤務時間に応じて加入（雇用・労災・健康・厚生年金）</td></tr>
+    <tr><th>交通費</th><td>規定により支給。車通勤は相談<span class="kari">仮</span></td></tr>
+    <tr><th>受動喫煙</th><td>屋内禁煙（喫煙所あり）<span class="kari">仮</span></td></tr>
+    <tr><th>年齢</th><td>不問</td></tr>
+    <tr><th>募集する会社</th><td>株式会社リンクル（LCグループ）</td></tr>
+  </table>
+  <p class="asof">この条件は2026年11月時点のものです。毎月1回、内容を確認しています。</p>
+</section>
+
+<!-- ===== 特典 ===== -->
+<section class="alt">
+  <span class="label">働く人のために</span>
+  <h2>うれしい<em>制度</em></h2>
+  <p class="lead">ここに並べたものは、すべて例です。</p>
+  <div class="perk">
+    <div><i>例</i><b>社宅</b><span>家賃の2割を会社が負担。家電付きも選べる</span></div>
+    <div><i>例</i><b>食事の補助</b><span>チケットレストラン（規定による）</span></div>
+    <div><i>例</i><b>サウナ</b><span>空いている時間に、スタッフも使える</span></div>
+    <div><i>例</i><b>パンの割引</b><span>1階のBAKERY ONE CARAT</span></div>
+    <div><i>例</i><b>髪型・髪色・ネイル</b><span>決まりは清潔感だけ</span></div>
+    <div><i>例</i><b>交通費</b><span>規定により支給</span></div>
+  </div>
+</section>
+
+<!-- ===== 流れ ===== -->
+<section>
+  <span class="label">応募のあと</span>
+  <h2>働き始めるまで</h2>
+  <div class="flow">
+    <div><span>1</span><span><b>応募する</b><p>このページのフォーム、または電話で。</p></span></div>
+    <div><span>2</span><span><b>2日以内に連絡</b><p>電話かSMSで、面接の日を決めます。<span class="kari">仮</span></p></span></div>
+    <div><span>3</span><span><b>面接は1回（30分ほど）</b><p>ホテルの中も見てもらいます。見学だけでも大丈夫。</p></span></div>
+    <div><span>4</span><span><b>働き始める</b><p>最初の2週間は先輩と一緒に入ります。<span class="kari">仮</span></p></span></div>
+  </div>
+</section>
+
+<!-- ===== Q&A ===== -->
+<section class="alt">
+  <span class="label">Q&amp;A</span>
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <div><b>ホテルで働いたことがなくても大丈夫？</b><p>大丈夫です。今のスタッフも、ほかの仕事から来た人が中心です。</p></div>
+    <div><b>英語は必要？</b><p>必須ではありません。話せる方には、海外のお客様の対応をお願いすることがあります。</p></div>
+    <div><b>扶養の範囲内で働ける？</b><p>働ける日数と時間を相談して決めます。<span class="kari">仮</span></p></div>
+    <div><b>車で通勤できる？</b><p>相談してください。市電「五稜郭公園前」からは徒歩3分です。<span class="kari">仮</span></p></div>
+    <div><b>夜勤はある？</b><p>この募集は日中のみです。夜勤は別の募集になります。<span class="kari">仮</span></p></div>
+  </div>
+</section>
+
+<!-- ===== 応募 ===== -->
+<section id="apply">
+  <span class="label">応募する</span>
+  <h2>まずは気軽に、<br><em>1分で応募</em></h2>
+  <div class="form">
+    <label>希望すること<em>必須</em></label>
+    <div class="chips"><span class="on">応募したい</span><span>まずは見学したい</span><span>質問したい</span></div>
+    <label>お名前<em>必須</em></label><div class="in">例）函館 花子</div>
+    <label>電話番号<em>必須</em></label><div class="in">例）090-0000-0000</div>
+    <label>連絡がつきやすい時間</label>
+    <div class="chips"><span>午前</span><span class="on">午後</span><span>夕方以降</span><span>いつでも</span></div>
+    <label>働きたい日数</label>
+    <div class="chips"><span>週1〜2日</span><span class="on">週3〜4日</span><span>週5日</span></div>
+    <p class="hint">履歴書は面接の日に持ってきてください。2日以内にご連絡します。</p>
+    <a class="btn" href="#apply" style="margin-top:14px">送信する</a>
+  </div>
+</section>
+
+<footer>
+  <b>LC五稜郭ホテル</b><br>
+  函館市本町29-26<br>
+  採用の電話：0138-30-3030（受付 10:00〜18:00）<span class="kari">仮</span><br>
+  運営：株式会社リンクル（LCグループ）
+</footer>
+
+</main>
+
+<div class="sticky hide"><a class="tel" href="#apply">電話する</a><a class="go" href="#apply">応募する（1分）</a></div>
+
+<script>
+// 最初の画面の応募ボタンが見えている間は、下の固定ボタンを隠す
+(function(){
+  var band=document.querySelector('.band'), bar=document.querySelector('.sticky');
+  if(!band||!bar||!('IntersectionObserver' in window)){ if(bar) bar.classList.remove('hide'); return; }
+  new IntersectionObserver(function(e){ bar.classList.toggle('hide', e[0].isIntersecting); }, {threshold:0.2}).observe(band);
+})();
+</script>
+
+</html>
