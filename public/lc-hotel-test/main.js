@@ -1,13 +1,13 @@
 (function(){
   var root=document.documentElement;
 
-  // 最初の写真を読み込んでから、ローディングを消して最初の画面を出す
-  var heroImg=document.querySelector('.hero-img');
+  // 最初の画面の写真を読み込んでから、ローディングを消して最初の画面を出す
   var t0=Date.now(), done=false;
   function go(){ if(done) return; done=true; setTimeout(function(){ root.classList.add('ready'); }, Math.max(0,500-(Date.now()-t0))); }
-  if(heroImg){
-    var m=getComputedStyle(heroImg).backgroundImage.match(/url\(["']?([^"')]+)/);
-    if(m){ var im=new Image(); im.onload=im.onerror=go; im.src=m[1]; } else go();
+  var pics=[].slice.call(document.querySelectorAll('.collage img, .jhero img'));
+  if(pics.length){
+    var left=pics.length;
+    pics.forEach(function(img){ if(img.complete) { if(--left===0) go(); } else { img.addEventListener('load',function(){ if(--left===0) go(); }); img.addEventListener('error',function(){ if(--left===0) go(); }); } });
     setTimeout(go,5000);
   } else go();
 
