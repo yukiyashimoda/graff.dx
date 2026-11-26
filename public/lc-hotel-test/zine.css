@@ -518,3 +518,35 @@ footer{ border-top:none !important }
 .steps2{ grid-template-columns:repeat(4,minmax(0,1fr)) }
 .steps2 div{ font-size:11.5px }
 .pt b{ font-family:"Caveat Brush",var(--hand); font-weight:400; font-size:21px; letter-spacing:.02em; line-height:1.1; margin-bottom:4px; color:var(--gold) }
+
+/* 01 募集している仕事（業務内容ごと） */
+.jobs2{ margin-top:28px }
+.j2{ padding:22px 0 24px; border-bottom:1px dashed var(--line) }
+.j2:first-child{ padding-top:4px }
+.j2 .tag{ display:inline-block; font-size:12px; font-weight:700; color:#fff; background:var(--gold); padding:3px 12px; border-radius:20px; letter-spacing:.04em }
+.j2 h3{ font-size:22px; font-weight:900; margin-top:10px; letter-spacing:.02em }
+.j2 .what{ font-size:15px; color:var(--text); margin-top:6px; line-height:1.8 }
+.j2 .meta{ font-size:14px; color:var(--sub); margin-top:6px }
+.j2 .meta span{ margin:0 4px }
+.j2 .meta b{ font-size:18px; font-weight:900; color:var(--gold); margin-left:4px }
+.j2 .pill{ display:inline-block; margin-top:16px; padding:10px 26px; border-radius:40px; background:var(--ink); color:#fff; text-decoration:none; font-size:14px; font-weight:700; letter-spacing:.06em }
+.j2 .pill::after{ content:" →" }
+.j2{ display:flex; flex-direction:column }
+.j2 .pill{ align-self:flex-end }
+.j2 .tag{ align-self:flex-start }
+
+/* 01 の仕事：水色の blob で囲む */
+.jobs2{ display:grid; gap:22px }
+.j2{ position:relative; border-bottom:none !important; padding:34px 30px 30px !important; background:#d4e3ec; border-radius:58% 42% 46% 54% / 18% 24% 20% 26% }
+.j2:nth-child(2){ border-radius:44% 56% 52% 48% / 24% 18% 26% 20%; margin-left:10px; margin-right:-6px }
+.j2:first-child{ margin-right:10px; margin-left:-6px }
+.j2 .pill{ background:#fff; color:var(--ink); box-shadow:0 4px 12px rgba(28,39,64,.12) }
+.j2:nth-child(2){ margin-left:8px; margin-right:0 }
+.j2:first-child{ margin-left:0; margin-right:8px }
+.j2{ padding:32px 26px 28px !important }
+
+/* 01 の仕事：直線のない blob（全周うねる曲線で切り抜く） */
+.j2{ border-radius:0 !important; -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; padding:40px 30px 36px !important }
+.j2:nth-child(2){ border-radius:0 !important; -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M12%2C6%20C28%2C0%2046%2C5%2064%2C3%20C80%2C1%2095%2C8%2098%2C24%20C100%2C38%2095%2C50%2097%2C66%20C99%2C82%2092%2C96%2076%2C98%20C58%2C100%2040%2C96%2024%2C98%20C10%2C99%202%2C88%203%2C72%20C4%2C58%201%2C46%202%2C32%20C3%2C18%204%2C10%2012%2C6%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M12%2C6%20C28%2C0%2046%2C5%2064%2C3%20C80%2C1%2095%2C8%2098%2C24%20C100%2C38%2095%2C50%2097%2C66%20C99%2C82%2092%2C96%2076%2C98%20C58%2C100%2040%2C96%2024%2C98%20C10%2C99%202%2C88%203%2C72%20C4%2C58%201%2C46%202%2C32%20C3%2C18%204%2C10%2012%2C6%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat }
+.j2 .pill{ box-shadow:none }
+.j2 .tag{ background:none !important; color:var(--gold) !important; padding:0 !important; border-radius:0 !important; font-size:12.5px; font-weight:700; letter-spacing:.12em }
