@@ -8,7 +8,7 @@
 <title>採用情報｜LC五稜郭ホテル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Klee+One:wght@600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Klee+One:wght@600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="zine.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -29,7 +29,8 @@
 
 <!-- 01 目次（整然） -->
 <section class="sec" id="index">
-  <div class="kicker"><i>01</i><span>INDEX</span></div>
+  <span class="ghost" style="right:-30px; top:40px">24HOURS</span>
+  <div class="kicker"><i>01</i><span>Index</span></div>
   <h2>働きたい時間から、<br>選んでください。</h2>
   <nav class="index">
     <a class="rv" href="breakfast"><b>5:00</b><span>朝食担当スタッフ<em>1,140円〜</em><small>5:00〜11:00　朝ごはんの準備</small></span><s>→</s></a>
@@ -39,32 +40,33 @@
   </nav>
 </section>
 
-<!-- 02 グラビア（華やか） -->
-<section class="grav">
-  <div class="kicker"><i>02</i><span>THE HOTEL</span></div>
-  <h2>五稜郭の、<br>サウナのあるホテル。</h2>
-  <div class="stage">
-    <div class="ph rv" style="left:0; top:0; width:70%; height:300px"><img src="img/exterior.webp" alt="ホテルの外観"></div>
-    <p class="vt big rv" style="right:var(--pad); top:0; height:280px">夕方、灯りが<br>ともるころ。</p>
-    <div class="ph rv" style="right:0; top:256px; width:52%; height:210px; border:6px solid #fff"><img src="img/sauna.webp" alt="サウナ"></div>
-    <p class="cap rv" style="left:var(--pad); top:318px; width:40%"><b>客室は119室</b>本館と別館。観光や出張のお客さまが毎日やってきます。</p>
-    <div class="ph rv" style="left:var(--pad); top:450px; width:44%; height:170px"><img src="img/totonou.webp" alt="ととのうルーム"></div>
-    <p class="cap rv" style="right:var(--pad); top:490px; width:42%"><b>市電から歩いて3分</b>「五稜郭公園前」の電停から。車通勤もOK。</p>
+<!-- 02 グラビア（華やか・大きさの差） -->
+<section class="grav" style="padding-bottom:40px">
+  <span class="ghost" style="left:-10px; top:120px">SAUNA</span>
+  <div class="kicker" style="margin:0 var(--pad)"><i>02</i><span>The Hotel</span></div>
+  <div class="stage" style="height:800px; margin-top:28px">
+    <div class="ph blob rv" style="left:0; top:0; width:100%; height:520px"><img src="img/exterior.webp" alt="ホテルの外観"></div>
+    <p class="giant w rv" style="right:12px; top:24px">サウナのある<br>ホテル。</p>
+    <div class="ph rv" style="left:var(--pad); top:500px; width:52%; height:230px; border:6px solid #fff; box-shadow:0 10px 24px rgba(28,39,64,.18)"><img src="img/sauna.webp" alt="サウナ"></div>
+    <svg class="leader" style="left:0; top:0; width:100%; height:800px" viewBox="0 0 480 800" preserveAspectRatio="none"><polyline points="150,600 300,580 300,570"/><circle cx="150" cy="600" r="4"/></svg>
+    <div class="pt rv" style="right:var(--pad); top:500px"><b>&gt;&gt; POINT_01</b>仕事のあとは、スタッフもこのサウナを無料で。</div>
+    <p class="cap rv" style="right:var(--pad); top:640px; width:38%; font-size:14px"><b style="font-size:16px">客室は119室</b>本館と別館。市電「五稜郭公園前」から歩いて3分。</p>
   </div>
 </section>
 
-<!-- コラム（静か・文字） -->
-<section class="column">
-  <p class="lbl rv">Message</p>
-  <h2 class="rv">ホテルの経験は、<br>なくて大丈夫です。</h2>
-  <p class="rv">喫茶店、パン屋、居酒屋、スーパー、保育士。ここで働く人の前の仕事は、ばらばらです。それでも、お客さまの顔を見て声をかけること、忙しいときに段取りよく動くこと。前の仕事で身につけたことが、そのまま活きる場所です。</p>
-  <p class="rv">朝の5時から、夜の見回りまで。それぞれの時間に入る人が、ノートで次の人へバトンを渡しながら、このホテルの1日をつくっています。</p>
+<!-- Message（濃紺の面・巨大な手書き） -->
+<section class="column navy" style="padding:96px var(--pad) 96px; position:relative; overflow:hidden">
+  <p class="lbl rv" style="font-size:18px">Message</p>
+  <p class="giant-hand rv" style="margin-top:18px">経験は、<br>いらない。</p>
+  <p class="rv" style="font-size:16px; line-height:2.1; margin-top:28px">喫茶店、パン屋、居酒屋、スーパー、保育士。ここで働く人の前の仕事は、ばらばらです。お客さまの顔を見て声をかけること、忙しいときに段取りよく動くこと。前の仕事で身につけたことが、そのまま活きる場所です。</p>
+  <p class="rv" style="font-size:16px; line-height:2.1">朝の5時から夜の見回りまで。それぞれの時間に入る人が、ノートで次の人へバトンを渡しながら、このホテルの1日をつくっています。</p>
   <p class="sign rv">LC五稜郭ホテル スタッフ一同</p>
 </section>
 
-<!-- 03 ポイント（整然・2段） -->
+<!-- 03 ポイント（整然） -->
 <section class="sec">
-  <div class="kicker"><i>03</i><span>POINT</span></div>
+  <span class="ghost" style="right:-20px; top:30px">POINT</span>
+  <div class="kicker"><i>03</i><span>Point</span></div>
   <h2>ここで働くと。</h2>
   <div class="points2 rv">
     <div><i>01</i><b>サウナが無料</b><span>仕事のあとに、本格フィンランド式のサウナへ。</span></div>
@@ -74,12 +76,17 @@
     <div><i>05</i><b>掛け持ちOK</b><span>Wワーク・副業の人も働いています。</span></div>
     <div><i>06</i><b>正社員への道</b><span>アルバイトから正社員になった人がいます。</span></div>
   </div>
-  <div class="pt-photo rv"><img src="img/totonou.webp" alt="ととのうルーム"><span class="memo">仕事のあとに、ひと息。</span></div>
 </section>
+<div class="rv" style="position:relative; height:420px; overflow:hidden">
+  <img src="img/totonou.webp" alt="ととのうルーム" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+  <p class="giant w" style="left:18px; top:22px; font-size:52px">ひと息。</p>
+  <div class="pt" style="right:var(--pad); bottom:28px"><b>&gt;&gt; POINT_02</b>シフトのあと、ととのうルームでひと休みしてから帰る人も。</div>
+</div>
 
 <!-- 04 人物紹介 -->
-<section class="sec k">
-  <div class="kicker"><i>04</i><span>PEOPLE</span></div>
+<section class="sec" style="background:var(--kinari)">
+  <span class="ghost" style="left:-14px; top:40px">PEOPLE</span>
+  <div class="kicker"><i>04</i><span>People</span></div>
   <h2>ここで働く4人の、<br>ある1日。</h2>
   <div class="people">
     <a class="rv" href="story/satomi"><div class="f"><img src="img/p-mama.webp" alt=""></div><span class="t">4:50 AM</span><span class="n">朝食担当　さとみさん</span><span class="q">子どもが起きる前に、ひと仕事。</span><span class="r">1日を読む</span></a>
@@ -91,8 +98,8 @@
 
 <!-- 05 情報ページ（巻末のデータ） -->
 <section class="data">
-  <div class="kicker"><i>05</i><span>INFORMATION</span></div>
-  <h2 style="font-size:20px; margin-top:12px">応募から働き始めるまで</h2>
+  <div class="kicker"><i>05</i><span>Information</span></div>
+  <h2 style="font-size:24px; font-weight:900; margin-top:16px">応募から働き始めるまで</h2>
   <div class="steps2"><div><i>1</i>応募</div><div><i>2</i>ご連絡</div><div><i>3</i>面接1回<br>見学もOK</div><div><i>4</i>勤務開始</div></div>
   <table>
     <tr><th>雇用形態</th><td>アルバイト・パート</td></tr>
@@ -110,8 +117,8 @@
   </div>
 </section>
 
-<!-- 応募 -->
-<section class="entry" id="apply" style="background:var(--kinari)">
+<!-- 応募（濃紺の面） -->
+<section class="entry navy" id="apply">
   <h2>応募する</h2>
   <form class="form" novalidate>
     <span class="lbl">働きたい時間<em>必須</em></span>
