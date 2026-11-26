@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
       { source: "/lc-hotel-test/front/", destination: "/lc-hotel-test/front/index.html" },
       { source: "/lc-hotel-test/breakfast", destination: "/lc-hotel-test/breakfast/index.html" },
       { source: "/lc-hotel-test/breakfast/", destination: "/lc-hotel-test/breakfast/index.html" },
+      { source: "/lc-hotel-test/story/satomi", destination: "/lc-hotel-test/story/satomi/index.html" },
+      { source: "/lc-hotel-test/story/satomi/", destination: "/lc-hotel-test/story/satomi/index.html" },
+      { source: "/lc-hotel-test/story/yui", destination: "/lc-hotel-test/story/yui/index.html" },
+      { source: "/lc-hotel-test/story/yui/", destination: "/lc-hotel-test/story/yui/index.html" },
+      { source: "/lc-hotel-test/story/kenta", destination: "/lc-hotel-test/story/kenta/index.html" },
+      { source: "/lc-hotel-test/story/kenta/", destination: "/lc-hotel-test/story/kenta/index.html" },
+      { source: "/lc-hotel-test/story/takumi", destination: "/lc-hotel-test/story/takumi/index.html" },
+      { source: "/lc-hotel-test/story/takumi/", destination: "/lc-hotel-test/story/takumi/index.html" },
     ];
   },
 
