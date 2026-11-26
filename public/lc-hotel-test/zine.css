@@ -641,3 +641,40 @@ footer b{ font-family:var(--sans) !important; font-weight:900; letter-spacing:.1
 main{ overflow:clip }
 /* セリフの上に余白 */
 .lead-box .quote{ margin-top:32px }
+
+/* メニューボタン（紺のblob・右上に固定） */
+.mnu-btn{ position:fixed; z-index:60; top:12px; right:max(12px, calc((100vw - 480px) / 2 + 12px)); width:64px; height:58px; border:0; padding:0; background:var(--ink); color:#fff; cursor:pointer; -webkit-mask-size:100% 100%; mask-size:100% 100% }
+.mnu-btn span{ font-family:"Caveat Brush",var(--hand); font-size:21px; line-height:1; letter-spacing:.02em }
+.mnu-btn:focus-visible{ outline:none; background:var(--gold) }
+/* ストーリーのヘッダー右の文字は、ボタンの左へ */
+.st-bar{ padding-right:88px !important; min-height:58px; align-items:center }
+
+/* サイドメニュー */
+.mnu{ position:fixed; inset:0; z-index:70; pointer-events:none }
+.mnu-dim{ position:absolute; inset:0; background:rgba(28,39,64,.38); opacity:0; transition:opacity .3s }
+.mnu-panel{ position:absolute; top:0; bottom:0; right:max(0px, calc((100vw - 480px) / 2)); width:min(84vw, 380px); overflow-y:auto; padding:72px 30px 40px 46px; background:#d4e3ec url("img/paper.svg"); transform:translateX(105%); transition:transform .35s ease; display:flex; flex-direction:column;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M8,0 C2,10 10,20 6,30 C2,40 10,50 6,60 C2,70 10,80 6,90 C4,95 6,98 7,100 L100,100 L100,0 Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M8,0 C2,10 10,20 6,30 C2,40 10,50 6,60 C2,70 10,80 6,90 C4,95 6,98 7,100 L100,100 L100,0 Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat }
+.mnu-open .mnu{ pointer-events:auto }
+.mnu-open .mnu-dim{ opacity:1 }
+.mnu-open .mnu-panel{ transform:none }
+.mnu-open .mnu-btn{ opacity:0; pointer-events:none }
+.mnu-open, .mnu-open body{ overflow:hidden }
+.mnu-x{ position:absolute; top:16px; right:18px; width:44px; height:44px; border:0; background:none; font-size:30px; line-height:1; color:var(--ink); cursor:pointer }
+.mnu-panel a{ display:block; color:var(--ink); text-decoration:none; font-size:16px; font-weight:700; padding:9px 0; letter-spacing:.04em }
+.mnu-panel a small{ margin-left:10px; font-size:12px; font-weight:500; color:var(--sub); letter-spacing:.06em }
+.mnu-panel .mnu-top{ font-size:18px; font-weight:900 }
+.mnu-h{ margin:22px 0 4px; font-size:12px; font-weight:700; color:var(--gold); letter-spacing:.14em }
+.mnu-cta{ display:flex; gap:10px; margin-top:30px }
+.mnu-cta a{ flex:1; text-align:center; padding:12px 0; border-radius:40px; font-size:14px; letter-spacing:.06em }
+.mnu-cta .g{ background:var(--ink); color:#fff }
+.mnu-cta .t{ background:#fff; color:var(--ink) }
+@media (prefers-reduced-motion: reduce){ .mnu-panel, .mnu-dim{ transition:none } }
+.mnu-btn{ top:8px; width:56px; height:50px }
+.mnu-btn span{ font-size:19px }
+.mnu-x:focus{ outline:none }
+.mnu-x:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; border-radius:50% }
+.st-bar{ min-height:52px; padding-right:80px !important }
+/* メニューの中は白、電話するは水色 */
+.mnu-panel{ background:#fff !important }
+.mnu-cta .t{ background:#d4e3ec }

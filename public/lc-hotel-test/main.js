@@ -71,6 +71,36 @@
     window.addEventListener('scroll',on,{passive:true}); window.addEventListener('resize',on); upd();
   })();
 
+
+  // 右上のメニューボタンとサイドメニュー（全ページ共通）
+  (function(){
+    var mask="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,3 C70,1 92,10 96,32 C100,52 99,72 86,87 C72,100 48,100 30,95 C12,89 1,72 3,50 C5,28 26,5 50,3 Z'/%3E%3C/svg%3E\")";
+    var apply=(document.querySelector('.sticky .g')||{}).getAttribute ? document.querySelector('.sticky .g').getAttribute('href') : '#apply';
+    var btn=document.createElement('button');
+    btn.className='mnu-btn'; btn.type='button'; btn.setAttribute('aria-label','メニューを開く'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-controls','mnu');
+    btn.innerHTML='<span>Menu</span>'; btn.style.webkitMaskImage=mask; btn.style.maskImage=mask;
+    var wrap=document.createElement('div'); wrap.className='mnu'; wrap.id='mnu'; wrap.setAttribute('aria-hidden','true');
+    wrap.innerHTML='<div class="mnu-dim"></div><nav class="mnu-panel" aria-label="サイトメニュー">'
+      +'<button class="mnu-x" type="button" aria-label="メニューを閉じる">×</button>'
+      +'<a class="mnu-top" href="./">採用情報トップ</a>'
+      +'<p class="mnu-h">募集している仕事</p><a href="breakfast">朝食担当スタッフ</a><a href="front">フロントスタッフ</a>'
+      +'<p class="mnu-h">働く人のストーリー</p><a href="story/satomi">さとみさん<small>朝食担当</small></a><a href="story/yui">ゆいさん<small>早朝フロント</small></a><a href="story/kenta">けんたさん<small>日勤フロント</small></a><a href="story/takumi">たくみさん<small>夜勤フロント</small></a>'
+      +'<p class="mnu-h">応募について</p><a href="./#flow">応募から働き始めるまで・よくある質問</a>'
+      +'<div class="mnu-cta"><a class="g" href="'+apply+'">応募する</a><a class="t" href="tel:0138303030">電話する</a></div>'
+      +'</nav>';
+    document.body.appendChild(wrap); document.body.appendChild(btn);
+    function set(open){
+      root.classList.toggle('mnu-open',open); wrap.setAttribute('aria-hidden',open?'false':'true');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      if(open){ var x=wrap.querySelector('.mnu-x'); setTimeout(function(){ x.focus(); },50); } else { btn.focus({preventScroll:true}); }
+    }
+    btn.addEventListener('click',function(){ set(!root.classList.contains('mnu-open')); });
+    wrap.querySelector('.mnu-x').addEventListener('click',function(){ set(false); });
+    wrap.querySelector('.mnu-dim').addEventListener('click',function(){ set(false); });
+    [].forEach.call(wrap.querySelectorAll('a'),function(a){ a.addEventListener('click',function(){ root.classList.remove('mnu-open'); wrap.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && root.classList.contains('mnu-open')) set(false); });
+  })();
+
   // 読み進めると、各部分が静かに出る
   var rv=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){ [].forEach.call(rv,function(e){ e.classList.add('in'); }); }
