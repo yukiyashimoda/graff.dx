@@ -550,3 +550,42 @@ footer{ border-top:none !important }
 .j2:nth-child(2){ border-radius:0 !important; -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M12%2C6%20C28%2C0%2046%2C5%2064%2C3%20C80%2C1%2095%2C8%2098%2C24%20C100%2C38%2095%2C50%2097%2C66%20C99%2C82%2092%2C96%2076%2C98%20C58%2C100%2040%2C96%2024%2C98%20C10%2C99%202%2C88%203%2C72%20C4%2C58%201%2C46%202%2C32%20C3%2C18%204%2C10%2012%2C6%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M12%2C6%20C28%2C0%2046%2C5%2064%2C3%20C80%2C1%2095%2C8%2098%2C24%20C100%2C38%2095%2C50%2097%2C66%20C99%2C82%2092%2C96%2076%2C98%20C58%2C100%2040%2C96%2024%2C98%20C10%2C99%202%2C88%203%2C72%20C4%2C58%201%2C46%202%2C32%20C3%2C18%204%2C10%2012%2C6%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat }
 .j2 .pill{ box-shadow:none }
 .j2 .tag{ background:none !important; color:var(--gold) !important; padding:0 !important; border-radius:0 !important; font-size:12.5px; font-weight:700; letter-spacing:.12em }
+/* 表紙の上の一行：画面の幅に合わせて大きさを変える（No.01 の丸と重ならない） */
+.cv5 .c5-top{ left:calc(4.5% + 40px + 10px); right:4.5%; text-align:right; font-size:clamp(10px, 3.2vw, 13.5px); line-height:1.5; top:2.8% }
+.cv5 .c5-top{ font-size:clamp(11px, 3.4vw, 14px); top:2.4% }
+
+/* セリフ体をやめてゴシックにそろえる */
+:root{ --latin:var(--sans) }
+.cv5 .c5-mast span{ font-family:var(--sans); font-weight:700; font-size:min(4.4vw, 20px); letter-spacing:.32em; margin-top:6px }
+.kicker span{ font-family:var(--sans) !important; font-style:normal !important; font-weight:700 !important; font-size:12px !important; letter-spacing:.2em !important; text-transform:uppercase }
+.column .lbl, .navy .lbl{ font-family:var(--sans) !important; font-style:normal !important; font-weight:700; font-size:12px !important; letter-spacing:.2em; text-transform:uppercase }
+.tel a{ font-family:var(--sans) !important; font-weight:900 !important; letter-spacing:.02em }
+footer b{ font-family:var(--sans) !important; font-weight:900; letter-spacing:.12em; font-size:15px }
+.qa i{ font-family:var(--sans) !important; font-style:normal !important; font-weight:900 }
+
+/* 表紙：縦書きをやめ、写真の下に白い横書きの一文 */
+.cv5 .c5-photo::after{ content:""; position:absolute; left:5px; right:5px; bottom:5px; height:52%; background:linear-gradient(to top, rgba(28,39,64,.72), rgba(28,39,64,.38) 55%, rgba(28,39,64,0)); pointer-events:none }
+.cv5 .c5-copy{ position:absolute; z-index:2; left:calc(5px + 7%); right:calc(5px + 5%); bottom:calc(5px + 6%); margin:0; color:#fff; font-family:var(--sans); font-weight:700; line-height:1.3; letter-spacing:.06em; text-shadow:0 1px 10px rgba(20,28,48,.35) }
+.cv5 .c5-copy span{ display:block; font-size:min(7.6vw, 34px); white-space:nowrap }
+.cv5 .c5-copy small{ display:block; margin-top:.9em; font-size:min(3.6vw, 16px); font-weight:500; letter-spacing:.08em; white-space:nowrap }
+
+/* 表紙：大きい2行を写真の左端からはみ出させ、写真の上は白・背景の上は紺 */
+.cv5{ container-type:inline-size }
+.cv5 .c5-photo{ z-index:1 }
+.cv5 .c5-copy{ display:none }
+.cv5 .c5-clip{ position:absolute; inset:5px; overflow:hidden; z-index:2 }
+.cv5 .c5-big{ position:absolute; z-index:0; left:6cqw; top:118cqw; margin:0; color:#1c2740; font-family:var(--sans); font-weight:700; line-height:1.28; letter-spacing:.06em }
+.cv5 .c5-big span{ display:block; white-space:nowrap; font-size:min(9.4cqw, 44px) }
+.cv5 .c5-big-w{ color:#fff; left:calc(-9cqw - 5px); top:calc(118cqw - 32.73cqw - 5px); text-shadow:0 1px 10px rgba(20,28,48,.3) }
+.cv5 .c5-sub{ position:absolute; left:7%; right:5%; bottom:6%; margin:0; color:#fff; font-size:min(3.6cqw, 16px); font-weight:500; letter-spacing:.08em; white-space:nowrap }
+.cv5 .c5-big{ top:106cqw }
+.cv5 .c5-big-w{ top:calc(106cqw - 32.73cqw - 5px) }
+/* 表紙：3行とも同じ大きさ */
+.cv5 .c5-big span{ font-size:min(8.3cqw, 39px); letter-spacing:.04em }
+.cv5 .c5-big{ top:98cqw; letter-spacing:.04em }
+.cv5 .c5-big-w{ top:calc(98cqw - 32.73cqw - 5px) }
+.cv5 .c5-photo::after{ height:60% }
+.cv5 .c5-big{ top:113cqw }
+.cv5 .c5-big-w{ top:calc(113cqw - 32.73cqw - 5px) }
+/* 表紙の3行：白＋紺の軽いぼかし（写真の外も白） */
+.cv5 .c5-big{ z-index:3; color:#fff; text-shadow:0 0 22px rgba(28,39,64,.42), 0 1px 4px rgba(28,39,64,.28) }
