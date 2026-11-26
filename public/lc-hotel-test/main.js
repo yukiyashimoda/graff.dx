@@ -62,7 +62,7 @@
       els.forEach(function(el){
         var r=el.getBoundingClientRect(); if(r.bottom<-50 || r.top>vh+50) return;
         var p=((r.top+r.height/2)-vh/2)/(vh/2+r.height/2); p=Math.max(-1,Math.min(1,p));
-        var img=el.querySelector('img'); if(img) img.style.transform='translate3d(0,'+(p*r.height*0.07).toFixed(1)+'px,0)';
+        var img=el.querySelector('img'); if(img) var dir=parseFloat(el.getAttribute('data-px'))||1; img.style.transform='translate3d(0,'+(dir*p*r.height*0.07).toFixed(1)+'px,0)';
       });
     }
     function on(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } }
