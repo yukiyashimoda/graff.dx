@@ -621,3 +621,6 @@ footer b{ font-family:var(--sans) !important; font-weight:900; letter-spacing:.1
 
 /* 「この仕事で働く人の1日」：波をやめて、水色のblobで囲む */
 .bridge{ background-color:#d4e3ec !important; padding:26px 24px !important; -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M8%2C14%20C20%2C2%2042%2C6%2058%2C4%20C76%2C2%2092%2C6%2097%2C20%20C101%2C34%2096%2C48%2098%2C62%20C100%2C78%2094%2C92%2080%2C96%20C62%2C101%2044%2C95%2028%2C97%20C14%2C99%203%2C90%202%2C76%20C1%2C62%205%2C50%203%2C36%20C2%2C26%202%2C20%208%2C14%20Z%27%20fill%3D%27black%27/%3E%3C/svg%3E") center/100% 100% no-repeat; padding:40px 30px 36px !important }
+/* 人のblobの下の波線を、blobと次の章の中間へ（次の章の位置は変えない） */
+.bridge + .wave{ margin-top:64px }
+.bridge + .wave + .data{ padding-top:32px !important }
