@@ -370,3 +370,13 @@ body{ font-size:16px; color:var(--ink) }
 /* 章番号の線は、番号の下に（2026-11-26） */
 .kicker{ border-top:none !important; padding-top:0 !important; border-bottom:2px solid var(--ink); padding-bottom:12px }
 .navy .kicker{ border-bottom-color:#fff }
+
+/* 表紙：写真＋白い曲線の形（試し） */
+.cv2::after{ background:linear-gradient(180deg, rgba(20,30,58,.55) 0%, rgba(20,30,58,0) 16%) !important }
+.cv2 .shapes{ position:absolute; inset:0; width:100%; height:100%; z-index:2 }
+.cv2 .mast, .cv2 .issue{ z-index:3 }
+.cv-v{ position:absolute; z-index:3; writing-mode:vertical-rl; font-family:var(--sans); font-weight:900; color:var(--ink); font-size:clamp(34px, 9.6vw, 44px); line-height:1.1; letter-spacing:.06em; margin:0 }
+.cv-v1{ right:26px; top:13%; }
+.cv-v2{ left:22px; top:55%; }
+.cv-small{ position:absolute; z-index:3; left:calc(22px + clamp(34px, 9.6vw, 44px) + 16px); bottom:84px; font-size:13px; line-height:1.8; font-weight:700; color:var(--ink) }
+.cv-btn{ position:absolute; z-index:3; right:var(--pad); bottom:24px; background:#2c3e78; color:#fff; text-decoration:none; font-weight:700; font-size:14px; padding:12px 18px; border-radius:30px; box-shadow:0 6px 16px rgba(28,39,64,.3) }
