@@ -517,3 +517,4 @@ body{ font-size:16px; color:var(--ink) }
 footer{ border-top:none !important }
 .steps2{ grid-template-columns:repeat(4,minmax(0,1fr)) }
 .steps2 div{ font-size:11.5px }
+.pt b{ font-family:"Caveat Brush",var(--hand); font-weight:400; font-size:21px; letter-spacing:.02em; line-height:1.1; margin-bottom:4px; color:var(--gold) }
