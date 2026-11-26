@@ -33,6 +33,8 @@
         w.style.background=ca;
         w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+' L480,60 L0,60 Z" fill="'+cb+'"/>'+txt+'</svg>';
       }
+      if(b.classList.contains('wavecut')){ w.classList.add('onphoto-top'); w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+' L480,0 L0,0 Z" fill="'+ca+'"/><path d="'+d+'" fill="none" stroke="#2c3e78" stroke-width="1.2" stroke-opacity=".45" vector-effect="non-scaling-stroke"/>'+txt+'</svg>'; }
+      if(a.classList.contains('wavecut')){ w.classList.add('onphoto-bottom'); }
       b.parentNode.insertBefore(w,b);
     }
   })();

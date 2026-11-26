@@ -478,3 +478,39 @@ body{ font-size:16px; color:var(--ink) }
 .wave svg{ overflow:visible }
 .wavetext{ font-family:"Caveat Brush",var(--hand); font-size:78px; fill:#e3e8f1 }
 .ghostwave{ display:none }
+
+/* ===== 表紙：Hanako の比率で組み直し（2026-11-26） =====
+   題字＝幅の約75%で写真の上端に重なる／写真＝四角・細い白縁・高さ約62%／
+   縦書き2行＝細め・右は写真の右端にかけ、左は写真の左下の外／号数と上の1行はごく小さく／
+   補足＝右下に斜めの細い線で挟んだ小さな文字（ボタンは置かない） */
+.cv5{ position:relative; height:100svh; min-height:640px; max-height:900px; background:#d4e3ec; overflow:hidden; color:#1c2740 }
+.cv5 .c5-no{ position:absolute; left:4.5%; top:2.4%; width:40px; height:40px; border-radius:50%; border:1px solid #1c2740; display:flex; align-items:center; justify-content:center; text-align:center; font-size:8.5px; font-weight:700; line-height:1.15; letter-spacing:.02em }
+.cv5 .c5-top{ position:absolute; right:4.5%; top:3.4%; font-size:10.5px; font-weight:700; letter-spacing:.02em }
+.cv5 .c5-photo{ position:absolute; left:15%; right:15%; top:17%; height:62%; background:#fff; padding:5px }
+.cv5 .c5-photo img{ width:100%; height:100%; object-fit:cover; object-position:56% 58%; display:block }
+.cv5 .c5-mast{ position:absolute; left:0; right:0; top:7.2%; text-align:center; z-index:2 }
+.cv5 .c5-mast b{ display:block; font-family:"Caveat Brush",var(--hand); font-weight:400; font-size:min(19vw, 92px); line-height:.9; letter-spacing:0 }
+.cv5 .c5-mast span{ display:block; font-family:var(--latin); font-size:min(6vw, 28px); letter-spacing:.14em; line-height:1; margin-top:2px; font-weight:400 }
+.cv5 .c5-v{ position:absolute; z-index:3; writing-mode:vertical-rl; white-space:nowrap; font-family:var(--sans); font-weight:500; font-size:min(10.5vw, 50px); line-height:1; letter-spacing:.12em; margin:0; color:#1c2740 }
+.cv5 .c5-v1{ right:4%; top:31% }
+.cv5 .c5-v2{ left:4%; top:47% }
+.cv5 .c5-note{ position:absolute; z-index:3; right:5%; bottom:4.5%; width:52%; text-decoration:none; color:#1c2740; transform:rotate(-8deg); transform-origin:right bottom; border-top:1px solid #1c2740; border-bottom:1px solid #1c2740; padding:7px 0; text-align:left; font-size:11px; line-height:1.55; font-weight:700 }
+.cv5 .c5-note b{ display:block; font-size:13.5px; font-weight:900; letter-spacing:.04em }
+.cv5 .c5-note small{ display:block; margin-top:4px; font-size:10.5px; letter-spacing:.06em; text-decoration:underline }
+
+/* ひと息：上下の白い余白をなくす（前後の波の区切りと写真を直接つなぐ） */
+.wavecut{ -webkit-mask:none !important; mask:none !important }
+.wavecut + .wave, .wave + .wavecut{ }
+
+.wave.onphoto-top{ margin-bottom:-56px; background:transparent !important; position:relative; z-index:3 }
+.wave.onphoto-bottom{ margin-top:-56px; background:transparent !important; position:relative; z-index:3 }
+.cv5 .c5-v2{ top:36% }
+.cv5 .c5-btn{ position:absolute; z-index:3; left:15%; right:15%; bottom:4.5%; text-align:center; text-decoration:none; color:#1c2740; border:1px solid #1c2740; border-radius:30px; padding:11px 0; font-size:13.5px; font-weight:700; letter-spacing:.08em; background:rgba(255,255,255,.35) }
+.cv5 .c5-btn{ bottom:auto; top:calc(17% + 62% + 28px) }
+.cv5{ height:auto; min-height:0; max-height:none; aspect-ratio:390/760 }
+.cv5{ aspect-ratio:390/690 }
+.cv5 .c5-photo{ top:18.5%; height:68% }
+.cv5 .c5-mast{ top:7.6% }
+.cv5 .c5-v1{ top:34% }
+.cv5 .c5-v2{ top:40% }
+.cv5 .c5-btn{ top:auto; bottom:3%; }
