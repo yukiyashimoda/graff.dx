@@ -15,7 +15,7 @@
   // セクションの区切りを、函館の海をイメージしたゆるやかな波にする
   (function(){
     var main=document.querySelector('main'); if(!main) return;
-    var kids=[].slice.call(main.children).filter(function(e){ return e.offsetHeight>0 && !e.classList.contains('wave') && !e.classList.contains('bridge') && !e.classList.contains('spec2') && !e.classList.contains('st-next2'); });
+    var kids=[].slice.call(main.children).filter(function(e){ return e.offsetHeight>0 && !e.classList.contains('wave') && !e.classList.contains('bridge') && !e.classList.contains('spec2') && !e.classList.contains('st-next2') && !e.classList.contains('st-bar'); });
     function bg(e){ var c=getComputedStyle(e).backgroundColor; return (c==='rgba(0, 0, 0, 0)'||c==='transparent') ? 'rgb(255, 255, 255)' : c; }
     function light(c){ var m=c.match(/\d+/g); if(!m) return false; var r=+m[0],g=+m[1],bl=+m[2]; return !(r===255&&g===255&&bl===255) && (r+g+bl)/3>190; }
     var paths=['M0,30 C80,58 160,2 240,26 C320,50 400,8 480,30','M0,26 C70,4 150,54 240,32 C330,10 410,52 480,24','M0,32 C90,8 170,50 250,28 C330,6 410,46 480,30'];
