@@ -22,12 +22,16 @@
       var a=kids[i-1], b=kids[i]; if(a.tagName==='HEADER' && a.classList.contains('cv4')) {}
       var ca=bg(a), cb=bg(b), d=paths[i%paths.length];
       var w=document.createElement('div'); w.className='wave'; w.setAttribute('aria-hidden','true');
+      // 次の章の背景の英字は、この波と同じ曲線に沿わせて、波のすぐ下に置く
+      var gw=b.querySelector('.ghostwave'), word=gw ? gw.textContent.trim() : '';
+      if(gw) gw.parentNode.removeChild(gw);
+      var txt = word ? '<path id="wv'+i+'" d="'+d+'" transform="translate(0,82)" fill="none"/><text class="wavetext"><textPath href="#wv'+i+'" startOffset="3%">'+word+'</textPath></text>' : '';
       if(ca===cb){
         w.style.background=ca;
-        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+'" fill="none" stroke="#2c3e78" stroke-width="1.2" stroke-opacity=".45" vector-effect="non-scaling-stroke"/></svg>';
+        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+'" fill="none" stroke="#2c3e78" stroke-width="1.2" stroke-opacity=".45" vector-effect="non-scaling-stroke"/>'+txt+'</svg>';
       } else {
         w.style.background=ca;
-        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+' L480,60 L0,60 Z" fill="'+cb+'"/></svg>';
+        w.innerHTML='<svg viewBox="0 0 480 60" preserveAspectRatio="none"><path d="'+d+' L480,60 L0,60 Z" fill="'+cb+'"/>'+txt+'</svg>';
       }
       b.parentNode.insertBefore(w,b);
     }

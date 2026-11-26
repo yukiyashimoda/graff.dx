@@ -441,3 +441,40 @@ body{ font-size:16px; color:var(--ink) }
 .p2 + .p2{ }
 .ghostwave{ top:-40px }
 .sec, .grav{ padding-top:72px }
+
+/* ===== 直線を減らす・泡・波で切り抜く（2026-11-26） ===== */
+/* 背景の英字：手書き風、透けない淡い一色 */
+.ghostwave text{ font-family:"Caveat Brush",var(--hand); font-weight:400; font-size:84px; letter-spacing:.01em; fill:#e3e8f1 }
+.sec[style*="kinari"] .ghostwave text{ fill:#d9e0ec }
+/* 外観：泡が連なった形 */
+.bubbles{ clip-path:url(#bubble-clip); }
+/* ととのうルーム：上下を波で */
+.wavecut{ -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 460' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C80,4 160,58 240,28 C320,0 400,54 480,26 L480,428 C400,456 320,404 240,432 C160,460 80,406 0,430 Z' fill='black'/%3E%3C/svg%3E") center/100% 100% no-repeat; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 460' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C80,4 160,58 240,28 C320,0 400,54 480,26 L480,428 C400,456 320,404 240,432 C160,460 80,406 0,430 Z' fill='black'/%3E%3C/svg%3E") center/100% 100% no-repeat }
+/* 表紙：写真の縁を角丸に、HOTEL RECRUIT は丸い白地で抜く */
+.cv4 .h-photo{ border-radius:28px; padding:8px }
+.cv4 .h-photo img{ border-radius:22px }
+.cv4 .h-mast span{ display:inline-block; background:#d6e4ee; padding:2px 16px; border-radius:30px; position:relative; z-index:3 }
+.cv4 .h-note{ border:none; background:#fff; border-radius:22px; padding:10px 16px; text-align:right; box-shadow:0 6px 16px rgba(28,39,64,.08) }
+.cv4 .h-no{ background:#d6e4ee }
+/* POINT の枠：角丸の吹き出し風、白地 */
+.pt{ border-radius:18px; border:none; box-shadow:0 8px 20px rgba(28,39,64,.15) }
+/* 目次・表：直線を点線と余白に */
+.index a{ border-bottom:1px dashed var(--line) }
+.index a:first-child{ border-top:none }
+.points2{ border-top:none }
+.points2 div{ border-bottom:none; border-right:none !important; background:#f5f7fb; border-radius:20px; margin:0 0 10px; padding:16px !important }
+.points2{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+.points2 div{ margin:0 }
+.data table{ border-collapse:separate; border-spacing:0 6px }
+.data th, .data td{ border-bottom:none; background:#f5f7fb }
+.data th{ border-radius:14px 0 0 14px; padding-left:14px }
+.data td{ border-radius:0 14px 14px 0; padding-right:14px }
+.steps2{ border:none; gap:8px }
+.steps2 div{ border:none !important; background:#f5f7fb; border-radius:50%; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4px }
+.qa div{ border-bottom:1px dashed var(--line) }
+
+/* 波に沿う手書きの英字（区切りの波と同じ曲線） */
+.wave{ position:relative; z-index:2; overflow:visible }
+.wave svg{ overflow:visible }
+.wavetext{ font-family:"Caveat Brush",var(--hand); font-size:78px; fill:#e3e8f1 }
+.ghostwave{ display:none }
