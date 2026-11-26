@@ -8,199 +8,187 @@
 <title>採用情報｜LC五稜郭ホテル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Klee+One:wght@600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="zine.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-
-<div class="loader" aria-hidden="true"><b>LC五稜郭ホテル</b></div>
-
 <main>
 
-<!-- 最初の画面：館内の明るい写真を組み合わせる -->
-<div class="hero" data-first>
-  <div class="hero-head"><b>LC五稜郭ホテル</b><span>採用情報</span></div>
-  <h1>五稜郭のホテルで、<br><em>一緒に働きませんか。</em></h1>
-  <div class="collage" aria-hidden="true">
-    <div class="ph c1"><img src="img/lounge.webp" alt=""></div>
-    <div class="ph c2"><img src="img/bakery.webp" alt=""></div>
-    <div class="ph c3"><img src="img/bento.webp" alt=""></div>
-    <div class="ph c4"><img src="img/front.webp" alt=""></div>
+<!-- 表紙 -->
+<header class="cover" data-first>
+  <div class="mast"><b>LC GORYOKAKU HOTEL</b><span>RECRUIT</span></div>
+  <div class="issue"><span>函館・五稜郭</span><span>ホテルの24時間</span></div>
+  <div class="cover-stage">
+    <div class="ph a rv"><img src="img/s-dawn.webp" alt="明け方の通り"></div>
+    <div class="ph b rv"><img src="img/front.webp" alt="フロント"></div>
+    <div class="ph c rv"><img src="img/bento.webp" alt="朝のお弁当"></div>
+    <p class="vt rv">このホテルの<br><em>24時間</em>は、<br>4人のバトンで<br>できている。</p>
+    <p class="note hand rv">あなたは、どの時間に？</p>
   </div>
-  <p class="hero-lead">フロントスタッフ・朝食担当スタッフを募集しています。週2日から、はじめての方も歓迎します。</p>
-  <a class="btn-main" href="#jobs">募集している仕事を見る</a>
-</div>
+  <p class="cover-lead rv">まだ暗い朝の厨房から、静かな夜の見回りまで。<b>LC五稜郭ホテルで働く4人の、ある1日</b>をのぞいてみてください。</p>
+  <nav class="toc rv">
+    <a href="#ch1"><i>01</i><s>4:50</s>まだ暗い五稜郭を、自転車で。</a>
+    <a href="#ch2"><i>02</i><s>8:00</s>夜からのノートを読むところから。</a>
+    <a href="#ch3"><i>03</i><s>15:00</s>「夕飯、どこがいいですか？」</a>
+    <a href="#ch4"><i>04</i><s>20:00</s>静かな夜のホテルを、ひとりで。</a>
+    <a href="#ch5"><i>05</i><s>&nbsp;</s>バトンをつなぐ人たち</a>
+  </nav>
+</header>
 
-<!-- 時間帯から探す -->
-<div class="find rv">
-  <p>働きたい時間帯から探す</p>
-  <div class="find-grid">
-    <a href="breakfast"><b>5:00〜</b><span>朝ごはん</span><small>朝食担当スタッフ</small></a>
-    <a href="front#t1"><b>8:00〜</b><span>早朝のフロント</span><small>フロントスタッフ</small></a>
-    <a href="front#t2"><b>11:00〜</b><span>日中のフロント</span><small>フロントスタッフ</small></a>
-    <a href="front#t3"><b>20:00〜</b><span>夜のフロント</span><small>フロントスタッフ</small></a>
+<!-- 01 朝食担当 -->
+<section class="ch" id="ch1">
+  <div class="ch-head">
+    <span class="no rv">01</span>
+    <span class="time rv">4:50 AM</span>
+    <svg class="rv" viewBox="0 0 70 52"><line x1="0" y1="0" x2="70" y2="52"/></svg>
+    <h2 class="rv">まだ暗い五稜郭を、<br><u>自転車</u>で。</h2>
+    <span class="who rv">朝食担当　さとみさん（40代）</span>
   </div>
-</div>
+  <div class="spread" style="height:560px">
+    <div class="ph bleed-l rv" style="top:0; width:72%; height:340px"><img src="img/s-dawn.webp" alt=""></div>
+    <p class="vt rv" style="right:var(--pad); top:6px; height:330px">子どもが起きる前に、<br>ひと仕事。</p>
+    <div class="ph frame rv" style="right:var(--pad); top:290px; width:58%; height:220px"><img src="img/bento.webp" alt="お弁当"></div>
+    <div class="face rv" style="left:var(--pad); top:372px"><img src="img/p-mama.webp" alt=""></div>
+    <span class="bubble rv" style="left:24px; top:470px">今日の卵焼き、きれいに巻けた</span>
+  </div>
+  <div class="lead-box">
+    <p class="rv">前はスーパーの惣菜コーナーにいました。5時に厨房に入って、宿泊のお客さまの朝ごはんのお弁当を詰めていきます。</p>
+    <p class="quote rv">11時に終わるので、午後はまるごと家のこと。子どもの行事の日は、前もって言えばシフトを替えてもらえます。</p>
+  </div>
+  <a class="spec rv" href="breakfast"><dl><dt>仕事</dt><dd>朝食担当スタッフ</dd><dt>時間</dt><dd>5:00〜11:00／週2日から</dd><dt>時給</dt><dd><b>1,140円〜</b></dd></dl><span class="go">この仕事を見る</span></a>
+</section>
 
-<!-- ホテルの1日 -->
-<section>
-  <span class="eyebrow rv">ONE DAY</span>
-  <h2 class="rv">ホテルの1日は、<br>みんなのリレーでできています。</h2>
-  <p class="lead rv">朝ごはんの準備から、夜の見回りまで。それぞれの時間に入る人が、次の人へバトンを渡していきます。あなたが入るのは、どの時間ですか。</p>
-  <div class="relay">
-    <div class="slot rv"><time>5:00</time><span class="who">朝食担当</span><h3>朝ごはんのお弁当をつくる</h3><p>宿泊のお客様の朝ごはんを調理して、盛り付けます。</p></div>
-    <div class="slot rv"><time>8:00</time><span class="who">早朝フロント</span><h3>夜からバトンを受け取る</h3><p>夜勤の人から引き継いで、サウナの予約やメールを確かめます。</p><span class="hand">夜勤 → 早朝</span></div>
-    <div class="slot rv"><time>10:00</time><span class="who">早朝フロント</span><h3>お客様をお見送り</h3><p>チェックアウトの時間。「また来ますね」が聞こえる時間です。</p></div>
-    <div class="slot rv"><time>11:00</time><span class="who">日勤フロント</span><h3>サウナを入れ替えて、準備</h3><p>男女のサウナの入れ替え、アメニティの補充、SNSの更新。</p><span class="hand">早朝 → 日勤</span></div>
-    <div class="slot rv"><time>15:00</time><span class="who">日勤フロント</span><h3>今日のお客様をお迎え</h3><p>チェックインが始まります。観光の方には、おすすめのお店を聞かれることも。</p></div>
-    <div class="slot night rv"><time>20:00</time><span class="who">夜勤フロント</span><h3>夜のホテルを見守る</h3><p>サウナやラウンジを見回り、閉めたあとは清掃。</p><span class="hand">日勤 → 夜勤</span></div>
-    <div class="slot night rv"><time>3:00</time><span class="who">夜勤フロント</span><h3>朝のサウナの準備</h3><p>サウナ室の電源を入れ、明け方には朝の人へバトンを渡します。</p></div>
+<!-- 02 早朝フロント -->
+<section class="ch k" id="ch2">
+  <div class="ch-head">
+    <span class="no rv">02</span>
+    <span class="time rv">8:00 AM</span>
+    <svg class="rv" viewBox="0 0 70 52"><line x1="0" y1="0" x2="70" y2="52"/></svg>
+    <h2 class="rv">夜からの<u>ノート</u>を<br>読むところから。</h2>
+    <span class="who rv">早朝フロント　ゆいさん（20代）</span>
+  </div>
+  <div class="spread" style="height:540px">
+    <div class="ph bleed-r rv" style="top:0; width:68%; height:300px"><img src="img/s-note.webp" alt="ノートに書く手"></div>
+    <p class="memo rv" style="left:var(--pad); top:24px">302号室<br>6:00にタクシー<br>手配ずみ ✓</p>
+    <div class="ph frame bleed-l rv" style="top:250px; width:62%; height:240px"><img src="img/front.webp" alt="フロント"></div>
+    <div class="face rv" style="right:30px; top:322px"><img src="img/p-young.webp" alt=""></div>
+    <span class="bubble up rv" style="right:var(--pad); top:430px">函館山、行けましたか？</span>
+  </div>
+  <div class="lead-box">
+    <p class="rv">夜勤の人が書いてくれた引き継ぎを読んで、サウナの予約とメールを確かめる。10時からはチェックアウトが続きます。</p>
+    <p class="quote rv">お見送りのときに「また来るね」って言われると、パン屋で働いていたときと同じくらいうれしいんです。</p>
+  </div>
+  <a class="spec rv" href="front#t1"><dl><dt>仕事</dt><dd>フロントスタッフ（早朝）</dd><dt>時間</dt><dd>8:00〜14:00の間で6時間</dd><dt>時給</dt><dd><b>1,200円〜</b></dd></dl><span class="go">この仕事を見る</span></a>
+</section>
+
+<!-- 03 日勤フロント -->
+<section class="ch" id="ch3">
+  <div class="ch-head">
+    <span class="no rv">03</span>
+    <span class="time rv">3:00 PM</span>
+    <svg class="rv" viewBox="0 0 70 52"><line x1="0" y1="0" x2="70" y2="52"/></svg>
+    <h2 class="rv">「<u>夕飯</u>、どこが<br>いいですか？」</h2>
+    <span class="who rv">日勤フロント　けんたさん（20代）</span>
+  </div>
+  <div class="spread" style="height:560px">
+    <div class="ph bleed-l rv" style="top:0; width:58%; height:360px"><img src="img/p-kenta.webp" alt=""></div>
+    <p class="vt rv" style="right:42px; top:0; height:300px">函館で育ったことが、<br>いちばん役に立ってる。</p>
+    <div class="ph frame rv" style="right:var(--pad); top:300px; width:56%; height:190px"><img src="img/s-street.webp" alt="函館の街角"></div>
+    <p class="memo rv" style="left:var(--pad); top:388px">ぼくのおすすめ<br>・塩ラーメン → 〇〇<br>・朝市は朝7時まで！</p>
+  </div>
+  <div class="lead-box">
+    <p class="rv">ホテルで働くのははじめてでした。15時からはチェックインの時間。観光のお客さまに、夕飯の店や見どころをよく聞かれます。</p>
+    <p class="quote rv">研修で教わったことより、自分の好きな店を話しているときのほうが、お客さまの顔がゆるむ気がします。いつか正社員になりたいです。</p>
+  </div>
+  <a class="spec rv" href="front#t2"><dl><dt>仕事</dt><dd>フロントスタッフ（日勤）</dd><dt>時間</dt><dd>11:00〜22:00の間で8時間</dd><dt>時給</dt><dd><b>1,180円〜</b></dd></dl><span class="go">この仕事を見る</span></a>
+</section>
+
+<!-- 04 夜勤フロント -->
+<section class="ch k" id="ch4">
+  <div class="ch-head">
+    <span class="no rv">04</span>
+    <span class="time rv">8:00 PM</span>
+    <svg class="rv" viewBox="0 0 70 52"><line x1="0" y1="0" x2="70" y2="52"/></svg>
+    <h2 class="rv">静かな夜のホテルを、<br><u>ひとり</u>で見回る。</h2>
+    <span class="who rv">夜勤フロント　たくみさん（30代）</span>
+  </div>
+  <div class="spread" style="height:580px">
+    <div class="ph bleed-r rv" style="top:0; width:76%; height:330px"><img src="img/night.webp" alt="函館の夜景"></div>
+    <p class="vt rv" style="left:var(--pad); top:10px; height:300px">昼は別の仕事。<br>週2日の夜は、ここ。</p>
+    <div class="ph frame bleed-l rv" style="top:290px; width:54%; height:200px"><img src="img/lounge.webp" alt="ラウンジ"></div>
+    <div class="ph frame rv" style="right:var(--pad); top:350px; width:36%; height:170px"><img src="img/sauna.webp" alt="サウナ"></div>
+    <div class="face rv" style="left:44%; top:470px"><img src="img/p-takumi.webp" alt=""></div>
+  </div>
+  <div class="lead-box">
+    <p class="rv">20時に出勤して、サウナとラウンジを見回る。24時に閉めて清掃。夜中の3時にはサウナ室の電源を入れて、朝のお客さまに備えます。</p>
+    <p class="quote rv">朝の人へのノートに「サウナ、温まってます」と書いて帰る。顔を合わせる時間は短いけど、つながっている感じがします。</p>
+  </div>
+  <a class="spec rv" href="front#t3"><dl><dt>仕事</dt><dd>フロントスタッフ（夜勤）</dd><dt>時間</dt><dd>20:00〜翌8:00の間で8時間</dd><dt>時給</dt><dd><b>1,200円〜</b>（22〜5時は割増）</dd></dl><span class="go">この仕事を見る</span></a>
+</section>
+
+<!-- 05 仲間 -->
+<section class="ch" id="ch5">
+  <div class="ch-head">
+    <span class="no rv">05</span>
+    <span class="time rv">TEAM</span>
+    <svg class="rv" viewBox="0 0 70 52"><line x1="0" y1="0" x2="70" y2="52"/></svg>
+    <h2 class="rv">バトンを<u>つなぐ</u><br>人たち。</h2>
+    <span class="who rv">20代前半から、子育て中の人まで</span>
+  </div>
+  <div class="spread" style="height:520px">
+    <div class="ph bleed-l rv" style="top:0; width:86%; height:280px"><img src="img/g-five.webp" alt="スタッフ"></div>
+    <span class="bubble rv" style="left:var(--pad); top:240px">上がったら、サウナ行く？</span>
+    <div class="ph frame bleed-r rv" style="top:300px; width:64%; height:210px"><img src="img/g-three.webp" alt="スタッフ"></div>
+    <span class="bubble up rv" style="left:var(--pad); top:470px">こっちで回しとくから大丈夫！</span>
+  </div>
+  <div class="lead-box">
+    <p class="rv">前の仕事は、喫茶店、パン屋、居酒屋、スーパー、保育士。ホテルの経験がない人がほとんどです。顔を合わせる時間が短いぶん、引き継ぎのノートでつながっています。</p>
+  </div>
+  <div class="notebook rv">
+    <h3>引き継ぎノート　11/26</h3>
+    <p>5:00　お弁当 42食 完了！<span>さとみ</span></p>
+    <p>8:10　302号室 タクシー出発しました<span>ゆい</span></p>
+    <p>15:30　団体さま到着。地図を補充<span>けんた</span></p>
+    <p>3:00　サウナ温まってます。おやすみなさい<span>たくみ</span></p>
   </div>
 </section>
 
-<!-- 暮らしに合わせて -->
-<section class="tint">
-  <span class="eyebrow rv">LIFESTYLE</span>
-  <h2 class="rv">あなたの暮らしに、<br>合わせて働けます。</h2>
-  <div class="lives">
-    <div class="life rv">
-      <div class="top"><div class="face"><img src="img/p-mama.webp" alt="" loading="lazy"></div><div><span class="tag">子育て中の方に</span><h3>子どもが起きる前に、<br>ひと仕事。</h3><span class="job">朝食担当スタッフ　5:00〜11:00</span></div></div>
-      <blockquote>子どもの行事や急な病気のときも、シフトを相談できるので安心です。お昼前には終わるので、午後は家のことに使えます。</blockquote>
-      <div class="week"><span>月</span><span class="on">火</span><span>水</span><span class="on">木</span><span>金</span><span class="on">土</span><span>日</span></div>
-      <p class="day"><b>5:00</b>出勤、お弁当づくり　<b>11:00</b>退勤　<b>午後</b>家事、お迎え</p>
-    </div>
-    <div class="life rv">
-      <div class="top"><div class="face"><img src="img/p-double.webp" alt="" loading="lazy"></div><div><span class="tag">ほかの仕事と掛け持ちの方に</span><h3>昼は本業、<br>週2日の夜はホテルで。</h3><span class="job">夜勤フロントスタッフ　20:00〜</span></div></div>
-      <blockquote>週2日から入れて、Wワークもできます。夜の時間に、静かなホテルで落ち着いて働いています。</blockquote>
-      <div class="week"><span>月</span><span>火</span><span class="on">水</span><span>木</span><span>金</span><span class="on">土</span><span>日</span></div>
-      <p class="day"><b>20:00</b>出勤、見回り　<b>2:00</b>休憩　<b>8:00</b>朝の人へ引き継いで退勤</p>
-    </div>
-    <div class="life rv">
-      <div class="top"><div class="face"><img src="img/p-morning.webp" alt="" loading="lazy"></div><div><span class="tag">朝の時間を使いたい方に</span><h3>早起きが得意なら、<br>朝の時間がいちばん。</h3><span class="job">朝食担当スタッフ　5:00〜11:00</span></div></div>
-      <blockquote>家で料理をしていれば大丈夫なメニューです。仕事のあとはホテルのサウナに寄って帰ります。</blockquote>
-      <div class="week"><span class="on">月</span><span>火</span><span class="on">水</span><span>木</span><span class="on">金</span><span>土</span><span>日</span></div>
-      <p class="day"><b>5:00</b>出勤　<b>11:00</b>退勤、サウナ　<b>午後</b>自分の時間</p>
-    </div>
-    <div class="life rv">
-      <div class="top"><div class="face"><img src="img/p-young.webp" alt="" loading="lazy"></div><div><span class="tag">ホテルの仕事をしてみたい方に</span><h3>はじめてのホテル。<br>その先に正社員も。</h3><span class="job">日勤フロントスタッフ　11:00〜</span></div></div>
-      <blockquote>ホテルで働くのははじめてでした。研修で基本から教わって、今はチェックインも任されています。アルバイトから正社員になった先輩もいます。</blockquote>
-      <div class="week"><span>月</span><span class="on">火</span><span class="on">水</span><span>木</span><span class="on">金</span><span class="on">土</span><span>日</span></div>
-      <p class="day"><b>11:00</b>出勤、サウナの入れ替え　<b>15:00</b>チェックイン　<b>20:00</b>退勤</p>
-    </div>
+<!-- 06 情報 -->
+<section class="info" id="jobs">
+  <span class="eyebrow">06 — Information</span>
+  <h2>働きたい時間を選ぶ</h2>
+  <div class="shift">
+    <a href="breakfast"><b>5:00</b><span>朝食担当スタッフ<small>5:00〜11:00</small></span><em>1,140円〜</em></a>
+    <a href="front#t1"><b>8:00</b><span>早朝フロント<small>8:00〜14:00の間で6時間</small></span><em>1,200円〜</em></a>
+    <a href="front#t2"><b>11:00</b><span>日勤フロント<small>11:00〜22:00の間で8時間</small></span><em>1,180円〜</em></a>
+    <a href="front#t3"><b>20:00</b><span>夜勤フロント<small>20:00〜翌8:00の間で8時間</small></span><em>1,200円〜</em></a>
   </div>
-</section>
-
-<!-- 一緒に働く人たち -->
-<section>
-  <span class="eyebrow rv">TEAM</span>
-  <h2 class="rv">ここで一緒に働く人たち</h2>
-  <div class="team-photo rv"><img src="img/team.webp" alt="" loading="lazy"></div>
-  <div class="team-facts rv">
-    <div><b>20代前半〜</b><span>幅広い年齢の人が働いています</span></div>
-    <div><b>子育て中も</b><span>お子さんのいるスタッフも活躍中</span></div>
-  </div>
-  <p class="prev rv">前の仕事は、<em>喫茶店、パン屋、居酒屋、スーパー、アパレル、コールセンター、保育士</em>など。ホテルの経験がない人がほとんどです。</p>
-  <div class="otagai rv">
-    <div class="ph"><img src="img/otagai.webp" alt="" loading="lazy"></div>
-    <div class="talk">
-      <p>明日、子どもの熱が下がらなかったら、お休みしても大丈夫ですか？<small>朝食担当のスタッフ</small></p>
-      <p class="r">大丈夫ですよ、こっちで回しておきます。お大事に！<small>日勤のスタッフ</small></p>
-    </div>
-  </div>
-</section>
-
-<!-- 仕事のあとに -->
-<div class="after">
-  <img src="img/totonou.webp" alt="" loading="lazy">
-  <div class="in rv">
-    <span class="eyebrow">AFTER WORK</span>
-    <h2>仕事のあとは、<br>サウナでととのう。</h2>
-    <p>ホテルのサウナを、スタッフは無料で使えます。シフトのあとに一息ついて帰る人もいます。</p>
-  </div>
-</div>
-
-<!-- 募集している仕事 -->
-<section id="jobs">
-  <span class="eyebrow rv">JOBS</span>
-  <h2 class="rv">募集している仕事</h2>
-  <div class="jobs short">
-    <a class="job rv" href="front">
-      <img src="img/front.webp" alt="" loading="lazy">
-      <div class="bd">
-        <h3>フロントスタッフ</h3>
-        <dl><dt>時間</dt><dd>早朝・日勤・夜勤から選べます</dd><dt>時給</dt><dd><b>1,180円〜</b></dd><dt>日数</dt><dd>週2日から</dd></dl>
-        <span class="fit"><b>こんな方に</b>　はじめてのホテル、掛け持ち、20代の方</span>
-        <span class="more">フロントスタッフを見る</span>
-      </div>
-    </a>
-    <a class="job rv" href="breakfast">
-      <img src="img/breakfast-hall.webp" alt="" loading="lazy">
-      <div class="bd">
-        <h3>朝食担当スタッフ</h3>
-        <dl><dt>時間</dt><dd>5:00〜11:00</dd><dt>時給</dt><dd><b>1,140円〜</b></dd><dt>日数</dt><dd>週2日から</dd></dl>
-        <span class="fit"><b>こんな方に</b>　子育て中、料理が好き、朝型の方</span>
-        <span class="more">朝食担当スタッフを見る</span>
-      </div>
-    </a>
-  </div>
-  <div class="visit rv"><b>まずは見学だけでも大丈夫です</b><p>働く前に、ホテルの中や一緒に働く人の様子を見に来てください。応募フォームの「見学したい」から申し込めます。</p></div>
-</section>
-
-<!-- 流れ -->
-<section>
-  <span class="eyebrow rv">STEPS</span>
-  <h2 class="rv">応募から働き始めるまで</h2>
-  <div class="steps rv">
-    <div><b>応募する</b><p>このページのフォーム、またはお電話で。</p></div>
-    <div><b>ホテルからご連絡します</b><p>面接の日を、お電話で決めます。</p></div>
-    <div><b>面接は1回です</b><p>ホテルの中もご覧いただけます。見学だけでも大丈夫です。</p></div>
-    <div><b>働き始める</b><p>入社日はご相談ください。最初は研修から始めます。</p></div>
-  </div>
-</section>
-
-<!-- Q&A -->
-<section class="tint">
-  <span class="eyebrow rv">Q&amp;A</span>
-  <h2 class="rv">よくある質問</h2>
-  <div class="faq rv">
-    <details><summary>ホテルで働いたことがなくても大丈夫ですか？</summary><p>大丈夫です。最初に研修があり、接客の基本から教えます。</p></details>
-    <details><summary>週に何日から働けますか？</summary><p>週2日からです。扶養の範囲内で働いている方もいます。</p></details>
-    <details><summary>車で通勤できますか？</summary><p>できます。駐車場があります。市電「五稜郭公園前」からは歩いて3分です。</p></details>
-    <details><summary>ほかの仕事と掛け持ちできますか？</summary><p>できます。Wワーク・副業の方も働いています。</p></details>
-  </div>
+  <p class="facts">アルバイト・パート／週2日から／扶養の範囲内OK／Wワーク・副業OK／交通費全額支給／車通勤OK（駐車場あり）／制服あり／スタッフはサウナ無料／正社員登用あり／試用期間6か月（条件は同じ）／屋内禁煙（喫煙所あり）<br>勤務地：LC五稜郭ホテル（函館市本町29-26、市電「五稜郭公園前」徒歩3分）／株式会社リンクル</p>
+  <div class="visit"><b>まずは見学だけでも大丈夫です。</b>ホテルの中や、一緒に働く人の様子を見に来てください。</div>
 </section>
 
 <!-- 応募 -->
-<section id="apply">
-  <span class="eyebrow rv">ENTRY</span>
-  <h2 class="rv">応募する</h2>
-  <form class="form rv" novalidate>
-    <span class="lbl">希望する仕事<em>必須</em></span>
-    <div class="chips"><label><input type="radio" name="job" value="front" checked><span>フロント</span></label><label><input type="radio" name="job" value="breakfast"><span>朝食担当</span></label><label><input type="radio" name="job" value="undecided"><span>まだ決めていない</span></label></div>
+<section class="entry" id="apply">
+  <h2>応募する</h2>
+  <form class="form" novalidate>
+    <span class="lbl">働きたい時間<em>必須</em></span>
+    <div class="chips"><label><input type="radio" name="band" value="bf" checked><span>朝食 5:00〜</span></label><label><input type="radio" name="band" value="early"><span>早朝 8:00〜</span></label><label><input type="radio" name="band" value="day"><span>日勤 11:00〜</span></label><label><input type="radio" name="band" value="night"><span>夜勤 20:00〜</span></label><label><input type="radio" name="band" value="any"><span>相談したい</span></label></div>
     <span class="lbl">希望すること<em>必須</em></span>
     <div class="chips"><label><input type="radio" name="want" value="apply" checked><span>応募したい</span></label><label><input type="radio" name="want" value="visit"><span>見学したい</span></label><label><input type="radio" name="want" value="ask"><span>質問したい</span></label></div>
     <label class="lbl" for="nm">お名前<em>必須</em></label><input id="nm" type="text" placeholder="例）函館 花子" autocomplete="name">
     <label class="lbl" for="tel">電話番号<em>必須</em></label><input id="tel" type="tel" placeholder="例）090-0000-0000" autocomplete="tel">
-    <span class="lbl">連絡がつきやすい時間</span>
-    <div class="chips"><label><input type="radio" name="when" value="am"><span>午前</span></label><label><input type="radio" name="when" value="pm" checked><span>午後</span></label><label><input type="radio" name="when" value="ev"><span>夕方以降</span></label><label><input type="radio" name="when" value="any"><span>いつでも</span></label></div>
-    <p class="hint">履歴書は面接の日にお持ちください。</p>
+    <p class="hint">面接は1回です。入社日はご相談ください。</p>
     <button class="btn" type="submit">送信する</button>
     <p class="done" hidden>送信しました。ホテルからご連絡します。</p>
   </form>
-  <div class="telbox rv"><span>お電話でも受け付けています</span><a href="tel:0138303030">0138-30-3030</a><span>LC五稜郭ホテル</span></div>
+  <p class="tel">お電話でも受け付けています<a href="tel:0138303030">0138-30-3030</a></p>
 </section>
 
-<footer>
-  <b>LC五稜郭ホテル</b><br>
-  〒040-0011 北海道函館市本町29-26<br>
-  市電「五稜郭公園前」から徒歩3分<br>
-  運営：株式会社リンクル（LCグループ）
-</footer>
-
+<footer><b>LC GORYOKAKU HOTEL</b><br>〒040-0011 北海道函館市本町29-26<br>運営：株式会社リンクル（LCグループ）</footer>
 </main>
 
-<div class="sticky hide"><a class="tel" href="tel:0138303030">電話する</a><a class="go" href="#apply">応募する</a></div>
+<div class="sticky hide"><a class="t" href="tel:0138303030">電話する</a><a class="g" href="#apply">応募する</a></div>
 <script src="main.js"></script>
 </body>
 </html>
