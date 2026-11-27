@@ -30,6 +30,12 @@ const nextConfig: NextConfig = {
       { source: "/lc-hotel-test/story/kenta/", destination: "/lc-hotel-test/story/kenta/index.html" },
       { source: "/lc-hotel-test/story/takumi", destination: "/lc-hotel-test/story/takumi/index.html" },
       { source: "/lc-hotel-test/story/takumi/", destination: "/lc-hotel-test/story/takumi/index.html" },
+      { source: "/lc-building-test", destination: "/lc-building-test/index.html" },
+      { source: "/lc-building-test/", destination: "/lc-building-test/index.html" },
+      { source: "/lc-building-test/building", destination: "/lc-building-test/building/index.html" },
+      { source: "/lc-building-test/building/", destination: "/lc-building-test/building/index.html" },
+      { source: "/lc-building-test/office", destination: "/lc-building-test/office/index.html" },
+      { source: "/lc-building-test/office/", destination: "/lc-building-test/office/index.html" },
     ];
   },
 

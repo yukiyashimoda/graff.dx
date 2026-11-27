@@ -1,0 +1,186 @@
+/* 2026-11-28 LCグループ 採用サイト（サンプル）全体の作り直し
+   構成はLC五稜郭ホテルの採用サイトと同じ並び。白地に黒、金は番号と細い線だけ。
+   写真はLCグループのサイトのもの（カラー）。日本語はゴシックのみ。本文17px。 */
+:root{ --ink:#111; --sub:#4a4a4a; --hair:#d0d0d0; --gold:#9a7b35; --pad:24px }
+*{ box-sizing:border-box; margin:0; padding:0 }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+body{ font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; color:var(--ink); background:#fff; font-size:17px; line-height:1.9; letter-spacing:.03em; font-feature-settings:"palt"; padding-bottom:58px }
+img{ display:block; width:100%; height:auto }
+a{ color:inherit; text-decoration:none }
+
+/* 上のロゴ */
+.top{ position:absolute; top:0; left:0; right:0; z-index:5; display:flex; justify-content:space-between; align-items:center; padding:18px var(--pad); color:#fff }
+.top.dark{ position:static; color:var(--ink); border-bottom:1px solid var(--hair) }
+.logo{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:16px; font-weight:700; letter-spacing:.22em }
+.logo small{ font-size:10px; font-weight:500; letter-spacing:.2em; margin-left:10px }
+
+/* 表紙 */
+.hero{ position:relative; height:100svh; min-height:640px; background:#000; color:#fff; overflow:hidden }
+.hero > img{ position:absolute; inset:0; height:100%; object-fit:cover; object-position:42% 50% }
+.hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.1) 60%, rgba(0,0,0,.4)) }
+.hero-t{ position:absolute; left:var(--pad); right:var(--pad); bottom:54px; z-index:2 }
+.hero h1{ font-size:48px; font-weight:800; line-height:1.3; letter-spacing:.04em }
+.hero h1 i{ font-style:normal; font-weight:300 }
+.hero-s{ display:flex; align-items:center; gap:14px; margin-top:26px; font-size:15px; font-weight:600; letter-spacing:.08em }
+.hero-s::before{ content:""; width:40px; height:2px; background:var(--gold) }
+
+/* 章の頭 */
+.sec{ padding:104px var(--pad) 0 }
+.sh{ display:flex; align-items:baseline; gap:14px }
+.sh b{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:15px; font-weight:700; color:var(--gold); letter-spacing:.06em }
+.sh span{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:.3em }
+.sh::after{ content:""; flex:1; height:1px; background:var(--ink); align-self:center }
+h2{ margin-top:22px; font-size:32px; font-weight:800; line-height:1.4; letter-spacing:.03em }
+h2 i{ font-style:normal; font-weight:300 }
+.tx{ margin-top:22px; text-wrap:pretty }
+.full{ margin-left:calc(var(--pad) * -1); margin-right:calc(var(--pad) * -1) }
+
+/* 01 募集している仕事 */
+.job{ display:block; margin-top:48px }
+.job + .job{ margin-top:72px }
+.job-ph{ aspect-ratio:4/3; overflow:hidden }
+.job-ph img{ height:100%; object-fit:cover }
+.job-n{ margin-top:20px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:13px; font-weight:700; letter-spacing:.2em; color:var(--gold) }
+.job h3{ font-size:30px; font-weight:800; line-height:1.4 }
+.job p{ margin-top:10px }
+.meta{ margin-top:18px; border-top:1px solid var(--ink) }
+.meta div{ display:grid; grid-template-columns:5.5em 1fr; padding:12px 0; border-bottom:1px solid var(--hair); font-size:16px }
+.meta dt{ font-weight:700 }
+.meta dd b{ font-size:22px; font-weight:800 }
+.go{ display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding:16px 20px; background:var(--ink); color:#fff; font-size:16px; font-weight:700; letter-spacing:.12em }
+.go::after{ content:"→"; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:400; font-size:20px }
+
+/* メッセージ */
+.msg-ph{ margin-top:40px; aspect-ratio:16/9; overflow:hidden }
+.msg-ph img{ height:100%; object-fit:cover }
+.nums{ display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:34px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink) }
+.nums p{ padding:16px 0 14px; font-size:13px; font-weight:700; line-height:1.4 }
+.nums p + p{ border-left:1px solid var(--hair); padding-left:14px }
+.nums b{ display:block; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:44px; font-weight:700; line-height:1.1; letter-spacing:-.01em }
+.nums small{ font-size:15px; font-weight:700; margin-left:2px }
+.h3{ margin-top:44px; font-size:23px; font-weight:800; line-height:1.5 }
+
+/* 02 ここで働くと */
+.pts{ list-style:none; display:grid; grid-template-columns:1fr 1fr; margin-top:34px; border-top:1px solid var(--ink) }
+.pts li{ padding:20px 8px 20px 0; border-bottom:1px solid var(--hair); font-size:18px; font-weight:800; line-height:1.5 }
+.pts li:nth-child(even){ padding-left:16px; border-left:1px solid var(--hair) }
+.pts b{ display:block; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:13px; color:var(--gold); letter-spacing:.08em; margin-bottom:4px }
+.pts small{ display:block; font-size:14px; font-weight:500; color:var(--sub) }
+
+/* 03 はじめての人へ */
+.first-ph{ margin-top:40px; aspect-ratio:1/1; overflow:hidden }
+.first-ph img{ height:100%; object-fit:cover; object-position:50% 20% }
+.big{ display:flex; align-items:baseline; gap:10px; margin-top:26px; padding-bottom:10px; border-bottom:1px solid var(--ink); font-size:18px; font-weight:800 }
+.big b{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:96px; font-weight:700; line-height:1; letter-spacing:-.02em }
+
+/* 04 応募から働き始めるまで */
+.flow{ list-style:none; margin-top:34px; border-top:1px solid var(--ink) }
+.flow li{ display:grid; grid-template-columns:84px 1fr; align-items:center; padding:18px 0; border-bottom:1px solid var(--hair); font-size:20px; font-weight:800 }
+.flow b{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:13px; color:var(--gold); letter-spacing:.08em }
+
+/* 応募 */
+.entry{ margin-top:104px; padding:70px var(--pad) 70px; background:#f4f3f0 }
+.fl{ margin-top:24px; font-size:15px; font-weight:700 }
+.opts{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px }
+.opts label{ background:#fff; border:1px solid var(--hair); padding:15px 10px; font-size:15px; display:flex; gap:8px; align-items:center }
+.form input[type=text], .form input[type=tel]{ width:100%; margin-top:8px; padding:16px 12px; font-size:18px; border:1px solid var(--hair); background:#fff }
+.send{ width:100%; margin-top:30px; border:0; font-family:inherit; cursor:pointer }
+.done{ margin-top:14px }
+.tel{ margin-top:40px; padding-top:24px; border-top:1px solid var(--ink); font-size:15px; font-weight:700 }
+.tel b{ display:block; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:36px; line-height:1.3; letter-spacing:.02em }
+
+footer{ padding:34px var(--pad) 40px; font-size:12px }
+footer .logo{ display:block; font-size:18px }
+footer small{ display:block; margin-top:8px; color:var(--sub) }
+
+/* 下の固定バー */
+.sticky{ position:fixed; left:0; right:0; bottom:0; z-index:30; display:grid; grid-template-columns:1fr 1fr; height:58px; background:var(--ink); color:#fff; transition:transform .3s }
+.sticky.hide{ transform:translateY(100%) }
+.sticky a{ display:grid; place-items:center; font-size:16px; font-weight:700; letter-spacing:.14em }
+.sticky a:first-child{ background:var(--gold) }
+
+/* 職種のページ */
+.jh{ padding:44px var(--pad) 0 }
+.jh h1{ margin-top:6px; font-size:38px; font-weight:800; line-height:1.3 }
+.tabs{ display:grid; grid-template-columns:1fr 1fr; margin-top:30px; border:1px solid var(--ink) }
+.tabs button{ background:#fff; border:0; padding:14px 6px; font-family:inherit; font-size:17px; font-weight:800; color:var(--ink) }
+.tabs button[aria-selected=true]{ background:var(--ink); color:#fff }
+.tabs small{ display:block; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:13px; font-weight:500 }
+.day{ list-style:none }
+.day li{ display:grid; grid-template-columns:70px 1fr; padding:15px 0; border-bottom:1px solid var(--hair) }
+.day time{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:18px; font-weight:700 }
+.day b{ display:block; font-size:18px }
+.day span{ font-size:15px; color:var(--sub) }
+.back{ display:block; margin:60px var(--pad) 40px; padding:15px; text-align:center; border:1px solid var(--ink); font-weight:700 }
+.flow[style] li{ grid-template-columns:54px 1fr }
+
+/* ===== 2026-11-28 直し：大きな英字・縦長の写真を左右に寄せる・数字を主役に ===== */
+main{ overflow:hidden }
+.ghost{ margin-top:22px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:31vw; font-weight:800; line-height:.82; letter-spacing:-.03em; white-space:nowrap; color:transparent; -webkit-text-stroke:1px var(--gold); margin-left:-6px }
+.ghost + h2{ position:relative; margin-top:10px }
+.jv{ position:relative; margin-top:44px }
+.jv .job-ph{ width:80%; aspect-ratio:3/4 }
+.jv .job-ph.sq{ aspect-ratio:1/1 }
+.jv.r .job-ph{ margin-left:auto; margin-right:calc(var(--pad) * -1) }
+.jv.l .job-ph{ margin-left:calc(var(--pad) * -1) }
+.jbig{ position:absolute; bottom:-34px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:150px; font-weight:800; line-height:.8; letter-spacing:-.04em; color:var(--gold) }
+.jv.r .jbig{ left:-4px } .jv.l .jbig{ right:-4px }
+.jbig small{ font-family:"Hiragino Sans",sans-serif; font-size:20px; font-weight:800; letter-spacing:.04em; margin-left:6px; color:var(--ink) }
+.jbig.n3{ font-size:230px; bottom:-40px }
+.jbig.n3 small{ display:block; margin:18px 0 0 6px }
+.jbig.n37{ font-size:140px }
+.job .jv{ margin-top:48px }
+.job h3{ margin-top:58px; font-size:32px }
+#message .jv + .tx{ margin-top:76px }
+#first .jv + .tx{ margin-top:96px }
+.nums{ grid-template-columns:1fr 1fr }
+
+/* 2026-11-28 人だけの切り抜き（白黒の細かい網点）。細い線の上に立たせる */
+.jv:has(.cut), .jv:has(.cutw){ height:330px; display:flex; align-items:flex-end; border-bottom:1px solid var(--ink) }
+.jv.r:has(.cut), .jv.r:has(.cutw){ justify-content:flex-end }
+.cut{ width:auto; height:100%; max-width:none }
+.jv:has(.cut) .jbig, .jv:has(.cutw) .jbig{ bottom:-10px }
+.jv:has(.cut) .jbig.n3{ bottom:-14px }
+.job h3{ margin-top:34px }
+#first .jv + .tx{ margin-top:40px }
+.jbig.n3 small{ position:absolute; left:150px; bottom:22px; white-space:nowrap; margin:0 }
+.cutw{ display:block; width:300px; height:286px; overflow:hidden }
+.cutw img{ width:auto; max-width:none; height:454px }
+.jv{ isolation:isolate }
+.jv:has(.cut) .jbig, .jv:has(.cutw) .jbig{ z-index:-1 }
+.cutw{ height:262px }
+.cutw{ width:236px; height:206px }
+.cutw img{ height:357px }
+.jbig.n3 small{ left:4px; bottom:-34px }
+#first .jv + .tx{ margin-top:76px }
+
+/* 2026-11-28 大きな数字は写真の手前。章の境目は斜めに切る */
+.jv:has(.cut) .jbig, .jv:has(.cutw) .jbig{ z-index:2 }
+main > .sec{ position:relative; padding-top:calc(13vw + 84px) }
+main > .sec::before{ content:""; position:absolute; left:0; right:0; top:44px; height:13vw; background:linear-gradient(to bottom right, transparent calc(50% - .6px), var(--ink) calc(50% - .6px), var(--ink) calc(50% + .6px), transparent calc(50% + .6px)) }
+main > .sec:nth-of-type(even)::before{ background:linear-gradient(to bottom left, transparent calc(50% - .6px), var(--ink) calc(50% - .6px), var(--ink) calc(50% + .6px), transparent calc(50% + .6px)) }
+main > .sec:first-of-type{ padding-top:104px }
+main > .sec:first-of-type::before{ display:none }
+.entry{ padding-top:calc(13vw + 70px); clip-path:polygon(0 13vw, 100% 0, 100% 100%, 0 100%) }
+
+/* 2026-11-28 読み違いの斜め線を外す */
+main > .sec{ padding-top:104px }
+main > .sec::before{ display:none }
+.entry{ padding-top:70px; clip-path:none }
+
+/* 2026-11-28 仕事の札：人の下を斜めに切り、そこから下の背景を金に塗り替える */
+.job{ position:relative; isolation:isolate; padding-bottom:40px }
+.job .jv{ margin-top:0; border-bottom:0 }
+.job .jv::after{ content:""; position:absolute; left:calc(var(--pad) * -1); right:calc(var(--pad) * -1); bottom:-1px; height:110px; background:var(--gold); clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:1 }
+.job .jv.l::after{ clip-path:polygon(0 0, 100% 100%, 0 100%) }
+.job::before{ content:""; position:absolute; left:calc(var(--pad) * -1); right:calc(var(--pad) * -1); top:330px; bottom:0; background:var(--gold); z-index:-1 }
+.job .jbig{ color:var(--ink) }
+.job h3, .job p{ color:#fff }
+.job .meta{ border-top-color:#fff; color:#fff }
+.job .meta div{ border-bottom-color:rgba(255,255,255,.45) }
+.job + .job{ margin-top:72px }
+
+/* 2026-11-28 仕事の番号：白にして、金の側（切り口の高いほう）に寄せる */
+.job .jbig{ color:#fff; font-size:118px; bottom:-8px }
+.job .jv.r .jbig{ left:auto; right:-2px }
+.job .jv.l .jbig{ right:auto; left:-2px }
