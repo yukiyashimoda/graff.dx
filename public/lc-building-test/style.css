@@ -184,3 +184,21 @@ main > .sec::before{ display:none }
 .job .jbig{ color:#fff; font-size:118px; bottom:-8px }
 .job .jv.r .jbig{ left:auto; right:-2px }
 .job .jv.l .jbig{ right:auto; left:-2px }
+
+/* 2026-11-28 大きな英字は、黒の塗りつぶしで章の右端に縦に置く */
+.entry{ position:relative }
+.ghost{ position:absolute; right:12px; top:104px; margin:0; writing-mode:vertical-rl; font-size:56px; line-height:1; letter-spacing:0; color:var(--ink); -webkit-text-stroke:0 }
+.entry .ghost{ top:70px }
+.ghost + h2{ margin-top:22px }
+main .sh{ margin-right:62px }
+main h2{ padding-right:62px; font-size:30px }
+#jobs .job:first-of-type{ margin-top:74px }
+#point .pts{ margin-top:92px }
+.entry .form{ margin-top:74px }
+
+/* 2026-11-28 はじめての人へ：体の下端をまっすぐ切り、両手だけ線の下に残す */
+#first .jv{ align-items:flex-start; overflow:visible }
+#first .cut{ height:423px; clip-path:polygon(0 0, 100% 0, 100% 78%, 60% 78%, 60% 86%, 57% 89%, 57% 100%, 30% 100%, 30% 87%, 40% 82%, 46% 78%, 23% 78%, 22% 83%, 18% 86%, 16% 100%, 0 100%) }
+#first .jbig.n3 small{ bottom:-132px }
+#first .jv + .tx{ margin-top:170px }
+#first .cut{ clip-path:polygon(0 0, 100% 0, 100% 78%, 75% 78%, 60% 88%, 57% 91%, 57% 100%, 30% 100%, 30% 87%, 40% 82%, 46% 78%, 19% 78%, 19% 84%, 16% 100%, 0 100%) }
