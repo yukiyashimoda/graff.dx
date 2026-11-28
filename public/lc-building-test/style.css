@@ -229,3 +229,50 @@ main h2{ padding-right:62px; font-size:30px }
 #first .jbig.n3{ left:-2px; bottom:-196px; font-size:112px; display:flex; align-items:baseline; gap:8px; white-space:nowrap }
 #first .jbig.n3 small{ position:static; margin:0; font-size:24px; letter-spacing:.04em }
 #first .jv + .tx{ margin-top:232px }
+
+/* 2026-11-28 事務スタッフの詳しいページ：上の画像をふつうの写真に */
+.ph-full{ margin-top:26px; aspect-ratio:3/2; overflow:hidden }
+.ph-full img{ width:100%; height:100%; object-fit:cover; display:block }
+
+/* 2026-11-28 MESSAGE：CM（押すとその場で再生）。37棟は数字の並びへ */
+.cm{ position:relative; margin-top:40px; aspect-ratio:16/9; overflow:hidden }
+.cm-b{ position:absolute; inset:0; display:block; width:100%; height:100%; padding:0; border:0; background:none; color:#fff; cursor:pointer; font:inherit }
+.cm-b img{ width:100%; height:100%; object-fit:cover; display:block }
+.cm-b::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.1) 55%) }
+.cm-p{ position:absolute; left:50%; top:50%; z-index:2; width:68px; height:68px; margin:-34px 0 0 -34px; border:2px solid #fff; border-radius:50% }
+.cm-p::before{ content:""; position:absolute; left:50%; top:50%; margin:-11px 0 0 -6px; border-left:18px solid #fff; border-top:11px solid transparent; border-bottom:11px solid transparent }
+.cm-l{ position:absolute; left:var(--pad); bottom:16px; z-index:2; font-size:14px; font-weight:800; letter-spacing:.1em }
+.cm iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; background:#000 }
+#message .cm + .tx{ margin-top:34px }
+#message .nums{ grid-template-columns:1fr 1fr 1fr }
+#message .nums b{ font-size:40px }
+#message .nums p + p{ padding-left:12px }
+
+/* 2026-11-28 出現アニメーション（1回だけ。動きを減らす設定では動かさない） */
+.js .rv{ opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms), transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms) }
+.js .rvr{ opacity:0; transform:translateX(22px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1) }
+.js .rvl{ opacity:0; transform:translateX(-22px); transition:opacity .8s cubic-bezier(.2,.7,.2,1) .15s, transform .8s cubic-bezier(.2,.7,.2,1) .15s }
+.js .rv.in, .js .rvr.in, .js .rvl.in{ opacity:1; transform:none }
+.js .rvp > *{ clip-path:inset(100% 0 0 0); transition:clip-path .9s cubic-bezier(.2,.7,.2,1) }
+.js .rvp.in > *{ clip-path:inset(0 0 0 0) }
+@keyframes yph{ from{ clip-path:inset(100% 0 0 0) } to{ clip-path:inset(0 0 0 0) } }
+@keyframes ygb{ from{ opacity:0; transform:translateX(-14px) } to{ opacity:1; transform:none } }
+@keyframes yln{ from{ transform:translateY(105%) } to{ transform:none } }
+@keyframes yfd{ from{ opacity:0 } to{ opacity:1 } }
+@keyframes ybd{ from{ transform:translateY(100%) } to{ transform:none } }
+.y .ti .ln{ display:block; overflow:hidden; padding:.06em 0; margin:-.06em 0 }
+.y .ti .ln > span{ display:block }
+.js .y .ph{ animation:yph .9s cubic-bezier(.2,.7,.2,1) both }
+.js .y .st > div.ph:nth-of-type(1){ animation-delay:.1s } .js .y .st > div.ph:nth-of-type(2){ animation-delay:.2s } .js .y .st > div.ph:nth-of-type(3){ animation-delay:.32s } .js .y .st > div.ph:nth-of-type(4){ animation-delay:.44s } .js .y .st > div.ph:nth-of-type(5){ animation-delay:.56s } .js .y .st > div.ph:nth-of-type(6){ animation-delay:.68s } .js .y .st > div.ph:nth-of-type(7){ animation-delay:.8s }
+.js .y .gb{ animation:ygb .7s cubic-bezier(.2,.7,.2,1) both; animation-delay:1s }
+.js .y .st > i.gb:nth-of-type(2){ animation-delay:1.1s } .js .y .st > i.gb:nth-of-type(3){ animation-delay:1.2s } .js .y .st > i.gb:nth-of-type(4){ animation-delay:1.3s }
+.js .y .ti .ln > span{ animation:yln .9s cubic-bezier(.2,.7,.2,1) both; animation-delay:.55s }
+.js .y .ti .ln + .ln > span{ animation-delay:.7s }
+.js .y .tg{ animation:yfd .8s both; animation-delay:1.4s }
+.js .y .band{ animation:ybd .7s cubic-bezier(.2,.7,.2,1) both; animation-delay:1.25s }
+@media (prefers-reduced-motion: reduce){
+  .js .rv, .js .rvr, .js .rvl{ opacity:1; transform:none; transition:none }
+  .js .rvp > *{ clip-path:none; transition:none }
+  .js .y .ph, .js .y .gb, .js .y .ti .ln > span, .js .y .tg, .js .y .band{ animation:none }
+}
+#message .cm{ margin-right:38px }
