@@ -202,3 +202,25 @@ main h2{ padding-right:62px; font-size:30px }
 #first .jbig.n3 small{ bottom:-132px }
 #first .jv + .tx{ margin-top:170px }
 #first .cut{ clip-path:polygon(0 0, 100% 0, 100% 78%, 75% 78%, 60% 88%, 57% 91%, 57% 100%, 30% 100%, 30% 87%, 40% 82%, 46% 78%, 19% 78%, 19% 84%, 16% 100%, 0 100%) }
+
+/* 2026-11-28 表紙：白い背景、黒いコピーを真ん中に */
+.hero{ background:#fff; color:var(--ink); display:grid; place-items:center }
+.hero::after{ display:none }
+.hero-t{ position:static; text-align:center; padding:0 var(--pad) }
+.hero-s{ justify-content:center }
+.top{ color:var(--ink) }
+.hero-t{ width:100%; left:auto; right:auto; bottom:auto }
+.hero-s{ flex-direction:column; gap:16px; margin-top:30px }
+
+/* 2026-11-28 表紙：淡い色の写真を散らし、黒いコピーを重ね、募集を金の帯に（390幅の設計を画面幅に合わせて伸縮） */
+.hero.y{ display:block; height:auto; min-height:0; background:#fff; color:var(--ink); overflow:hidden }
+.y .st{ --u:calc(min(100vw, 430px) / 390); position:relative; width:calc(var(--u)*390); height:calc(var(--u)*844); margin:0 auto }
+.y .ph{ position:absolute; margin:0; overflow:hidden; z-index:2; background:#ddd }
+.y .ph img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.5) contrast(.84) brightness(1.12) }
+.y .ph::after{ content:""; position:absolute; inset:0; background:#d9d2c3; opacity:.26; pointer-events:none }
+.y .gb{ position:absolute; background:var(--gold); z-index:1 }
+.y .ti{ position:absolute; left:calc(var(--u)*20); top:calc(var(--u)*192); margin:0; z-index:4; color:var(--ink); font-size:calc(var(--u)*59); font-weight:800; line-height:1.2; letter-spacing:.01em; white-space:nowrap }
+.y .tg{ position:absolute; margin:0; z-index:3; writing-mode:vertical-rl; font-size:calc(var(--u)*10.5); font-weight:700; letter-spacing:.14em; color:var(--ink) }
+.y .band{ position:absolute; left:0; right:0; bottom:0; height:calc(var(--u)*58); margin:0; z-index:5; background:var(--gold); color:var(--ink); display:flex; align-items:center; justify-content:center; gap:calc(var(--u)*6); font-size:calc(var(--u)*17); font-weight:800; letter-spacing:.04em; white-space:nowrap }
+.y .band i{ font-style:normal; font-weight:400 }
+.y .band span{ margin-left:calc(var(--u)*8); padding:calc(var(--u)*3) calc(var(--u)*9) calc(var(--u)*2); background:var(--ink); color:#fff; font-size:calc(var(--u)*14); letter-spacing:.12em }
