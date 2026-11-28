@@ -276,3 +276,14 @@ main h2{ padding-right:62px; font-size:30px }
   .js .y .ph, .js .y .gb, .js .y .ti .ln > span, .js .y .tg, .js .y .band{ animation:none }
 }
 #message .cm{ margin-right:38px }
+
+/* 2026-11-28 応募フォーム：選択中の色を金に */
+.opts input[type="radio"]{ accent-color:var(--gold); width:18px; height:18px; margin:0 }
+
+/* 2026-11-28 はじめての人へ：線の下は両腕（袖と手）を袖の形に沿って残し、胴体と膝は線と袖の下の辺で切る */
+#first .cut{ clip-path:polygon(0 0, 100% 0, 100% 78%, 88% 78%, 88% 80.5%, 80% 83%, 70% 86.5%, 63% 89.5%, 58% 90.5%, 58% 100%, 27% 100%, 27% 88%, 33% 86.5%, 40% 84.8%, 46% 83.2%, 51% 82%, 55% 81.2%, 58.5% 80.5%, 57.5% 78%, 24.5% 78%, 24.5% 83%, 21% 84%, 20% 100%, 0 100%) }
+
+/* 2026-11-28 はじめての人へ：線の高さでまっすぐ切る（手を線の下に出さない） */
+#first .cut{ clip-path:inset(0 0 22% 0) }
+#first .jbig.n3{ bottom:-100px }
+#first .jv + .tx{ margin-top:136px }
