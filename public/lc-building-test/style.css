@@ -224,3 +224,8 @@ main h2{ padding-right:62px; font-size:30px }
 .y .band{ position:absolute; left:0; right:0; bottom:0; height:calc(var(--u)*58); margin:0; z-index:5; background:var(--gold); color:var(--ink); display:flex; align-items:center; justify-content:center; gap:calc(var(--u)*6); font-size:calc(var(--u)*17); font-weight:800; letter-spacing:.04em; white-space:nowrap }
 .y .band i{ font-style:normal; font-weight:400 }
 .y .band span{ margin-left:calc(var(--u)*8); padding:calc(var(--u)*3) calc(var(--u)*9) calc(var(--u)*2); background:var(--ink); color:#fff; font-size:calc(var(--u)*14); letter-spacing:.12em }
+
+/* 2026-11-28 はじめての人へ：「3」を「か月の研修」のすぐ左に並べる（3だけ離さない） */
+#first .jbig.n3{ left:-2px; bottom:-196px; font-size:112px; display:flex; align-items:baseline; gap:8px; white-space:nowrap }
+#first .jbig.n3 small{ position:static; margin:0; font-size:24px; letter-spacing:.04em }
+#first .jv + .tx{ margin-top:232px }
